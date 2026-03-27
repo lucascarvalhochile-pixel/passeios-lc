@@ -1042,7 +1042,7 @@ function initTestimonialsCarousel(){
       ? '<div class="test-card-play"><svg viewBox="0 0 24 24" fill="var(--blue)"><path d="M8 5v14l11-7z"/></svg></div>'
       : '';
     return '<div class="test-card" onclick="openLightbox(\'' + t.type + '\',\'' + t.driveId + '\',\'' + t.name.replace(/'/g,"\'") + '\')">'
-      + '<img src="' + gdThumb(t.driveId) + '" alt="' + t.name + '" loading="lazy" onerror="this.parentElement.querySelector('.test-card-badge\').style.paddingTop=\'32px\'">'
+      + '<img src="' + gdThumb(t.driveId) + '" alt="' + t.name + '" loading="lazy">'
       + play
       + '<div class="test-card-badge">' + t.name + '<br><small>' + t.dest + ' · ' + t.country + '</small></div>'
       + '</div>';
