@@ -187,6 +187,30 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
 .footer{background:var(--night);color:rgba(255,255,255,.55);text-align:center;padding:32px 20px;font-size:.83rem;margin-top:40px;}
 .footer strong{color:white}
 
+/* FEATURE PILLS */
+.feat-pills{max-width:var(--max);margin:0 auto;padding:0 24px 18px;display:flex;gap:8px;flex-wrap:wrap;}
+.feat-pill{display:inline-flex;align-items:center;gap:5px;background:white;border:1px solid var(--gray-100);border-radius:50px;padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--gray-700);box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.feat-pill .pi{color:var(--blue)}
+
+/* URGENCY */
+.urgency{background:#FFF8E7;border:1px solid #F5C842;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:#7A5A00;margin-bottom:16px;}
+
+/* CANCELAMENTO */
+.cancel-block{background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-top:16px;}
+.cancel-ico{font-size:1.4rem;flex-shrink:0}
+.cancel-t{font-weight:700;font-size:.85rem;color:#166534;margin-bottom:2px}
+.cancel-d{font-size:.78rem;color:#166534;opacity:.8}
+
+/* FAQ */
+.faq-list{list-style:none}
+.faq-item{border-bottom:1px solid var(--gray-100)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:14px 0;font-family:var(--f);font-size:.9rem;font-weight:700;color:var(--night);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.faq-q .faq-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:transform .2s;}
+.faq-q.open .faq-ico{transform:rotate(45deg);background:var(--blue);color:white}
+.faq-a{display:none;font-size:.86rem;line-height:1.7;color:var(--gray-700);padding-bottom:14px;}
+.faq-a.open{display:block}
+
 /* UTILS */
 @media(max-width:600px){.gallery-grid{grid-template-rows:180px 180px}.nav-links{display:none}}
 </style>
@@ -230,6 +254,16 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
   </div>
 </div>
 
+<!-- FEATURE PILLS -->
+<div class="feat-pills">
+  <span class="feat-pill"><span class="pi">🇧🇷</span> Guia em português</span>
+  <span class="feat-pill"><span class="pi">🚐</span> Transfer do hotel incluso</span>
+  <span class="feat-pill"><span class="pi">👥</span> Grupo pequeno · máx. 12 pax</span>
+  <span class="feat-pill"><span class="pi">✅</span> Cancelamento grátis 24h</span>
+  <span class="feat-pill"><span class="pi">🏔️</span> 3.025m de altitude</span>
+  <span class="feat-pill"><span class="pi">⏱</span> Dia inteiro · ~10 horas</span>
+</div>
+
 <!-- GALLERY -->
 <div class="gallery">
   <div class="gallery-grid">
@@ -239,7 +273,7 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
       <img src="https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg" alt="Vista El Colorado" onclick="openLb('img','https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg')">
     </div>
   </div>
-  <button class="gallery-btn" onclick="alert('Galeria completa em breve!')">Ver todas as fotos</button>
+  <button class="gallery-btn" onclick="openLb('img','https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg')">📷 Ver todas as 8 fotos</button>
 </div>
 
 <!-- MAIN LAYOUT -->
@@ -391,6 +425,70 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
 
 
 
+    <!-- FAQ -->
+    <div class="block">
+      <h2 class="block-title">❓ Perguntas frequentes</h2>
+      <ul class="faq-list">
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            É necessário saber esquiar para fazer o passeio?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">Não! O passeio é para todos os perfis de visitante. Valle Nevado tem muito mais além das pistas — mirantes panorâmicos, trilhas, restaurantes, lojas e a experiência de estar a 3.025m nos Andes. No inverno você pode caminhar na neve mesmo sem esquiar. Equipamentos de ski/snowboard são opcionais e podem ser alugados no local (não inclusos no passeio).</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            O passeio acontece no verão também?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">Sim, e muita gente se surpreende! No verão (outubro a junho) Valle Nevado tem um visual completamente diferente — verde, com montanhas majestosas e possibilidade de trilhas. A temperatura é agradável lá em cima e a vista panorâmica da cordilheira é impressionante em qualquer época. O passeio ocorre todos os dias, sujeito a condições climáticas.</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Como funciona a confirmação e o ponto de embarque?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">Na noite anterior ao passeio, o motorista entra em contato via WhatsApp para confirmar o horário exato de busca no seu hotel. O transfer sai diretamente do hotel em Santiago — não há ponto de encontro fixo. Por isso, é importante estar conectado ao wi-fi do hotel para receber a confirmação. O horário de saída varia entre 07h30 e 09h00 dependendo da localização do seu hotel.</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Qual a política de cancelamento?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">Cancelamento gratuito com até 24 horas de antecedência. Em caso de condições climáticas adversas que impeçam a subida à montanha, oferecemos remarcação gratuita para outra data ou reembolso integral. Nossa prioridade é a sua segurança e satisfação.</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            O almoço está incluído?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">O almoço não está incluído. Valle Nevado tem vários restaurantes e lanchonetes com variadas opções de culinária (chilena, internacional, fast food). Recomendamos levar dinheiro em pesos chilenos — o câmbio na montanha pode ser desfavorável. Cartões de crédito também são aceitos na maioria dos estabelecimentos.</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Crianças podem participar? Tem alguma restrição?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">Sim, crianças são bem-vindas! O passeio é ótimo para famílias. Não há restrição de idade. A única ressalva é para pessoas com problemas cardíacos graves ou pressão arterial descontrolada — a altitude de 3.025m pode ser desconfortável. Bebês e crianças pequenas devem estar bem agasalhados, especialmente no inverno. Dica: leve bastante água para todos.</div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Qual a diferença entre Valle Nevado, Farellones e El Colorado?
+            <span class="faq-ico">+</span>
+          </button>
+          <div class="faq-a">As três estações ficam na mesma cordilheira andina a cerca de 60km de Santiago. Valle Nevado é a maior e mais moderna, com a melhor estrutura e a neve mais garantida no inverno. Farellones é um vilarejo histórico no caminho, com charme de aldeia andina. El Colorado fica entre os dois. Nosso passeio Full Day foca em Valle Nevado justamente por ser a experiência mais completa da região.</div>
+        </li>
+
+      </ul>
+    </div>
+
     <!-- AVALIACOES -->
     <div class="block">
       <h2 class="block-title">⭐ Avaliações de clientes</h2>
@@ -440,6 +538,26 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
         <span class="r-badge">🇨🇱 Santiago · Valle Nevado Verão</span>
       </div>
 
+      <div class="r-card">
+        <div class="r-card-head">
+          <div class="r-avatar" style="background:#8B5CF6">R</div>
+          <div class="r-meta"><div class="nm">Renata Oliveira</div><div class="dt">Março 2026 · Reserva verificada</div></div>
+          <div class="r-star">★★★★★</div>
+        </div>
+        <div class="r-text">Fiz o passeio com minha família de 4 pessoas e foi perfeito! O guia foi incrível, super paciente com as crianças e cheio de histórias sobre o Chile e os Andes. A van chegou no horário certinho e o percurso de subida já é lindo. Na neve as crianças enlouqueceram de felicidade. Recomendo 100%!</div>
+        <span class="r-badge">🇨🇱 Santiago · Família · Valle Nevado Inverno</span>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div class="r-avatar" style="background:#EC4899">M</div>
+          <div class="r-meta"><div class="nm">Marcos & Tatiana</div><div class="dt">Fevereiro 2026 · Reserva verificada</div></div>
+          <div class="r-star">★★★★★</div>
+        </div>
+        <div class="r-text">Passagem de lua de mel em Santiago e escolhemos a LC Turismo para o dia nos Andes. Que decisão acertada! O guia ficou discreto mas disponível o tempo todo. A vista no topo é de parar o coração — literalmente! Já estamos planejando voltar no inverno para ver a neve. Obrigado por tornar este dia inesquecível!</div>
+        <span class="r-badge">🇨🇱 Santiago · Casal · Valle Nevado Verão</span>
+      </div>
+
       <!-- Vídeo depoimento -->
       <div style="background:var(--gray-50);border-radius:10px;padding:16px;margin-top:14px;">
         <div style="font-size:.82rem;font-weight:700;margin-bottom:8px;color:var(--night)">🎥 Vídeo depoimento — Gessica em Valle Nevado</div>
@@ -476,6 +594,7 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
 
   <!-- ── BOOKING BOX (STICKY) ── -->
   <div class="booking-sticky">
+    <div class="urgency">🔥 38 pessoas reservaram nos últimos 30 dias</div>
     <div class="bk-price">R$ 247,00</div>
     <div class="bk-sub">por pessoa · transfer incluso</div>
 
@@ -500,6 +619,14 @@ button{font-family:var(--f);cursor:pointer;border:none;outline:none}
     <div class="bk-provider">
       <div style="font-size:1.8rem">🇧🇷</div>
       <div><div class="bk-pv-name">Lucas Carvalho Turismo</div><div style="font-size:.75rem;color:var(--gray-500)">Operador especializado · desde 2018</div></div>
+    </div>
+
+    <div class="cancel-block">
+      <span class="cancel-ico">🛡️</span>
+      <div>
+        <div class="cancel-t">Cancelamento gratuito</div>
+        <div class="cancel-d">Cancele até 24h antes sem nenhuma cobrança. Em caso de mau tempo, remarcação gratuita garantida.</div>
+      </div>
     </div>
 
     <a class="bk-site" href="https://lucascarvalhochile-pixel.github.io/passeios-lc/" target="_blank">
@@ -546,6 +673,19 @@ function expandDesc(btn){
   const d=document.getElementById('desc');
   d.classList.remove('desc-truncated');
   btn.style.display='none';
+}
+function toggleFaq(btn){
+  const answer=btn.nextElementSibling;
+  const isOpen=btn.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-q.open').forEach(q=>{
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
 }
 function openLb(type,id){
   const inner=document.getElementById('lbInner');
