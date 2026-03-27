@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Andes Full Day — Valle Nevado · LC Turismo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0100FE;--blue-dark:#0009C0;--night:#001228;--white:#FFFFFF;
+  --gray-50:#F8F9FC;--gray-100:#EEF0F5;--gray-300:#C8CBD4;--gray-500:#7A7F8E;--gray-700:#3D4150;
+  --gold:#F5A623;--green:#22C55E;--red:#EF4444;--wa:#25D366;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1180px;--r:12px;
+  --sh:0 2px 16px rgba(0,0,0,.08);--shm:0 8px 32px rgba(0,0,0,.12);
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:var(--gray-50);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;outline:none}
+
+/* DEMO BANNER */
+.demo-bar{background:var(--blue);color:#fff;text-align:center;padding:9px 16px;font-size:.8rem;font-weight:600;letter-spacing:.3px;}
+.demo-bar span{opacity:.75;margin:0 6px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:var(--night);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:62px;}
+.nav-logo{color:white;font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:10px;}
+.nav-logo b{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{color:rgba(255,255,255,.7);font-size:.85rem;font-weight:500;transition:color .15s;}
+.nav-links a:hover{color:#fff}
+.nav-wa{background:var(--wa);color:white;padding:8px 18px;border-radius:50px;font-weight:700;font-size:.83rem;display:flex;align-items:center;gap:6px;}
+
+/* BREADCRUMB */
+.bc{max-width:var(--max);margin:0 auto;padding:14px 24px;font-size:.78rem;color:var(--gray-500);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.bc a{color:var(--blue)}.bc-sep{font-size:.65rem;opacity:.5}
+
+/* TITLE */
+.title-area{max-width:var(--max);margin:0 auto;padding:0 24px 16px;}
+.tour-badges{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+.badge{padding:4px 10px;border-radius:50px;font-size:.73rem;font-weight:700;display:flex;align-items:center;gap:4px;}
+.badge-best{background:#FFF3CD;color:#856404}
+.badge-inv{background:#E0E7FF;color:#3730A3}
+.tour-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:12px;}
+.rating-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.88rem;}
+.stars{color:var(--gold)}
+.r-num{font-weight:800;color:var(--night)}
+.r-count{color:var(--blue);font-weight:600}
+.r-sep{color:var(--gray-300)}
+.r-prov{color:var(--gray-500)}
+
+/* GALLERY */
+.gallery{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;}
+.gallery-grid{display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:230px 230px;gap:5px;border-radius:16px;overflow:hidden;}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:opacity .15s;}
+.gallery-grid img:hover{opacity:.9}
+.g-main{grid-row:1/3}
+.g-sub{display:grid;grid-template-rows:1fr 1fr;gap:5px;}
+.g-sub img{height:100%}
+.gallery-btn{position:absolute;bottom:14px;right:32px;background:white;color:var(--night);padding:8px 14px;border-radius:8px;font-weight:600;font-size:.8rem;box-shadow:var(--sh);display:flex;align-items:center;gap:6px;cursor:pointer;}
+
+/* LAYOUT */
+.layout{max-width:var(--max);margin:24px auto 80px;padding:0 24px;display:grid;grid-template-columns:1fr 350px;gap:28px;align-items:start;}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.booking-sticky{display:none}.mcta{display:flex!important}}
+
+/* BLOCKS */
+.block{background:white;border-radius:var(--r);padding:24px;margin-bottom:16px;box-shadow:var(--sh);}
+.block-title{font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--night);}
+
+/* SOBRE */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.sobre-item{display:flex;align-items:flex-start;gap:10px;}
+.sobre-icon{font-size:1.3rem;margin-top:1px}
+.sobre-label{font-size:.73rem;color:var(--gray-500);margin-bottom:1px}
+.sobre-val{font-weight:600;font-size:.88rem}
+
+/* DESTAQUES */
+.dest-list{list-style:none;}
+.dest-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:.9rem;line-height:1.5;}
+.dest-list li:last-child{border-bottom:none}
+.dest-list li::before{content:'✨';flex-shrink:0;margin-top:1px}
+
+/* DESCRICAO */
+.desc-body{font-size:.9rem;line-height:1.75;color:var(--gray-700);}
+.desc-truncated{max-height:120px;overflow:hidden;position:relative;}
+.desc-truncated::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(transparent,white);}
+.desc-btn{color:var(--blue);font-weight:600;font-size:.85rem;cursor:pointer;margin-top:8px;display:inline-flex;align-items:center;gap:4px;}
+
+/* INCLUI */
+.inclui-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:540px){.inclui-grid{grid-template-columns:1fr}}
+.inclui-t{font-size:.82rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.inclui-sim{color:var(--green)}.inclui-nao{color:var(--red)}
+.inclui-list{list-style:none;}
+.inclui-list li{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:.86rem;border-bottom:1px solid var(--gray-100);}
+.inclui-list li:last-child{border-bottom:none}
+.ic-sim{color:var(--green);font-size:.9rem}.ic-nao{color:var(--red);font-size:.9rem}
+
+/* ITINERARIO */
+.itin{list-style:none;position:relative;padding-left:8px;}
+.itin::before{content:'';position:absolute;left:19px;top:28px;bottom:28px;width:2px;background:var(--gray-100);}
+.itin-item{display:flex;align-items:flex-start;gap:14px;padding-bottom:24px;}
+.itin-item:last-child{padding-bottom:0}
+.itin-dot{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;z-index:1;margin-top:1px;}
+.itin-dot.start{background:var(--green)}.itin-dot.stop{background:var(--blue)}.itin-dot.end{background:var(--night)}
+.itin-dot svg{width:11px;height:11px;fill:white}
+.itin-time{font-size:.73rem;color:var(--gray-500);margin-bottom:2px}
+.itin-place{font-weight:700;font-size:.9rem}
+.itin-detail{font-size:.82rem;color:var(--gray-500);margin-top:3px;line-height:1.4}
+
+/* EMBARQUE */
+.embarque-box{background:var(--gray-50);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+.emb-icon{font-size:1.5rem}
+.emb-title{font-size:.78rem;color:var(--gray-500);margin-bottom:2px}
+.emb-val{font-weight:600;font-size:.9rem}
+
+/* BOM SABER */
+.bs-list{list-style:none}
+.bs-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:.87rem;line-height:1.5;}
+.bs-list li:last-child{border-bottom:none}
+.bs-ico{flex-shrink:0;font-size:1rem;margin-top:1px}
+
+/* FOTOS CLIENTES */
+.community-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;border-radius:10px;overflow:hidden;}
+@media(max-width:600px){.community-grid{grid-template-columns:repeat(3,1fr)}}
+.community-grid .ct{aspect-ratio:3/4;overflow:hidden;cursor:pointer;position:relative;}
+.community-grid .ct img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.community-grid .ct:hover img{transform:scale(1.05)}
+.community-grid .ct.video::after{content:'▶';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);color:white;font-size:1.4rem;}
+
+/* AVALIACOES */
+.rating-sum{display:flex;align-items:center;gap:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);margin-bottom:20px;}
+@media(max-width:540px){.rating-sum{flex-direction:column;align-items:flex-start;gap:16px}}
+.r-big{text-align:center;min-width:80px;}
+.r-big .n{font-size:3.2rem;font-weight:800;line-height:1;color:var(--night)}
+.r-big .s{color:var(--gold);font-size:1.1rem;margin:4px 0}
+.r-big .c{font-size:.75rem;color:var(--gray-500)}
+.rbar{flex:1}
+.rbar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.rbar-l{font-size:.75rem;color:var(--blue);min-width:48px;font-weight:600}
+.rbar-t{flex:1;height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden}
+.rbar-f{height:100%;background:var(--gold);border-radius:3px}
+.rbar-p{font-size:.72rem;color:var(--gray-500);min-width:28px;text-align:right}
+.r-card{border:1px solid var(--gray-100);border-radius:10px;padding:16px;margin-bottom:10px;}
+.r-card-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.r-avatar{width:36px;height:36px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;}
+.r-meta .nm{font-weight:700;font-size:.88rem}
+.r-meta .dt{font-size:.75rem;color:var(--gray-500)}
+.r-star{color:var(--gold);margin-left:auto;font-size:.85rem}
+.r-text{font-size:.88rem;line-height:1.65;color:var(--gray-700)}
+.r-badge{display:inline-block;background:var(--gray-100);color:var(--gray-700);padding:3px 8px;border-radius:50px;font-size:.72rem;font-weight:600;margin-top:8px}
+.video-dep{border-radius:10px;overflow:hidden;margin-top:14px;aspect-ratio:16/9;}
+.video-dep iframe{width:100%;height:100%;border:none}
+
+/* OUTROS */
+.outros-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+.outros-strip::-webkit-scrollbar{display:none}
+.o-card{flex:0 0 200px;border-radius:12px;overflow:hidden;background:white;box-shadow:var(--sh);cursor:pointer;transition:transform .2s;text-decoration:none;}
+.o-card:hover{transform:translateY(-3px)}
+.o-card img{width:100%;height:120px;object-fit:cover}
+.o-card-b{padding:10px 12px}
+.o-card-name{font-weight:700;font-size:.82rem;margin-bottom:4px;line-height:1.3;color:var(--night)}
+.o-card-price{font-size:.8rem;color:var(--blue);font-weight:600}
+
+/* BOOKING STICKY */
+.booking-sticky{position:sticky;top:80px;background:white;border-radius:16px;box-shadow:0 4px 28px rgba(0,0,0,.14);padding:24px;}
+.bk-old{font-size:.78rem;color:var(--gray-500);text-decoration:line-through}
+.bk-price{font-size:2rem;font-weight:800;line-height:1;margin-bottom:3px}
+.bk-sub{font-size:.78rem;color:var(--gray-500);margin-bottom:20px}
+.bk-wa{width:100%;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:.98rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s;margin-bottom:14px;}
+.bk-wa:hover{opacity:.9}
+.bk-trust{list-style:none;margin:14px 0;}
+.bk-trust li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.82rem;border-bottom:1px solid var(--gray-100);}
+.bk-trust li:last-child{border-bottom:none}
+.bk-trust .ok{color:var(--green)}
+.bk-provider{display:flex;align-items:center;gap:10px;padding:10px;background:var(--gray-50);border-radius:8px;margin-top:14px;font-size:.78rem;color:var(--gray-700);}
+.bk-provider img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.bk-pv-name{font-weight:700;font-size:.82rem}
+.bk-site{display:flex;align-items:center;justify-content:center;gap:6px;color:var(--blue);font-size:.8rem;font-weight:600;margin-top:12px;}
+
+/* MOBILE CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:white;box-shadow:0 -4px 20px rgba(0,0,0,.12);padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;}
+.mcta-price .p{font-weight:800;font-size:1.1rem}
+.mcta-price .s{font-size:.72rem;color:var(--gray-500)}
+.mcta-btn{flex-shrink:0;background:var(--wa);color:white;padding:12px 22px;border-radius:50px;font-weight:700;font-size:.88rem;display:flex;align-items:center;gap:6px;}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;}
+.lb.open{opacity:1;pointer-events:all}
+.lb-inner{max-width:92vw;max-height:92vh}
+.lb-inner img{max-width:92vw;max-height:88vh;border-radius:12px;object-fit:contain;display:block;}
+.lb-inner iframe{width:min(92vw,760px);height:min(60vh,428px);border:none;border-radius:12px;display:block;}
+.lb-x{position:fixed;top:18px;right:18px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.2rem;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2001;}
+
+/* FOOTER */
+.footer{background:var(--night);color:rgba(255,255,255,.55);text-align:center;padding:32px 20px;font-size:.83rem;margin-top:40px;}
+.footer strong{color:white}
+
+/* UTILS */
+@media(max-width:600px){.gallery-grid{grid-template-rows:180px 180px}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-bar">
+  🚀 PROTÓTIPO — Versão 1.0 · LC Turismo Ecommerce
+  <span>·</span> Página de tour estilo GetYourGuide
+  <span>·</span> Apresentação para Diretoria · Março 2026
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#0100FE"/><path d="M10 30L20 10L30 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22H26" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+    Lucas Carvalho <b>Turismo</b>
+  </div>
+  <div class="nav-links">
+    <a href="#">Chile</a>
+    <a href="#">Argentina</a>
+    <a href="#">Colômbia</a>
+    <a href="#">Peru</a>
+    <a href="#">México</a>
+  </div>
+  <a class="nav-wa" href="https://wa.me/5511920619246" target="_blank">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="bc">
+  <a href="#">Início</a><span class="bc-sep">›</span>
+  <a href="#">Chile</a><span class="bc-sep">›</span>
+  <a href="#">Santiago</a><span class="bc-sep">›</span>
+  <span>Andes Full Day — Valle Nevado</span>
+</div>
+
+<!-- TITLE -->
+<div class="title-area">
+  <div class="tour-badges">
+    <span class="badge badge-best">⭐ Mais vendido</span>
+    <span class="badge badge-inv">❄️ Inverno 2026</span>
+  </div>
+  <h1 class="tour-title">Andes Full Day — Valle Nevado<br>saindo de Santiago</h1>
+  <div class="rating-row">
+    <span class="stars">★★★★★</span>
+    <span class="r-num">4.9</span>
+    <span class="r-count">127 avaliações</span>
+    <span class="r-sep">·</span>
+    <span class="r-prov">Operado por Lucas Carvalho Turismo</span>
+    <span class="r-sep">·</span>
+    <span style="color:var(--gray-500);font-size:.82rem">🇧🇷 Guia em português</span>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gallery-grid">
+    <img class="g-main" src="https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg" alt="Valle Nevado - Vista panorâmica dos Andes" onclick="openLb('img','https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg')">
+    <div class="g-sub">
+      <img src="https://lcxturismo.b-cdn.net/tours/b9-1774541959084-4bbsq2.webp" alt="Pôr do sol Valle Nevado" onclick="openLb('img','https://lcxturismo.b-cdn.net/tours/b9-1774541959084-4bbsq2.webp')">
+      <img src="https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg" alt="Vista El Colorado" onclick="openLb('img','https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg')">
+    </div>
+  </div>
+  <button class="gallery-btn">🖼️ Ver todas as fotos</button>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- ── LEFT COLUMN ── -->
+  <div>
+
+    <!-- SOBRE -->
+    <div class="block">
+      <h2 class="block-title">Sobre esta atividade</h2>
+      <div class="sobre-grid">
+        <div class="sobre-item">
+          <span class="sobre-icon">⏱</span>
+          <div><div class="sobre-label">Duração</div><div class="sobre-val">Dia inteiro · aprox. 10 horas</div></div>
+        </div>
+        <div class="sobre-item">
+          <span class="sobre-icon">👥</span>
+          <div><div class="sobre-label">Tamanho do grupo</div><div class="sobre-val">Máximo 12 pessoas</div></div>
+        </div>
+        <div class="sobre-item">
+          <span class="sobre-icon">🗣️</span>
+          <div><div class="sobre-label">Idioma do guia</div><div class="sobre-val">Português e Espanhol</div></div>
+        </div>
+        <div class="sobre-item">
+          <span class="sobre-icon">🚐</span>
+          <div><div class="sobre-label">Transfer</div><div class="sobre-val">Do hotel incluso</div></div>
+        </div>
+        <div class="sobre-item">
+          <span class="sobre-icon">🗓️</span>
+          <div><div class="sobre-label">Disponibilidade</div><div class="sobre-val">Todos os dias (sujeito a clima)</div></div>
+        </div>
+        <div class="sobre-item">
+          <span class="sobre-icon">✅</span>
+          <div><div class="sobre-label">Cancelamento</div><div class="sobre-val">Gratuito com 24h de antecedência</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTAQUES -->
+    <div class="block">
+      <h2 class="block-title">✨ Destaques da experiência</h2>
+      <ul class="dest-list">
+        <li>Visite <strong>Valle Nevado</strong>, a maior e mais famosa estação de ski da América do Sul, a 3.025m de altitude nos Andes chilenos</li>
+        <li>Vista <strong>panorâmica 360°</strong> dos picos nevados — um cenário de cinema em qualquer época do ano</li>
+        <li><strong>Transfer confortável</strong> do seu hotel em Santiago com guia bilíngue em português durante todo o percurso</li>
+        <li>Possibilidade de <strong>caminhar na neve</strong> e explorar a estação durante o inverno (Jul–Set)</li>
+        <li>Parada para <strong>almoço e fotos</strong> nos pontos mais fotogênicos da cordilheira</li>
+        <li><strong>Grupo pequeno</strong> (máx. 12 pessoas) para uma experiência mais personalizada e exclusiva</li>
+      </ul>
+    </div>
+
+    <!-- DESCRICAO -->
+    <div class="block">
+      <h2 class="block-title">📖 Descrição completa</h2>
+      <div class="desc-body">
+        <div class="desc-truncated" id="desc">
+          <p>Prepare-se para uma das experiências mais deslumbrantes que Santiago tem a oferecer: um dia inteiro nos Andes chilenos, explorando o famoso Valle Nevado — a maior estação de ski da América do Sul.</p>
+          <p style="margin-top:12px">O passeio começa com a busca no seu hotel em Santiago pela manhã. À medida que subimos a Cordilheira dos Andes, a paisagem urbana vai dando lugar a vistas épicas de picos nevados e vales de tirar o fôlego. Valle Nevado fica a apenas 60km de Santiago, mas parece outro mundo — literalmente.</p>
+          <p style="margin-top:12px">Lá em cima, você terá tempo livre para explorar a estação, caminhar pelos trilhos, tirar aquelas fotos que ninguém vai acreditar que são reais, e se quiser, experimentar atividades na neve (equipamentos não inclusos). O guia estará disponível o tempo todo para contar sobre a história dos Andes, a cultura chilena e os segredos da montanha.</p>
+          <p style="margin-top:12px">No inverno (julho a setembro), a neve pode chegar a vários metros de profundidade. No verão, o charme é diferente — verde, majestoso, com possibilidade de trilhas e a sensação única de estar no topo do mundo.</p>
+          <p style="margin-top:12px">O retorno acontece no final da tarde, com a luz dourada do sol pintando os picos — um espetáculo à parte para fechar o dia perfeito.</p>
+        </div>
+        <span class="desc-btn" onclick="expandDesc(this)">Ler descrição completa ▼</span>
+      </div>
+    </div>
+
+    <!-- INCLUI / NAO INCLUI -->
+    <div class="block">
+      <h2 class="block-title">O que está incluído</h2>
+      <div class="inclui-grid">
+        <div>
+          <div class="inclui-t inclui-sim">✅ Incluído</div>
+          <ul class="inclui-list">
+            <li><span class="ic-sim">✓</span> Transfer do hotel (ida e volta)</li>
+            <li><span class="ic-sim">✓</span> Guia bilíngue em português</li>
+            <li><span class="ic-sim">✓</span> Van climatizada</li>
+            <li><span class="ic-sim">✓</span> Seguro de viagem</li>
+            <li><span class="ic-sim">✓</span> Água durante o percurso</li>
+          </ul>
+        </div>
+        <div>
+          <div class="inclui-t inclui-nao">❌ Não incluído</div>
+          <ul class="inclui-list">
+            <li><span class="ic-nao">✗</span> Refeições e lanches</li>
+            <li><span class="ic-nao">✗</span> Ingressos para ski/snowboard</li>
+            <li><span class="ic-nao">✗</span> Aluguel de equipamentos</li>
+            <li><span class="ic-nao">✗</span> Gorjetas (opcional)</li>
+            <li><span class="ic-nao">✗</span> Despesas pessoais</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITINERARIO -->
+    <div class="block">
+      <h2 class="block-title">🗓️ Itinerário detalhado</h2>
+      <ul class="itin">
+        <li class="itin-item">
+          <div class="itin-dot start"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg></div>
+          <div><div class="itin-time">08h00 – 08h30</div><div class="itin-place">🏨 Busca no hotel em Santiago</div><div class="itin-detail">O guia passa no seu hotel conforme horário confirmado por WhatsApp na noite anterior</div></div>
+        </li>
+        <li class="itin-item">
+          <div class="itin-dot stop"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><div class="itin-time">09h00 – 09h30</div><div class="itin-place">📸 Primeira parada panorâmica</div><div class="itin-detail">Vista espetacular do Vale dos Andes durante a subida — parada para fotos</div></div>
+        </li>
+        <li class="itin-item">
+          <div class="itin-dot stop"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><div class="itin-time">10h00 – 14h30</div><div class="itin-place">🏔️ Valle Nevado (3.025m)</div><div class="itin-detail">Tempo livre para explorar a estação, trilhas, café, fotos na neve. Guia disponível para atividades e dicas</div></div>
+        </li>
+        <li class="itin-item">
+          <div class="itin-dot stop"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><div class="itin-time">14h30 – 15h00</div><div class="itin-place">🍽️ Almoço (por conta do cliente)</div><div class="itin-detail">Restaurantes disponíveis na estação com variadas opções de culinária</div></div>
+        </li>
+        <li class="itin-item">
+          <div class="itin-dot end"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+          <div><div class="itin-time">17h30 – 18h00</div><div class="itin-place">🏨 Retorno ao hotel</div><div class="itin-detail">Descida com luz dourada dos Andes — espetáculo garantido para finalizar o dia</div></div>
+        </li>
+      </ul>
+      <p style="font-size:.75rem;color:var(--gray-500);margin-top:12px;padding-top:12px;border-top:1px solid var(--gray-100)">⚠️ Os horários são estimativas. Itinerários estão sujeitos a condições climáticas e de estrada.</p>
+    </div>
+
+    <!-- LOCAL EMBARQUE -->
+    <div class="block">
+      <h2 class="block-title">📍 Local de embarque</h2>
+      <div class="embarque-box">
+        <span class="emb-icon">🚐</span>
+        <div>
+          <div class="emb-title">Ponto de encontro</div>
+          <div class="emb-val">Hotel do cliente em Santiago</div>
+          <div style="font-size:.8rem;color:var(--gray-500);margin-top:4px">O motorista entra em contato via WhatsApp com o horário exato na noite anterior. Conecte-se ao wi-fi do hotel para receber a confirmação.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOM SABER -->
+    <div class="block">
+      <h2 class="block-title">⚠️ Bom saber antes de ir</h2>
+      <ul class="bs-list">
+        <li><span class="bs-ico">🧥</span> <div><strong>Vista o casaco:</strong> mesmo no verão a temperatura em Valle Nevado pode cair para menos de 5°C. No inverno, pode chegar a -15°C. Roupa em camadas é essencial.</div></li>
+        <li><span class="bs-ico">☀️</span> <div><strong>Protetor solar forte:</strong> a altitude amplifica a radiação UV. Use no mínimo FPS 50, mesmo em dias nublados.</div></li>
+        <li><span class="bs-ico">💧</span> <div><strong>Hidratação:</strong> a altitude pode causar leve tontura. Beba bastante água e evite fazer esforço físico intenso na chegada.</div></li>
+        <li><span class="bs-ico">📱</span> <div><strong>Conecte-se ao wi-fi:</strong> ao chegar em Santiago, conecte ao wi-fi do seu hotel — o motorista confirma os detalhes por WhatsApp.</div></li>
+        <li><span class="bs-ico">💼</span> <div><strong>Pertences pessoais:</strong> ao sair do veículo, verifique sempre todos os seus itens. Não nos responsabilizamos por pertences esquecidos.</div></li>
+        <li><span class="bs-ico">🩺</span> <div><strong>Condições de saúde:</strong> não recomendado para pessoas com problemas cardíacos graves ou pressão arterial descontrolada. Informe o guia sobre qualquer condição médica.</div></li>
+        <li><span class="bs-ico">🎒</span> <div><strong>O que levar:</strong> casaco quente, luvas, óculos de sol, protetor solar FPS 50+, câmera, dinheiro em pesos chilenos para refeições e compras.</div></li>
+      </ul>
+    </div>
+
+    <!-- FOTOS DA COMUNIDADE -->
+    <div class="block">
+      <h2 class="block-title">📸 Fotos da comunidade</h2>
+      <p style="font-size:.82rem;color:var(--gray-500);margin-bottom:14px">Fotos tiradas por clientes reais da LC Turismo em passeios em Santiago e região andina.</p>
+      <div class="community-grid">
+        <div class="ct" onclick="openLb('img','https://drive.google.com/uc?export=view&id=1gZxEuSXcQHfPkQs1f61Fdu5BpTY9RuxO')"><img src="https://drive.google.com/thumbnail?id=1gZxEuSXcQHfPkQs1f61Fdu5BpTY9RuxO&sz=w300" alt="Depoimento cliente" loading="lazy"></div>
+        <div class="ct" onclick="openLb('img','https://drive.google.com/uc?export=view&id=1NYn4kJTh9w4w6HvRe-A4oFjBnNCpaXlu')"><img src="https://drive.google.com/thumbnail?id=1NYn4kJTh9w4w6HvRe-A4oFjBnNCpaXlu&sz=w300" alt="Depoimento cliente" loading="lazy"></div>
+        <div class="ct" onclick="openLb('img','https://drive.google.com/uc?export=view&id=1p7wpStA6lE4LmGnYOa4WBdvZ4oh4VPpK')"><img src="https://drive.google.com/thumbnail?id=1p7wpStA6lE4LmGnYOa4WBdvZ4oh4VPpK&sz=w300" alt="Depoimento Marcela" loading="lazy"></div>
+        <div class="ct video" onclick="openLb('video','1ZDjkJhnR7F6F9oebhPk_QP_qXfPhMMXd')"><img src="https://drive.google.com/thumbnail?id=1ZDjkJhnR7F6F9oebhPk_QP_qXfPhMMXd&sz=w300" alt="Vídeo - Gessica Valle Nevado" loading="lazy"></div>
+        <div class="ct" onclick="openLb('img','https://drive.google.com/uc?export=view&id=13EeTq3sRB6TTextLEyJy3Jiv_CC6SYZ2')"><img src="https://drive.google.com/thumbnail?id=13EeTq3sRB6TTextLEyJy3Jiv_CC6SYZ2&sz=w300" alt="Depoimento Giovanna" loading="lazy"></div>
+      </div>
+    </div>
+
+    <!-- AVALIACOES -->
+    <div class="block">
+      <h2 class="block-title">⭐ Avaliações de clientes</h2>
+      <div class="rating-sum">
+        <div class="r-big">
+          <div class="n">4.9</div>
+          <div class="s">★★★★★</div>
+          <div class="c">127 avaliações</div>
+        </div>
+        <div class="rbar">
+          <div class="rbar-row"><span class="rbar-l">5 estrelas</span><div class="rbar-t"><div class="rbar-f" style="width:94%"></div></div><span class="rbar-p">94%</span></div>
+          <div class="rbar-row"><span class="rbar-l">4 estrelas</span><div class="rbar-t"><div class="rbar-f" style="width:5%"></div></div><span class="rbar-p">5%</span></div>
+          <div class="rbar-row"><span class="rbar-l">3 estrelas</span><div class="rbar-t"><div class="rbar-f" style="width:1%"></div></div><span class="rbar-p">1%</span></div>
+          <div class="rbar-row"><span class="rbar-l">2 estrelas</span><div class="rbar-t"><div class="rbar-f" style="width:0%"></div></div><span class="rbar-p">0%</span></div>
+          <div class="rbar-row"><span class="rbar-l">1 estrela</span><div class="rbar-t"><div class="rbar-f" style="width:0%"></div></div><span class="rbar-p">0%</span></div>
+        </div>
+      </div>
+
+      <!-- Review Cards -->
+      <div class="r-card">
+        <div class="r-card-head">
+          <div class="r-avatar">A</div>
+          <div class="r-meta"><div class="nm">Alessandra M.</div><div class="dt">Dezembro 2025 · Reserva verificada</div></div>
+          <div class="r-star">★★★★★</div>
+        </div>
+        <div class="r-text">Queria deixar registrado um elogio para a equipe do passeio: motorista Emanuel e Guia Gaspar. Ambos muito simpáticos, alegres e cuidadosos conosco. O guia Gaspar arrasou ao contar a história da independência do Chile. Ficamos com medo de encontrar pessoas nesse dia 31/12 trabalhando contra a própria vontade, mas graças a Deus a experiência foi ótima! Obrigada! 🙏</div>
+        <span class="r-badge">🇨🇱 Santiago · Valle Nevado</span>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div class="r-avatar" style="background:#22C55E">J</div>
+          <div class="r-meta"><div class="nm">Jaqueline de Jesus</div><div class="dt">Janeiro 2026 · Reserva verificada</div></div>
+          <div class="r-star">★★★★★</div>
+        </div>
+        <div class="r-text">Passeio incrível! A vista dos Andes é de outro mundo. O guia foi super atencioso e explicou tudo sobre o Chile durante o trajeto. O transfer do hotel foi pontual e a van super confortável. Já recomendei para todos os meus amigos que vão para Santiago!</div>
+        <span class="r-badge">🇨🇱 Santiago · Andes Full Day</span>
+      </div>
+
+      <div class="r-card">
+        <div class="r-card-head">
+          <div class="r-avatar" style="background:#F5A623">G</div>
+          <div class="r-meta"><div class="nm">Giovanna S.</div><div class="dt">Fevereiro 2026 · Reserva verificada</div></div>
+          <div class="r-star">★★★★★</div>
+        </div>
+        <div class="r-text">Melhor passeio da minha viagem ao Chile! Valle Nevado no verão é diferente do que eu imaginava — muito mais verde e bonito. O guia conhece cada cantinho da montanha. Voltei com as melhores fotos da minha vida!</div>
+        <span class="r-badge">🇨🇱 Santiago · Valle Nevado Verão</span>
+      </div>
+
+      <!-- Vídeo depoimento -->
+      <div style="background:var(--gray-50);border-radius:10px;padding:16px;margin-top:14px;">
+        <div style="font-size:.82rem;font-weight:700;margin-bottom:8px;color:var(--night)">🎥 Vídeo depoimento — Gessica em Valle Nevado</div>
+        <div class="video-dep">
+          <iframe src="https://drive.google.com/file/d/1ZDjkJhnR7F6F9oebhPk_QP_qXfPhMMXd/preview" allowfullscreen allow="autoplay"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTROS PASSEIOS -->
+    <div class="block">
+      <h2 class="block-title">🗺️ Outros passeios em Santiago</h2>
+      <div class="outros-strip">
+        <a class="o-card" href="#">
+          <img src="https://lcxturismo.b-cdn.net/tours/b9-1774541959084-4bbsq2.webp" alt="Valle Nevado Sunset">
+          <div class="o-card-b"><div class="o-card-name">Valle Nevado Sunset</div><div class="o-card-price">A partir de R$ 287</div></div>
+        </a>
+        <a class="o-card" href="#">
+          <img src="https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg" alt="El Colorado">
+          <div class="o-card-b"><div class="o-card-name">Andes Full Day — El Colorado</div><div class="o-card-price">A partir de R$ 247</div></div>
+        </a>
+        <a class="o-card" href="#">
+          <img src="https://lcxturismo.b-cdn.net/tours/tour-vinicola-concha-y-toro-chile-likechile-14-1-1772151533521-dh4p2u.jpg" alt="Concha y Toro">
+          <div class="o-card-b"><div class="o-card-name">Vinícola Concha y Toro</div><div class="o-card-price">A partir de R$ 577</div></div>
+        </a>
+        <a class="o-card" href="https://lucascarvalhochile-pixel.github.io/passeios-lc/" target="_blank">
+          <img src="https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg" alt="Ver todos">
+          <div class="o-card-b"><div class="o-card-name">Ver todos os 84 passeios →</div><div class="o-card-price">Catálogo completo LC Turismo</div></div>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- end left -->
+
+  <!-- ── BOOKING BOX (STICKY) ── -->
+  <div class="booking-sticky">
+    <div class="bk-old">R$ 297,00 por pessoa</div>
+    <div class="bk-price">R$ 247,00</div>
+    <div class="bk-sub">por pessoa · transfer incluso</div>
+
+    <a class="bk-wa" href="https://wa.me/5511920619246?text=Olá!%20Quero%20reservar%20o%20passeio%20Andes%20Full%20Day%20Valle%20Nevado%20em%20Santiago" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Reservar via WhatsApp
+    </a>
+
+    <ul class="bk-trust">
+      <li><span class="ok">✓</span> Guia em português garantido</li>
+      <li><span class="ok">✓</span> Transfer do hotel incluso</li>
+      <li><span class="ok">✓</span> Grupo pequeno (máx. 12 pax)</li>
+      <li><span class="ok">✓</span> Cancelamento gratuito (24h)</li>
+      <li><span class="ok">✓</span> +40.000 clientes atendidos</li>
+    </ul>
+
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;text-align:center;font-size:.78rem;color:var(--gray-700)">
+      <div style="font-size:1.1rem;margin-bottom:4px">⭐ 4.9 / 5</div>
+      <div>Baseado em <strong>127 avaliações</strong> verificadas</div>
+    </div>
+
+    <div class="bk-provider">
+      <div style="font-size:1.8rem">🇧🇷</div>
+      <div><div class="bk-pv-name">Lucas Carvalho Turismo</div><div style="font-size:.75rem;color:var(--gray-500)">Operador especializado · desde 2018</div></div>
+    </div>
+
+    <a class="bk-site" href="https://lucascarvalhochile-pixel.github.io/passeios-lc/" target="_blank">
+      Ver catálogo completo (84 passeios)
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
+</div><!-- end layout -->
+
+<!-- MOBILE CTA -->
+<div class="mcta" id="mcta">
+  <div class="mcta-price">
+    <div class="p">R$ 247,00</div>
+    <div class="s">por pessoa · transfer incluso</div>
+  </div>
+  <a class="mcta-btn" href="https://wa.me/5511920619246?text=Olá!%20Quero%20reservar%20o%20Andes%20Full%20Day%20Valle%20Nevado" target="_blank">
+    💬 Reservar
+  </a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lb-x" onclick="event.stopPropagation();closeLb()">✕</button>
+  <div class="lb-inner" id="lbInner" onclick="event.stopPropagation()"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div><strong>LC Turismo</strong> — Menos rotina. Mais roteiro.</div>
+  <div style="margin-top:8px">
+    <a href="https://lucascarvalhoturismo.com.br" target="_blank" style="color:var(--blue)">lucascarvalhoturismo.com.br</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/5511920619246" target="_blank">WhatsApp</a>
+    &nbsp;·&nbsp;
+    <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
+  </div>
+  <div style="margin-top:12px;font-size:.72rem;opacity:.4">© 2026 Lucas Carvalho Turismo · Protótipo v1.0 — Apresentação para Diretoria</div>
+</footer>
+
+<script>
+function expandDesc(btn){
+  const d=document.getElementById('desc');
+  d.classList.remove('desc-truncated');
+  btn.style.display='none';
+}
+function openLb(type,id){
+  const inner=document.getElementById('lbInner');
+  const lb=document.getElementById('lb');
+  if(type==='video'){
+    inner.innerHTML='<iframe src="https://drive.google.com/file/d/'+id+'/preview" allowfullscreen allow="autoplay"></iframe>';
+  } else {
+    inner.innerHTML='<img src="'+id+'" alt="" loading="lazy">';
+  }
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  document.getElementById('lb').classList.remove('open');
+  document.getElementById('lbInner').innerHTML='';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
