@@ -1183,14 +1183,9 @@ function openInfo(id) {
     incWrap.style.display = 'none';
   }
 
-  // Site link
+  // Site link — hidden while migrating to new site
   const siteLink = document.getElementById('infoSiteLink');
-  if (item.tourUrl) {
-    siteLink.href = item.tourUrl;
-    siteLink.style.display = '';
-  } else {
-    siteLink.style.display = 'none';
-  }
+  siteLink.style.display = 'none';
 
   // Schedule
   const schedWrap = document.getElementById('infoScheduleWrap');
