@@ -1,1172 +1,549 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passeios LC Turismo — Catálogo Completo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LC Turismo — Passeios na América Latina com guia em português</title>
+<meta name="description" content="Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português. Mais de 100 experiências exclusivas desde 2018.">
+<meta property="og:title" content="LC Turismo — Passeios na América Latina">
+<meta property="og:description" content="Santiago, Atacama, Buenos Aires, Machu Picchu, Cartagena e muito mais. Guia em português e cancelamento grátis 24h.">
+<meta property="og:image" content="https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg">
+<link rel="canonical" href="https://lucascarvalhochile-pixel.github.io/passeios-lc/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --blue:#0100FE;
-  --blue-dark:#0009C0;
-  --night:#001228;
-  --white:#FFFFFF;
-  --gray-50:#F8F9FC;
-  --gray-100:#EEF0F5;
-  --gray-300:#C8CBD4;
-  --gray-500:#7A7F8E;
-  --gray-700:#3D4150;
-  --gold:#F0B429;
-  --green:#00C851;
-  --wa:#25D366;
-  --f:'Plus Jakarta Sans',system-ui,sans-serif;
-  --radius:16px;
-  --radius-sm:8px;
-  --shadow:0 2px 16px rgba(0,0,0,.08);
-  --shadow-md:0 8px 40px rgba(0,0,0,.12);
-  --shadow-lg:0 20px 60px rgba(0,0,0,.18);
-  --ease:cubic-bezier(.4,0,.2,1);
+  --blue:#0100FE;--night:#001228;
+  --g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;
+  --gold:#F5A623;--green:#22C55E;--red:#EF4444;--wa:#25D366;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1160px;
 }
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--f);color:var(--night);background:var(--gray-50);-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
-button{font-family:var(--f);cursor:pointer;border:none;outline:none}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;background:none}
 
-/* ─── NAV ─── */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 5vw;height:68px;
-  background:var(--night);
-}
-.nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;font-size:1.15rem;letter-spacing:-.5px}
-.nav-logo img{height:30px;width:auto}
-.nav-logo-text span{color:var(--blue)}
-.nav-cta{
-  background:var(--wa);color:var(--white);
-  padding:9px 20px;border-radius:50px;
-  font-weight:700;font-size:.85rem;
-  display:flex;align-items:center;gap:6px;
-  transition:opacity .2s;
-}
-.nav-cta:hover{opacity:.85}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(0,18,40,.97);backdrop-filter:blur(12px)}
+.nav-top{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;max-width:1400px;margin:0 auto}
+.nlogo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:-.3px}
+.nlogo-img{height:36px;width:auto;object-fit:contain}
+.nlogo-text b{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.ncta{background:var(--wa);color:#fff;padding:9px 20px;border-radius:50px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:7px;transition:opacity .15s}
+.ncta:hover{opacity:.88}
+.ncta svg{flex-shrink:0}
 
-/* ─── HERO ─── */
-.hero{
-  padding:110px 5vw 80px;
-  background:linear-gradient(145deg,#000B4F 0%,var(--night) 50%,#000B4F 100%);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  clip-path:polygon(0 0,100% 0,100% 92%,0 100%);
-  margin-bottom:-40px;
-  z-index:1;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 20% 60%,rgba(1,0,254,.35),transparent 55%),
-             radial-gradient(ellipse at 80% 40%,rgba(1,0,254,.2),transparent 55%);
-  pointer-events:none;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
-  color:rgba(255,255,255,.85);padding:5px 14px;border-radius:50px;
-  font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;
-  margin-bottom:20px;
-}
-.hero h1{
-  color:var(--white);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;
-  line-height:1.05;letter-spacing:-2px;margin-bottom:16px;
-}
-.hero h1 span{color:var(--blue)}
-.hero p{
-  color:rgba(255,255,255,.65);font-size:1.05rem;
-  max-width:520px;margin:0 auto 40px;line-height:1.6;
-}
-.hero-stats{
-  display:flex;align-items:center;justify-content:center;gap:40px;
-  flex-wrap:wrap;
-}
-.hero-stat{color:var(--white);text-align:center}
-.hero-stat-num{font-size:1.8rem;font-weight:800;letter-spacing:-1px}
-.hero-stat-num span{color:var(--blue)}
-.hero-stat-label{font-size:.78rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+/* HERO */
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000c23}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
+.hero-bg.active{opacity:.48}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.3) 0%,rgba(0,12,35,.72) 60%,#000c23 100%)}
+.hero-c{position:relative;z-index:2;text-align:center;padding:100px 5vw 60px;max-width:940px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;background:rgba(1,0,254,.15);border:1px solid rgba(1,0,254,.35);color:#A5B4FF;font-size:.75rem;font-weight:700;margin-bottom:24px}
+.hero-title{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
+.hero-title span{color:var(--blue)}
+.hero-sub{color:rgba(255,255,255,.6);font-size:1.05rem;line-height:1.6;max-width:640px;margin:0 auto 36px}
+.hero-dest-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.hero-dest-chip{padding:6px 14px;border-radius:50px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.75);font-size:.78rem;font-weight:600;transition:all .2s;cursor:pointer}
+.hero-dest-chip:hover{background:rgba(255,255,255,.18);color:#fff}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat strong{display:block;font-size:1.5rem;color:#fff;font-weight:800}
+.hero-stat span{font-size:.75rem;color:rgba(255,255,255,.45);font-weight:500}
 
-/* ─── FILTERS ─── */
-.filters{
-  background:var(--white);
-  box-shadow:0 2px 0 var(--gray-100),var(--shadow);
-  position:sticky;top:68px;z-index:800;
-}
-.filters-inner{
-  display:flex;align-items:center;gap:0;
-  padding:0 5vw;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-.filters-inner::-webkit-scrollbar{display:none}
-.filter-btn{
-  padding:14px 18px;
-  border:none;background:none;
-  font-size:.9rem;font-weight:600;color:var(--gray-500);
-  cursor:pointer;white-space:nowrap;
-  border-bottom:2px solid transparent;
-  transition:all .2s var(--ease);
-  display:flex;align-items:center;gap:6px;
-}
-.filter-btn:hover{color:var(--blue)}
-.filter-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
-.filter-btn .flag{font-size:1.1rem}
-.filter-count{
-  background:var(--gray-100);color:var(--gray-500);
-  padding:1px 7px;border-radius:20px;font-size:.7rem;font-weight:700;
-  transition:all .2s;
-}
-.filter-btn.active .filter-count{background:rgba(1,0,254,.1);color:var(--blue)}
+/* TOOLBAR */
+.toolbar{background:#fff;border-bottom:1px solid var(--g100);position:sticky;top:60px;z-index:400}
+.toolbar-in{max-width:var(--max);margin:0 auto;padding:14px 5vw;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.search-box{flex:1;min-width:220px;position:relative}
+.search-box input{width:100%;padding:10px 16px 10px 40px;border:1.5px solid var(--g100);border-radius:10px;font-size:.88rem;font-family:var(--f);color:var(--night);transition:border-color .15s;outline:none}
+.search-box input:focus{border-color:var(--blue)}
+.search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--g300)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.fbtn{padding:7px 16px;border-radius:50px;font-size:.78rem;font-weight:600;color:var(--g500);background:var(--g50);border:1.5px solid transparent;transition:all .15s;white-space:nowrap}
+.fbtn:hover{color:var(--night);background:var(--g100)}
+.fbtn.active{color:var(--blue);background:rgba(1,0,254,.06);border-color:rgba(1,0,254,.2)}
+.fbtn .fcount{background:var(--g100);padding:1px 7px;border-radius:50px;font-size:.68rem;margin-left:5px;font-weight:700}
+.fbtn.active .fcount{background:rgba(1,0,254,.12);color:var(--blue)}
 
-/* ─── SEARCH ─── */
-.search-bar{
-  padding:56px 5vw 0;
-  max-width:1400px;margin:0 auto;
-}
-.search-input-wrap{
-  position:relative;max-width:420px;
-}
-.search-input-wrap svg{
-  position:absolute;left:14px;top:50%;transform:translateY(-50%);
-  color:var(--gray-300);pointer-events:none;
-}
-.search-input{
-  width:100%;padding:11px 14px 11px 42px;
-  border:1.5px solid var(--gray-100);border-radius:50px;
-  font-family:var(--f);font-size:.9rem;color:var(--night);background:var(--white);
-  transition:border-color .2s;
-  box-shadow:var(--shadow);
-}
-.search-input:focus{outline:none;border-color:var(--blue)}
-.search-input::placeholder{color:var(--gray-300)}
+/* DESTINATION BANNER */
+.dest-banner{position:relative;height:0;overflow:hidden;transition:height .4s ease}
+.dest-banner.open{height:260px}
+.dest-banner-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .6s}
+.dest-banner-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.15) 0%,rgba(0,8,25,.78) 100%)}
+.dest-banner-c{position:relative;z-index:2;padding:52px 5vw 32px;max-width:var(--max);margin:0 auto}
+.dest-flag{display:inline-block;font-size:2rem;margin-bottom:8px}
+.dest-name{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;margin-bottom:4px}
+.dest-cities{color:rgba(255,255,255,.6);font-size:.9rem;font-weight:500}
 
-/* ─── MAIN ─── */
-.main{max-width:1400px;margin:0 auto;padding:40px 5vw 80px}
+/* CATALOG */
+.catalog{max-width:var(--max);margin:0 auto;padding:28px 5vw 60px}
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px}
+.cat-count{font-size:.85rem;color:var(--g500)}
+.cat-count strong{color:var(--night)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
 
-/* ─── SECTION ─── */
-.section{margin-bottom:48px}
-.section-head{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:24px;flex-wrap:wrap;gap:12px;
-}
-.section-title{
-  display:flex;align-items:center;gap:10px;
-  font-size:1.25rem;font-weight:800;color:var(--night);letter-spacing:-.5px;
-}
-.section-title .flag{font-size:1.5rem}
-.section-dest-badge{
-  background:var(--gray-100);color:var(--gray-700);
-  padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:600;
-}
-.section-count{color:var(--gray-500);font-size:.85rem;font-weight:500}
+/* CARD */
+.card{border-radius:16px;overflow:hidden;border:1px solid var(--g100);transition:transform .2s,box-shadow .2s;background:#fff;display:block;opacity:0;transform:translateY(20px);animation:fadeUp .45s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,18,40,.1)}
+.card-img{position:relative;height:210px;overflow:hidden;background:var(--g100)}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,12,35,.05) 0%,rgba(0,12,35,.38) 100%);pointer-events:none;z-index:1}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover .card-img img{transform:scale(1.06)}
+/* Destination gradients */
+.card-img.atacama-bg{background:linear-gradient(135deg,#e8a87c 0%,#d4845e 100%)}
+.card-img.torres-bg{background:linear-gradient(135deg,#6ec6e6 0%,#3a8fb7 100%)}
+.card-img.arg-bg{background:linear-gradient(135deg,#75aadb 0%,#3a6f9e 100%)}
+.card-img.col-bg{background:linear-gradient(135deg,#f8c200 0%,#c98e00 100%)}
+.card-img.per-bg{background:linear-gradient(135deg,#d72e2a 0%,#8b1714 100%)}
+.card-img.mex-bg{background:linear-gradient(135deg,#006847 0%,#003f2c 100%)}
+.card-img.pca-bg{background:linear-gradient(135deg,#00bdb3 0%,#007a75 100%)}
+/* Dest badge */
+.card-dest{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:50px;font-size:.68rem;font-weight:700;backdrop-filter:blur(8px);z-index:2;white-space:nowrap}
+.card-dest.santiago{background:rgba(1,0,254,.2);color:#c5cdff;border:1px solid rgba(1,0,254,.3)}
+.card-dest.atacama{background:rgba(245,166,35,.2);color:#f9dfa0;border:1px solid rgba(245,166,35,.3)}
+.card-dest.torres{background:rgba(34,197,94,.2);color:#90edb8;border:1px solid rgba(34,197,94,.3)}
+.card-dest.argentina{background:rgba(117,170,219,.2);color:#c5dcf5;border:1px solid rgba(117,170,219,.3)}
+.card-dest.colombia{background:rgba(252,209,22,.2);color:#f8df7a;border:1px solid rgba(252,209,22,.3)}
+.card-dest.peru{background:rgba(215,46,42,.2);color:#f4a5a3;border:1px solid rgba(215,46,42,.3)}
+.card-dest.mexico{background:rgba(0,104,71,.2);color:#7dcdb7;border:1px solid rgba(0,104,71,.3)}
+.card-dest.puntacana{background:rgba(0,189,179,.2);color:#7fe8e3;border:1px solid rgba(0,189,179,.3)}
+/* Temp / season */
+.card-temp{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:50px;font-size:.66rem;font-weight:600;background:rgba(0,0,0,.5);color:rgba(255,255,255,.8);backdrop-filter:blur(6px);z-index:2}
+/* Body */
+.card-body{padding:18px 20px 20px}
+.card-title{font-size:1rem;font-weight:700;color:var(--night);margin-bottom:8px;line-height:1.3}
+.card-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.card-meta span{font-size:.76rem;color:var(--g500);display:flex;align-items:center;gap:4px}
+.card-meta svg{flex-shrink:0}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-cta{padding:7px 16px;border-radius:8px;font-size:.78rem;font-weight:700;background:var(--wa);color:#fff;white-space:nowrap;transition:opacity .15s}
+.card:hover .card-cta{opacity:.88}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;flex:1}
+.card-tag{padding:3px 9px;border-radius:50px;font-size:.66rem;font-weight:600;background:var(--g50);color:var(--g500)}
+/* Urgency badges */
+.card-badge{position:absolute;bottom:12px;left:12px;padding:4px 10px;border-radius:6px;font-size:.66rem;font-weight:700;z-index:2;backdrop-filter:blur(6px)}
+.card-badge.hot{background:rgba(239,68,68,.85);color:#fff}
+.card-badge.top{background:rgba(245,166,35,.85);color:#fff}
+.card-badge.new{background:rgba(1,0,254,.85);color:#fff}
 
-/* ─── GRID ─── */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:24px;
-}
+/* NO RESULTS */
+.no-results{text-align:center;padding:80px 20px;display:none}
+.no-results h3{font-size:1.3rem;color:var(--night);margin-bottom:8px}
+.no-results p{color:var(--g500);font-size:.92rem}
 
-/* ─── CARD ─── */
-.card{
-  background:var(--white);border-radius:var(--radius);
-  overflow:hidden;box-shadow:var(--shadow);
-  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
-  cursor:pointer;position:relative;
-}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.card-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--gray-100)}
-.card-img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .4s var(--ease);
-}
-.card:hover .card-img{transform:scale(1.04)}
-.card-img-placeholder{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--gray-100),var(--gray-50));
-  color:var(--gray-300);font-size:2.5rem;
-}
-.card-dest-badge{
-  position:absolute;top:10px;left:10px;
-  background:rgba(0,18,40,.8);backdrop-filter:blur(8px);
-  color:var(--white);padding:4px 10px;border-radius:20px;
-  font-size:.72rem;font-weight:700;letter-spacing:.3px;
-  display:flex;align-items:center;gap:4px;
-}
-.card-category-badge{
-  position:absolute;top:10px;right:10px;
-  padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700;
-}
-.badge-premium{background:var(--gold);color:#7A5100}
-.badge-ultra{background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff}
-.card-body{padding:16px}
-.card-name{
-  font-size:1rem;font-weight:700;color:var(--night);
-  line-height:1.3;margin-bottom:10px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.card-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.card-duration{
-  display:flex;align-items:center;gap:5px;
-  font-size:.78rem;color:var(--gray-500);font-weight:500;
-}
-.card-duration svg{color:var(--gray-300)}
-.card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--gray-100);padding-top:12px}
-.card-price{font-size:1.05rem;font-weight:800;color:var(--night)}
-.card-price small{font-size:.68rem;font-weight:500;color:var(--gray-400,#aaa);display:block;line-height:1.2;text-transform:uppercase;letter-spacing:.2px}
-.card-price-consult{font-size:.85rem;font-weight:700;color:var(--blue)}
-.card-wa-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--wa);color:var(--white);
-  padding:8px 14px;border-radius:50px;
-  font-size:.78rem;font-weight:700;white-space:nowrap;
-  transition:opacity .2s;
-  text-decoration:none;
-}
-.card-wa-btn:hover{opacity:.85}
-.card-wa-btn svg{width:14px;height:14px}
+/* FOOTER CTA */
+.fcta{background:var(--night);padding:60px 5vw;text-align:center}
+.fcta-in{max-width:600px;margin:0 auto}
+.fcta h2{color:#fff;font-size:1.6rem;font-weight:800;margin-bottom:10px}
+.fcta p{color:rgba(255,255,255,.55);font-size:.92rem;margin-bottom:28px;line-height:1.6}
+.fcta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:50px;background:var(--wa);color:#fff;font-weight:700;font-size:.95rem;transition:opacity .15s}
+.fcta-btn:hover{opacity:.88}
 
-/* ─── ADMIN MODE ─── */
-.admin-bar{
-  display:none;
-  background:#1a1a2e;color:#fff;
-  padding:10px 5vw;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;flex-wrap:wrap;
-  position:fixed;bottom:0;left:0;right:0;z-index:1000;
-  box-shadow:0 -4px 20px rgba(0,0,0,.2);
-}
-.admin-bar-label{font-size:.85rem;font-weight:700;display:flex;align-items:center;gap:6px}
-.admin-bar-label span{background:#F59E0B;color:#78350F;padding:2px 8px;border-radius:4px;font-size:.7rem}
-.admin-save-btn{
-  background:var(--blue);color:#fff;padding:8px 18px;border-radius:8px;
-  font-weight:700;font-size:.82rem;cursor:pointer;border:none;
-  font-family:var(--f);
-}
-.admin-save-btn:hover{background:var(--blue-dark)}
-.card-edit-btn{
-  display:none;position:absolute;bottom:10px;right:10px;
-  background:var(--night);color:#fff;border:none;border-radius:8px;
-  padding:6px 12px;font-size:.75rem;font-weight:700;cursor:pointer;
-  font-family:var(--f);z-index:10;transition:opacity .2s;
-}
-.card-edit-btn:hover{opacity:.8}
+/* FOOTER */
+.footer{background:#000c23;padding:32px 5vw;text-align:center}
+.footer p{color:rgba(255,255,255,.35);font-size:.78rem}
+.footer a{color:rgba(255,255,255,.5);transition:color .15s}
+.footer a:hover{color:#fff}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:10px}
 
-/* ─── MODAL ─── */
-.modal-overlay{
-  display:none;position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,.5);backdrop-filter:blur(4px);
-  align-items:center;justify-content:center;padding:20px;
-}
-.modal-overlay.open{display:flex}
-.modal{
-  background:#fff;border-radius:20px;padding:28px;
-  max-width:440px;width:100%;box-shadow:var(--shadow-lg);
-}
-.modal h3{font-size:1.1rem;font-weight:800;margin-bottom:20px;color:var(--night)}
-.modal-field{margin-bottom:16px}
-.modal-field label{display:block;font-size:.8rem;font-weight:600;color:var(--gray-700);margin-bottom:6px}
-.modal-field input,.modal-field select{
-  width:100%;padding:10px 14px;border:1.5px solid var(--gray-100);border-radius:10px;
-  font-family:var(--f);font-size:.9rem;color:var(--night);
-}
-.modal-field input:focus,.modal-field select:focus{outline:none;border-color:var(--blue)}
-.modal-toggle{display:flex;align-items:center;gap:10px;cursor:pointer}
-.modal-toggle-label{font-size:.85rem;font-weight:600;color:var(--gray-700)}
-.toggle-switch{
-  position:relative;width:44px;height:24px;
-}
-.toggle-switch input{opacity:0;width:0;height:0}
-.toggle-slider{
-  position:absolute;inset:0;background:var(--gray-300);
-  border-radius:24px;transition:.2s;cursor:pointer;
-}
-.toggle-slider::before{
-  content:'';position:absolute;
-  height:18px;width:18px;left:3px;bottom:3px;
-  background:white;border-radius:50%;transition:.2s;
-}
-.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
-.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
-.modal-actions{display:flex;gap:10px;margin-top:20px}
-.modal-btn{
-  flex:1;padding:11px;border-radius:10px;font-weight:700;font-size:.88rem;
-  cursor:pointer;border:none;font-family:var(--f);transition:opacity .2s;
-}
-.modal-btn-primary{background:var(--blue);color:#fff}
-.modal-btn-secondary{background:var(--gray-100);color:var(--gray-700)}
-.modal-btn:hover{opacity:.85}
-.card.hidden-card{opacity:.4}
-
-/* ─── EMPTY ─── */
-.empty{
-  text-align:center;padding:80px 20px;color:var(--gray-500);
-  font-size:1rem;
-}
-.empty svg{margin:0 auto 12px;color:var(--gray-300)}
-
-/* ─── FOOTER ─── */
-.footer{
-  background:var(--night);color:rgba(255,255,255,.5);
-  padding:40px 5vw;text-align:center;font-size:.82rem;
-}
-.footer strong{color:var(--white)}
-.footer a{color:rgba(255,255,255,.6)}
-.footer-divider{margin:0 8px;opacity:.3}
-
-/* ─── RESPONSIVE ─── */
-@media(max-width:640px){
-  .nav{padding:0 4vw}
-  .hero{padding:100px 4vw 48px}
-  .hero-stats{gap:24px}
-  .filters-inner,.search-bar,.main{padding-left:4vw;padding-right:4vw}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-}
-
-/* ─── CARD DESC + TAGS ─── */
-.card-desc{
-  font-size:.78rem;color:var(--gray-500);
-  line-height:1.5;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
-  overflow:hidden;
-  margin-bottom:8px;
-}
-.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
-.card-tag{
-  font-size:.65rem;font-weight:600;letter-spacing:.3px;
-  background:var(--gray-100);color:var(--gray-700);
-  padding:2px 8px;border-radius:50px;
-}
-/* ─── INFO MODAL ─── */
-#infoModal{
-  display:none;position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
-  align-items:center;justify-content:center;padding:20px;
-}
-#infoModal.open{display:flex}
-.info-box{
-  background:var(--white);border-radius:var(--radius);
-  max-width:480px;width:100%;max-height:90vh;overflow-y:auto;
-  box-shadow:var(--shadow-lg);
-}
-.info-img{width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0}
-.info-body{padding:24px}
-.info-dest{font-size:.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-.info-name{font-size:1.2rem;font-weight:800;color:var(--night);margin-bottom:12px;line-height:1.2}
-.info-desc{font-size:.88rem;color:var(--gray-700);line-height:1.6;margin-bottom:16px}
-.info-section-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-bottom:6px}
-.info-includes{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.info-includes li{
-  font-size:.75rem;font-weight:600;
-  background:var(--gray-100);color:var(--gray-700);
-  padding:3px 10px;border-radius:50px;
-  display:flex;align-items:center;gap:4px;
-}
-.info-includes li::before{content:'✓';color:var(--green);font-size:.7rem}
-.info-meta-row{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
-.info-meta-item{font-size:.8rem;color:var(--gray-500);display:flex;align-items:center;gap:5px}
-.info-price{font-size:1.1rem;font-weight:800;color:var(--night);margin-bottom:16px}
-.info-price small{font-size:.7rem;font-weight:400;color:var(--gray-500);display:block}
-.info-actions{display:flex;gap:10px}
-.info-wa-btn{
-  flex:1;background:var(--wa);color:var(--white);
-  padding:12px;border-radius:50px;font-weight:700;font-size:.88rem;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  cursor:pointer;border:none;font-family:var(--f);transition:opacity .2s;
-}
-.info-wa-btn:hover{opacity:.85}
-.info-close-btn{
-  width:44px;height:44px;border-radius:50%;border:2px solid var(--gray-100);
-  background:transparent;font-size:1.1rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gray-700);transition:background .2s;
-}
-.info-close-btn:hover{background:var(--gray-100)}
-
-
-/* ─── MODAL EXTRAS ─── */
-.info-accordion{border-top:1px solid var(--gray-100);margin-top:16px}
-.info-acc-item{border-bottom:1px solid var(--gray-100)}
-.info-acc-btn{
-  width:100%;display:flex;justify-content:space-between;align-items:center;
-  padding:12px 0;background:none;border:none;cursor:pointer;
-  font-size:.85rem;font-weight:700;color:var(--night);font-family:var(--f);
-  text-align:left;
-}
-.info-acc-btn svg{transition:transform .2s;flex-shrink:0}
-.info-acc-btn.open svg{transform:rotate(180deg)}
-.info-acc-body{
-  font-size:.82rem;color:var(--gray-700);line-height:1.65;
-  padding-bottom:12px;display:none;
-}
-.info-acc-body.open{display:block}
-.info-acc-body ul{padding-left:16px;margin:0}
-.info-acc-body ul li{margin-bottom:4px}
-.info-site-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:.78rem;color:var(--blue);font-weight:600;
-  text-decoration:none;margin-bottom:16px;
-}
-.info-site-link:hover{text-decoration:underline}
-
-/* ─── FULL EDIT MODAL ─── */
-.edit-modal-overlay{position:fixed;inset:0;z-index:1200;background:rgba(0,18,40,.72);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .2s;}
-.edit-modal-overlay.open{opacity:1;pointer-events:all}
-.edit-modal-box{background:var(--white);border-radius:20px;width:100%;max-width:660px;padding:24px;margin:auto;box-shadow:var(--shadow-lg);}
-.edit-modal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.edit-modal-hdr h3{font-size:1rem;font-weight:700;color:var(--night);}
-.edit-modal-x{background:var(--gray-100);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
-.edit-sec{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--gray-100);}
-.edit-sec:first-of-type{margin-top:0;padding-top:0;border-top:none}
-.edit-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:10px;}
-.edit-grid.s1{grid-template-columns:1fr}
-.ef label{display:block;font-size:.75rem;font-weight:600;color:var(--gray-700);margin-bottom:4px;}
-.ef input,.ef textarea{width:100%;padding:8px 11px;border:1.5px solid var(--gray-300);border-radius:8px;font:inherit;font-size:.85rem;color:var(--night);transition:border .15s;outline:none;resize:vertical;}
-.ef input:focus,.ef textarea:focus{border-color:var(--blue)}
-.ef textarea{min-height:72px}
-.ef-hint{font-size:.7rem;color:var(--gray-500);margin-top:2px}
-.edit-tog{display:flex;align-items:center;gap:10px;margin:6px 0;}
-.edit-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:14px;border-top:1px solid var(--gray-100);}
-.edit-actions button{padding:9px 18px;border-radius:50px;font-weight:600;font-size:.85rem;cursor:pointer;transition:opacity .2s;border:none;}
-.eab-cancel{background:var(--gray-100);color:var(--gray-700);}
-.eab-save{background:var(--blue);color:#fff;}
-.eab-cancel:hover,.eab-save:hover{opacity:.85}
-/* ─── INFO MODAL: YouTube + Depoimentos ─── */
-.info-youtube-wrap{width:100%;margin:10px 0;border-radius:10px;overflow:hidden;aspect-ratio:16/9;}
-.info-youtube-wrap iframe{width:100%;height:100%;border:none;}
-.info-test-strip{display:flex;gap:7px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:4px;padding-bottom:4px;}
-.info-test-strip::-webkit-scrollbar{display:none}
-.info-test-th{flex:0 0 72px;scroll-snap-align:start;border-radius:7px;overflow:hidden;cursor:pointer;aspect-ratio:4/5;background:var(--gray-100);position:relative;}
-.info-test-th img{width:100%;height:100%;object-fit:cover}
-.info-test-th-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.38);}
-.info-test-th-play svg{width:22px;height:22px;fill:#fff}
+/* MOBILE CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(0,18,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
+.mcta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;background:var(--wa);color:#fff;font-weight:700;font-size:.92rem}
+@media(max-width:768px){.mcta{display:block}body{padding-bottom:70px}}
+@media(max-width:600px){.filters{gap:4px}.fbtn{padding:6px 11px;font-size:.74rem}}
 </style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354344253278');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354344253278&ev=PageView&noscript=1"/></noscript>
+<!-- GA4: substituir G-XXXXXXXXXX pelo Measurement ID -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>-->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"LC Turismo","description":"Agência de turismo receptivo especializada em viajantes brasileiros na América Latina.","url":"https://lucascarvalhochile-pixel.github.io/passeios-lc/","telephone":"+5511920619246","foundingDate":"2018","areaServed":["Chile","Argentina","Colombia","Peru","Mexico","Dominican Republic"]}</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <div class="nav-logo-text">LC <span>Turismo</span></div>
+  <div class="nav-top">
+    <a href="./" class="nlogo">
+      <img src="./logo-lc.png" alt="LC Turismo" class="nlogo-img" onerror="this.style.display='none'">
+      <span class="nlogo-text">LC <b>Turismo</b></span>
+    </a>
+    <div class="nav-right">
+      <a class="ncta" href="https://wa.me/5511920619246?text=Ol%C3%A1%20LC!%20Quero%20conhecer%20os%20passeios" target="_blank" id="navWa">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        Falar com consultor
+      </a>
+    </div>
   </div>
-  <a class="nav-cta" href="https://wa.me/5511920619246?text=Ol%C3%A1%2C%20quero%20conhecer%20os%20passeios%20da%20LC%20Turismo!" target="_blank">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Falar com consultor
-  </a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">✈️ Catálogo Oficial LC Turismo</div>
-  <h1>Os melhores passeios<br>da <span>América Latina</span></h1>
-  <p>Mais de 40.000 clientes atendidos. Experiências reais, com quem opera no destino todos os dias.</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num" id="heroStatPasseios">—</div>
-      <div class="hero-stat-label">Passeios</div>
+  <div class="hero-bg active" id="heroBg0"></div>
+  <div class="hero-bg" id="heroBg1"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-badge">✈️ Operador local em 6 destinos desde 2018</div>
+    <h1 class="hero-title">A <span>América Latina</span><br>com quem conhece de verdade</h1>
+    <p class="hero-sub">Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 24h.</p>
+    <div class="hero-dest-row">
+      <span class="hero-dest-chip" onclick="selectFilter('chile')">🇨🇱 Chile</span>
+      <span class="hero-dest-chip" onclick="selectFilter('argentina')">🇦🇷 Argentina</span>
+      <span class="hero-dest-chip" onclick="selectFilter('colombia')">🇨🇴 Colômbia</span>
+      <span class="hero-dest-chip" onclick="selectFilter('peru')">🇵🇪 Peru</span>
+      <span class="hero-dest-chip" onclick="selectFilter('mexico')">🇲🇽 México</span>
+      <span class="hero-dest-chip" onclick="selectFilter('puntacana')">🇩🇴 Punta Cana</span>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">7</div>
-      <div class="hero-stat-label">Destinos</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">40K<span>+</span></div>
-      <div class="hero-stat-label">Clientes</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">6<span>+</span></div>
-      <div class="hero-stat-label">Anos</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>106</strong><span>Passeios</span></div>
+      <div class="hero-stat"><strong>4.2★</strong><span>Google · 130+ avaliações</span></div>
+      <div class="hero-stat"><strong>40K+</strong><span>Clientes atendidos</span></div>
+      <div class="hero-stat"><strong>2018</strong><span>Desde</span></div>
     </div>
   </div>
 </section>
 
-</div>
-
-<!-- FILTERS -->
-<div class="filters">
-  <div class="filters-inner" id="filterTabs">
-    <button class="filter-btn active" data-country="all" onclick="filterCountry('all',this)">
-      🌎 Todos <span class="filter-count" id="count-all">0</span>
-    </button>
-    <button class="filter-btn" data-country="Chile" onclick="filterCountry('Chile',this)">
-      <span class="flag">🇨🇱</span> Chile <span class="filter-count" id="count-Chile">0</span>
-    </button>
-    <button class="filter-btn" data-country="Argentina" onclick="filterCountry('Argentina',this)">
-      <span class="flag">🇦🇷</span> Argentina <span class="filter-count" id="count-Argentina">0</span>
-    </button>
-    <button class="filter-btn" data-country="Colômbia" onclick="filterCountry('Colômbia',this)">
-      <span class="flag">🇨🇴</span> Colômbia <span class="filter-count" id="count-Colômbia">0</span>
-    </button>
-    <button class="filter-btn" data-country="México" onclick="filterCountry('México',this)">
-      <span class="flag">🇲🇽</span> México <span class="filter-count" id="count-México">0</span>
-    </button>
-    <button class="filter-btn" data-country="Peru" onclick="filterCountry('Peru',this)">
-      <span class="flag">🇵🇪</span> Peru <span class="filter-count" id="count-Peru">0</span>
-    </button>
-    <button class="filter-btn" data-country="República Dominicana" onclick="filterCountry('República Dominicana',this)">
-      <span class="flag">🇩🇴</span> Punta Cana <span class="filter-count" id="count-República Dominicana">0</span>
-    </button>
+<!-- TOOLBAR -->
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-in">
+    <div class="search-box">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar passeio, destino ou experiência..." autocomplete="off">
+    </div>
+    <div class="filters" id="filters">
+      <button class="fbtn active" data-filter="all">Todos <span class="fcount" id="countAll">106</span></button>
+      <button class="fbtn" data-filter="chile">🇨🇱 Chile <span class="fcount">44</span></button>
+      <button class="fbtn" data-filter="argentina">🇦🇷 Argentina <span class="fcount">22</span></button>
+      <button class="fbtn" data-filter="colombia">🇨🇴 Colômbia <span class="fcount">14</span></button>
+      <button class="fbtn" data-filter="peru">🇵🇪 Peru <span class="fcount">11</span></button>
+      <button class="fbtn" data-filter="mexico">🇲🇽 México <span class="fcount">8</span></button>
+      <button class="fbtn" data-filter="puntacana">🇩🇴 Punta Cana <span class="fcount">7</span></button>
+    </div>
   </div>
 </div>
 
-<!-- SEARCH -->
-<div class="search-bar">
-  <div class="search-input-wrap">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
-    <input type="text" class="search-input" id="searchInput" placeholder="Buscar passeio..." oninput="handleSearch()">
+<!-- DESTINATION BANNER -->
+<div class="dest-banner" id="destBanner">
+  <div class="dest-banner-bg" id="destBannerBg"></div>
+  <div class="dest-banner-ov"></div>
+  <div class="dest-banner-c">
+    <div class="dest-flag" id="destFlag"></div>
+    <div class="dest-name" id="destName"></div>
+    <div class="dest-cities" id="destCities"></div>
   </div>
 </div>
 
-<!-- MAIN -->
-<main class="main" id="main">
-  <!-- rendered by JS -->
-</main>
+<!-- CATALOG -->
+<div class="catalog">
+  <div class="cat-header">
+    <p class="cat-count" id="catCount"></p>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="no-results" id="noResults">
+    <h3>Nenhum passeio encontrado</h3>
+    <p>Tente buscar com outro termo ou limpe os filtros.</p>
+  </div>
+</div>
 
-<!-- FOOTER -->
+<!-- FOOTER CTA -->
+<div class="fcta">
+  <div class="fcta-in">
+    <h2>Não sabe qual passeio escolher?</h2>
+    <p>Fale com um consultor LC e monte seu roteiro personalizado. Atendimento em português, sem compromisso.</p>
+    <a class="fcta-btn" href="https://wa.me/5511920619246?text=Ol%C3%A1%20LC!%20Quero%20ajuda%20para%20montar%20meu%20roteiro" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      Montar meu roteiro
+    </a>
+  </div>
+</div>
+
 <footer class="footer">
-  <div>
-    <strong>LC Turismo</strong> — Menos rotina. Mais roteiro.<br>
+  <div class="footer-links">
     <a href="https://wa.me/5511920619246" target="_blank">WhatsApp</a>
-    <span class="footer-divider">|</span>
-    <a href="https://instagram.com/lucascarvalhochile" target="_blank">Instagram</a>
+    <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
+    <a href="https://instagram.com/agencialcchile" target="_blank">@agencialcchile</a>
+    <a href="./admin.html">Admin</a>
   </div>
-  <div style="margin-top:12px;font-size:.75rem;opacity:.5">
-    © 2026 Lucas Carvalho Turismo. Todos os direitos reservados.
-  </div>
+  <p>&copy; 2026 LC Turismo — Todos os direitos reservados.</p>
 </footer>
 
-<!-- ADMIN BAR -->
-<div class="admin-bar" id="adminBar" style="display:none">
-  <div class="admin-bar-label">
-    <span>ADMIN</span> Modo edição ativo — suas alterações são salvas localmente
-  </div>
-  <div style="display:flex;gap:8px">
-    <button class="admin-save-btn" onclick="exportCatalog()" style="background:var(--gray-700)">📥 Exportar</button>
-    <button class="admin-save-btn" onclick="saveToStorage()">💾 Salvar</button>
-  </div>
+<div class="mcta">
+  <a href="https://wa.me/5511920619246?text=Ol%C3%A1%20LC!%20Vi%20o%20cat%C3%A1logo%20e%20quero%20saber%20mais" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+    Falar com consultor
+  </a>
 </div>
-
-<!-- EDIT MODAL (FULL) -->
-<div class="edit-modal-overlay" id="editModal">
-  <div class="edit-modal-box">
-    <div class="edit-modal-hdr">
-      <h3 id="editModalTitle">Editar passeio</h3>
-      <button class="edit-modal-x" onclick="closeModal()">✕</button>
-    </div>
-    <div class="edit-sec">📋 Informações básicas</div>
-    <div class="edit-grid">
-      <div class="ef"><label>Nome do passeio</label><input type="text" id="editName"></div>
-      <div class="ef"><label>Preço (ex: R$ 247,00)</label><input type="text" id="editPrice"></div>
-    </div>
-    <div class="edit-grid">
-      <div class="ef"><label>Duração</label><input type="text" id="editDuration" placeholder="Dia inteiro"></div>
-      <div class="ef"><label>Dias / Horários</label><input type="text" id="editSchedule" placeholder="Todos os dias"></div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>Detalhe do horário</label><input type="text" id="editScheduleDetail" placeholder="Saída: 08h00, Retorno: aprox 18h00"></div>
-    </div>
-    <div class="edit-sec">🖼️ Mídia</div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>URL da foto principal</label><input type="text" id="editImg" placeholder="https://..."></div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef">
-        <label>YouTube — link do vídeo</label>
-        <input type="text" id="editYoutubeUrl" placeholder="https://www.youtube.com/watch?v=...">
-        <div class="ef-hint">Cole o link completo. O player aparece dentro do modal do passeio.</div>
-      </div>
-    </div>
-    <div class="edit-sec">📝 Descrições</div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>Descrição curta (card)</label><textarea id="editDesc" placeholder="Breve descrição..."></textarea></div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>Descrição completa (modal)</label><textarea id="editFullDesc" style="min-height:90px" placeholder="Descrição completa..."></textarea></div>
-    </div>
-    <div class="edit-sec">✅ Detalhes operacionais</div>
-    <div class="edit-grid s1">
-      <div class="ef">
-        <label>O que está incluído (uma por linha)</label>
-        <textarea id="editIncludes" placeholder="Transfer&#10;Guia bilíngue"></textarea>
-        <div class="ef-hint">Um item por linha.</div>
-      </div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>Itinerário</label><textarea id="editItinerary" placeholder="Saída - Local A - Local B - Retorno"></textarea></div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>Local de embarque</label><input type="text" id="editPickup" placeholder="Hotel do cliente"></div>
-    </div>
-    <div class="edit-grid s1">
-      <div class="ef">
-        <label>O que levar (uma por linha)</label>
-        <textarea id="editWhatToBring" placeholder="Protetor solar&#10;Roupas leves"></textarea>
-        <div class="ef-hint">Um item por linha.</div>
-      </div>
-    </div>
-    <div class="edit-sec">🔗 Links</div>
-    <div class="edit-grid s1">
-      <div class="ef"><label>URL no site LC</label><input type="text" id="editTourUrl" placeholder="URL da página do passeio"></div>
-    </div>
-    <div class="edit-sec">⚙️ Configurações</div>
-    <div class="edit-tog">
-      <label class="toggle-switch"><input type="checkbox" id="editVisible" checked><span class="toggle-slider"></span></label>
-      <span style="font-size:.85rem;font-weight:600">Visível no catálogo</span>
-    </div>
-    <div class="edit-actions">
-      <button class="eab-cancel" onclick="closeModal()">Cancelar</button>
-      <button class="eab-save" onclick="saveEdit()">💾 Salvar alterações</button>
-    </div>
-  </div>
-</div>
-
-
-<!-- INFO MODAL -->
-<div id="infoModal">
-  <div class="info-box">
-    <img id="infoImg" class="info-img" src="" alt="">
-    <div class="info-body">
-      <div id="infoDest" class="info-dest"></div>
-      <div id="infoName" class="info-name"></div>
-      <div id="infoDesc" class="info-desc"></div>
-      <div id="infoIncludesWrap" style="display:none">
-        <div class="info-section-label">O que está incluído</div>
-        <ul id="infoIncludes" class="info-includes"></ul>
-      </div>
-      <a id="infoSiteLink" class="info-site-link" href="#" target="_blank" style="display:none">
-        Ver página completa no site
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-      <div id="infoAccordion" class="info-accordion"></div>
-      <div class="info-meta-row">
-        <div class="info-meta-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span id="infoDuration"></span>
-        </div>
-        <div id="infoScheduleWrap" class="info-meta-item" style="display:none">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span id="infoSchedule"></span>
-        </div>
-      </div>
-      <div id="infoYoutube" style="display:none" class="info-youtube-wrap">
-        <iframe id="infoYoutubeFrame" allowfullscreen allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"></iframe>
-      </div>
-      <div id="infoPriceWrap" class="info-price"></div>
-      <div id="infoTestWrap" style="display:none">
-        <div class="info-section-label" style="margin-top:12px">💬 Depoimentos — clientes reais</div>
-        <div id="infoTestList" class="info-test-strip"></div>
-      </div>
-      <div class="info-actions">
-        <button class="info-close-btn" onclick="closeInfo()">✕</button>
-        <a id="infoWaBtn" class="info-wa-btn" href="#" target="_blank">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Reservar via WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <script>
-// ═══════════════════════════════════════════════════════
-//  DATA — Catálogo LC Turismo
-// ═══════════════════════════════════════════════════════
-const CATALOG_RAW = [
-  // ─── CHILE / SANTIAGO ───
-  {country:"Chile",dest:"Santiago",name:"Valle Nevado Sunset",duration:"Meio dia",price:"R$ 287,00",img:"https://lcxturismo.b-cdn.net/tours/b9-1774541959084-4bbsq2.webp",desc:"Assista ao pôr do sol a mais de 3.000 m na Cordilheira dos Andes. Céu dourado, ar puro e paisagens que param qualquer um.",includes:["Transfer","Guia bilíngue"],schedule:"Qua e Sáb",fullDesc:"Assista ao pôr do sol em Valle Nevado, a maior estação de esqui da América do Sul. Uma experiência inesquecível nas alturas dos Andes.",itinerary:"Saída de Santiago - Subida a Vale Nevado - Parada para apreciar o pôr do sol - Retorno a Santiago",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 15h00, Retorno: aprox 19h00",whatToBring:["Casaco quente","Óculos de sol","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Andes Full Day — El Colorado",duration:"Dia inteiro",price:"R$ 247,00",img:"https://lcxturismo.b-cdn.net/tours/vista-a-el-colorado-1772152445206-fz2l52.jpg",desc:"Dia inteiro na estação de montanha El Colorado, a 2.430 m de altitude. Vistas panorâmicas dos Andes e experiência única na cordilheira.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Dia completo na cordilheira chilena visitando El Colorado, uma das estações de esqui mais populares com paisagens espetaculares dos Andes.",itinerary:"Saída matinal - Parada em El Colorado - Almoço (não incluso) - Trilhas na montanha - Retorno ao final do dia",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 08h00, Retorno: aprox 18h00",whatToBring:["Roupas quentes","Sapatos de trilha","Água","Lanche"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Andes Full Day — Valle Nevado",duration:"Dia inteiro",price:"R$ 247,00",img:"https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg",desc:"Full day na famosa estação de ski Valle Nevado com vista de tirar o fôlego dos picos andinos. Scenário de cinema em qualquer época do ano.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Experiência completa em Valle Nevado com vistas panorâmicas dos picos nevados dos Andes chilenos. Ideal para fotografia e contemplação.",itinerary:"Saída de Santiago - Transferência para Valle Nevado - Passeio pelas montanhas - Café/almoço - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 08h00, Retorno: aprox 18h00",whatToBring:["Roupa térmica","Casaco impermeável","Boné","Protetor solar forte"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Centro del Vinho Concha y Toro",duration:"Meio dia",price:"R$ 577,00",img:"https://lcxturismo.b-cdn.net/tours/tour-vinicola-concha-y-toro-chile-likechile-14-1-1772151533521-dh4p2u.jpg",desc:"Visite a vinícola mais famosa do Chile em tour exclusivo pelo centro histórico. Degustação de vinhos premiados com vista para os Andes.",includes:["Transfer","Entrada","Degustação"],schedule:"Todos os dias",fullDesc:"Visite uma das vinícolas mais prestigiosas do Chile, conhecida mundialmente. Degustação de vinhos e tour pela adega histórica.",itinerary:"Saída de Santiago - Chegada à vinícola - Tour pela adega - Degustação de vinhos - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 09h00, Retorno: aprox 13h00",whatToBring:["Roupas confortáveis","Sapatos fechados","Documento de identidade"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Concha y Toro — Tour Marqués",duration:"6 horas",price:"R$ 647,00",img:"https://lcxturismo.b-cdn.net/tours/img-20250506-wa0028-1772151299545-zttqx6.jpg",desc:"Tour exclusivo pelos vinhedos e caves que originaram o lendário Marqués de Casa Concha. Experiência premium para verdadeiros apreciadores.",includes:["Transfer","Entrada","Degustação premium"],schedule:"Todos os dias",fullDesc:"Tour exclusivo na vinícola Concha y Toro com acesso a áreas especiais da adega do Marquês, degustações premium e experiência VIP.",itinerary:"Transfer para vinícola - Tour privado das instalações - Degustação premium - Almoço opcional - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 10h00, Retorno: aprox 15h00",whatToBring:["Roupa de passeio","Sapatos confortáveis","Passaporte"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Undurraga — Manhã",duration:"Meio dia",price:"R$ 417,00",img:"https://lcxturismo.b-cdn.net/tours/1--4--1772150614538-1403zj.jpg",desc:"Manhã na Vinícola Undurraga com visita aos vinhedos históricos e caves. Aprenda sobre a vinificação chilena e prove os melhores rótulos.",includes:["Transfer","Entrada","Degustação"],schedule:"Todos os dias",fullDesc:"Experiência matinal na vinícola Undurraga, uma das mais antigas do Chile. Aprenda sobre processo de produção e deguste vinhos selecionados.",itinerary:"Saída de Santiago - Chegada à vinícola - Tour da adega - Degustação de vinhos - Retorno ao meio-dia",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 09h00, Retorno: aprox 13h00",whatToBring:["Roupas leves","Calça comprida","Sapatos fechados"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Undurraga — Tarde",duration:"Meio dia",price:"R$ 417,00",img:"https://lcxturismo.b-cdn.net/tours/UNDURRAGA-1771334235116-9cegco.webp",desc:"Tarde na Vinícola Undurraga explorando suas instalações centenárias e jardins premiados. Perfeito para apreciadores de bom vinho.",includes:["Transfer","Entrada","Degustação"],schedule:"Todos os dias",fullDesc:"Tour à tarde na vinícola Undurraga. Visite os vinhedos, aprenda sobre a história local e desfrute de degustações de vinhos de qualidade.",itinerary:"Saída no período da tarde - Tour dos vinhedos - Visita à adega - Degustação - Retorno ao final da tarde",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 14h00, Retorno: aprox 18h00",whatToBring:["Roupas leves e confortáveis","Chapéu","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Santa Rita",duration:"Meio dia",price:"R$ 417,00",img:"https://lcxturismo.b-cdn.net/tours/parque-centenario-1772110273279-xxfo8j.jpg",desc:"Explore a Vinícola Santa Rita com seu famoso museu de artes, jardins históricos e visita às caves. Cultura e gastronomia chilena no mesmo lugar.",includes:["Transfer","Entrada","Degustação"],schedule:"Qui, Sex e Sáb",fullDesc:"Visite Santa Rita, famosa por seus vinhos premiados e sua história rica. Tour completo com degustação e visita ao museu da vinícola.",itinerary:"Transfer para Santa Rita - Tour da vinícola e museu - Degustação de vinhos - Almoço - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 10h00, Retorno: aprox 16h00",whatToBring:["Roupa de passeio","Sapatos fechados","Documento de identidade"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Haras de Pirque Sunset",duration:"Meio dia",price:"R$ 997,00",img:"https://lcxturismo.b-cdn.net/tours/haras-pirque-foto-divulgacao-1-1-1772110535550-xeo3uz.jpg",desc:"Entardecer exclusivo na Vinícola Haras de Pirque com vista deslumbrante para os Andes. Sunset acompanhado de vinhos selecionados — experiência inesquecível.",includes:["Transfer","Degustação premium"],schedule:"Sáb",fullDesc:"Experiência ao atardecer na vinícola Haras de Pirque. Aprecie o pôr do sol sobre os vinhedos enquanto degusta vinhos selecionados.",itinerary:"Saída no final da tarde - Chegada à vinícola - Tour dos vinhedos ao entardecer - Degustação premium - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 16h00, Retorno: aprox 21h00",whatToBring:["Roupa elegante","Sapatos confortáveis","Passaporte"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola El Principal Sunset",duration:"Meio dia",price:"R$ 737,00",img:"https://lcxturismo.b-cdn.net/tours/el-principal-2-1772109874653-rl0tje.jpg",desc:"Pôr do sol na intimista Vinícola El Principal com ambiente elegante e vinhos boutique. O melhor final de tarde possível nos arredores de Santiago.",includes:["Transfer","Degustação"],schedule:"Seg",fullDesc:"Pôr do sol especial na vinícola El Principal. Degustação de vinhos boutique e vistas panorâmicas dos Andes ao entardecer.",itinerary:"Transfer para El Principal - Tour rápido da vinícola - Degustação ao pôr do sol - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 17h00, Retorno: aprox 20h00",whatToBring:["Roupa de passeio","Sapatos fechados","Documento"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Vinícola Concha y Toro Noturno",duration:"6 horas",price:"R$ 1.107,00",img:"https://lcxturismo.b-cdn.net/tours/1-1772111368940-wc81rh.jpg",desc:"Tour noturno na vinícola mais icônica do Chile com jantar e espetáculo de luz nas caves. A experiência definitiva do vinho chileno.",includes:["Transfer","Entrada","Jantar","Espetáculo"],schedule:"Sex e Sáb",fullDesc:"Experiência noturna exclusiva na vinícola Concha y Toro com degustação premium de vinhos e jantar especial.",itinerary:"Transfer noturno - Tour da adega iluminada - Degustação premium - Jantar opcional - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 19h00, Retorno: aprox 23h00",whatToBring:["Roupa elegante","Sapatos formais","Passaporte"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Santiago",name:"Viña del Mar e Valparaíso",duration:"Dia inteiro",price:"R$ 267,00",img:"https://lcxturismo.b-cdn.net/tours/1--2--1772112472815-i73w5m.jpg",desc:"Um dia explorando Viña del Mar — a Cidade Jardim — e Valparaíso, Patrimônio da Humanidade. Dois destinos inesquecíveis em um único passeio.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Dia completo nas cidades costeiras mais bonitas do Chile. Visite Viña del Mar, passeie pela praia e explore a artística Valparaíso.",itinerary:"Saída de Santiago - Viña del Mar (praia e passeios) - Almoço (não incluso) - Valparaíso (ruas coloridas e museus) - Retorno",pickup:"Hotel do cliente em Santiago",scheduleDetail:"Saída: 08h00, Retorno: aprox 18h00",whatToBring:["Roupa de praia","Protetor solar","Óculos de sol","Câmera"],tourUrl:null,youtubeUrl:null},
-  // ─── CHILE / ATACAMA ───
-  {country:"Chile",dest:"Atacama",name:"Valle de la Luna e Pedra do Coyote",duration:"3-4 horas",price:"R$ 387,00",img:"https://lcxturismo.b-cdn.net/tours/99-1772210862387-lx1dhj.png",desc:"Explore as formações rochosas surreais do Valle de la Luna e aviste o pôr do sol na Pedra do Coyote. Paisagem desértica que parece de outro planeta.",includes:["Transfer","Guia","Entrada"],schedule:"Qui e Dom",fullDesc:"Explore o Vale da Lua, um lugar mágico com formações rochosas avermelhadas que parecem alienígenas. Inclui parada na Pedra do Coyote para vista espetacular.",itinerary:"Saída de San Pedro de Atacama - Vale da Lua - Pedra do Coyote - Pôr do sol - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 16h00, Retorno: aprox 20h00",whatToBring:["Roupa quente para noite","Casaco","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Vale do Arco-Íris",duration:"3-4 horas",price:"R$ 277,00",img:"https://lcxturismo.b-cdn.net/tours/valle-arcoiris-2-1772211031863-zr8edo.jpg",desc:"Descubra as formações rochosas multicoloridas do Vale do Arco-Íris, resultado de minerais vulcânicos. Um espetáculo natural único do Atacama.",includes:["Transfer","Guia"],schedule:"Qui e Sáb",fullDesc:"Viaje para o Vale do Arco-Íris, uma formação geológica espetacular com cores vibrantes. Uma das atrações mais fotografadas do deserto de Atacama.",itinerary:"Saída de San Pedro - Transfer para Vale do Arco-Íris - Caminhada pela formação - Fotos - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 08h00, Retorno: aprox 14h00",whatToBring:["Chapéu","Protetor solar forte","Água","Sapatos de trilha"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Geyser del Tatio",duration:"Meio dia",price:"R$ 507,00",img:"https://lcxturismo.b-cdn.net/tours/img-4547-1-1772217041701-tqodss.jpg",desc:"Madrugada espetacular no Geyser del Tatio — o maior campo de gêiseres do hemisfério sul. Colunas de vapor ao amanhecer a 4.300 m de altitude.",includes:["Transfer","Guia","Café da manhã"],schedule:"Seg, Qua e Sex",fullDesc:"Visite o segundo maior campo geisérico do mundo. Madrugada para ver os gêiseres em atividade com vapor saindo do solo gelado.",itinerary:"Saída muito cedo - Subida para Geyser del Tatio - Observação dos gêiseres - Café quente - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 04h00, Retorno: aprox 10h00",whatToBring:["Roupa muito quente","Térmico","Luvas","Gorro","Água quente"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Lagunas Altiplânicas e Piedras Rojas",duration:"Dia inteiro",price:"R$ 827,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-altiplanica-chile-1772215678265-ol36yd.jpg",desc:"Dia completo pelas lagunas do altiplano cheias de flamingos e pelas impressionantes Piedras Rojas. Cores naturais que desafiam qualquer filtro de foto.",includes:["Transfer","Guia","Refeição"],schedule:"Todos os dias",fullDesc:"Dia completo no altiplano chileno visitando lagunas altas com flamingos cor-de-rosa e a impressionante formação Piedras Rojas.",itinerary:"Saída de San Pedro - Lagunas Altiplânicas - Piedras Rojas - Almoço no caminho - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Roupa quente","Chapéu","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Termas de Puritama",duration:"Meio dia",price:"R$ 617,00",img:"https://lcxturismo.b-cdn.net/tours/termas-puritama-san-pedro-atacama-1772218274870-ne2ulj.jpg",desc:"Relaxe nas termas naturais de Puritama — um oásis a 3.500 m no coração do Atacama. Águas quentes e cristalinas cercadas por canyon.",includes:["Transfer","Entrada"],schedule:"Todos os dias",fullDesc:"Relaxe em termas naturais quentes rodeadas pelo deserto. Piscinas de água quente em um ambiente selvagem e tranquilo.",itinerary:"Transfer para Puritama - Relaxo nas termas - Piscinas naturais - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 15h00, Retorno: aprox 19h00",whatToBring:["Traje de banho","Toalha","Chinelo","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Lagunas Escondidas de Baltinache",duration:"Meio dia",price:"R$ 467,00",img:"https://lcxturismo.b-cdn.net/tours/lagunas-escondidas-de-baltinache-1-1772218602737-iw1idc.png",desc:"Descubra as lagoas escondidas de Baltinache, com águas salinas turquesa no meio do deserto. Um segredo do Atacama que poucos conhecem.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Visite lagunas secretas com cores surreais de azul e verde. Lugar pouco conhecido e espetacular no deserto de Atacama.",itinerary:"Saída de San Pedro - Transfer para lagunas - Banho nas lagunas - Fotos - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 14h00, Retorno: aprox 19h00",whatToBring:["Traje de banho","Protetor solar","Câmera","Toalha"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Tour Astronômico",duration:"3-4 horas",price:"R$ 277,00",img:"https://lcxturismo.b-cdn.net/tours/tour-astronomic-1-1772211867689-c26gb5.jpg",desc:"O Atacama tem o céu mais límpido do mundo — ideal para observar estrelas, planetas e galáxias a olho nu. Guia astrônomo e telescópios profissionais incluídos.",includes:["Guia astrônomo","Telescópios"],schedule:"Noturno",fullDesc:"Observação das estrelas no deserto mais claro do mundo. Astronomia guiada com telescópios em local com zero poluição luminosa.",itinerary:"Saída no período noturno - Traslado para local de observação - Sessão astronomia guiada - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 21h00, Retorno: aprox 01h00",whatToBring:["Roupa quente","Casaco","Gorro","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Tour de Balão",duration:"1-2 horas",price:"R$ 3.127,00",img:"https://lcxturismo.b-cdn.net/tours/balloon-flight-in-the-atacama-desert-tour-109-1772211547329-7sty4s.jpg",desc:"Sobrevoe o deserto do Atacama em balão de ar quente ao amanhecer. Uma perspectiva impossível de ter de outra forma — pura magia.",includes:["Transfer","Voo de balão","Café da manhã"],schedule:"Sáb",fullDesc:"Voe de balão sobre o deserto de Atacama ao amanhecer. Vista espetacular do Vale da Lua e deserto a partir do ar.",itinerary:"Saída muito cedo - Preparação do balão - Voo de 45-60 minutos - Almoço champanhe - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 05h00, Retorno: aprox 10h00",whatToBring:["Roupa confortável","Sapatos fechados","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Vulcão Cerro Toco",duration:"Dia inteiro",price:"R$ 747,00",img:"https://lcxturismo.b-cdn.net/tours/cerrotoc-1-1772210461268-9crzvo.jpg",desc:"Escale o Vulcão Cerro Toco a 5.604 m de altitude com vista 360° do altiplano. Uma aventura para quem quer levar o Atacama ao extremo.",includes:["Transfer","Guia especializado","Refeição"],schedule:"Seg e Qua",fullDesc:"Suba o vulcão ativo Cerro Toco a 5.604 metros de altitude. Vistas panorâmicas do altiplano e possibilidade de ver a Bolívia.",itinerary:"Saída cedo - Subida guiada do vulcão - Almoço no topo - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 06h00, Retorno: aprox 14h00",whatToBring:["Roupa quente","Botas de trekking","Mochila com água","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Vulcão Lascar",duration:"Dia inteiro",price:"R$ 1.257,00",img:"https://lcxturismo.b-cdn.net/tours/lascar-atacama-e1523458462125-1772210272868-yfhvyu.jpg",desc:"Suba o Vulcão Lascar — um dos mais ativos do Chile — a mais de 5.500 m. Aventura extrema com paisagens vulcânicas que não existem em nenhum outro lugar.",includes:["Transfer","Guia especializado","Refeição"],schedule:"A combinar",fullDesc:"Ascensão ao vulcão ativo Lascar em Atacama. Experiência vulcanológica única com vista do interior do vulcão.",itinerary:"Saída cedo de San Pedro - Subida guiada do vulcão - Observação do interior do vulcão - Almoço no topo - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 05h00, Retorno: aprox 14h00",whatToBring:["Botas de montanhismo","Roupa quente","Protetor solar forte","Mochila com água"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Sandboard",duration:"3-4 horas",price:"R$ 447,00",img:"https://lcxturismo.b-cdn.net/tours/5df6e6eda5818-639743-1772212656732-950dem.webp",desc:"Desça dunas de areia em sandboard no deserto mais árido do mundo. Adrenalina e diversão garantidas em cenário único.",includes:["Transfer","Guia","Equipamento"],schedule:"Todos os dias",fullDesc:"Pratique sandboard nas dunas do deserto de Atacama. Diversão e aventura deslizando pelas areias douradas.",itinerary:"Saída de San Pedro - Transfer para dunas - Aula de sandboard - Prática livre - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 15h00, Retorno: aprox 19h00",whatToBring:["Protetor solar forte","Óculos de sol","Água","Sapatos fechados"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Ruta de los Salares",duration:"Dia inteiro",price:"R$ 447,00",img:"https://lcxturismo.b-cdn.net/tours/110-1-1-1772213172777-x42gqi.jpg",desc:"Jornada pelos salares e lagoas do altiplano atacamenho em cenário de tirar o fôlego. Um dos roteiros mais completos do Atacama.",includes:["Transfer","Guia","Refeição"],schedule:"Ter",fullDesc:"Rota pelo deserto passando por salares, lagunas e formações geológicas únicas. Experiência completa de Atacama em um dia.",itinerary:"Saída cedo - Salares do deserto - Lagunas e lagoas - Paradas fotográficas - Retorno ao final do dia",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 08h00, Retorno: aprox 18h00",whatToBring:["Roupa quente","Protetor solar","Água abundante","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Atacama",name:"Lagunas Cejar, Tebenquiche e Ojos del Salar",duration:"Meio dia",price:"R$ 497,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-cejar-7-1772213572971-ddornz.jpg",desc:"Banhe-se nas lagoas hipersalinas de Cejar e Tebenquiche — você flutua como no Mar Morto. Experiência única no meio do deserto.",includes:["Transfer","Guia","Entrada"],schedule:"Qua e Sáb",fullDesc:"Visite três lagunas especiais: Cejar (onde você flutua), Tebenquiche e Ojos del Salar. Banhos e pôr do sol espetacular.",itinerary:"Saída de San Pedro - Laguna Cejar (flutuação) - Tebenquiche - Ojos del Salar - Pôr do sol - Retorno",pickup:"Hotel em San Pedro de Atacama",scheduleDetail:"Saída: 16h00, Retorno: aprox 20h00",whatToBring:["Traje de banho","Toalha","Chinelo","Protetor solar","Câmera à prova d'água"],tourUrl:null,youtubeUrl:null},
-  // ─── CHILE / TORRES DEL PAINE ───
-  {country:"Chile",dest:"Torres del Paine",name:"Trekking Base Torres del Paine",duration:"Dia inteiro",price:"R$ 927,00",img:"https://lcxturismo.b-cdn.net/tours/valle-trekking-base-torres-1773231589488-8anq6o.jpg",desc:"Trilha até a base das torres mais famosas da Patagônia — visual que aparece em todos os guias de viagem. Trekking inesquecível em um dos parques mais bonitos do mundo.",includes:["Transfer","Guia especializado","Entrada parque"],schedule:"Todos os dias",fullDesc:"Trekking até a base das Torres, as montanhas icônicas de Torres del Paine. Vistas espetaculares e experiência de trekking de qualidade.",itinerary:"Saída de Puerto Natales - Traslado ao parque - Trekking até base das torres - Retorno",pickup:"Hotel em Puerto Natales",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Botas de trekking","Mochila com água","Protetor solar","Capa de chuva"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Torres del Paine",name:"Torres del Paine + Glaciar Grey",duration:"Dia inteiro",price:"R$ 1.247,00",img:"https://lcxturismo.b-cdn.net/tours/heronavegacion2-1-1773231193482-wpirls.jpg",desc:"Dia completo no Parque Torres del Paine com navegação até o Glaciar Grey. Montanhas, lagos e gelo em um único roteiro.",includes:["Transfer","Guia","Navegação","Entrada parque"],schedule:"Todos os dias",fullDesc:"Combine trekking até torres icônicas com navegação no Glaciar Grey. Experiência completa de Torres del Paine em um dia.",itinerary:"Saída cedo - Trekking torres - Pausa para almoço - Navegação Glaciar Grey - Retorno",pickup:"Hotel em Puerto Natales",scheduleDetail:"Saída: 07h00, Retorno: aprox 18h00",whatToBring:["Botas impermeáveis","Roupa térmica","Jaqueta à prova d'água","Câmera à prova d'água"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Torres del Paine",name:"Glaciares Balmaceda e Serrano",duration:"Dia inteiro",price:"R$ 1.637,00",img:"https://lcxturismo.b-cdn.net/tours/17490729776840bc512b4fd-glaciar-serrano-laguna-tempanos-1773231810678-3lk1bw.jpg",desc:"Navegação pelos canais patagônicos para ver de perto os imponentes glaciares Balmaceda e Serrano. Paredes de gelo azul de até 50 m de altura.",includes:["Transfer","Guia","Navegação"],schedule:"Todos os dias",fullDesc:"Navegação pelos glaciares Balmaceda e Serrano. Vistas de gelo azul e montanhas nevadas em navegação intensa.",itinerary:"Saída de Puerto Natales - Navegação Balmaceda - Navegação Serrano - Pausa para fotos - Retorno",pickup:"Hotel em Puerto Natales",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Roupa impermeável","Casaco quente","Gorro","Câmera à prova d'água"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Torres del Paine",name:"Amanhecer Torres del Paine VIP",duration:"Dia inteiro",price:"R$ 1.157,00",img:"https://lcxturismo.b-cdn.net/tours/2d4f5b-549aa65fa7114acb8aa629e6b5075072-mv2-2-1773231944280-jnjf97.jpg",desc:"Madrugada na Torres del Paine para ver as torres pintadas de laranja pelo sol nascente. O amanhecer mais fotogênico do Chile — experiência VIP completa.",includes:["Transfer","Guia VIP","Refeição","Entrada parque"],schedule:"Todos os dias",fullDesc:"Veja o amanhecer sobre as Torres do Paine em experiência VIP exclusiva com pequenos grupos e observação premium.",itinerary:"Saída muito cedo - Posicionamento para amanhecer - Observação das torres ao amanhecer - Café - Retorno",pickup:"Hotel em Puerto Natales",scheduleDetail:"Saída: 04h00, Retorno: aprox 09h00",whatToBring:["Roupa quente para madrugada","Tripé para câmera","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Chile",dest:"Torres del Paine",name:"Tour e Avistamento de Fauna",duration:"A combinar",price:"R$ 2.327,00",img:"https://lcxturismo.b-cdn.net/tours/puma-in-torres-del-paine-webp-1773231449424-ehi90x.webp",desc:"Observe guanacos, ñandús, condores e até pumas no coração da Patagônia. Ecoturismo de alta qualidade com guia naturalista.",includes:["Transfer","Guia naturalista","Entrada parque"],schedule:"Todos os dias",fullDesc:"Tour em Torres del Paine com foco em avistamento de fauna. Guanaco, pumas, condores e outros animais selvagens da Patagônia.",itinerary:"Saída de Puerto Natales - Passeio pelo parque - Avistamento de fauna - Paradas fotográficas - Retorno",pickup:"Hotel em Puerto Natales",scheduleDetail:"Saída: 08h00, Retorno: aprox 18h00",whatToBring:["Binóculos","Câmera com zoom","Protetor solar","Capa de chuva"],tourUrl:null,youtubeUrl:null},
-  // ─── ARGENTINA / BUENOS AIRES ───
-  {country:"Argentina",dest:"Buenos Aires",name:"Tigre e Delta Premium",duration:"6 horas",price:"R$ 487,00",img:"https://lcxturismo.b-cdn.net/tours/img-1329-2-1772457200381-rfnule.jpg",desc:"Navegação premium pelo Delta do Tigre com parada em lodge 5 estrelas e almoço à beira do rio. O Tigre como você nunca viu.",includes:["Transfer","Navegação","Almoço premium"],schedule:"Todos os dias",fullDesc:"Navegação premium pelas águas do Delta do Tigre. Passeio de barco privado por canais e ilhas com almoço de lujo.",itinerary:"Saída de Buenos Aires - Transfer a Tigre - Navegação privada - Almoço gourmet - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 09h00, Retorno: aprox 15h00",whatToBring:["Roupa de passeio","Sapatos confortáveis","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Tigre e Delta Clássico",duration:"Dia inteiro",price:"R$ 257,00",img:"https://lcxturismo.b-cdn.net/tours/img-1329-2-1772457507370-islr8a.jpg",desc:"Passeio clássico pelo Delta do Tigre explorando canais, casas flutuantes e a natureza fluvial porteña. Refúgio verde a 30 km de Buenos Aires.",includes:["Transfer","Navegação"],schedule:"Todos os dias",fullDesc:"Passeio clássico pelo Delta do Tigre. Navegação em barco, paradas em ilhas, observação da natureza local.",itinerary:"Traslado a Tigre - Barco pelo delta - Paradas em ilhas - Café/almoço leve - Retorno a Buenos Aires",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 10h00, Retorno: aprox 14h00",whatToBring:["Roupa leve","Óculos de sol","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Tango Porteño VIP",duration:"3-4 horas",price:"R$ 707,00",img:"https://lcxturismo.b-cdn.net/tours/buenos-aires-porteno-tango-show-with-optional-dinner-1225922-1772459539464-wggy2m.png",desc:"Noite de tango de luxo em Buenos Aires com jantar gourmet e show VIP. A experiência mais autêntica e emocionante do tango argentino.",includes:["Transfer","Entrada premium","Jantar gourmet"],schedule:"Todos os dias",fullDesc:"Show de tango VIP em teatro histórico com a melhor apresentação e jantar premium com menu degustação.",itinerary:"Busca no hotel - Jantar de 4 pratos - Show de tango ao vivo - Retorno ao hotel",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 19h30, Retorno: aprox 23h30",whatToBring:["Roupa elegante","Sapatos formais","Documento de identidade"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Tango Porteño Plateia",duration:"3-4 horas",price:"R$ 487,00",img:"https://lcxturismo.b-cdn.net/tours/buenos-aires-porteno-tango-show-with-optional-dinner-1225922-1772458996249-23vf8e.png",desc:"Espetáculo completo de tango tradicional com entrada plateia e jantar incluídos. Imersão total na cultura porteña.",includes:["Transfer","Entrada","Jantar"],schedule:"Todos os dias",fullDesc:"Show de tango em teatro tradicional portenho com plateia confortável. Experiência autêntica de Buenos Aires.",itinerary:"Transfer para teatro - Show de tango 1 hora - Drinks - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 21h00, Retorno: aprox 23h30",whatToBring:["Roupa de passeio","Sapatos confortáveis"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Tour de Estádios",duration:"3-4 horas",price:"R$ 607,00",img:"https://lcxturismo.b-cdn.net/tours/139045183-buenos-aires-argentina-18-de-julho-de-2017-o-bombonera-estadio-do-boca-juniors-1772457053445-acgwip.jpg",desc:"Visite os estádios mais emblemáticos de Buenos Aires — La Bombonera do Boca Juniors e El Monumental do River Plate. Obrigatório para fãs de futebol.",includes:["Transfer","Guia","Ingresso"],schedule:"Todos os dias",fullDesc:"Visite os estádios de futebol mais famosos de Buenos Aires: Boca Juniors e River Plate. Tour com guide especializado.",itinerary:"Saída de Buenos Aires - Estádio Boca - Museo - Estádio River - Café - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 10h00, Retorno: aprox 15h00",whatToBring:["Roupa de passeio","Sapatos confortáveis","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Viñedo Gamboa — Full Day",duration:"Dia inteiro",price:"R$ 1.107,00",img:"https://lcxturismo.b-cdn.net/tours/fotos-vinedo-verano-1772456876808-s08w9i.jpg",desc:"Dia completo no Viñedo Gamboa em San Isidro com almoço campestre e degustação guiada. Gastronomia e vinho argentino a 20 km de Buenos Aires.",includes:["Transfer","Entrada","Degustação","Almoço"],schedule:"Todos os dias",fullDesc:"Dia completo em vinícola Gamboa na província de Buenos Aires. Tour, degustação e almoço gourmet na adega.",itinerary:"Traslado para vinícola - Tour da propriedade - Degustação de vinhos - Almoço com pareamento - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 09h00, Retorno: aprox 18h00",whatToBring:["Roupa de passeio","Sapatos fechados","Documento"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Entardecer Rio de La Plata",duration:"3-4 horas",price:"R$ 387,00",img:"https://lcxturismo.b-cdn.net/tours/entardecer-rio-de-la-plata-1-1772471991531-oy641h.jpg",desc:"Navegação ao entardecer nas águas do Rio de La Prata com drinks e cenário de cinema. Romantismo puro em Buenos Aires.",includes:["Transfer","Navegação","Bebidas"],schedule:"Todos os dias",fullDesc:"Passeio ao atardecer pelo Rio da Prata. Vistas de Buenos Aires ao anoitecer do rio.",itinerary:"Busca no hotel - Transfer ao porto - Navegação pelo rio - Drinks e pôr do sol - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 17h00, Retorno: aprox 20h00",whatToBring:["Roupa de passeio","Casaco leve","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Colônia Wine Experience",duration:"Dia inteiro",price:"R$ 1.047,00",img:"https://lcxturismo.b-cdn.net/tours/wine-tour-colonia-1-1772472439336-6rgag5.jpeg",desc:"Travessia para Colônia del Sacramento com experiência vinícola à beira do Rio da Prata. História colonial uruguaia + bons vinhos.",includes:["Transfer","Travessia","Degustação"],schedule:"Todos os dias",fullDesc:"Experiência de vinhos em Colonia del Sacramento com vinícolas selecionadas e degustação premium.",itinerary:"Ferry a Colonia - Vinícolas selecionadas - Degustação premium - Almoço - Passeio pela cidade - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 09h00, Retorno: aprox 18h00",whatToBring:["Roupa confortável","Sapatos fechados","Passaporte"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Colônia Imperdível — City Tour",duration:"Dia inteiro",price:"R$ 657,00",img:"https://lcxturismo.b-cdn.net/tours/o-que-fazer-em-colonia-del-sacramento-bastion-de-san-pedro-1772472787551-unkmix.png",desc:"City tour completo pela histórica Colônia del Sacramento, Patrimônio da Humanidade pela UNESCO. Ruelas de pedra, faróis e arquitetura colonial única.",includes:["Transfer","Travessia","Guia"],schedule:"Todos os dias",fullDesc:"Tour completo de Colonia del Sacramento. Ruas coloniais, museus, fortalezas e paisagem histórica.",itinerary:"Ferry a Colonia - City tour guiado - Museus e fortalezas - Almoço - Passeio livre - Retorno por ferry",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 09h00, Retorno: aprox 17h00",whatToBring:["Roupa confortável","Sapatos de caminhada","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Madero Tango VIP",duration:"3-4 horas",price:"R$ 527,00",img:"https://lcxturismo.b-cdn.net/tours/madero-tango-1772460154376-icn0kw.jpeg",desc:"Tango sofisticado no Puerto Madero com jantar gourmet e show de classe mundial. Elegância porteña no bairro mais moderno de Buenos Aires.",includes:["Transfer","Entrada VIP","Jantar gourmet"],schedule:"Todos os dias",fullDesc:"Experiência VIP de tango em restaurante Madero junto ao rio. Show exclusivo com jantar premium.",itinerary:"Busca no hotel - Jantar gourmet - Show de tango privado - Drinks - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 20h00, Retorno: aprox 23h30",whatToBring:["Roupa elegante","Sapatos formais","Documento"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Buenos Aires",name:"Señor Tango Executivo",duration:"6 horas",price:"R$ 707,00",img:"https://lcxturismo.b-cdn.net/tours/caption--1--1772459284375-es7wzh.jpg",desc:"O maior show de tango do mundo com ceia executiva refinada. Espetáculo que recebeu mais de 2 milhões de visitantes — lendário.",includes:["Transfer","Entrada","Ceia executiva"],schedule:"Qua a Dom",fullDesc:"Show de tango executivo em Señor Tango. Almoço e show em horário de executivos com ambiente corporativo.",itinerary:"Transfer ao teatro - Almoço de 3 pratos - Show de tango - Retorno",pickup:"Hotel em Buenos Aires",scheduleDetail:"Saída: 12h00, Retorno: aprox 15h00",whatToBring:["Roupa de trabalho","Sapatos fechados"],tourUrl:null,youtubeUrl:null},
-  // ─── ARGENTINA / BARILOCHE ───
-  {country:"Argentina",dest:"Bariloche",name:"San Martin de Los Andes",duration:"Dia inteiro",price:"R$ 397,00",img:"https://lcxturismo.b-cdn.net/tours/centro-nevado-san-martin-de-los-andes-1772477179945-ewwxa1.jpg",desc:"Excursão a San Martín de Los Andes pela deslumbrante Ruta de los Siete Lagos. Paisagens lacustres e florestais da Patagônia andina.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Viagem ao lago Andes em Bariloche. Cidade de montanha com paisagens de cartão postal.",itinerary:"Saída de Bariloche - Transfer para San Martin - Passeio pela cidade - Almoço - Passeios opcionais - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Roupa quente","Sapatos de trekking","Câmera","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Snowmobile Cerro Catedral",duration:"3-4 horas",price:"R$ 1.707,00",img:"https://lcxturismo.b-cdn.net/tours/1679660397foto-03-1772475989603-uzr7f9.jpg",desc:"Aventura de motoneve nas encostas do Cerro Catedral — maior estação de ski da América do Sul. Adrenalina e neve patagônica.",includes:["Transfer","Motoneve","Guia","Equipamento"],schedule:"Jun a Set",fullDesc:"Passeio de snowmobile na montanha Cerro Catedral. Adrenalina e paisagens cobertas de neve.",itinerary:"Saída de Bariloche - Transfer a Cerro Catedral - Aula de snowmobile - Passeio guiado - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 09h00, Retorno: aprox 13h00",whatToBring:["Roupa muito quente","Térmico","Luvas","Gorro","Óculos de sol"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Snowcat Perito Moreno",duration:"Dia inteiro",price:"R$ 1.997,00",img:"https://lcxturismo.b-cdn.net/tours/105664925-112187017207193-6728702699582132702-n-1772476528881-3ugge7.jpg",desc:"Acesso exclusivo ao Glaciar Perito Moreno em snowcat — chega onde o trekking não consegue. Vista frontal de uma das maiores maravilhas naturais do mundo.",includes:["Transfer","Snowcat","Guia"],schedule:"Jun a Set",fullDesc:"Passeio em snowcat (gato de neve motorizado) com vistas do Glaciar Perito Moreno. Adrenalina e segurança.",itinerary:"Saída de Bariloche - Transfer a Perito Moreno - Passeio em snowcat - Vistas do glaciar - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 08h00, Retorno: aprox 14h00",whatToBring:["Roupa térmica","Botas de neve","Gorro","Luvas","Óculos"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Puerto Blest y Cascata Los Cantaros",duration:"Dia inteiro",price:"R$ 1.877,00",img:"https://lcxturismo.b-cdn.net/tours/puerto-blest-1772480675737-j461h0.jpg",desc:"Navegação pelos lagos de Bariloche até Puerto Blest e trilha até a cascata Los Cantaros. Natureza em estado puro na Patagônia argentina.",includes:["Transfer","Navegação","Guia"],schedule:"Todos os dias",fullDesc:"Navegação por lago pristino até Puerto Blest e trilha a cachoeira Los Cantaros. Natureza selvagem.",itinerary:"Saída de Bariloche - Navegação pelo lago - Puerto Blest - Trilha a cachoeira - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 09h00, Retorno: aprox 16h00",whatToBring:["Botas de trekking","Mochila com água","Capa de chuva","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Refugio Arelauquen",duration:"3-4 horas",price:"R$ 2.997,00",img:"https://lcxturismo.b-cdn.net/tours/vistas-de-el-refugio-1772480199792-vf1742.jpg",desc:"Trekking até o luxuoso Refúgio Arelauquen com almoço e vista panorâmica dos lagos e montanhas. Experiência premium de cordilheira.",includes:["Transfer","Guia","Almoço"],schedule:"Todos os dias",fullDesc:"Trekking a refugio de montanha com vistas panorâmicas. Almoço em refugio com vista privilegiada.",itinerary:"Saída de Bariloche - Trekking ao refugio - Almoço no topo - Retorno a pé",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 08h00, Retorno: aprox 16h00",whatToBring:["Botas de trekking","Mochila com água","Lanche","Protetor solar","Capa de chuva"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Roca Negra",duration:"6 horas",price:"R$ 1.287,00",img:"https://lcxturismo.b-cdn.net/tours/roca-negra-2-1772477540941-9gvaql.jpg",desc:"Trilha moderada até Roca Negra com vistas espetaculares do Lago Nahuel Huapi e dos picos patagônicos. Trekking clássico de Bariloche.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking a Roca Negra com formações rochosas espetaculares e vistas do lago.",itinerary:"Saída de Bariloche - Transfer ao início da trilha - Trekking 2-3 horas - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 09h00, Retorno: aprox 15h00",whatToBring:["Botas impermeáveis","Mochila com água","Protetor solar","Casaco impermeável"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Ski Nórdico + Snowmobile",duration:"Dia inteiro",price:"R$ 1.307,00",img:"https://lcxturismo.b-cdn.net/tours/download-1772476880337-az83hz.webp",desc:"Combinação de esqui nórdico e motoneve em plena neve patagônica — duas experiências em um único dia. Para quem quer aproveitar o inverno ao máximo.",includes:["Transfer","Equipamento completo","Guia"],schedule:"Jun a Set",fullDesc:"Combinação de ski nórdico clássico com passeio em snowmobile. Dupla diversão no inverno.",itinerary:"Saída de Bariloche - Aula de ski nórdico - Passeio esquiado - Pausa - Snowmobile - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 08h00, Retorno: aprox 14h00",whatToBring:["Roupa térmica","Botas especializadas","Luvas","Gorro","Óculos de sol"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Bariloche",name:"Piedras Blancas",duration:"Dia inteiro",price:"R$ 797,00",img:"https://lcxturismo.b-cdn.net/tours/piedrasblancastrineos-culipatin-image6-1140-1603459104-1772486591112-4brg4r.jpg",desc:"Trekking até o Mirador Piedras Blancas com vista direta do Glaciar Castillo. Patagônia selvagem e fotografia de paisagem excepcional.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking leve a formação de pedras brancas. Vistas panorâmicas fáceis de acessar.",itinerary:"Saída de Bariloche - Transfer ao início da trilha - Trekking suave - Pausa fotográfica - Retorno",pickup:"Hotel em Bariloche",scheduleDetail:"Saída: 10h00, Retorno: aprox 14h00",whatToBring:["Sapatos de caminhada","Mochila com água","Protetor solar","Casaco leve"],tourUrl:null,youtubeUrl:null},
-  // ─── ARGENTINA / USHUAIA ───
-  {country:"Argentina",dest:"Ushuaia",name:"Trem do Fim do Mundo — Classe Turística",duration:"1-2 horas",price:"R$ 507,00",img:"https://lcxturismo.b-cdn.net/tours/f69788ccb2cd78b69af7f8daee4ad116-1772562514522-0jta44.jpg",desc:"Jornada no trem histórico pelo Parque Nacional Tierra del Fuego até o final do mundo. Ícone absoluto de Ushuaia — experiência que não pode faltar.",includes:["Passagem trem","Guia"],schedule:"Todos os dias",fullDesc:"Passeio no famoso trem histórico que vai até o final do mundo. Classe turística com conforto e vistas.",itinerary:"Busca no hotel - Embarque no trem - Passeio 1 hora de trem - Visitantes centro turístico - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 09h00, Retorno: aprox 12h00",whatToBring:["Roupa para frio","Câmera","Documento de identidade"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trem do Fim do Mundo — Classe Premium",duration:"1-2 horas",price:"R$ 1.407,00",img:"https://lcxturismo.b-cdn.net/tours/2-5-1772563442805-zv4s5l.jpg",desc:"A mesma viagem histórica até o fim do mundo em vagão premium com serviço de bordo exclusivo. Luxo e Patagônia no mesmo pacote.",includes:["Passagem premium","Guia","Serviço de bordo"],schedule:"Todos os dias",fullDesc:"Passeio premium no trem do fim do mundo com primeira classe, bar e serviço diferenciado.",itinerary:"Transfer ao trem - Embarque 1ª classe - Passeio de trem - Bar/café - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 10h00, Retorno: aprox 13h00",whatToBring:["Roupa elegante para frio","Documento","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trekking Ojo de Albino",duration:"Dia inteiro",price:"R$ 1.837,00",img:"https://lcxturismo.b-cdn.net/tours/ojo-del-albino-2-1-1-1772563616647-ic8z95.jpg",desc:"Trilha até o espetacular mirante Ojo de Albino com vista panorâmica da Baía Beagle e dos Andes fueguinos. Trekking de alto impacto visual.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking moderado a mirante Ojo de Albino. Vistas da baía de Ushuaia e Parque Nacional.",itinerary:"Saída de Ushuaia - Transfer ao início da trilha - Trekking 2-3 horas - Pausa no mirante - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 09h00, Retorno: aprox 15h00",whatToBring:["Botas de trekking","Mochila com água","Protetor solar","Casaco impermeável"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trekking Laguna Turquesa",duration:"Meio dia",price:"R$ 1.357,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-turquesa-06-1772564129734-y8miwa.jpg",desc:"Caminhada até a Laguna Turquesa — uma das joias escondidas de Ushuaia. Águas cristalinas cor de esmeralda cercadas por montanhas nevadas.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking a laguna de água cristalina azul-turquesa no Parque Nacional. Paisagem de conto de fadas.",itinerary:"Saída de Ushuaia - Transfer ao parque - Trekking a laguna - Banho opcional - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 08h00, Retorno: aprox 16h00",whatToBring:["Botas impermeáveis","Traje de banho opcional","Toalha","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trekking Laguna Esmeralda Sunset",duration:"Meio dia",price:"R$ 1.377,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-esmeralda-sunset-6-1772564464190-ldsqs4.jpg",desc:"Trekking ao pôr do sol até a Laguna Esmeralda com luz dourada sobre as montanhas nevadas. A versão mais fotogênica de um dos melhores passeios de Ushuaia.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking ao pôr do sol para laguna Esmeralda. Vista magnífica do entardecer refletido na água.",itinerary:"Saída no final da tarde - Transfer ao parque - Trekking ao laguna - Pôr do sol - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 16h00, Retorno: aprox 21h00",whatToBring:["Botas de trekking","Roupa quente para noite","Câmera","Tripé"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trekking Laguna Esmeralda Express",duration:"Dia inteiro",price:"R$ 1.297,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-esmeralda-express-20-1772570911662-xmrdhr.jpg",desc:"Versão compacta do clássico trekking à Laguna Esmeralda — ideal para quem tem pouco tempo em Ushuaia. Lagoa esmeralda, neve e Patagônia em um dia.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking rápido a Laguna Esmeralda. Versão mais curta e acessível da trilha.",itinerary:"Saída de Ushuaia - Transfer ao início - Trekking 1,5 horas - Pausa - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 09h00, Retorno: aprox 13h00",whatToBring:["Sapatos de caminhada","Mochila com água","Protetor solar","Casaco leve"],tourUrl:null,youtubeUrl:null},
-  {country:"Argentina",dest:"Ushuaia",name:"Trekking Laguna Esmeralda Confort",duration:"Dia inteiro",price:"R$ 1.167,00",img:"https://lcxturismo.b-cdn.net/tours/laguna-confort-19-1772571555917-b0sqg4.jpg",desc:"Versão confortável do trekking à Laguna Esmeralda com ritmo relaxado e paradas para contemplar a paisagem. Perfeito para todos os perfis.",includes:["Transfer","Guia"],schedule:"Todos os dias",fullDesc:"Trekking confortável a Laguna Esmeralda com paradas e ritmo tranquilo. Focado em contemplação.",itinerary:"Saída de Ushuaia - Trekking tranquilo - Múltiplas paradas - Piquenique - Retorno",pickup:"Hotel em Ushuaia",scheduleDetail:"Saída: 10h00, Retorno: aprox 16h00",whatToBring:["Sapatos confortáveis","Mochila com água e lanche","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  // ─── COLÔMBIA / CARTAGENA ───
-  {country:"Colômbia",dest:"Cartagena",name:"Top 3 Ilhas",duration:"Dia inteiro",price:"R$ 1.007,00",img:"https://lcxturismo.b-cdn.net/tours/53-1-1772718491333-2ovamj.jpg",desc:"Passeio pelas três ilhas mais bonitas do Caribe colombiano em um único dia. Areia branca, água cristalina, snorkel e muito sol.",includes:["Transfer","Navegação","Refeição","Snorkel"],schedule:"Todos os dias",fullDesc:"Passeio pelos três melhores destinos de ilhas de Cartagena. Praias de areia branca e água cristalina.",itinerary:"Saída do porto - Barco para 3 ilhas - Paradas para banho - Almoço - Retorno a Cartagena",pickup:"Porto de Cartagena",scheduleDetail:"Saída: 08h00, Retorno: aprox 16h00",whatToBring:["Traje de banho","Toalha","Protetor solar forte","Câmera à prova d'água"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Pao Pao Beach Club",duration:"Dia inteiro",price:"R$ 917,00",img:"https://lcxturismo.b-cdn.net/tours/escape-to-pao-pao-beach-in-rosario-islands---juan-ballena-1-1-1772720790761-ocg5jw.jpg",desc:"Dia exclusivo no Pao Pao Beach Club nas Ilhas do Rosário. Um dos beach clubs mais badalados da Colômbia — serviço de resort direto no Caribe.",includes:["Transfer","Navegação","Entrada club"],schedule:"Todos os dias",fullDesc:"Dia de praia em beach club exclusivo com todas as comodidades. Entrada às melhores ilhas.",itinerary:"Transfer ao beach club - Dia inteiro de praia - Almoço incluído - Drinks e relaxo - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 09h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Toalha","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Rosário Beach em Isla Grande",duration:"Dia inteiro",price:"R$ 717,00",img:"https://lcxturismo.b-cdn.net/tours/399173420-1772720361149-tot2sh.jpg",desc:"Praia paradisíaca em Isla Grande com mar caribenho turquesa e areia fina. O visual mais clássico e bonito de Cartagena.",includes:["Transfer","Navegação"],schedule:"Todos os dias",fullDesc:"Praia paradisíaca em Isla Grande. Águas cristalinas e areia branca em ambiente tranquilo.",itinerary:"Transfer e barco - Isla Grande - Praia de Rosário - Banho e relaxo - Almoço leve - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Protetor solar forte","Água","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Volcán del Totumo",duration:"Dia inteiro",price:"R$ 317,00",img:"https://lcxturismo.b-cdn.net/tours/volcan-del-totumo-1-1772718149748-08k6m1.jpg",desc:"Mergulho em lama terapêutica quente no vulcão mais original do mundo. Experiência de bem-estar única que só existe na Colômbia.",includes:["Transfer","Entrada","Massagem"],schedule:"Todos os dias",fullDesc:"Banho único em lagoa de lama quente vulcânica. Experiência inusitada e terapêutica de Cartagena.",itinerary:"Transfer para vulcão - Banho de lama - Enxague em água doce - Café - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 08h00, Retorno: aprox 13h00",whatToBring:["Traje de banho","Toalha","Chinelo","Protetor labial"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Sunset em Alto Mar — Yate Carrouzel",duration:"Meio dia",price:"R$ 317,00",img:"https://lcxturismo.b-cdn.net/tours/imagem-do-whatsapp-de-2025-10-17-as-14-36-10-1909a439-1772718788699-spfgsj.jpg",desc:"Pôr do sol caribenho a bordo do Yate Carrouzel em alto mar. Drinks, brisa marinha e o visual mais bonito de Cartagena.",includes:["Navegação","Bebidas"],schedule:"Todos os dias",fullDesc:"Navegação ao pôr do sol em iate luxuoso. Bebidas e música ao entardecer.",itinerary:"Busca no hotel - Embarque no iate - Navegação ao pôr do sol - Drinks e música - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 17h00, Retorno: aprox 20h00",whatToBring:["Roupa elegante de passeio","Sapatos","Câmera","Documento"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Palmarito Beach — Tierra Bomba",duration:"Meio dia",price:"R$ 457,00",img:"https://lcxturismo.b-cdn.net/tours/namaster-beach-club-tierra-bomba-header-1772730907898-wga0ns.jpg",desc:"Praia tranquila em Isla Tierra Bomba com atmosfera relaxada e serviço de qualidade. Escape do agito de Cartagena a minutos de barco.",includes:["Transfer","Navegação"],schedule:"Todos os dias",fullDesc:"Praia em Isla Tierra Bomba com beach club. Ambiente relaxante e exclusivo.",itinerary:"Transfer e barco - Isla Tierra Bomba - Praia e beach club - Almoço - Relaxo - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 09h00, Retorno: aprox 16h00",whatToBring:["Traje de banho","Toalha","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Noche Blanca",duration:"Meio dia",price:"R$ 557,00",img:"https://lcxturismo.b-cdn.net/tours/noche-blanca-1772731695836-9l41yy.jpg",desc:"A noite mais animada de Cartagena com passeio pela cidade histórica iluminada e vida noturna colonial. Diversão e cultura juntas.",includes:["Transfer","Guia"],schedule:"Sex e Sáb",fullDesc:"Noite de música, dança e comida na velha cidade de Cartagena. Experiência cultural caribeña.",itinerary:"Saída à noite - Passeio pela cidade velha - Apresentações culturais - Música ao vivo - Comida local - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 20h00, Retorno: aprox 23h00",whatToBring:["Roupa de passeio elegante","Sapatos confortáveis","Documento"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Mergulho Profissional em Barú",duration:"1-2 horas",price:"R$ 627,00",img:"https://lcxturismo.b-cdn.net/tours/getlstd-property-photo-1772731987442-pfqvl8.jpg",desc:"Mergulho certificado nas águas cristalinas de Barú com guia especializado. Corais coloridos e vida marinha caribenha.",includes:["Transfer","Equipamento","Guia mergulho"],schedule:"Todos os dias",fullDesc:"Mergulho certificado em Península de Barú. Explorar vida marinha colorida do Caribe.",itinerary:"Transfer a Barú - Briefing de mergulho - Dois mergulhos profundos - Almoço - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 07h00, Retorno: aprox 16h00",whatToBring:["Certificado de mergulho","Traje de mergulho","Toalha","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Mangata Beach Club",duration:"Dia inteiro",price:"R$ 847,00",img:"https://lcxturismo.b-cdn.net/tours/caption-1-1-1772732513361-16bhm4.jpg",desc:"Dia de resort no Mangata Beach Club com piscinas, música e serviço de luxo no Caribe colombiano. Conforto máximo.",includes:["Transfer","Navegação","Entrada club"],schedule:"Todos os dias",fullDesc:"Beach club moderno com almoço à beira-mar e ambiente sofisticado.",itinerary:"Transfer ao beach club - Dia de praia - Almoço gourmet - Drinks - Relaxo - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 10h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Roupa elegante de passeio","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Luxury VIP",duration:"Dia inteiro",price:"R$ 1.037,00",img:"https://lcxturismo.b-cdn.net/tours/img-20210917-wa0005-1445x-1772733853057-n2k4xk.jpg",desc:"Experiência VIP completa em Cartagena com transfers privativos, guia exclusivo e tudo de melhor que a cidade oferece. Para quem não abre mão do luxo.",includes:["Transfer privativo","Guia exclusivo","Refeições"],schedule:"Todos os dias",fullDesc:"Experiência VIP ultra exclusiva em Cartagena com serviços de luxo e atenção personalizada.",itinerary:"Serviço concierge - Atividades personalizadas - Restaurante premium - Spa/relaxo - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 10h00, Retorno: aprox 18h00",whatToBring:["Roupa elegante","Documentos","Cartão de crédito"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Lizamar Beach Club",duration:"Dia inteiro",price:"R$ 807,00",img:"https://lcxturismo.b-cdn.net/tours/photo-6553968-dji-368-pano-14243049-0-202153101354-photo-pano-01-1500x-1772734550259-al80s0.webp",desc:"Beach club premium com estrutura de resort nas Ilhas do Rosário. Piscina, praia, gastronomia e mar caribenho num só lugar.",includes:["Transfer","Navegação","Entrada club"],schedule:"Todos os dias",fullDesc:"Beach club em Isla Grande com ótima culinária e ambiente tranquilo.",itinerary:"Transfer e barco - Isla Grande - Beach club - Almoço especial - Praia e relaxo - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 09h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Toalha","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"Colômbia",dest:"Cartagena",name:"Jantar em Fênix Beach",duration:"Meio dia",price:"R$ 617,00",img:"https://lcxturismo.b-cdn.net/tours/500288062-1772735095775-t2ovy9.jpg",desc:"Jantar gastronômico à beira-mar na praia Fênix com pôr do sol sobre o Caribe. Gastronomia colombiana e vista deslumbrante.",includes:["Transfer","Navegação","Jantar"],schedule:"Todos os dias",fullDesc:"Jantar na praia em Fênix Beach Club com pôr do sol e culinária gourmet.",itinerary:"Transfer ao restaurante - Aperitivos - Jantar à beira-mar - Sobremesa - Retorno",pickup:"Hotel em Cartagena",scheduleDetail:"Saída: 18h00, Retorno: aprox 21h30",whatToBring:["Roupa elegante","Sapatos formais","Documento"],tourUrl:null,youtubeUrl:null},
-  // ─── MÉXICO / CANCÚN ───
-  {country:"México",dest:"Cancún",name:"Xcaret Plus",duration:"Dia inteiro",price:"R$ 1.407,00",img:"https://lcxturismo.b-cdn.net/tours/aerea-xcaret-05-1772805595307-yq61c6.jpg",desc:"O parque mais completo do México — rios subterrâneos, snorkel, espetáculos e cultura maia tudo incluído no Xcaret Plus. Dia cheio garantido.",includes:["Transfer","Entrada Xcaret Plus","Refeições"],schedule:"Todos os dias",fullDesc:"Parque temático Xcaret com cenotes, praia e show folclórico. Experiência mexicana completa.",itinerary:"Transfer a Xcaret - Dia inteiro no parque - Cenotes - Praia - Show noturno - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 09h00, Retorno: aprox 20h00",whatToBring:["Traje de banho","Toalha","Protetor solar","Documentos"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Xel-Há Tour",duration:"Dia inteiro",price:"R$ 1.057,00",img:"https://lcxturismo.b-cdn.net/tours/tulum-y-xel-ha-id1024-fdf5-1773062393211-ljhu6z.jpg",desc:"Parque ecológico Xel-Há, o maior aquário natural do mundo, com rios, baías e snorkel ilimitado. Natureza mexicana em estado puro.",includes:["Transfer","Entrada Xel-Há","Refeições"],schedule:"Todos os dias",fullDesc:"Parque natural Xel-Há com rio subterrâneo e praia paradisíaca. Snorkel em cenote.",itinerary:"Transfer a Xel-Há - Entrada ao parque - Snorkel em rio/cenote - Almoço - Praia - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Protetor solar à prova d'água","Câmera subaquática","Toalha"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Tour Xplor Dia",duration:"Dia inteiro",price:"R$ 1.217,00",img:"https://lcxturismo.b-cdn.net/tours/xplor-riviera-maya-1-1772805373181-k7065a.jpg",desc:"Tirolesas sobre a selva, veículos anfíbios e rios subterrâneos no parque de aventura Xplor. Adrenalina pura na Riviera Maya.",includes:["Transfer","Entrada Xplor","Refeições"],schedule:"Seg a Sáb",fullDesc:"Parque Xplor com tirolesas e cavernas. Adrenalina em meio à selva mexicana.",itinerary:"Transfer a Xplor - Tirolesas sobre selva - Cavernas com rio - Veículos 4x4 - Almoço - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 09h00, Retorno: aprox 17h00",whatToBring:["Roupas de adventure","Sapatos fechados","Protetor solar","Mochila"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Tour Xoximilco",duration:"3-4 horas",price:"R$ 937,00",img:"https://lcxturismo.b-cdn.net/tours/twtrzimg-14-1772805021416-g11roa.jpg",desc:"Noite em trajineras decoradas imitando as chinampas de Xochimilco com jantar, tequila e música mexicana ao vivo. Fiesta garantida.",includes:["Transfer","Passeio","Jantar","Bebidas"],schedule:"Qui a Dom",fullDesc:"Passeio em barcos coloridos pelas águas de Xoximilco com música e comida mexicana.",itinerary:"Transfer a Xoximilco - Barco colorido - Passeio pelas águas - Música ao vivo - Almoço - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 14h00, Retorno: aprox 19h00",whatToBring:["Roupa confortável","Sapatos - não levantará os pés","Câmera","Protetor solar"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Tulum + Casa Tortuga",duration:"Dia inteiro",price:"R$ 827,00",img:"https://lcxturismo.b-cdn.net/tours/146-1-1772819183322-l15oef.png",desc:"Ruínas maias de Tulum com vista para o mar + santuário de tartarugas Casa Tortuga. História milenar e natureza num dia só.",includes:["Transfer","Guia","Entrada"],schedule:"Todos os dias",fullDesc:"Ruínas maias de Tulum combinadas com visita à Casa Tortuga (turtle sanctuary).",itinerary:"Transfer a Tulum - Tour das ruínas - Praia de Tulum - Almoço - Casa Tortuga - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Protetor solar","Água","Câmera","Sapatos de trilha"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Isla Mujeres de Catamarã",duration:"Dia inteiro",price:"R$ 587,00",img:"https://lcxturismo.b-cdn.net/tours/catamaran-sea-passion-party-1024x683-1772819527078-5y0498.webp",desc:"Travessia de catamarã até Isla Mujeres com snorkel no recife de coral e praia de areia branca. O Caribe mexicano perfeito.",includes:["Transfer","Catamarã","Snorkel","Refeição"],schedule:"Todos os dias",fullDesc:"Dia na ilha Mujeres em catamarã com snorkel. Praia paradisíaca e vida marinha.",itinerary:"Embarque em catamarã - Snorkel em coral - Isla Mujeres - Praia livre - Almoço - Retorno",pickup:"Porto de Cancún",scheduleDetail:"Saída: 09h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Protetor solar à prova d'água","Câmera subaquática","Toalha"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Isla Contoy Adventure Tour",duration:"Dia inteiro",price:"R$ 927,00",img:"https://lcxturismo.b-cdn.net/tours/isla-mujeres-tour-photo-gallery-contoy-adventures-4-1772819978474-rhdial.jpg",desc:"Aventura em Isla Contoy — reserva ecológica com aves marinhas únicas — e parada para snorkel no recife. Natureza selvagem e preservada.",includes:["Transfer","Navegação","Guia","Snorkel"],schedule:"Todos os dias",fullDesc:"Adventure tour na Isla Contoy com snorkel, aves marinhas e praia isolada.",itinerary:"Catamarã a Isla Contoy - Snorkel - Observação de aves - Praia e relaxo - Almoço - Retorno",pickup:"Porto de Cancún",scheduleDetail:"Saída: 08h00, Retorno: aprox 16h00",whatToBring:["Traje de banho","Protetor solar","Binóculos","Câmera subaquática"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Holbox Plus Tour",duration:"Dia inteiro",price:"R$ 897,00",img:"https://lcxturismo.b-cdn.net/tours/caption-4-1772820277604-vu9zti.jpg",desc:"Isla Holbox sem carros, com praias infinitas e plâncton bioluminescente à noite. Paraíso tranquilo que virou o destino mais desejado do México.",includes:["Transfer","Navegação","Refeição"],schedule:"Todos os dias",fullDesc:"Tour completo em Isla Holbox com bioluminescência noturna e praias virgens.",itinerary:"Transfer a Holbox - Praia paradisíaca - Almoço - Passeio noturno bioluminescência - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 13h00, Retorno: aprox 23h00",whatToBring:["Traje de banho","Protetor solar","Câmera","Roupa quente para noite"],tourUrl:null,youtubeUrl:null},
-  {country:"México",dest:"Cancún",name:"Garrafon + Nado com Golfinhos",duration:"Dia inteiro",price:"R$ 937,00",img:"https://lcxturismo.b-cdn.net/tours/img-5822-1772822110184-nutmla.jpg",desc:"Parque Garrafón em Isla Mujeres com zip-line sobre o mar + experiência de nado com golfinhos. Adrenalina e emoção no mesmo dia.",includes:["Transfer","Entrada","Nado com golfinhos"],schedule:"Todos os dias",fullDesc:"Parque Garrafon combinado com nado opcional com golfinhos. Experiência marinha inesquecível.",itinerary:"Transfer a Garrafon - Snorkel no parque - Opção de nado com golfinhos - Almoço - Retorno",pickup:"Hotel em Cancún",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Protetor solar à prova d'água","Câmera subaquática","Roupa leve"],tourUrl:null,youtubeUrl:null},
-  // ─── PERU / CUSCO ───
-  {country:"Peru",dest:"Cusco / Machu Picchu",name:"Machu Picchu — Pacote Completo",duration:"Dia inteiro",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/machu-picchu-cidade-perdida-inca-no-peru-2024-1-16by9-1772299865475-g5o5yl.webp",desc:"Pacote completo para Machu Picchu com trem, guia especializado e entrada. A maior maravilha do mundo, sem dor de cabeça.",includes:["Transfer","Trem IDA/VOLTA","Ônibus subida","Entrada","Guia"],schedule:"Todos os dias",fullDesc:"Pacote completo para Machu Picchu incluindo trem, hotel e guia. Maravilha do mundo em 3 dias.",itinerary:"Dia 1: Cusco e Sacred Valley - Dia 2: Trem a Aguas Calientes e Machu Picchu - Dia 3: Retorno",pickup:"Hotel em Cusco",scheduleDetail:"3 dias / 2 noites com hospedagem incluída",whatToBring:["Passaporte","Ingressos impressos","Roupa em camadas","Mochila de trekking"],tourUrl:null,youtubeUrl:null},
-  {country:"Peru",dest:"Cusco / Machu Picchu",name:"City Tour Cusco — Privativo",duration:"Meio dia",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/images-1773340087863-wn4hlv.jpg",desc:"Tour privativo pela imperial Cusco visitando a Catedral, Koricancha, Saqsayhuamán e muito mais. A capital inca contada por quem conhece de verdade.",includes:["Transfer","Guia privado","Ingressos"],schedule:"Todos os dias",fullDesc:"Tour privativo pela histórica cidade de Cusco. Visita templos incas, praça central e bairros coloniais.",itinerary:"Saída de hotel - Templo do Sol - Plaza de Armas - Bairros coloniais - Almoço - Retorno",pickup:"Hotel em Cusco",scheduleDetail:"Saída: 09h00, Retorno: aprox 14h00",whatToBring:["Roupa em camadas","Sapatos de caminhada","Protetor solar","Agua"],tourUrl:null,youtubeUrl:null},
-  // ─── PUNTA CANA ───
-  {country:"República Dominicana",dest:"Punta Cana",name:"Isla Saona VIP",duration:"Dia inteiro",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/DJI-0900-Original-scaled-1773087848257-1wol7x.jpg",desc:"Isla Saona — a praia de cartão-postal da República Dominicana — com serviço VIP em catamarã premium. O passeio mais vendido e mais amado de Punta Cana.",includes:["Transfer","Catamarã VIP","Open bar","Refeição"],schedule:"Todos os dias",fullDesc:"Dia VIP exclusivo em Isla Saona com serviço especial e refeições gourmet.",itinerary:"Catamarã de luxo - Isla Saona - Praia privada - Almoço gourmet - Piscina natural - Retorno",pickup:"Hotel em Punta Cana",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Traje de banho","Roupa elegante de passeio","Protetor solar","Câmera"],tourUrl:null,youtubeUrl:null},
-  {country:"República Dominicana",dest:"Punta Cana",name:"Isla Catalina",duration:"Dia inteiro",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/8266ae064b40984448099c7a21971cd578a952ba73438a5926d1e036-1773088205617-9nltah.jpg",desc:"Dia em Isla Catalina com snorkel no coral, praia de areia branca e almoço incluído. Um dos recifes mais bonitos do Caribe dominicano.",includes:["Transfer","Navegação","Snorkel","Almoço"],schedule:"Todos os dias",fullDesc:"Dia em Isla Catalina com snorkel e praia paradisíaca. Menos turística que Saona.",itinerary:"Catamarã a Catalina - Snorkel em coral - Praia e relaxo - Almoço - Retorno",pickup:"Hotel em Punta Cana",scheduleDetail:"Saída: 08h00, Retorno: aprox 16h00",whatToBring:["Traje de banho","Protetor solar à prova d'água","Câmera subaquática","Toalha"],tourUrl:null,youtubeUrl:null},
-  {country:"República Dominicana",dest:"Punta Cana",name:"Tropical Quads — Buggy",duration:"Meio dia",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/buggy-em-punta-cana-jpg-1773090033627-bozdoc.webp",desc:"Aventura de buggy pelas paisagens tropicais de Punta Cana, passando por aldeias e rio. Adrenalina e natureza dominicana.",includes:["Transfer","Buggy","Guia"],schedule:"Todos os dias",fullDesc:"Passeio em quad buggy pelas selvas de Punta Cana. Adrenalina e natureza.",itinerary:"Transfer - Aula de quad - Passeio por trilhas - Piscina natural - Almoço - Retorno",pickup:"Hotel em Punta Cana",scheduleDetail:"Saída: 09h00, Retorno: aprox 15h00",whatToBring:["Roupa de adventure","Sapatos fechados","Protetor solar","Óculos escuros"],tourUrl:null,youtubeUrl:null},
-  {country:"República Dominicana",dest:"Punta Cana",name:"Coco Bongo Front Row",duration:"Meio dia",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/dd-1773087678648-n5lgx3.jpg",desc:"O show mais famoso do Caribe — Coco Bongo — com lugar na primeira fila. Acrobacia, cabaret, música ao vivo e muito mais. Indescritível.",includes:["Transfer","Ingresso front row","Open bar"],schedule:"Qui a Dom",fullDesc:"Espetáculo Coco Bongo com assento na frente. Show de circo acrobático sensacional.",itinerary:"Transfer ao teatro - Assento VIP frontal - Show de acrobacias - Drinks - Retorno",pickup:"Hotel em Punta Cana",scheduleDetail:"Saída: 21h00, Retorno: aprox 23h30",whatToBring:["Roupa elegante","Sapatos","Documento de identidade"],tourUrl:null,youtubeUrl:null},
-  {country:"República Dominicana",dest:"Punta Cana",name:"Isla Samaná + Avistamento de Baleias",duration:"Meio dia",price:"Consultar",img:"https://lcxturismo.b-cdn.net/tours/1-1-11zon-1773090316090-lr88b3.webp",desc:"Viagem a Samaná para avistar baleias jubarte em seu habitat natural (jan–mar). Um dos melhores avistamentos de baleias do Atlântico.",includes:["Transfer","Navegação","Guia"],schedule:"Jan a Mar",fullDesc:"Navegação em Samaná combinada com avistamento de baleias jubarte. Experiência marinha única.",itinerary:"Transfer a Samaná - Navegação - Observação de baleias - Praia - Almoço - Retorno",pickup:"Hotel em Punta Cana",scheduleDetail:"Saída: 08h00, Retorno: aprox 17h00",whatToBring:["Roupa impermeável","Câmera com zoom","Binóculos","Protetor solar"],tourUrl:null,youtubeUrl:null},
+// ─── HERO SLIDESHOW ───────────────────────────────────────────────────────────
+const HERO_SLIDES = [
+  'https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg',
+  'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&w=1920&q=80',
+  'https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&w=1920&q=80',
+  'https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=1920&q=80',
+  'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&w=1920&q=80',
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=1920&q=80',
 ];
+const bg0 = document.getElementById('heroBg0');
+const bg1 = document.getElementById('heroBg1');
+let slideIdx = 0, activeLayer = 0;
+bg0.style.backgroundImage = `url('${HERO_SLIDES[0]}')`;
+setInterval(()=>{
+  slideIdx = (slideIdx + 1) % HERO_SLIDES.length;
+  if(activeLayer === 0){
+    bg1.style.backgroundImage = `url('${HERO_SLIDES[slideIdx]}')`;
+    bg1.classList.add('active'); bg0.classList.remove('active'); activeLayer = 1;
+  } else {
+    bg0.style.backgroundImage = `url('${HERO_SLIDES[slideIdx]}')`;
+    bg0.classList.add('active'); bg1.classList.remove('active'); activeLayer = 0;
+  }
+}, 5000);
 
-// Country config
-const COUNTRIES = {
-  "Chile":               {flag:"🇨🇱"},
-  "Argentina":           {flag:"🇦🇷"},
-  "Colômbia":            {flag:"🇨🇴"},
-  "México":              {flag:"🇲🇽"},
-  "Peru":                {flag:"🇵🇪"},
-  "República Dominicana":{flag:"🇩🇴"},
+// ─── DESTINATION META ─────────────────────────────────────────────────────────
+const DEST_META = {
+  chile:     {flag:'🇨🇱', name:'Chile',      cities:'Santiago · Atacama · Torres del Paine', img:'https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg'},
+  argentina: {flag:'🇦🇷', name:'Argentina',  cities:'Buenos Aires · Bariloche · Ushuaia',    img:'https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=1600&q=80'},
+  colombia:  {flag:'🇨🇴', name:'Colômbia',   cities:'Cartagena · San Andrés',                img:'https://images.unsplash.com/photo-1583001931096-6b48c0e8e87e?auto=format&w=1600&q=80'},
+  peru:      {flag:'🇵🇪', name:'Peru',       cities:'Cusco · Machu Picchu · Lima',           img:'https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&w=1600&q=80'},
+  mexico:    {flag:'🇲🇽', name:'México',     cities:'Cancún · Riviera Maya · Tulum',         img:'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&w=1600&q=80'},
+  puntacana: {flag:'🇩🇴', name:'Punta Cana', cities:'Bávaro · Samaná · La Romana',           img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=1600&q=80'},
 };
 
-// ═══════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════
-let catalog = [];
-let activeCountry = 'all';
-let searchQuery = '';
-let adminMode = false;
-let editingId = null;
+// ─── TOURS DATA ───────────────────────────────────────────────────────────────
+const TOURS = [
+// ── CHILE / SANTIAGO ──
+  {f:"tour-valle-nevado.html",n:"Andes Full Day Valle Nevado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg",tags:["neve","cordilheira"],badge:"top"},
+  {f:"tour-vina-del-mar-valparaiso.html",n:"Viña del Mar e Valparaíso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10558/photo/capa/1.jpg",tags:["litoral","cultural"],badge:"top"},
+  {f:"tour-concha-y-toro.html",n:"Centro Del Viño Concha y Toro",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10557/photo/capa/2.jpg",tags:["vinícola"],badge:"top"},
+  {f:"tour-portillo-laguna-del-inca.html",n:"Portillo e Laguna del Inca",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10560/photo/capa/4.jpg",tags:["cordilheira","lago"]},
+  {f:"tour-andes-panoramico.html",n:"Andes Panorâmico",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["neve","cordilheira"]},
+  {f:"tour-farellones.html",n:"Parque de Farellones",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
+  {f:"tour-cajon-del-maipo.html",n:"Cajón del Maipo e Embalse El Yeso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["cordilheira","lago"],badge:"top"},
+  {f:"tour-city-tour-santiago.html",n:"City Tour Caminhando Santiago",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1618845512959-b6f7e88e8b38?auto=format&w=800&q=80",tags:["cultural","cidade"]},
+  {f:"tour-safari-rancagua.html",n:"Safári Rancagua",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["aventura"]},
+  {f:"tour-alyan-family.html",n:"Vinícola Alyan Family",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-14851/photo/capa/3.jpg",tags:["vinícola"]},
+  {f:"tour-cordilheira-sunset-dj.html",n:"Cordilheira Sunset com DJ",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Jun–Set",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10569/photo/capa/imagem-do-whatsapp-de-2025-05-06-as-15.27.00_458edbbf.jpg",tags:["neve","festa"],badge:"hot"},
+  {f:"tour-concha-y-toro-noite.html",n:"Concha y Toro Noite — Casillero del Diablo",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-12133/photo/capa/1.jpg",tags:["vinícola","noturno"],badge:"hot"},
+  {f:"tour-amor-y-pasta.html",n:"Amor y Pasta — Experiência Gastronômica",d:"Santiago · Chile",country:"chile",dur:"~3h30",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10562/photo/capa/amorpastas-archdaily-29-11-114-300x197-1.jpg",tags:["gastronomia"],badge:"new"},
+  {f:"tour-helicoptero.html",n:"Tour de Helicóptero sobre Santiago",d:"Santiago · Chile",country:"chile",dur:"~1h (voo)",t:"Ano todo",s:"Conforme agenda",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10571/photo/capa/img_2992-2.jpg",tags:["aventura","vip"],badge:"top"},
+  {f:"tour-el-principal-sunset.html",n:"Vinícola El Principal Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10574/photo/capa/el-principal-2.jpg",tags:["vinícola"],badge:"new"},
+  {f:"tour-sunset-verao.html",n:"Sunset Verão na Cordilheira",d:"Santiago · Chile",country:"chile",dur:"~3h",t:"Out–Abr",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10582/photo/capa/imagem-do-whatsapp-de-2025-05-06-as-16.29.44_7f78469d.jpg",tags:["cordilheira"]},
+  {f:"tour-hop-on-hop-off.html",n:"Hop On Hop Off Santiago",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro (24h)",t:"Ano todo",s:"Livre",img:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80",tags:["cidade","cultural"]},
+  {f:"tour-isla-negra-undurraga.html",n:"Isla Negra, Algarrobo e Undurraga",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["litoral","vinícola"]},
+  {f:"tour-undurraga.html",n:"Vinícola Undurraga",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&w=800&q=80",tags:["vinícola"]},
+  {f:"tour-haras-de-pirque.html",n:"Vinícola Haras de Pirque Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&w=800&q=80",tags:["vinícola"]},
+  {f:"tour-santa-rita.html",n:"Vinícola Santa Rita",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1543168256-dad7e9b7d5f9?auto=format&w=800&q=80",tags:["vinícola"]},
+  {f:"tour-cassino-monticello.html",n:"Cassino Monticello",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?auto=format&w=800&q=80",tags:["noturno"]},
+  {f:"tour-parque-el-colorado.html",n:"Parque El Colorado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
+  {f:"tour-nevados-de-chillan.html",n:"Nevados de Chillán",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["neve","termas"]},
+  {f:"tour-moto-neve-cajon.html",n:"Moto de Neve em Cajón del Maipo",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1478827387698-1527781a4887?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
+  {f:"tour-cajon-del-maipo-termas.html",n:"Cajón del Maipo e Termas da Colina",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?auto=format&w=800&q=80",tags:["termas","cordilheira"]},
+// ── CHILE / ATACAMA ──
+  {f:"tour-geyser-del-tatio.html",n:"Gêiseres del Tatio",d:"Atacama · Chile",country:"chile",dur:"~8h",t:"Ano todo",s:"Madrugada (~4h)",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=800&q=80",tags:["deserto","aventura"],badge:"top"},
+  {f:"tour-valle-de-la-luna.html",n:"Valle de la Luna e Pedra do Coyote",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1547995886-6dc09384c6e8?auto=format&w=800&q=80",tags:["deserto"],badge:"top"},
+  {f:"tour-lagunas-cejar.html",n:"Lagunas Cejar, Tebenquiche e Ojos del Salar",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["deserto","lago"],badge:"top"},
+  {f:"tour-lagunas-altiplanicas.html",n:"Lagunas Altiplânicas e Piedras Rojas",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1571003123771-bd6a099fef30?auto=format&w=800&q=80",tags:["deserto","lago"]},
+  {f:"tour-lagunas-escondidas.html",n:"Lagunas Escondidas de Baltinache",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1592861956120-e524fc739696?auto=format&w=800&q=80",tags:["deserto","lago"]},
+  {f:"tour-ruta-de-los-salares.html",n:"Ruta de los Salares",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&w=800&q=80",tags:["deserto"]},
+  {f:"tour-astronomico.html",n:"Tour Astronômico — Chi Atma",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Noite (~21h)",img:"https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&w=800&q=80",tags:["noturno"]},
+  {f:"tour-atacama-ancestral.html",n:"Atacama Ancestral",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["cultural","deserto"]},
+  {f:"tour-vulcao-cerro-toco.html",n:"Vulcão Cerro Toco",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&w=800&q=80",tags:["aventura","deserto"]},
+  {f:"tour-de-balao.html",n:"Tour de Balão sobre o Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Madrugada (~5h)",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["aventura","vip"]},
+  {f:"tour-sandboard-atacama.html",n:"Sandboard no Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura","deserto"]},
+  {f:"tour-termas-puritama.html",n:"Termas de Puritama",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["termas"]},
+  {f:"tour-vale-arco-iris.html",n:"Vale do Arco-Íris",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=800&q=80",tags:["deserto"]},
+// ── CHILE / TORRES DEL PAINE ──
+  {f:"tour-trekking-base-torres.html",n:"Trekking Base Torres del Paine",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro (~10h)",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&w=800&q=80",tags:["aventura","trekking"],badge:"top"},
+  {f:"tour-torres-glaciar-grey.html",n:"Torres del Paine + Navegação Glaciar Grey",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["aventura","glaciar"],badge:"hot"},
+  {f:"tour-glaciares-balmaceda.html",n:"Glaciares Balmaceda e Serrano",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["aventura","glaciar"]},
+  {f:"tour-amanhecer-torres-vip.html",n:"Amanhecer Torres del Paine VIP",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Madrugada",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["vip","aventura"],badge:"new"},
+  {f:"tour-fauna-torres-paine.html",n:"Tour e Avistamento de Fauna",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&w=800&q=80",tags:["natureza"],badge:"new"},
+// ── ARGENTINA / BUENOS AIRES ──
+  {f:null,n:"City Tour Buenos Aires Completo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1601383835294-e6e6d58b18c4?auto=format&w=800&q=80",tags:["cidade","cultural"],badge:"top"},
+  {f:null,n:"La Boca e Caminito",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&w=800&q=80",tags:["cultural"],badge:"hot"},
+  {f:null,n:"Tango Show Noturno com Jantar",d:"Buenos Aires · Argentina",country:"argentina",dur:"~3h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1516741699793-c98fb8b5caef?auto=format&w=800&q=80",tags:["noturno","cultural"],badge:"top"},
+  {f:null,n:"Colônia del Sacramento — Uruguai",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1594985618668-a84dc2b9c6ef?auto=format&w=800&q=80",tags:["cultural"],badge:"hot"},
+  {f:null,n:"Delta do Tigre",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=800&q=80",tags:["natureza"]},
+  {f:null,n:"Recoleta, Palermo e San Telmo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1547981743-da6c3ab0e7d0?auto=format&w=800&q=80",tags:["cultural"]},
+  {f:null,n:"Tour de Helicóptero sobre Buenos Aires",d:"Buenos Aires · Argentina",country:"argentina",dur:"~1h",t:"Ano todo",s:"Conforme agenda",img:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80",tags:["vip"],badge:"new"},
+  {f:null,n:"Puerto Madero e Caminata Histórica",d:"Buenos Aires · Argentina",country:"argentina",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&w=800&q=80",tags:["cultural"]},
+// ── ARGENTINA / BARILOCHE ──
+  {f:null,n:"Circuito Chico — Lagos e Floresta",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=800&q=80",tags:["natureza","lago"],badge:"top"},
+  {f:null,n:"Cerro Catedral — Neve e Ski",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
+  {f:null,n:"Sete Lagos — Rota Panorâmica",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["natureza","lago"],badge:"top"},
+  {f:null,n:"Ilha Victoria e Floresta dos Arrayanes",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["natureza"]},
+  {f:null,n:"Puerto Blest e Lago Frías",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?auto=format&w=800&q=80",tags:["natureza","lago"]},
+  {f:null,n:"Colônia Suíça + Cerro Campanario",d:"Bariloche · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&w=800&q=80",tags:["natureza"]},
+  {f:null,n:"Trekking Pampa Linda e Glaciar Tronador",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["aventura","trekking"]},
+// ── ARGENTINA / USHUAIA ──
+  {f:null,n:"Trem do Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&w=800&q=80",tags:["aventura"],badge:"top"},
+  {f:null,n:"Canal Beagle + Ilha dos Pingüins",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"top"},
+  {f:null,n:"Parque Nacional Tierra del Fuego",d:"Ushuaia · Argentina",country:"argentina",dur:"~5h",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1478827387698-1527781a4887?auto=format&w=800&q=80",tags:["natureza","trekking"],badge:"hot"},
+  {f:null,n:"Estância Harberton + Pinguineira",d:"Ushuaia · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Fev",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["natureza"]},
+  {f:null,n:"Glaciar Martial",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Out–Abr",s:"Manhã",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["aventura","glaciar"]},
+  {f:null,n:"City Tour Ushuaia — Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"Meio dia",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["cidade"]},
+  {f:null,n:"Passeio de Kayak no Canal Beagle",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["aventura"],badge:"new"},
+// ── COLOMBIA / CARTAGENA ──
+  {f:null,n:"City Tour Cartagena — Muralhas e Centro Histórico",d:"Cartagena · Colômbia",country:"colombia",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1583001931096-6b48c0e8e87e?auto=format&w=800&q=80",tags:["cultural","cidade"],badge:"top"},
+  {f:null,n:"Ilhas do Rosário — Arquipélago Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1559494007-9f5847c49d94?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
+  {f:null,n:"Playa Blanca — Areia Branca e Mar Turquesa",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],badge:"hot"},
+  {f:null,n:"Sunset em Catamarã pelo Caribe",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["noturno"],badge:"hot"},
+  {f:null,n:"Castillo San Felipe e Murallas Históricas",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1565118531796-763e5082d113?auto=format&w=800&q=80",tags:["cultural","histórico"]},
+  {f:null,n:"Barú e Praias Exóticas",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"]},
+  {f:null,n:"Tour Gastronômico Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&w=800&q=80",tags:["gastronomia"]},
+  {f:null,n:"Barco Pirata Tour Noturno",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?auto=format&w=800&q=80",tags:["noturno"],badge:"new"},
+// ── COLOMBIA / SAN ANDRÉS ──
+  {f:null,n:"Mar das 7 Cores — Tour de Barco Completo",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1499234022991-ec2f55ce3b6c?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
+  {f:null,n:"Johnny Cay — Ilha do Paraíso",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&w=800&q=80",tags:["praia"],badge:"top"},
+  {f:null,n:"Acuario Natural de San Andrés",d:"San Andrés · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["snorkeling","natureza"],badge:"hot"},
+  {f:null,n:"Passeio de Catamarã com Snorkeling",d:"San Andrés · Colômbia",country:"colombia",dur:"~5h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["aventura","praia"]},
+  {f:null,n:"Isla Providencia — Caribe Intocado",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],badge:"new"},
+  {f:null,n:"Volta de ATV pela Ilha",d:"San Andrés · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"]},
+// ── PERU / CUSCO ──
+  {f:null,n:"Machu Picchu Classic — Cidadela Inca",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"top"},
+  {f:null,n:"Machu Picchu + Huayna Picchu",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1580392412502-3793e0a6cef8?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"top"},
+  {f:null,n:"City Tour Cusco — Arqueologia Inca",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["cultural","histórico"],badge:"hot"},
+  {f:null,n:"Vale Sagrado dos Incas",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&w=800&q=80",tags:["histórico","natureza"],badge:"top"},
+  {f:null,n:"Montanha de 7 Cores (Vinicunca)",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Abr–Out",s:"Manhã muito cedo",img:"https://images.unsplash.com/photo-1571003123771-bd6a099fef30?auto=format&w=800&q=80",tags:["aventura","natureza"],badge:"hot"},
+  {f:null,n:"Lago Titicaca — Ilhas Flutuantes",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["cultural","natureza"]},
+  {f:null,n:"Maras, Moray e Salineras",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&w=800&q=80",tags:["histórico"]},
+  {f:null,n:"Qoricancha e Sacsayhuamán",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["histórico","cultural"]},
+// ── PERU / LIMA ──
+  {f:null,n:"City Tour Lima — Gastronomia e História",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&w=800&q=80",tags:["cidade","cultural"],badge:"top"},
+  {f:null,n:"Islas Ballestas e Reserva de Paracas",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza","aventura"]},
+  {f:null,n:"Huacachina — Oásis no Deserto",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1547995886-6dc09384c6e8?auto=format&w=800&q=80",tags:["deserto","aventura"],badge:"hot"},
+// ── MEXICO / CANCUN ──
+  {f:null,n:"Chichen Itzá — Maravilha do Mundo",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&w=800&q=80",tags:["histórico"],badge:"top"},
+  {f:null,n:"Xcaret — Parque Eco-Arqueológico",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"top"},
+  {f:null,n:"Tulum e Cenote — Ruínas à Beira-Mar",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"hot"},
+  {f:null,n:"Xel-Há — Parque Aquático Natural",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1559494007-9f5847c49d94?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"hot"},
+  {f:null,n:"Holbox — Ilha da Bioluminescência",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"],badge:"new"},
+  {f:null,n:"Isla Mujeres — Tour de Catamarã",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1499234022991-ec2f55ce3b6c?auto=format&w=800&q=80",tags:["praia"]},
+  {f:null,n:"Cozumel Mergulho e Snorkeling",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["aventura","snorkeling"]},
+  {f:null,n:"Playa del Carmen e Quinta Avenida",d:"Cancún · México",country:"mexico",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia","cidade"]},
+// ── PUNTA CANA ──
+  {f:null,n:"Isla Saona VIP — Praia dos Sonhos",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1563911302283-d5f01f5b83e4?auto=format&w=800&q=80",tags:["praia","vip"],badge:"top"},
+  {f:null,n:"Catamarã dos Sonhos — Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
+  {f:null,n:"Scape Park — Aventura Completa",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1439853949212-36591e80f20c?auto=format&w=800&q=80",tags:["aventura"],badge:"hot"},
+  {f:null,n:"Buggies 4x4 + Cenote + Laguna",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~5h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"],badge:"hot"},
+  {f:null,n:"Coco Bongo — A Festa do Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~4h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1516741699793-c98fb8b5caef?auto=format&w=800&q=80",tags:["noturno"],badge:"new"},
+  {f:null,n:"Samaná e Baleias Jubarte",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Jan–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza"],badge:"new"},
+  {f:null,n:"Bávaro Beach — Praias Exclusivas",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"]},
+];
 
-// ═══════════════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════════════
-function init() {
-  // Load from localStorage or use raw data
-  const stored = localStorage.getItem('lc_catalog');
-  if (stored) {
-    try {
-      catalog = JSON.parse(stored);
-      // Merge new items that don't exist yet
-      CATALOG_RAW.forEach((raw, i) => {
-        const key = raw.country + '|' + raw.dest + '|' + raw.name;
-        const exists = catalog.find(c => (c.country+'|'+c.dest+'|'+c.name) === key);
-        if (!exists) catalog.push({...raw, id: 'item_'+Date.now()+'_'+i, visible: true});
-      });
-    } catch(e) {
-      catalog = initCatalog();
-    }
-  } else {
-    catalog = initCatalog();
-  }
-
-  // Check admin mode
-  adminMode = location.search.includes('admin=1') || location.search.includes('admin=true');
-  if (adminMode) {
-    document.getElementById('adminBar').style.display = 'flex';
-    document.body.style.paddingBottom = '64px';
-  }
-
-  updateCounts();
-  render();
-  // Hero stat dinâmico
-  const heroStat = document.getElementById('heroStatPasseios');
-  if(heroStat) heroStat.textContent = CATALOG_RAW.length + '+';
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+function destClass(t){
+  if(t.d.includes('Atacama'))return 'atacama';
+  if(t.d.includes('Torres'))return 'torres';
+  const m={chile:'santiago',argentina:'argentina',colombia:'colombia',peru:'peru',mexico:'mexico',puntacana:'puntacana'};
+  return m[t.country]||'santiago';
+}
+function destLabel(t){
+  if(t.d.includes('Santiago'))return '🏙️ Santiago';
+  if(t.d.includes('Atacama'))return '🏜️ Atacama';
+  if(t.d.includes('Torres'))return '🏔️ Patagônia';
+  if(t.d.includes('Buenos Aires'))return '🇦🇷 Buenos Aires';
+  if(t.d.includes('Bariloche'))return '🇦🇷 Bariloche';
+  if(t.d.includes('Ushuaia'))return '🇦🇷 Ushuaia';
+  if(t.d.includes('Cartagena'))return '🇨🇴 Cartagena';
+  if(t.d.includes('San Andrés'))return '🇨🇴 San Andrés';
+  if(t.d.includes('Cusco'))return '🇵🇪 Cusco';
+  if(t.d.includes('Lima'))return '🇵🇪 Lima';
+  if(t.d.includes('Cancún'))return '🇲🇽 Cancún';
+  if(t.d.includes('Punta Cana'))return '🇩🇴 Punta Cana';
+  return t.d.split('·')[0].trim();
+}
+function bgClass(t){
+  if(t.d.includes('Atacama'))return ' atacama-bg';
+  if(t.d.includes('Torres'))return ' torres-bg';
+  const m={argentina:'arg-bg',colombia:'col-bg',peru:'per-bg',mexico:'mex-bg',puntacana:'pca-bg'};
+  return m[t.country] ? ' '+m[t.country] : '';
+}
+function waUrl(name){
+  return 'https://wa.me/5511920619246?text='+encodeURIComponent('Olá LC! Quero saber mais sobre: '+name);
 }
 
-function initCatalog() {
-  return CATALOG_RAW.map((item, i) => ({
-    ...item,
-    id: 'item_' + i,
-    visible: true,
-  }));
-}
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+const grid=document.getElementById('grid');
+const noResults=document.getElementById('noResults');
+const searchInput=document.getElementById('searchInput');
+const catCount=document.getElementById('catCount');
+let activeFilter='all';
 
-// ═══════════════════════════════════════════════════════
-//  FILTER + SEARCH
-// ═══════════════════════════════════════════════════════
-function filterCountry(country, btn) {
-  activeCountry = country;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-}
-
-function handleSearch() {
-  searchQuery = document.getElementById('searchInput').value.toLowerCase();
-  render();
-}
-
-function getFiltered() {
-  return catalog.filter(item => {
-    if (!item.visible && !adminMode) return false;
-    if (activeCountry !== 'all' && item.country !== activeCountry) return false;
-    if (searchQuery) {
-      const haystack = (item.name + ' ' + item.dest + ' ' + item.country).toLowerCase();
-      if (!haystack.includes(searchQuery)) return false;
-    }
-    return true;
+function renderCards(){
+  const q=searchInput.value.toLowerCase().trim();
+  const filtered=TOURS.filter(t=>{
+    const mf=activeFilter==='all'||t.country===activeFilter;
+    const ms=!q||t.n.toLowerCase().includes(q)||t.d.toLowerCase().includes(q)||t.tags.some(tg=>tg.includes(q))||t.dur.toLowerCase().includes(q);
+    return mf&&ms;
   });
-}
-
-function updateCounts() {
-  const visible = catalog.filter(c => c.visible || adminMode);
-  document.getElementById('count-all').textContent = visible.length;
-  Object.keys(COUNTRIES).forEach(country => {
-    const el = document.getElementById('count-' + country);
-    if (el) el.textContent = visible.filter(c => c.country === country).length;
-  });
-}
-
-// ═══════════════════════════════════════════════════════
-//  RENDER
-// ═══════════════════════════════════════════════════════
-function render() {
-  const main = document.getElementById('main');
-  const filtered = getFiltered();
-
-  if (!filtered.length) {
-    main.innerHTML = '<div class="empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><br>Nenhum passeio encontrado.</div>';
-    return;
-  }
-
-  // Group by country + dest
-  const groups = {};
-  filtered.forEach(item => {
-    const key = item.country + '|||' + item.dest;
-    if (!groups[key]) groups[key] = {country: item.country, dest: item.dest, items: []};
-    groups[key].items.push(item);
-  });
-
-  let html = '';
-
-  Object.values(groups).forEach(group => {
-    const flag = COUNTRIES[group.country]?.flag || '🌎';
-    html += `
-      <div class="section" data-country="${group.country}">
-        <div class="section-head">
-          <div class="section-title">
-            <span class="flag">${flag}</span>
-            ${group.country}
-            <span class="section-dest-badge">${group.dest}</span>
-          </div>
-          <span class="section-count">${group.items.length} passeio${group.items.length > 1 ? 's' : ''}</span>
-        </div>
-        <div class="grid">
-          ${group.items.map(item => renderCard(item)).join('')}
-        </div>
-      </div>
-    `;
-  });
-
-  main.innerHTML = html;
-}
-
-function renderCard(item) {
-  const isConsult = !item.price || item.price === 'Consultar' || item.price === 'R$ 0,00';
-  const priceHTML = isConsult
-    ? `<div class="card-price-consult">Consultar preço</div>`
-    : `<div class="card-price"><small>a partir de / por pessoa</small>${item.price}</div>`;
-
-  const imgHTML = item.img
-    ? `<img class="card-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-img-placeholder\\'>🗺️</div>'">`
-    : `<div class="card-img-placeholder">🗺️</div>`;
-
-  const waMsg = encodeURIComponent(`Olá! Vi o catálogo da LC Turismo e quero saber mais sobre o passeio: ${item.name} (${item.dest}, ${item.country})`);
-
-  const editBtn = adminMode
-    ? `<button class="card-edit-btn" style="display:flex" onclick="event.stopPropagation();openEdit('${item.id}')">✏️ Editar</button>`
-    : '';
-
-  const hiddenClass = !item.visible ? 'hidden-card' : '';
-
-  const descHTML = item.desc ? `<div class="card-desc">${item.desc}</div>` : '';
-  const tagsHTML = (item.includes && item.includes.length)
-    ? `<div class="card-tags">${item.includes.slice(0,3).map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>`
-    : '';
-
-  return `
-    <div class="card ${hiddenClass}" id="card-${item.id}" onclick="openInfo('${item.id}')" style="cursor:pointer">
-      <div class="card-img-wrap">
-        ${imgHTML}
-        <div class="card-dest-badge">${COUNTRIES[item.country]?.flag || ''} ${item.dest}</div>
+  catCount.innerHTML=`<strong>${filtered.length}</strong> passeio${filtered.length!==1?'s':''} encontrado${filtered.length!==1?'s':''}`;
+  if(!filtered.length){grid.innerHTML='';noResults.style.display='block';return;}
+  noResults.style.display='none';
+  grid.innerHTML=filtered.map((t,i)=>{
+    const href=t.f?`'./${t.f}'`:null;
+    const link=t.f?`./${t.f}`:waUrl(t.n);
+    const ext=t.f?'':' target="_blank"';
+    const waTrack=!t.f?` onclick="if(window.fbq)fbq('track','Lead')"`:` onclick="if(window.fbq)fbq('track','ViewContent',{content_name:'${t.n.replace(/'/g,"\\'")}'})"`;
+    return `<a class="card" href="${link}"${ext}${waTrack} style="animation-delay:${Math.min(i*.04,.32).toFixed(2)}s">
+      <div class="card-img${bgClass(t)}">
+        <img src="${t.img}" alt="${t.n}" loading="lazy" onerror="this.style.display='none'">
+        <span class="card-dest ${destClass(t)}">${destLabel(t)}</span>
+        <span class="card-temp">${t.t}</span>
+        ${t.badge==='top'?'<span class="card-badge top">⭐ Mais vendido</span>':t.badge==='hot'?'<span class="card-badge hot">🔥 Alta procura</span>':t.badge==='new'?'<span class="card-badge new">✨ Experiência única</span>':''}
       </div>
       <div class="card-body">
-        <div class="card-name">${item.name}</div>
-        ${descHTML}
-        ${tagsHTML}
+        <h3 class="card-title">${t.n}</h3>
         <div class="card-meta">
-          <div class="card-duration">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            ${item.duration}
-          </div>
+          <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${t.dur}</span>
+          <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>${t.s}</span>
         </div>
-        <div class="card-footer">
-          ${priceHTML}
-          <a class="card-wa-btn" href="https://wa.me/5511920619246?text=${waMsg}" target="_blank" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Reservar
-          </a>
+        <div class="card-foot">
+          <div class="card-tags">${t.tags.map(tg=>`<span class="card-tag">${tg}</span>`).join('')}</div>
+          <span class="card-cta">${t.f?'Ver detalhes':'Consultar'}</span>
         </div>
       </div>
-      ${editBtn}
-    </div>
-  `;
-}
-
-
-// ═══════════════════════════════════════════════════════
-//  ADMIN — EDIT (COMPLETO)
-// ═══════════════════════════════════════════════════════
-function openEdit(id){
-  const item = catalog.find(c=>c.id===id);
-  if(!item) return;
-  editingId = id;
-  document.getElementById('editModalTitle').textContent = 'Editar — ' + item.name;
-  document.getElementById('editName').value = item.name||'';
-  document.getElementById('editPrice').value = item.price||'';
-  document.getElementById('editDuration').value = item.duration||'';
-  document.getElementById('editSchedule').value = item.schedule||'';
-  document.getElementById('editScheduleDetail').value = item.scheduleDetail||'';
-  document.getElementById('editImg').value = item.img||'';
-  document.getElementById('editYoutubeUrl').value = item.youtubeUrl||'';
-  document.getElementById('editDesc').value = item.desc||'';
-  document.getElementById('editFullDesc').value = item.fullDesc||'';
-  document.getElementById('editIncludes').value = (item.includes||[]).join('\n');
-  document.getElementById('editItinerary').value = item.itinerary||'';
-  document.getElementById('editPickup').value = item.pickup||'';
-  document.getElementById('editWhatToBring').value = (item.whatToBring||[]).join('\n');
-  document.getElementById('editTourUrl').value = item.tourUrl||'';
-  document.getElementById('editVisible').checked = item.visible!==false;
-  document.getElementById('editModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeModal(){
-  document.getElementById('editModal').classList.remove('open');
-  document.body.style.overflow='';
-  editingId=null;
-}
-
-function saveEdit(){
-  const item = catalog.find(c=>c.id===editingId);
-  if(!item) return;
-  item.name = document.getElementById('editName').value.trim();
-  item.price = document.getElementById('editPrice').value.trim();
-  item.duration = document.getElementById('editDuration').value.trim();
-  item.schedule = document.getElementById('editSchedule').value.trim();
-  item.scheduleDetail = document.getElementById('editScheduleDetail').value.trim();
-  item.img = document.getElementById('editImg').value.trim();
-  const yt = document.getElementById('editYoutubeUrl').value.trim();
-  item.youtubeUrl = yt || null;
-  item.desc = document.getElementById('editDesc').value.trim();
-  item.fullDesc = document.getElementById('editFullDesc').value.trim();
-  item.includes = document.getElementById('editIncludes').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  item.itinerary = document.getElementById('editItinerary').value.trim();
-  item.pickup = document.getElementById('editPickup').value.trim();
-  item.whatToBring = document.getElementById('editWhatToBring').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  item.tourUrl = document.getElementById('editTourUrl').value.trim();
-  item.visible = document.getElementById('editVisible').checked;
-  closeModal();
-  saveToStorage();
-  updateCounts();
-  render();
-  // Hero stat dinâmico
-  const heroStat = document.getElementById('heroStatPasseios');
-  if(heroStat) heroStat.textContent = CATALOG_RAW.length + '+';
-}
-
-function saveToStorage(){
-  localStorage.setItem('lc_catalog',JSON.stringify(catalog));
-  document.querySelectorAll('.admin-save-btn').forEach(btn=>{
-    if(btn.textContent.includes('Salvar')){
-      const orig=btn.textContent;
-      btn.textContent='✅ Salvo!';
-      setTimeout(()=>btn.textContent=orig,2000);
-    }
-  });
-}
-
-function exportCatalog(){
-  const json=JSON.stringify(catalog,null,2);
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([json],{type:'application/json'}));
-  a.download='catalog_lc_turismo.json';
-  a.click();
-}
-
-document.getElementById('editModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeModal();closeInfo();}
-});
-
-
-// ─── INFO MODAL ─────────────────────────────────────────────────────────────
-function openInfo(id) {
-  if (adminMode) return; // admin uses edit modal
-  const item = catalog.find(c => c.id === id);
-  if (!item) return;
-
-  const waMsg = encodeURIComponent('Olá! Vi o catálogo da LC Turismo e quero saber mais sobre o passeio: ' + item.name + ' (' + item.dest + ', ' + item.country + ')');
-  const isConsult = !item.price || item.price === 'Consultar' || item.price === 'R$ 0,00';
-
-  document.getElementById('infoImg').src = item.img || '';
-  document.getElementById('infoImg').alt = item.name;
-  document.getElementById('infoDest').textContent = (COUNTRIES[item.country]?.flag||'') + ' ' + item.dest + ' · ' + item.country;
-  document.getElementById('infoName').textContent = item.name;
-  document.getElementById('infoDesc').textContent = item.fullDesc || item.desc || '';
-  document.getElementById('infoDuration').textContent = item.duration;
-  document.getElementById('infoPriceWrap').innerHTML = isConsult
-    ? '<span style="color:var(--blue);font-weight:700">Consultar preço</span>'
-    : '<small>a partir de / por pessoa</small>' + item.price;
-  document.getElementById('infoWaBtn').href = 'https://wa.me/5511920619246?text=' + waMsg;
-
-  // Includes
-  const incWrap = document.getElementById('infoIncludesWrap');
-  const incList = document.getElementById('infoIncludes');
-  if (item.includes && item.includes.length) {
-    incList.innerHTML = item.includes.map(i => '<li>' + i + '</li>').join('');
-    incWrap.style.display = '';
-  } else {
-    incWrap.style.display = 'none';
-  }
-
-  // Site link — hidden while migrating to new site
-  const siteLink = document.getElementById('infoSiteLink');
-  siteLink.style.display = 'none';
-
-  // Schedule
-  const schedWrap = document.getElementById('infoScheduleWrap');
-  const schedText = item.scheduleDetail || item.schedule;
-  if (schedText) {
-    document.getElementById('infoSchedule').textContent = schedText;
-    schedWrap.style.display = '';
-  } else {
-    schedWrap.style.display = 'none';
-  }
-
-  // Accordion sections
-  const acc = document.getElementById('infoAccordion');
-  const sections = [];
-  if (item.itinerary) sections.push({title: '📋 Itinerário', content: item.itinerary});
-  if (item.pickup) sections.push({title: '📍 Local de embarque', content: item.pickup});
-  if (item.whatToBring && item.whatToBring.length) {
-    const listHtml = '<ul>' + item.whatToBring.map(i => '<li>' + i + '</li>').join('') + '</ul>';
-    sections.push({title: '🎒 O que levar', content: listHtml, isHtml: true});
-  }
-
-  acc.innerHTML = sections.map((s, i) => {
-    const id = 'acc_' + item.id + '_' + i;
-    return '<div class="info-acc-item">' +
-      '<button class="info-acc-btn" onclick="toggleAcc(\'' + id + '\')">' +
-        s.title +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>' +
-      '</button>' +
-      '<div class="info-acc-body" id="' + id + '">' +
-        (s.isHtml ? s.content : '<p>' + s.content.replace(/\n/g,' ') + '</p>') +
-      '</div>' +
-    '</div>';
+    </a>`;
   }).join('');
-
-  // YouTube embed
-  const ytWrap = document.getElementById('infoYoutube');
-  const ytFrame = document.getElementById('infoYoutubeFrame');
-  if(item.youtubeUrl){
-    const m = item.youtubeUrl.match(/(?:v=|youtu\.be\/)([\w-]{11})/);
-    if(m){ ytFrame.src='https://www.youtube.com/embed/'+m[1]+'?rel=0'; ytWrap.style.display=''; }
-    else ytWrap.style.display='none';
-  } else ytWrap.style.display='none';
-
-
-
-  document.getElementById('infoModal').classList.add('open');
-  document.body.style.overflow='hidden';
 }
 
-function toggleAcc(id) {
-  const body = document.getElementById(id);
-  const btn = body.previousElementSibling;
-  body.classList.toggle('open');
-  btn.classList.toggle('open');
+// ─── FILTER BUTTONS ───────────────────────────────────────────────────────────
+function selectFilter(f){
+  activeFilter=f;
+  document.querySelectorAll('.fbtn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.filter===f);
+  });
+  // Destination banner
+  const banner=document.getElementById('destBanner');
+  const bg=document.getElementById('destBannerBg');
+  const flag=document.getElementById('destFlag');
+  const name=document.getElementById('destName');
+  const cities=document.getElementById('destCities');
+  if(f!=='all'&&DEST_META[f]){
+    const m=DEST_META[f];
+    bg.style.backgroundImage=`url('${m.img}')`;
+    flag.textContent=m.flag;
+    name.textContent=m.name;
+    cities.textContent=m.cities;
+    banner.classList.add('open');
+  } else {
+    banner.classList.remove('open');
+  }
+  renderCards();
+  // Scroll to toolbar
+  document.getElementById('toolbar').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function closeInfo() {
-  document.getElementById('infoModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('infoModal').addEventListener('click', function(e) {
-  if (e.target === this) closeInfo();
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>selectFilter(btn.dataset.filter));
 });
-
-// Start
-init();
+searchInput.addEventListener('input',renderCards);
+renderCards();
 </script>
-
-
 </body>
 </html>
