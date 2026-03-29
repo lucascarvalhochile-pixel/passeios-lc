@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LC Turismo — Painel Admin</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#0100FE;--night:#001228;--g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;--wa:#25D366;--red:#EF4444;--green:#22C55E;--gold:#F5A623;--f:'Plus Jakarta Sans',system-ui,sans-serif}
+body{font-family:var(--f);background:var(--g50);color:var(--night);min-height:100vh}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--f);cursor:pointer}
+input,textarea,select{font-family:var(--f)}
+
+/* LOGIN */
+#loginScreen{position:fixed;inset:0;background:var(--night);display:flex;align-items:center;justify-content:center;z-index:1000}
+#loginScreen.hidden{display:none}
+.login-box{background:#fff;border-radius:20px;padding:48px 40px;width:380px;text-align:center}
+.login-logo{font-size:1.4rem;font-weight:800;color:var(--night);margin-bottom:4px}
+.login-logo span{color:var(--blue)}
+.login-sub{color:var(--g500);font-size:.85rem;margin-bottom:32px}
+.login-box input{width:100%;padding:12px 16px;border:1.5px solid var(--g100);border-radius:10px;font-size:.92rem;outline:none;margin-bottom:12px;transition:border-color .15s}
+.login-box input:focus{border-color:var(--blue)}
+.login-btn{width:100%;padding:13px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;transition:opacity .15s}
+.login-btn:hover{opacity:.88}
+.login-err{color:var(--red);font-size:.82rem;margin-top:8px;display:none}
+
+/* LAYOUT */
+#app{display:none}
+#app.visible{display:flex}
+.sidebar{width:220px;background:var(--night);min-height:100vh;position:fixed;top:0;left:0;display:flex;flex-direction:column;z-index:100}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-logo a{font-size:1rem;font-weight:800;color:#fff}
+.sidebar-logo a span{color:var(--blue)}
+.sidebar-logo small{display:block;color:rgba(255,255,255,.35);font-size:.7rem;margin-top:2px}
+.nav-items{padding:16px 12px;flex:1}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,.55);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:2px}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item.active{background:rgba(1,0,254,.25);color:#fff}
+.nav-item svg{flex-shrink:0;opacity:.7}
+.nav-item.active svg{opacity:1}
+.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.08)}
+.sidebar-footer a{color:rgba(255,255,255,.35);font-size:.75rem;transition:color .15s}
+.sidebar-footer a:hover{color:#fff}
+
+/* MAIN */
+.main{margin-left:220px;padding:32px;min-height:100vh;width:calc(100% - 220px)}
+.page{display:none}
+.page.active{display:block}
+
+/* PAGE HEADER */
+.page-header{margin-bottom:28px}
+.page-header h1{font-size:1.5rem;font-weight:800;color:var(--night)}
+.page-header p{color:var(--g500);font-size:.88rem;margin-top:4px}
+
+/* CARDS / STATS */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:28px}
+.stat-card{background:#fff;border-radius:14px;padding:20px;border:1px solid var(--g100)}
+.stat-card .label{font-size:.75rem;color:var(--g500);font-weight:600;margin-bottom:6px}
+.stat-card .value{font-size:1.8rem;font-weight:800;color:var(--night)}
+.stat-card .sub{font-size:.72rem;color:var(--g500);margin-top:2px}
+
+/* TABLE */
+.table-wrap{background:#fff;border-radius:14px;border:1px solid var(--g100);overflow:hidden}
+.table-toolbar{padding:16px 20px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--g100);flex-wrap:wrap}
+.table-toolbar input,.table-toolbar select{padding:8px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.83rem;outline:none;font-family:var(--f);transition:border-color .15s}
+.table-toolbar input:focus,.table-toolbar select:focus{border-color:var(--blue)}
+.table-toolbar input{flex:1;min-width:200px}
+.btn{padding:8px 18px;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.88}
+.btn-success{background:var(--wa);color:#fff}
+.btn-success:hover{opacity:.88}
+.btn-danger{background:var(--red);color:#fff}
+.btn-danger:hover{opacity:.88}
+.btn-outline{background:#fff;color:var(--night);border:1.5px solid var(--g100)}
+.btn-outline:hover{background:var(--g50)}
+.btn-sm{padding:5px 12px;font-size:.76rem}
+table{width:100%;border-collapse:collapse}
+th{padding:12px 16px;text-align:left;font-size:.72rem;font-weight:700;color:var(--g500);border-bottom:1px solid var(--g100);white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+td{padding:12px 16px;font-size:.83rem;border-bottom:1px solid var(--g50);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--g50)}
+.badge{display:inline-block;padding:3px 8px;border-radius:50px;font-size:.68rem;font-weight:700}
+.badge-top{background:rgba(245,166,35,.15);color:#b37c00}
+.badge-hot{background:rgba(239,68,68,.12);color:#b91c1c}
+.badge-new{background:rgba(1,0,254,.1);color:var(--blue)}
+.badge-none{background:var(--g100);color:var(--g500)}
+.badge-chile{background:rgba(1,0,254,.1);color:var(--blue)}
+.badge-argentina{background:rgba(117,170,219,.15);color:#2c6fa0}
+.badge-colombia{background:rgba(252,209,22,.15);color:#8b6e00}
+.badge-peru{background:rgba(215,46,42,.12);color:#8b1714}
+.badge-mexico{background:rgba(0,104,71,.12);color:#005c3e}
+.badge-puntacana{background:rgba(0,189,179,.12);color:#006b67}
+.has-page{color:var(--green)}
+.no-page{color:var(--g300)}
+.tour-img-thumb{width:48px;height:36px;object-fit:cover;border-radius:6px;background:var(--g100)}
+.actions{display:flex;gap:6px;white-space:nowrap}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;display:none}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;width:640px;max-width:100%;padding:32px}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.modal-header h2{font-size:1.1rem;font-weight:800}
+.modal-close{width:32px;height:32px;border-radius:8px;border:none;background:var(--g50);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .15s}
+.modal-close:hover{background:var(--g100)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.78rem;font-weight:700;color:var(--g700)}
+.form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem;outline:none;font-family:var(--f);transition:border-color .15s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue)}
+.form-group textarea{resize:vertical;min-height:80px}
+.modal-footer{display:flex;justify-content:flex-end;gap:12px;margin-top:24px;padding-top:24px;border-top:1px solid var(--g100)}
+
+/* CONFIG PAGE */
+.config-section{background:#fff;border-radius:14px;border:1px solid var(--g100);padding:24px;margin-bottom:20px}
+.config-section h3{font-size:.92rem;font-weight:800;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--g100)}
+.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* DEPLOY PAGE */
+.deploy-card{background:#fff;border-radius:14px;border:1px solid var(--g100);padding:28px;margin-bottom:20px}
+.deploy-card h3{font-size:1rem;font-weight:800;margin-bottom:8px}
+.deploy-card p{color:var(--g500);font-size:.88rem;line-height:1.6;margin-bottom:20px}
+.deploy-status{padding:12px 16px;border-radius:10px;font-size:.83rem;font-weight:600;margin-top:16px;display:none}
+.deploy-status.ok{background:rgba(34,197,94,.12);color:#15803d}
+.deploy-status.err{background:rgba(239,68,68,.12);color:#b91c1c}
+.deploy-status.loading{background:rgba(1,0,254,.08);color:var(--blue)}
+.token-input-row{display:flex;gap:10px;align-items:center}
+.token-input-row input{flex:1;padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.85rem;outline:none;font-family:var(--f)}
+.token-input-row input:focus{border-color:var(--blue)}
+.code-preview{background:#0d1117;color:#e6edf3;border-radius:10px;padding:16px;font-size:.75rem;font-family:'Courier New',monospace;max-height:200px;overflow-y:auto;margin-top:12px;line-height:1.5}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--night);color:#fff;padding:12px 20px;border-radius:10px;font-size:.83rem;font-weight:600;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none}
+#toast.show{transform:translateY(0);opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:900px){.sidebar{width:180px}.main{margin-left:180px;width:calc(100% - 180px)}}
+@media(max-width:720px){.sidebar{position:static;width:100%;min-height:auto}.main{margin-left:0;width:100%;padding:20px}#app.visible{flex-direction:column}.form-grid,.config-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">LC <span>Turismo</span></div>
+    <div class="login-sub">Painel Administrativo</div>
+    <input type="password" id="loginPass" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Entrar</button>
+    <div class="login-err" id="loginErr">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <a href="./">LC <span>Turismo</span></a>
+      <small>Painel Admin</small>
+    </div>
+    <nav class="nav-items">
+      <div class="nav-item active" onclick="showPage('dashboard')">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </div>
+      <div class="nav-item" onclick="showPage('tours')">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Passeios
+      </div>
+      <div class="nav-item" onclick="showPage('config')">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Configurações
+      </div>
+      <div class="nav-item" onclick="showPage('deploy')">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        Publicar
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="./" target="_blank">← Ver site</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Visão geral do catálogo LC Turismo</p>
+      </div>
+      <div class="stats-row" id="statsRow"></div>
+      <div class="table-wrap">
+        <div class="table-toolbar">
+          <strong style="font-size:.85rem">Passeios por destino</strong>
+        </div>
+        <table>
+          <thead><tr><th>País</th><th>Cidades</th><th>Passeios</th><th>Com página</th></tr></thead>
+          <tbody id="destTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TOURS -->
+    <div class="page" id="page-tours">
+      <div class="page-header">
+        <h1>Passeios</h1>
+        <p>Gerencie todos os passeios do catálogo</p>
+      </div>
+      <div class="table-wrap">
+        <div class="table-toolbar">
+          <input type="text" id="tourSearch" placeholder="Buscar passeio..." oninput="renderToursTable()">
+          <select id="tourFilter" onchange="renderToursTable()">
+            <option value="">Todos os destinos</option>
+            <option value="chile">🇨🇱 Chile</option>
+            <option value="argentina">🇦🇷 Argentina</option>
+            <option value="colombia">🇨🇴 Colômbia</option>
+            <option value="peru">🇵🇪 Peru</option>
+            <option value="mexico">🇲🇽 México</option>
+            <option value="puntacana">🇩🇴 Punta Cana</option>
+          </select>
+          <button class="btn btn-primary" onclick="openModal()">+ Novo passeio</button>
+          <button class="btn btn-outline" onclick="exportJSON()">⬇ Exportar JSON</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>Destino</th>
+                <th>Duração</th>
+                <th>Temporada</th>
+                <th>Badge</th>
+                <th>Página</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="toursTableBody"></tbody>
+          </table>
+        </div>
+        <div style="padding:12px 16px;border-top:1px solid var(--g100);font-size:.78rem;color:var(--g500)" id="tourCount"></div>
+      </div>
+    </div>
+
+    <!-- CONFIG -->
+    <div class="page" id="page-config">
+      <div class="page-header">
+        <h1>Configurações do Site</h1>
+        <p>Edite textos, logo e informações de contato</p>
+      </div>
+      <div class="config-section">
+        <h3>🖼️ Logo da LC Turismo</h3>
+        <div class="form-group">
+          <label>URL da imagem da logo (PNG, SVG ou JPG)</label>
+          <div style="display:flex;gap:10px">
+            <input type="url" id="cfgLogo" placeholder="https://... ou deixe vazio para usar texto" style="flex:1;padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem;outline:none">
+            <button class="btn btn-outline" onclick="previewLogo()">Visualizar</button>
+          </div>
+          <div id="logoPreviewBox" style="margin-top:12px;display:none;background:var(--night);padding:16px;border-radius:10px">
+            <img id="logoPreview" style="height:40px;width:auto" alt="logo">
+            <p style="color:rgba(255,255,255,.5);font-size:.75rem;margin-top:8px">Prévia na navbar</p>
+          </div>
+          <p style="font-size:.75rem;color:var(--g500);margin-top:4px">Coloque o arquivo logo-lc.png na pasta do site, ou use uma URL externa.</p>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>🦸 Hero — Título e subtítulo</h3>
+        <div class="config-grid">
+          <div class="form-group full">
+            <label>Título principal (use [DEST] para destacar em azul)</label>
+            <input type="text" id="cfgHeroTitle" value="A [DEST]América Latina[/DEST] com quem conhece de verdade">
+          </div>
+          <div class="form-group full">
+            <label>Subtítulo</label>
+            <textarea id="cfgHeroSub" rows="2">Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 24h.</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>📊 Estatísticas do Hero</h3>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Total de passeios</label>
+            <input type="text" id="cfgStat1" value="106">
+          </div>
+          <div class="form-group">
+            <label>Avaliação</label>
+            <input type="text" id="cfgStat2" value="4.2★">
+          </div>
+          <div class="form-group">
+            <label>Clientes atendidos</label>
+            <input type="text" id="cfgStat3" value="40K+">
+          </div>
+          <div class="form-group">
+            <label>Ano de fundação</label>
+            <input type="text" id="cfgStat4" value="2018">
+          </div>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>📞 WhatsApp e Contato</h3>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Número WhatsApp (apenas dígitos)</label>
+            <input type="text" id="cfgWA" value="5511920619246">
+          </div>
+          <div class="form-group">
+            <label>Mensagem padrão WA (CTA do header)</label>
+            <input type="text" id="cfgWAMsg" value="Olá LC! Quero conhecer os passeios">
+          </div>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>🏷️ Meta Pixel e Analytics</h3>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Meta Pixel ID</label>
+            <input type="text" id="cfgPixel" value="2262354344253278">
+          </div>
+          <div class="form-group">
+            <label>GA4 Measurement ID</label>
+            <input type="text" id="cfgGA4" placeholder="G-XXXXXXXXXX">
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:12px">
+        <button class="btn btn-outline" onclick="loadConfig()">↺ Restaurar</button>
+        <button class="btn btn-primary" onclick="saveConfig()">💾 Salvar configurações</button>
+      </div>
+    </div>
+
+    <!-- DEPLOY -->
+    <div class="page" id="page-deploy">
+      <div class="page-header">
+        <h1>Publicar Site</h1>
+        <p>Deploy automático via GitHub Pages</p>
+      </div>
+      <div class="deploy-card">
+        <h3>🔐 Credenciais GitHub</h3>
+        <p>Para publicar alterações diretamente no site, informe o token e o repositório. Estas informações são salvas apenas no seu navegador.</p>
+        <div class="form-group" style="margin-bottom:12px">
+          <label style="font-size:.78rem;font-weight:700;color:var(--g700)">GitHub Token (ghp_...)</label>
+          <div class="token-input-row">
+            <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+            <button class="btn btn-outline" onclick="toggleToken()">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="font-size:.78rem;font-weight:700;color:var(--g700)">Repositório (owner/repo)</label>
+          <input type="text" id="ghRepo" placeholder="lucascarvalhochile-pixel/passeios-lc" style="padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem;outline:none;width:100%">
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <button class="btn btn-outline" onclick="saveCredentials()">💾 Salvar credenciais</button>
+          <button class="btn btn-primary" onclick="testConnection()">🔌 Testar conexão</button>
+        </div>
+        <div class="deploy-status" id="connStatus"></div>
+      </div>
+
+      <div class="deploy-card">
+        <h3>🚀 Publicar alterações</h3>
+        <p>Ao publicar, o sistema vai gerar o novo <code>index.html</code> com todos os passeios e configurações atuais e fazer o commit direto no GitHub Pages. O site atualiza em 30-60 segundos.</p>
+        <button class="btn btn-success" onclick="deployToGitHub()" style="font-size:.92rem;padding:12px 28px">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          Publicar agora no GitHub Pages
+        </button>
+        <div class="deploy-status" id="deployStatus"></div>
+      </div>
+
+      <div class="deploy-card">
+        <h3>📥 Exportar / Importar dados</h3>
+        <p>Exporte os dados dos passeios como JSON para backup ou edição externa. Importe um JSON para restaurar dados.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-outline" onclick="exportJSON()">⬇ Exportar passeios.json</button>
+          <button class="btn btn-outline" onclick="document.getElementById('importFile').click()">⬆ Importar JSON</button>
+          <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)">
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL EDIT/CREATE TOUR -->
+<div class="modal-overlay" id="tourModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Novo passeio</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label>Nome do passeio *</label>
+        <input type="text" id="mName" placeholder="Ex: City Tour Santiago">
+      </div>
+      <div class="form-group">
+        <label>Destino (cidade · país) *</label>
+        <input type="text" id="mDest" placeholder="Ex: Santiago · Chile">
+      </div>
+      <div class="form-group">
+        <label>País (código) *</label>
+        <select id="mCountry">
+          <option value="chile">🇨🇱 Chile</option>
+          <option value="argentina">🇦🇷 Argentina</option>
+          <option value="colombia">🇨🇴 Colômbia</option>
+          <option value="peru">🇵🇪 Peru</option>
+          <option value="mexico">🇲🇽 México</option>
+          <option value="puntacana">🇩🇴 Punta Cana</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Duração</label>
+        <input type="text" id="mDur" placeholder="Ex: Dia inteiro, ~4h, Meio dia">
+      </div>
+      <div class="form-group">
+        <label>Temporada</label>
+        <input type="text" id="mSeason" placeholder="Ex: Ano todo, Jun–Set">
+      </div>
+      <div class="form-group">
+        <label>Horário de saída</label>
+        <input type="text" id="mDepart" placeholder="Ex: Manhã cedo, Tarde">
+      </div>
+      <div class="form-group">
+        <label>Badge de urgência</label>
+        <select id="mBadge">
+          <option value="">Nenhum</option>
+          <option value="top">⭐ Mais vendido</option>
+          <option value="hot">🔥 Alta procura</option>
+          <option value="new">✨ Experiência única</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>URL da imagem de capa</label>
+        <input type="url" id="mImg" placeholder="https://...">
+      </div>
+      <div class="form-group full">
+        <label>Arquivo da página (deixe vazio para link direto ao WhatsApp)</label>
+        <input type="text" id="mFile" placeholder="Ex: tour-valle-nevado.html">
+      </div>
+      <div class="form-group full">
+        <label>Tags (separadas por vírgula)</label>
+        <input type="text" id="mTags" placeholder="Ex: neve, aventura, cordilheira">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveTour()">💾 Salvar passeio</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ─── AUTH ─────────────────────────────────────────────────────────────────────
+const PASS = 'lc@2024';
+function doLogin(){
+  const v=document.getElementById('loginPass').value;
+  if(v===PASS||v===localStorage.getItem('lcAdminPass')||''){
+    if(v===PASS){
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('app').classList.add('visible');
+      init();
+    } else {
+      document.getElementById('loginErr').style.display='block';
+    }
+  } else if(v===PASS){
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    init();
+  } else {
+    document.getElementById('loginErr').style.display='block';
+  }
+}
+// Fix: simpler auth
+function doLogin(){
+  const v=document.getElementById('loginPass').value.trim();
+  const stored=localStorage.getItem('lcAdminPass')||PASS;
+  if(v===stored){
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    init();
+  } else {
+    document.getElementById('loginErr').style.display='block';
+    document.getElementById('loginPass').value='';
+  }
+}
+document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+
+// ─── DATA STORE ───────────────────────────────────────────────────────────────
+// Tours are loaded from the embedded JS file via fetch, or from localStorage
+let TOURS_DATA = [];
+let SITE_CONFIG = {
+  logo:'',heroTitle:'A América Latina com quem conhece de verdade',
+  heroSub:'Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 24h.',
+  stat1:'106',stat2:'4.2★',stat3:'40K+',stat4:'2018',
+  wa:'5511920619246',waMsg:'Olá LC! Quero conhecer os passeios',
+  pixel:'2262354344253278',ga4:''
+};
+
+function loadData(){
+  const stored=localStorage.getItem('lcTours');
+  if(stored){try{TOURS_DATA=JSON.parse(stored);}catch(e){}}
+  const cfg=localStorage.getItem('lcConfig');
+  if(cfg){try{SITE_CONFIG=Object.assign(SITE_CONFIG,JSON.parse(cfg));}catch(e){}}
+  if(!TOURS_DATA.length){
+    // Load from the index.html embedded data via fetch
+    fetch('./index.html').then(r=>r.text()).then(html=>{
+      const m=html.match(/const TOURS = \[([\s\S]*?)\];/);
+      if(m){
+        try{
+          // Extract tours via eval in sandbox
+          const arr=new Function('return ['+m[1]+']')();
+          TOURS_DATA=arr;
+          saveToursToStorage();
+        }catch(e){console.warn('Could not parse tours from index.html');}
+      }
+      renderAll();
+    }).catch(()=>renderAll());
+  } else {
+    renderAll();
+  }
+}
+
+function saveToursToStorage(){
+  localStorage.setItem('lcTours',JSON.stringify(TOURS_DATA));
+}
+
+// ─── NAV ──────────────────────────────────────────────────────────────────────
+function showPage(p){
+  document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(ni=>ni.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(ni=>{
+    if(ni.getAttribute('onclick')&&ni.getAttribute('onclick').includes("'"+p+"'"))ni.classList.add('active');
+  });
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+function init(){
+  loadData();
+  loadConfig();
+  loadCredentials();
+}
+
+function renderAll(){
+  renderDashboard();
+  renderToursTable();
+}
+
+// ─── DASHBOARD ────────────────────────────────────────────────────────────────
+function renderDashboard(){
+  const total=TOURS_DATA.length;
+  const withPage=TOURS_DATA.filter(t=>t.f).length;
+  const countries=[...new Set(TOURS_DATA.map(t=>t.country))];
+  const badges={top:TOURS_DATA.filter(t=>t.badge==='top').length,hot:TOURS_DATA.filter(t=>t.badge==='hot').length,new:TOURS_DATA.filter(t=>t.badge==='new').length};
+  document.getElementById('statsRow').innerHTML=`
+    <div class="stat-card"><div class="label">Total de passeios</div><div class="value">${total}</div><div class="sub">no catálogo</div></div>
+    <div class="stat-card"><div class="label">Com página própria</div><div class="value">${withPage}</div><div class="sub">de ${total} passeios</div></div>
+    <div class="stat-card"><div class="label">Destinos</div><div class="value">${countries.length}</div><div class="sub">países operados</div></div>
+    <div class="stat-card"><div class="label">Badges ativos</div><div class="value">${badges.top+badges.hot+badges.new}</div><div class="sub">⭐${badges.top} 🔥${badges.hot} ✨${badges.new}</div></div>
+  `;
+  const destMap={};
+  TOURS_DATA.forEach(t=>{
+    if(!destMap[t.country])destMap[t.country]={tours:0,pages:0,cities:new Set()};
+    destMap[t.country].tours++;
+    if(t.f)destMap[t.country].pages++;
+    destMap[t.country].cities.add(t.d.split('·')[0].trim());
+  });
+  const flags={chile:'🇨🇱',argentina:'🇦🇷',colombia:'🇨🇴',peru:'🇵🇪',mexico:'🇲🇽',puntacana:'🇩🇴'};
+  const names={chile:'Chile',argentina:'Argentina',colombia:'Colômbia',peru:'Peru',mexico:'México',puntacana:'Punta Cana'};
+  document.getElementById('destTable').innerHTML=Object.keys(destMap).map(k=>`
+    <tr>
+      <td>${flags[k]||''} ${names[k]||k}</td>
+      <td style="color:var(--g500);font-size:.8rem">${[...destMap[k].cities].join(' · ')}</td>
+      <td><strong>${destMap[k].tours}</strong></td>
+      <td>${destMap[k].pages>0?`<span style="color:var(--green)">✓ ${destMap[k].pages} páginas</span>`:`<span style="color:var(--g300)">— só WA</span>`}</td>
+    </tr>`).join('');
+}
+
+// ─── TOURS TABLE ─────────────────────────────────────────────────────────────
+let editIdx = null;
+function renderToursTable(){
+  const q=document.getElementById('tourSearch').value.toLowerCase();
+  const f=document.getElementById('tourFilter').value;
+  const filtered=TOURS_DATA.map((t,i)=>({...t,_i:i})).filter(t=>{
+    return (!f||t.country===f)&&(!q||t.n.toLowerCase().includes(q)||t.d.toLowerCase().includes(q));
+  });
+  const flags={chile:'🇨🇱',argentina:'🇦🇷',colombia:'🇨🇴',peru:'🇵🇪',mexico:'🇲🇽',puntacana:'🇩🇴'};
+  const badgeBadge={top:'<span class="badge badge-top">⭐ Mais vendido</span>',hot:'<span class="badge badge-hot">🔥 Alta procura</span>',new:'<span class="badge badge-new">✨ Único</span>','':'<span class="badge badge-none">—</span>'};
+  document.getElementById('toursTableBody').innerHTML=filtered.map(t=>`
+    <tr>
+      <td><img class="tour-img-thumb" src="${t.img||''}" onerror="this.src=''" alt=""></td>
+      <td style="max-width:240px"><strong style="font-size:.83rem">${t.n}</strong></td>
+      <td><span class="badge badge-${t.country}">${flags[t.country]||''} ${t.d.split('·')[0].trim()}</span></td>
+      <td style="color:var(--g500)">${t.dur||'—'}</td>
+      <td style="color:var(--g500);font-size:.78rem">${t.t||'—'}</td>
+      <td>${badgeBadge[t.badge||'']||badgeBadge['']}</td>
+      <td>${t.f?`<span class="has-page">✓ página</span>`:`<span class="no-page">→ WhatsApp</span>`}</td>
+      <td><div class="actions">
+        <button class="btn btn-outline btn-sm" onclick="editTour(${t._i})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteTour(${t._i})">🗑</button>
+      </div></td>
+    </tr>`).join('');
+  document.getElementById('tourCount').textContent=`${filtered.length} de ${TOURS_DATA.length} passeios`;
+}
+
+// ─── MODAL ────────────────────────────────────────────────────────────────────
+function openModal(idx){
+  editIdx=idx!==undefined?idx:null;
+  document.getElementById('modalTitle').textContent=editIdx!==null?'Editar passeio':'Novo passeio';
+  const t=editIdx!==null?TOURS_DATA[editIdx]:{};
+  document.getElementById('mName').value=t.n||'';
+  document.getElementById('mDest').value=t.d||'';
+  document.getElementById('mCountry').value=t.country||'chile';
+  document.getElementById('mDur').value=t.dur||'';
+  document.getElementById('mSeason').value=t.t||'';
+  document.getElementById('mDepart').value=t.s||'';
+  document.getElementById('mBadge').value=t.badge||'';
+  document.getElementById('mImg').value=t.img||'';
+  document.getElementById('mFile').value=t.f||'';
+  document.getElementById('mTags').value=(t.tags||[]).join(', ');
+  document.getElementById('tourModal').classList.add('open');
+}
+function editTour(i){openModal(i);}
+function closeModal(){document.getElementById('tourModal').classList.remove('open');}
+function saveTour(){
+  const t={
+    f:document.getElementById('mFile').value.trim()||null,
+    n:document.getElementById('mName').value.trim(),
+    d:document.getElementById('mDest').value.trim(),
+    country:document.getElementById('mCountry').value,
+    dur:document.getElementById('mDur').value.trim(),
+    t:document.getElementById('mSeason').value.trim(),
+    s:document.getElementById('mDepart').value.trim(),
+    badge:document.getElementById('mBadge').value||undefined,
+    img:document.getElementById('mImg').value.trim(),
+    tags:document.getElementById('mTags').value.split(',').map(x=>x.trim()).filter(Boolean)
+  };
+  if(!t.n){toast('Nome é obrigatório','err');return;}
+  if(editIdx!==null){TOURS_DATA[editIdx]=t;}else{TOURS_DATA.push(t);}
+  saveToursToStorage();
+  closeModal();
+  renderAll();
+  toast(editIdx!==null?'Passeio atualizado!':'Passeio criado!');
+}
+function deleteTour(i){
+  if(!confirm('Excluir este passeio?'))return;
+  TOURS_DATA.splice(i,1);
+  saveToursToStorage();
+  renderAll();
+  toast('Passeio excluído');
+}
+
+// ─── CONFIG ───────────────────────────────────────────────────────────────────
+function loadConfig(){
+  document.getElementById('cfgLogo').value=SITE_CONFIG.logo||'';
+  document.getElementById('cfgHeroTitle').value=SITE_CONFIG.heroTitle||'';
+  document.getElementById('cfgHeroSub').value=SITE_CONFIG.heroSub||'';
+  document.getElementById('cfgStat1').value=SITE_CONFIG.stat1||'';
+  document.getElementById('cfgStat2').value=SITE_CONFIG.stat2||'';
+  document.getElementById('cfgStat3').value=SITE_CONFIG.stat3||'';
+  document.getElementById('cfgStat4').value=SITE_CONFIG.stat4||'';
+  document.getElementById('cfgWA').value=SITE_CONFIG.wa||'';
+  document.getElementById('cfgWAMsg').value=SITE_CONFIG.waMsg||'';
+  document.getElementById('cfgPixel').value=SITE_CONFIG.pixel||'';
+  document.getElementById('cfgGA4').value=SITE_CONFIG.ga4||'';
+}
+function saveConfig(){
+  SITE_CONFIG={
+    logo:document.getElementById('cfgLogo').value.trim(),
+    heroTitle:document.getElementById('cfgHeroTitle').value.trim(),
+    heroSub:document.getElementById('cfgHeroSub').value.trim(),
+    stat1:document.getElementById('cfgStat1').value.trim(),
+    stat2:document.getElementById('cfgStat2').value.trim(),
+    stat3:document.getElementById('cfgStat3').value.trim(),
+    stat4:document.getElementById('cfgStat4').value.trim(),
+    wa:document.getElementById('cfgWA').value.trim(),
+    waMsg:document.getElementById('cfgWAMsg').value.trim(),
+    pixel:document.getElementById('cfgPixel').value.trim(),
+    ga4:document.getElementById('cfgGA4').value.trim(),
+  };
+  localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
+  toast('Configurações salvas!');
+}
+function previewLogo(){
+  const url=document.getElementById('cfgLogo').value.trim();
+  const box=document.getElementById('logoPreviewBox');
+  const img=document.getElementById('logoPreview');
+  if(url){img.src=url;box.style.display='block';}
+  else{box.style.display='none';}
+}
+
+// ─── DEPLOY ───────────────────────────────────────────────────────────────────
+function loadCredentials(){
+  document.getElementById('ghToken').value=localStorage.getItem('ghToken')||'';
+  document.getElementById('ghRepo').value=localStorage.getItem('ghRepo')||'lucascarvalhochile-pixel/passeios-lc';
+}
+function saveCredentials(){
+  localStorage.setItem('ghToken',document.getElementById('ghToken').value.trim());
+  localStorage.setItem('ghRepo',document.getElementById('ghRepo').value.trim());
+  toast('Credenciais salvas!');
+}
+function toggleToken(){
+  const inp=document.getElementById('ghToken');
+  inp.type=inp.type==='password'?'text':'password';
+}
+async function testConnection(){
+  const token=document.getElementById('ghToken').value.trim();
+  const repo=document.getElementById('ghRepo').value.trim();
+  const s=document.getElementById('connStatus');
+  s.textContent='Testando conexão...';s.className='deploy-status loading';s.style.display='block';
+  try{
+    const r=await fetch(`https://api.github.com/repos/${repo}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    if(r.ok){const d=await r.json();s.textContent=`✓ Conectado! Repositório: ${d.full_name} (${d.private?'privado':'público'})`;s.className='deploy-status ok';}
+    else{s.textContent=`✗ Erro ${r.status}: verifique o token e o repositório.`;s.className='deploy-status err';}
+  }catch(e){s.textContent='✗ Erro de rede: '+e.message;s.className='deploy-status err';}
+}
+
+async function deployToGitHub(){
+  saveCredentials();
+  const token=document.getElementById('ghToken').value.trim();
+  const repo=document.getElementById('ghRepo').value.trim();
+  const s=document.getElementById('deployStatus');
+  if(!token||!repo){s.textContent='Configure as credenciais primeiro.';s.className='deploy-status err';s.style.display='block';return;}
+  s.textContent='⏳ Gerando index.html...';s.className='deploy-status loading';s.style.display='block';
+  try{
+    // Get current file SHA
+    const fileR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    const fileD=await fileR.json();
+    const sha=fileD.sha;
+    s.textContent='⏳ Publicando...';
+    // Fetch current index.html and replace TOURS array
+    const currentR=await fetch('./index.html?nocache='+Date.now());
+    const currentHTML=await currentR.text();
+    // Build new TOURS JS
+    const toursJS=JSON.stringify(TOURS_DATA,null,2)
+      .replace(/"f":/g,'f:').replace(/"n":/g,'n:').replace(/"d":/g,'d:')
+      .replace(/"country":/g,'country:').replace(/"dur":/g,'dur:').replace(/"t":/g,'t:')
+      .replace(/"s":/g,'s:').replace(/"img":/g,'img:').replace(/"tags":/g,'tags:').replace(/"badge":/g,'badge:');
+    const newHTML=currentHTML.replace(/const TOURS = \[[\s\S]*?\];/,`const TOURS = ${toursJS};`);
+    const encoded=btoa(unescape(encodeURIComponent(newHTML)));
+    const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
+      method:'PUT',
+      headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+      body:JSON.stringify({message:`admin: update catalog (${TOURS_DATA.length} tours)`,content:encoded,sha})
+    });
+    if(putR.ok){
+      const pd=await putR.json();
+      s.innerHTML=`✓ Publicado com sucesso! Commit: <code>${pd.commit.sha.substring(0,7)}</code><br><a href="https://${repo.split('/')[0].toLowerCase()}.github.io/${repo.split('/')[1]}/" target="_blank" style="color:var(--green)">→ Ver site ao vivo</a>`;
+      s.className='deploy-status ok';
+    } else {
+      const err=await putR.json();
+      s.textContent='✗ Erro: '+(err.message||putR.status);s.className='deploy-status err';
+    }
+  }catch(e){s.textContent='✗ Erro: '+e.message;s.className='deploy-status err';}
+}
+
+// ─── EXPORT / IMPORT ─────────────────────────────────────────────────────────
+function exportJSON(){
+  const blob=new Blob([JSON.stringify(TOURS_DATA,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='passeios-lc.json';a.click();
+  toast('JSON exportado!');
+}
+function importJSON(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    try{
+      const data=JSON.parse(ev.target.result);
+      if(!Array.isArray(data))throw new Error('Formato inválido');
+      TOURS_DATA=data;
+      saveToursToStorage();
+      renderAll();
+      toast(`${data.length} passeios importados!`);
+    }catch(err){toast('Erro ao importar: '+err.message,'err');}
+  };
+  r.readAsText(file);
+  e.target.value='';
+}
+
+// ─── TOAST ────────────────────────────────────────────────────────────────────
+function toast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.background=type==='err'?'#b91c1c':'var(--night)';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// Close modal on overlay click
+document.getElementById('tourModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>
