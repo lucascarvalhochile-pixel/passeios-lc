@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- fundo azul marca -->
-  <rect width="32" height="32" rx="7" fill="#1500FF"/>
-  <!-- squircle branco (container do ícone) -->
-  <rect x="4.5" y="3.5" width="23" height="23" rx="5.5" fill="white"/>
-  <!-- L vertical (haste principal) -->
-  <rect x="8.5" y="7" width="4.2" height="13.5" rx="1.2" fill="#1500FF"/>
-  <!-- L horizontal (base) -->
-  <rect x="8.5" y="17" width="11.5" height="3.8" rx="1.2" fill="#1500FF"/>
-  <!-- acento curvo pequeno (swoosh do L) -->
-  <path d="M18.2 20.2 Q21 19.5 21.5 17.2" stroke="#1500FF" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- squircle azul marca -->
+  <rect width="32" height="32" rx="8" fill="#1500FF"/>
+  <!-- L branco: haste vertical -->
+  <rect x="8" y="6" width="4" height="16" rx="1.5" fill="white"/>
+  <!-- L branco: base horizontal com extremidade arredondada -->
+  <rect x="8" y="18.5" width="13" height="3.5" rx="1.75" fill="white"/>
+  <!-- swoosh / acento curvo inferior direito -->
+  <path d="M19.5 22.5 Q23 21 23 17.5" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
 </svg>
