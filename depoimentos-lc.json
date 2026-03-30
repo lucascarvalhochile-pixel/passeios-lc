@@ -1,0 +1,268 @@
+{
+  "_meta": {
+    "descricao": "Base de depoimentos reais da LC Turismo — organizados por destino/passeio",
+    "fontes": ["TripAdvisor", "Google Maps (4.2★ · 130 avaliações)", "WhatsApp (pasta Google Drive)"],
+    "social_proof": {
+      "google_rating": 4.2,
+      "google_reviews": 130,
+      "tripadvisor_url": "https://www.tripadvisor.com/Attraction_Review-g294305-d28461791-Reviews-Lucas_Carvalho_Turismo-Santiago_Santiago_Metropolitan_Region.html",
+      "total_clientes": "100.000+",
+      "anos_operacao": "7+ (desde 2018)",
+      "instagram_seguidores": "366.000+",
+      "destinos": 16,
+      "equipe": "50+ colaboradores"
+    },
+    "atualizado": "2026-03-28"
+  },
+
+  "chile_santiago": {
+    "label": "Santiago · Chile",
+    "depoimentos": [
+      {
+        "nome": "Silas Dos Santos",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "pax": 2,
+        "destino": "Santiago",
+        "texto": "Gostaria de aproveitar pra fazer um agradecimento em especial por todo suporte. Os passeios foram incríveis, a experiência foi tudo perfeito. Todo o seu atendimento e parceria fez toda a diferença.",
+        "tag": "Santiago"
+      },
+      {
+        "nome": "Laura Bianchini",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "pax": 4,
+        "destino": "Santiago",
+        "texto": "Só passando para dar um feedback sobre os serviços contratados. Transfer in/out e 4 passeios com vocês, todos impecáveis, pontuais.",
+        "tag": "Santiago · Transfer + Passeios"
+      },
+      {
+        "nome": "Mylene Santana",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "pax": 2,
+        "destino": "Santiago",
+        "texto": "Amamos os passeios e os guias foram super atenciosos, tirando dúvidas e explicando a história de cada local, muito interessante por sinal. Muito obrigada por todo o suporte desde o primeiro contato no Brasil, fez total diferença e me senti tranquila em confiar em vocês.",
+        "tag": "Santiago · Guias"
+      },
+      {
+        "nome": "Camila S.",
+        "fonte": "TripAdvisor",
+        "data": "Junho 2025",
+        "estrelas": 4,
+        "destino": "Santiago",
+        "texto": "Serviço fantástico para nossa lua de mel em Santiago. Os guias têm uma energia e amor pelo que fazem que faz toda a diferença. A organização dos passeios nos surpreendeu positivamente.",
+        "tag": "Lua de mel · Santiago"
+      },
+      {
+        "nome": "avswanderley",
+        "fonte": "TripAdvisor",
+        "data": "Abril 2025",
+        "estrelas": 5,
+        "destino": "Santiago",
+        "texto": "Simpatia, conhecimento e eficiência dos guias Gaspar, Constanza e Diego. Pontualidade nos tours e organização impecável.",
+        "tag": "Santiago · Múltiplos passeios"
+      }
+    ]
+  },
+
+  "chile_valle_nevado": {
+    "label": "Valle Nevado · Neve",
+    "depoimentos": [
+      {
+        "nome": "Leonardo M.",
+        "fonte": "TripAdvisor",
+        "data": "Julho 2025",
+        "estrelas": 5,
+        "destino": "Valle Nevado",
+        "texto": "Fizemos o passeio para Valle Nevado e foi uma experiência incrível. O guia Nicolas foi muito prestativo e atencioso, passou informações muito legais sobre a região e os Andes. Recomendo demais a LC Turismo.",
+        "tag": "Valle Nevado"
+      },
+      {
+        "nome": "Gustavo C.",
+        "fonte": "TripAdvisor",
+        "data": "Agosto 2025",
+        "estrelas": 5,
+        "destino": "Valle Nevado / Parques de neve",
+        "texto": "Agência sensacional. Respondem rápido, mantêm uma comunicação bem organizada e o passeio saiu exatamente como combinado. Tudo muito profissional do início ao fim.",
+        "tag": "Parques de neve"
+      },
+      {
+        "nome": "Gisele N.",
+        "fonte": "TripAdvisor",
+        "data": "Julho 2025",
+        "estrelas": 5,
+        "destino": "Parques de neve / Valparaíso",
+        "texto": "Empresa brasileira que entende a necessidade do turista e faz cada experiência valer a pena. Fizemos tour privativo e também Valparaíso e parques de neve. Tudo impecável. O guia Jota é jovem e rico em conhecimento e cordialidade.",
+        "tag": "Tours privativos · Neve"
+      }
+    ]
+  },
+
+  "chile_vina_valparaiso": {
+    "label": "Viña del Mar · Valparaíso",
+    "depoimentos": [
+      {
+        "nome": "Italo F.",
+        "fonte": "TripAdvisor",
+        "data": "Agosto 2025",
+        "estrelas": 5,
+        "destino": "Viña del Mar e Valparaíso",
+        "texto": "Pontualidade nos tours e guias que realmente conhecem os locais. O guia Pablo em Viña del Mar e Valparaíso contou histórias e detalhes que tornaram o passeio muito mais rico.",
+        "tag": "Viña del Mar · Valparaíso"
+      }
+    ]
+  },
+
+  "chile_portillo": {
+    "label": "Portillo · Laguna del Inca",
+    "depoimentos": [
+      {
+        "nome": "Nivaldo A.",
+        "fonte": "TripAdvisor",
+        "data": "Maio 2025",
+        "estrelas": 5,
+        "destino": "Portillo + múltiplos",
+        "texto": "Fizemos 6 passeios com a LC, incluindo Portillo. Muito prestativos, sempre atenciosos e profissionais excelentes. Pontualidade impecável em todos os dias.",
+        "tag": "6 passeios · Portillo"
+      },
+      {
+        "nome": "Jessica Micioneiro",
+        "fonte": "WhatsApp",
+        "data": "Junho 2025",
+        "destino": "Portillo e Laguna del Inca",
+        "texto": "Ontem fizemos o passeio para o Portillo e Laguna del Inca, o Jota guia responsável foi muito atencioso e passou bastante informações culturais e eco culturais, gostamos muito.",
+        "tag": "Portillo · Laguna del Inca"
+      }
+    ]
+  },
+
+  "chile_atacama": {
+    "label": "Atacama",
+    "depoimentos": [
+      {
+        "nome": "Cliente anônima",
+        "fonte": "WhatsApp",
+        "data": "2025",
+        "destino": "Atacama Ancestral",
+        "texto": "Desde o primeiro contato aqui pelo WhatsApp, as informações do passeio e até a experiência do Atacama Ancestral! Ficamos tão satisfeitos com tudo que eu não podia deixar de vir aqui falar, obrigada mesmo. Até queria verificar com vocês o portfólio de passeio de Santiago.",
+        "tag": "Atacama Ancestral"
+      }
+    ]
+  },
+
+  "chile_geral": {
+    "label": "Chile · Geral",
+    "depoimentos": [
+      {
+        "nome": "Cliente anônima",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "destino": "Chile (múltiplos passeios)",
+        "texto": "Maravilhoso! Muito obrigada por nos proporcionar experiências incríveis aqui no Chile! Saímos com o coração agradecido por cada guia, cada atendimento, desde o fechamento dos passeios! Só elogios pra essa equipe.",
+        "tag": "Chile · Múltiplos"
+      },
+      {
+        "nome": "Cliente (aeroporto)",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "destino": "Chile",
+        "texto": "Saindo daqui com o coração cheio de gratidão e boas memórias. Agradeço mais uma vez a LC, a vocês que desde o primeiro contato atenderam com muita gentileza e competência! Até breve, pra mais uma aventura.",
+        "tag": "Chile · Atendimento"
+      },
+      {
+        "nome": "Cliente anônimo",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "destino": "Picnic / passeio guiado",
+        "texto": "Acabei de finalizar o passeio de hoje. Sensacional!! Muito legal o picnic, guia simpático e lugares lindos. Adorei tudo!!",
+        "tag": "Picnic · Passeio guiado"
+      },
+      {
+        "nome": "Brand's Tur Viagens",
+        "fonte": "TripAdvisor",
+        "data": "Agosto 2025",
+        "estrelas": 5,
+        "destino": "Chile (receptivo grupo)",
+        "texto": "Profissionalismo, organização e atenção impecável a cada detalhe. A qualidade do serviço, simpatia e dedicação da equipe superaram as expectativas.",
+        "tag": "Receptivo · Grupo"
+      }
+    ]
+  },
+
+  "peru": {
+    "label": "Peru",
+    "depoimentos": [
+      {
+        "nome": "Wendel Jorge",
+        "fonte": "WhatsApp",
+        "data": "Dezembro 2025",
+        "pax": 3,
+        "destino": "Machu Picchu",
+        "texto": "Finalizando agora nosso passeio a Machu Picchu. E só temos a agradecer. Todos os dias foram incríveis até o momento, mas hoje foi espetacular.",
+        "tag": "Machu Picchu"
+      },
+      {
+        "nome": "Solange Mitsuse",
+        "fonte": "WhatsApp",
+        "data": "Janeiro 2026",
+        "destino": "Peru (30/12 a 03/01)",
+        "texto": "Venho simplesmente agradecer por tudo! Que experiência maravilhosa na qual pudemos vivenciar em nossa viagem ao Peru. Agradeço desde o primeiro atendimento, toda a atenção dada, esclarecimentos, tudo. Agradeço ainda mais os profissionais que nos acompanharam em cada tour, que guias impecáveis!!",
+        "tag": "Peru · Tours"
+      }
+    ]
+  },
+
+  "colombia_cartagena_san_andres": {
+    "label": "Cartagena · San Andrés",
+    "depoimentos": [
+      {
+        "nome": "Fernando",
+        "fonte": "WhatsApp",
+        "data": "Janeiro 2026",
+        "pax": 2,
+        "destino": "San Andrés (lancha privativa)",
+        "texto": "Tudo foi perfeito e agradecemos a LC por toda assistência e profissionalismo. O atendimento do Capitão Daniel e do ajudante Liam foi fantástico. O serviço deles foi além de muito profissional, também de uma gentileza extrema. Muito obrigado a todos. Tivemos um excelente passeio.",
+        "tag": "San Andrés · Lancha privativa"
+      },
+      {
+        "nome": "Paulo Chartenes",
+        "fonte": "WhatsApp",
+        "data": "Março 2026",
+        "destino": "Cartagena e San Andrés (13-20/03)",
+        "texto": "Passando aqui pra agradecer pelos passeios e a atenção que tiveram comigo e com minha esposa. Foi tudo muito top, bem organizado, todos os passeios com pessoas super bacanas, atenciosas, tranquilas, alegres. Muito bom mesmo. Vocês estão de parabéns.",
+        "tag": "Cartagena · San Andrés"
+      },
+      {
+        "nome": "Luanny",
+        "fonte": "WhatsApp",
+        "data": "2026",
+        "destino": "San Andrés",
+        "texto": "Queria agradecer pelo suporte com os passeios. Foi incrível a viagem. Santos foi muito gentil também. Muito obrigada!!!!",
+        "tag": "San Andrés"
+      },
+      {
+        "nome": "Karylaine",
+        "fonte": "WhatsApp",
+        "data": "2026",
+        "destino": "San Andrés (mergulho)",
+        "texto": "Queria deixar um feedback de agradecimento e com gratidão pro nosso instrutor no mergulho. Tou emocionada até agora! Pessoa muito solícito, empático.",
+        "tag": "San Andrés · Mergulho"
+      }
+    ]
+  },
+
+  "passeio_guiado": {
+    "label": "Passeio Guiado · Guia",
+    "depoimentos": [
+      {
+        "nome": "Cliente anônimo",
+        "fonte": "WhatsApp",
+        "data": "2026",
+        "destino": "Passeio guiado",
+        "texto": "Foi ótimo! Acho que, até o momento, é o lugar mais bonito que já conheci. Mesmo com tanta gente andando e caminhando, tudo parece tão silencioso, extremamente etéreo! O guia Paulo foi ótimo também! Sem ele a experiência não teria sido a mesma, ele fala sobre o local com tanto conhecimento e paixão.",
+        "tag": "Guia Paulo"
+      }
+    ]
+  }
+}
