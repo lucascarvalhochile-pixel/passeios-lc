@@ -189,6 +189,8 @@ tr:hover td{background:var(--g50)}
     </nav>
     <div class="sidebar-footer">
       <a href="./" target="_blank">← Ver site</a>
+      <span style="color:rgba(255,255,255,.2);margin:0 6px">·</span>
+      <span style="color:rgba(255,255,255,.4);font-size:.75rem;cursor:pointer" onclick="localStorage.removeItem('lcAdminSession');location.reload()">Sair</span>
     </div>
   </aside>
 
@@ -551,6 +553,7 @@ function doLogin(){
   const v=document.getElementById('loginPass').value.trim();
   const stored=localStorage.getItem('lcAdminPass')||PASS;
   if(v===stored){
+    localStorage.setItem('lcAdminSession','1');
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('app').classList.add('visible');
     init();
@@ -558,6 +561,12 @@ function doLogin(){
     document.getElementById('loginErr').style.display='block';
     document.getElementById('loginPass').value='';
   }
+}
+// Auto-login se sessão salva
+if(localStorage.getItem('lcAdminSession')==='1'){
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+  init();
 }
 document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 
