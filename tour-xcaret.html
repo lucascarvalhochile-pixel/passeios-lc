@@ -119,6 +119,12 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 .urg-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:urgblink 1.5s ease-in-out infinite;flex-shrink:0}
 @keyframes urgblink{0%,100%{opacity:1}50%{opacity:.3}}
 
+
+.footer{background:var(--night);color:rgba(255,255,255,.42);text-align:center;padding:42px 20px;font-size:.82rem}
+.footer strong{color:#fff}
+.flinks{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.flinks a{color:rgba(255,255,255,.32);transition:color .15s}
+.flinks a:hover{color:#fff}
 </style>
 <!-- Meta Pixel -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354344253278');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Xcaret — Parque Eco-Arqueológico',content_category:'México'});</script>
@@ -317,5 +323,15 @@ window.addEventListener('scroll',()=>{
   el.insertAdjacentHTML('beforebegin', bar);
 })();
 </script>
+
+<footer class="footer">
+  <strong>LC Turismo</strong> — Menos rotina. Mais roteiro.
+  <div class="flinks">
+    <a href="https://passeios.bloglcturismo.com.br/">Ver todos os passeios</a>
+    <a href="https://wa.me/5511920619246" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
+  </div>
+  <div style="margin-top:14px;font-size:.68rem;opacity:.22">© 2026 LC Turismo · Todos os direitos reservados</div>
+</footer>
 </body>
 </html>
