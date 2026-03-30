@@ -246,6 +246,7 @@ tr:hover td{background:var(--g50)}
                 <th>Duração</th>
                 <th>Temporada</th>
                 <th>Badge</th>
+                <th>Preço</th>
                 <th>Página</th>
                 <th>Ações</th>
               </tr>
@@ -477,6 +478,15 @@ tr:hover td{background:var(--g50)}
           <option value="hot">🔥 Alta procura</option>
           <option value="new">✨ Experiência única</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label>💰 Preço "A partir de" (R$)</label>
+        <input type="number" id="mPrice" placeholder="Ex: 290" min="0" step="1" style="padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem">
+        <span style="font-size:.72rem;color:var(--g400);margin-top:2px;display:block">Menor preço do ano entre todas as temporadas. Deixe vazio para não mostrar.</span>
+      </div>
+      <div class="form-group">
+        <label>🔗 Link de reserva (LCX)</label>
+        <input type="url" id="mBookUrl" placeholder="https://reserva.lucascarvalhoturismo.com.br/..." style="padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem">
       </div>
       <div class="form-group full">
         <label>URL da imagem de capa (card no catálogo)</label>
@@ -724,6 +734,7 @@ function renderToursTable(){
       <td style="color:var(--g500)">${t.dur||'—'}</td>
       <td style="color:var(--g500);font-size:.78rem">${t.t||'—'}</td>
       <td>${badgeBadge[t.badge||'']||badgeBadge['']}</td>
+      <td>${t.price?`<span style="font-weight:700;color:#1a7f37;font-size:.82rem">R$ ${t.price}</span>`:`<span style="color:var(--g300);font-size:.78rem">—</span>`}</td>
       <td>${t.f?`<span class="has-page">✓ página</span>`:`<span class="no-page">→ WhatsApp</span>`}</td>
       <td><div class="actions">
         <button class="btn btn-outline btn-sm" onclick="editTour(${t._i})">✏️</button>
@@ -759,6 +770,8 @@ function openModal(idx){
   document.getElementById('mSeason').value=t.t||'';
   document.getElementById('mDepart').value=t.s||'';
   document.getElementById('mBadge').value=t.badge||'';
+  document.getElementById('mPrice').value=t.price||'';
+  document.getElementById('mBookUrl').value=t.bookUrl||'';
   document.getElementById('mImg').value=t.img||'';
   document.getElementById('mFile').value=t.f||'';
   document.getElementById('mHeroImg').value=t.heroImg||'';
@@ -782,6 +795,8 @@ function saveTour(){
     t:document.getElementById('mSeason').value.trim(),
     s:document.getElementById('mDepart').value.trim(),
     badge:document.getElementById('mBadge').value||undefined,
+    price:parseInt(document.getElementById('mPrice').value)||undefined,
+    bookUrl:document.getElementById('mBookUrl').value.trim()||undefined,
     img:document.getElementById('mImg').value.trim(),
     heroImg:document.getElementById('mHeroImg').value.trim()||undefined,
     g2:document.getElementById('mG2').value.trim()||undefined,
@@ -979,7 +994,8 @@ async function deployToGitHub(){
       .replace(/"f":/g,'f:').replace(/"n":/g,'n:').replace(/"d":/g,'d:')
       .replace(/"country":/g,'country:').replace(/"dur":/g,'dur:').replace(/"t":/g,'t:')
       .replace(/"s":/g,'s:').replace(/"img":/g,'img:').replace(/"tags":/g,'tags:').replace(/"badge":/g,'badge:')
-      .replace(/"heroImg":/g,'heroImg:').replace(/"g2":/g,'g2:').replace(/"g3":/g,'g3:').replace(/"ytVideo":/g,'ytVideo:');
+      .replace(/"heroImg":/g,'heroImg:').replace(/"g2":/g,'g2:').replace(/"g3":/g,'g3:').replace(/"ytVideo":/g,'ytVideo:')
+      .replace(/"price":/g,'price:').replace(/"bookUrl":/g,'bookUrl:');
     let newHTML=currentHTML.replace(/const TOURS = \[[\s\S]*?\];/,`const TOURS = ${toursJS};`);
     // Apply SITE_CONFIG to index.html
     if(SITE_CONFIG.heroTitle){
@@ -1008,7 +1024,7 @@ async function deployToGitHub(){
     });
     if(putR.ok){
       // Update individual tour HTML files that have heroImg/g2/g3 set
-      const tourFiles=TOURS_DATA.filter(t=>t.f&&!t.f.startsWith('_')&&!t.f.startsWith('http')&&(t.heroImg||t.g2||t.g3||t.ytVideo));
+      const tourFiles=TOURS_DATA.filter(t=>t.f&&!t.f.startsWith('_')&&!t.f.startsWith('http')&&(t.heroImg||t.g2||t.g3||t.ytVideo||t.price||t.bookUrl));
       let updatedPages=0;
       if(tourFiles.length>0){
         s.textContent=`⏳ Atualizando fotos de ${tourFiles.length} página(s)...`;
@@ -1055,12 +1071,31 @@ async function deployToGitHub(){
               }
               if(html!==prev)changed=true;
             }
+            /* ── Price + Booking button injection ── */
+            if(tour.price){
+              const priceCSS=`.tour-price-box{background:linear-gradient(135deg,#f0f5ff,#e8f0fe);border:2px solid #0100fe;border-radius:14px;padding:20px 24px;margin:24px 0;text-align:center}.tour-price-label{font-size:.85rem;color:#555;margin-bottom:4px}.tour-price-val{font-size:1.8rem;font-weight:800;color:#0100fe;letter-spacing:-.5px}.tour-price-note{font-size:.75rem;color:#888;margin-top:4px}.tour-book-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:14px 32px;background:#25d366;color:#fff;font-weight:700;font-size:1rem;border-radius:50px;text-decoration:none;transition:opacity .15s}.tour-book-btn:hover{opacity:.88}`;
+              const bookHref=tour.bookUrl||`https://wa.me/${SITE_CONFIG.wa||'5511920619246'}?text=${encodeURIComponent('Olá! Quero reservar: '+tour.n)}`;
+              const priceHTML=`<div class="tour-price-box" id="tourPriceBox"><div class="tour-price-label">A partir de</div><div class="tour-price-val">R$ ${tour.price}</div><div class="tour-price-note">Preço por pessoa · menor tarifa do ano</div><a class="tour-book-btn" href="${bookHref}" target="_blank">📲 Reservar agora</a></div>`;
+              if(!html.includes('.tour-price-box'))html=html.replace('</style>',priceCSS+'\n</style>');
+              if(html.includes('id="tourPriceBox"')){
+                html=html.replace(/<div class="tour-price-box"[^]*?<\/div>\s*<\/div>/,priceHTML);
+              }else{
+                /* Insert before the CTA/WhatsApp section or before </main> or before wrap closing */
+                const insertPoints=[/<div class="cta[\s\S]*?<\/div>\s*<\/div>/,/<\/main>/,/<footer/];
+                let inserted=false;
+                for(const rx of insertPoints){
+                  if(rx.test(html)){html=html.replace(rx,priceHTML+'\n$&');inserted=true;break;}
+                }
+                if(!inserted) html=html.replace('</body>',priceHTML+'\n</body>');
+              }
+              changed=true;
+            }
             if(changed){
               const enc=btoa(unescape(encodeURIComponent(html)));
               await fetch(`https://api.github.com/repos/${repo}/contents/${tour.f}`,{
                 method:'PUT',
                 headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
-                body:JSON.stringify({message:`admin: update images — ${tour.n}`,content:enc,sha:fSha})
+                body:JSON.stringify({message:`admin: update images + price — ${tour.n}`,content:enc,sha:fSha})
               });
               updatedPages++;
             }
