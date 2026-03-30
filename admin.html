@@ -359,8 +359,12 @@ tr:hover td{background:var(--g50)}
         <p>Deploy automático via GitHub Pages</p>
       </div>
       <div class="deploy-card">
-        <h3>🔐 Credenciais GitHub</h3>
-        <p>Para publicar alterações diretamente no site, informe o token e o repositório. Estas informações são salvas apenas no seu navegador.</p>
+        <div style="display:flex;align-items:center;gap:10px;justify-content:space-between">
+          <h3 style="margin:0">🔐 Credenciais GitHub</h3>
+          <span id="credBadge" style="display:none;align-items:center;gap:4px;background:#d4edda;color:#1a5c2e;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:12px">✅ Conectado</span>
+        </div>
+        <p style="margin:6px 0 0;font-size:.82rem;color:var(--g400)">Credenciais pré-configuradas. <a href="#" onclick="document.getElementById('credFields').style.display=document.getElementById('credFields').style.display==='none'?'block':'none';return false" style="color:var(--primary);text-decoration:none;font-weight:600">Editar ▾</a></p>
+        <div id="credFields" style="display:none;margin-top:14px">
         <div class="form-group" style="margin-bottom:12px">
           <label style="font-size:.78rem;font-weight:700;color:var(--g700)">GitHub Token (ghp_...)</label>
           <div class="token-input-row">
@@ -375,6 +379,7 @@ tr:hover td{background:var(--g50)}
         <div style="display:flex;gap:10px;margin-top:16px">
           <button class="btn btn-outline" onclick="saveCredentials()">💾 Salvar credenciais</button>
           <button class="btn btn-primary" onclick="testConnection()">🔌 Testar conexão</button>
+        </div>
         </div>
         <div class="deploy-status" id="connStatus"></div>
       </div>
@@ -868,8 +873,18 @@ function previewLogo(){
 // ─── DEPLOY ───────────────────────────────────────────────────────────────────
 function loadCredentials(){
   const _r=s=>s.split('').reverse().join('');
-  document.getElementById('ghToken').value=localStorage.getItem('ghToken')||_r('zrybx1TYU2JYKtkNd3ztD8lxe593fltuAjYm_phg');
-  document.getElementById('ghRepo').value=localStorage.getItem('ghRepo')||'lucascarvalhochile-pixel/passeios-lc';
+  const tk=localStorage.getItem('ghToken')||_r('zrybx1TYU2JYKtkNd3ztD8lxe593fltuAjYm_phg');
+  const rp=localStorage.getItem('ghRepo')||'lucascarvalhochile-pixel/passeios-lc';
+  document.getElementById('ghToken').value=tk;
+  document.getElementById('ghRepo').value=rp;
+  /* persist so deploy always finds them */
+  localStorage.setItem('ghToken',tk);
+  localStorage.setItem('ghRepo',rp);
+  /* show connected badge */
+  if(tk&&rp){
+    const badge=document.getElementById('credBadge');
+    if(badge) badge.style.display='inline-flex';
+  }
 }
 function saveCredentials(){
   localStorage.setItem('ghToken',document.getElementById('ghToken').value.trim());
