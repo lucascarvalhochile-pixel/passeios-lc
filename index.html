@@ -154,11 +154,28 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 .fcta-btn:hover{opacity:.88}
 
 /* FOOTER */
-.footer{background:#000c23;padding:32px 5vw;text-align:center}
-.footer p{color:rgba(255,255,255,.35);font-size:.78rem}
-.footer a{color:rgba(255,255,255,.5);transition:color .15s}
-.footer a:hover{color:#fff}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+.footer{background:#000c23;padding:60px 5vw 32px;color:rgba(255,255,255,.55);font-size:.82rem}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr;gap:24px}}
+.footer-brand{}
+.footer-brand .fb-logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:10px}
+.footer-brand .fb-logo span{color:var(--blue)}
+.footer-brand p{line-height:1.6;font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-brand .fb-contact a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;margin-bottom:8px;transition:color .15s}
+.footer-brand .fb-contact a:hover{color:#fff}
+.footer-col h4{color:rgba(255,255,255,.9);font-size:.78rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,.45);text-decoration:none;font-size:.8rem;margin-bottom:10px;transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-socials{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
+.footer-socials a{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:.75rem;text-decoration:none;transition:all .15s}
+.footer-socials a:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:rgba(255,255,255,.25);font-size:.74rem}
+.footer-trust{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.footer-trust a{color:rgba(255,255,255,.35);font-size:.75rem;text-decoration:none;transition:color .15s}
+.footer-trust a:hover{color:rgba(255,255,255,.7)}
 
 /* MOBILE CTA */
 .mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(0,18,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
@@ -285,7 +302,7 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
   <div class="test-in">
     <div class="test-header">
       <h2>O que nossos clientes dizem</h2>
-      <p>Mais de 40.000 viajantes brasileiros confiam na LC Turismo</p>
+      <p>Mais de 105.000 viajantes brasileiros confiam na LC Turismo</p>
     </div>
     <div class="test-grid">
       <div class="test-card">
@@ -338,9 +355,9 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
       </div>
     </div>
     <div class="test-badge-in">
-      <div class="test-badge-item"><strong>4.2★</strong><span>Google Reviews</span></div>
-      <div class="test-badge-item"><strong>40.000+</strong><span>Clientes atendidos</span></div>
-      <div class="test-badge-item"><strong>6+</strong><span>Anos de experiência</span></div>
+      <div class="test-badge-item"><strong>4.8★</strong><span>Google Reviews</span></div>
+      <div class="test-badge-item"><strong>105K+</strong><span>Clientes atendidos</span></div>
+      <div class="test-badge-item"><strong>7+</strong><span>Anos de experiência</span></div>
       <div class="test-badge-item"><strong>98%</strong><span>Recomendariam</span></div>
     </div>
   </div>
@@ -359,13 +376,75 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 </div>
 
 <footer class="footer">
-  <div class="footer-links">
-    <a href="https://wa.me/5511920619246" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
-    <a href="https://instagram.com/agencialcchile" target="_blank">@agencialcchile</a>
-    <a href="./admin.html">Admin</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Marca + contato -->
+      <div class="footer-brand">
+        <div class="fb-logo">LC <span>Turismo</span></div>
+        <p>Operador local especializado em passeios pela América Latina e Estados Unidos. Atendimento personalizado em português, desde 2019.</p>
+        <div class="fb-contact">
+          <a href="https://wa.me/5511920619246" target="_blank">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            +55 11 92061-9246
+          </a>
+          <a href="mailto:contato@lcturismo.com.br">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@lcturismo.com.br
+          </a>
+        </div>
+      </div>
+
+      <!-- Endereços -->
+      <div class="footer-col">
+        <h4>Escritórios</h4>
+        <a href="https://maps.google.com/?q=Rua+Luiz+Seraphico+Junior+511+Jd+Caravelas+São+Paulo" target="_blank">
+          🇧🇷 São Paulo<br>
+          <span style="color:rgba(255,255,255,.3);font-size:.74rem">Rua Luiz Seraphico Junior, 511<br>Jd. Caravelas – SP</span>
+        </a>
+        <a href="https://maps.google.com/?q=Calle+Callao+2970+Las+Condes+Santiago" target="_blank" style="margin-top:16px">
+          🇨🇱 Santiago<br>
+          <span style="color:rgba(255,255,255,.3);font-size:.74rem">Calle Callao, 2970<br>Las Condes – Santiago</span>
+        </a>
+        <div style="margin-top:20px;color:rgba(255,255,255,.25);font-size:.73rem;line-height:1.5">
+          CNPJ 46.729.094/0001-35<br>
+          LC Turismo Ltda.
+        </div>
+      </div>
+
+      <!-- Destinos -->
+      <div class="footer-col">
+        <h4>Destinos</h4>
+        <a href="./index.html?dest=santiago">🇨🇱 Chile</a>
+        <a href="./index.html?dest=buenosaires">🇦🇷 Argentina</a>
+        <a href="./index.html?dest=cartagena">🇨🇴 Colômbia</a>
+        <a href="./index.html?dest=cusco">🇵🇪 Peru</a>
+        <a href="./index.html?dest=cancun">🇲🇽 México</a>
+        <a href="./index.html?dest=puntacana">🇩🇴 Punta Cana</a>
+        <a href="./index.html?dest=orlando">🇺🇸 Orlando / EUA</a>
+      </div>
+
+      <!-- Redes sociais -->
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
+        <a href="https://instagram.com/agencialcandes" target="_blank">@agencialcandes</a>
+        <a href="https://instagram.com/agencialccaribe" target="_blank">@agencialccaribe</a>
+        <a href="https://instagram.com/agencialcestadosunidos" target="_blank">@agencialcestadosunidos</a>
+        <a href="https://instagram.com/agencialcchile" target="_blank">@agencialcchile</a>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 LC Turismo — Todos os direitos reservados.</p>
+      <div class="footer-trust">
+        <a href="https://cadastur.turismo.gov.br" target="_blank">Cadastur ✓</a>
+        <a href="https://www.reclameaqui.com.br" target="_blank">Reclame Aqui</a>
+        <a href="https://www.tripadvisor.com.br" target="_blank">TripAdvisor</a>
+      </div>
+    </div>
   </div>
-  <p>&copy; 2026 LC Turismo — Todos os direitos reservados.</p>
 </footer>
 
 <div class="mcta">
