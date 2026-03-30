@@ -981,14 +981,12 @@ async function deployToGitHub(){
   if(!token||!repo){s.textContent='Configure as credenciais primeiro.';s.className='deploy-status err';s.style.display='block';return;}
   s.textContent='⏳ Gerando index.html...';s.className='deploy-status loading';s.style.display='block';
   try{
-    // Get current file SHA
-    const fileR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    // Get current file from GitHub API (avoids CDN cache issues)
+    const fileR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
     const fileD=await fileR.json();
     const sha=fileD.sha;
     s.textContent='⏳ Publicando...';
-    // Fetch current index.html and replace TOURS array
-    const currentR=await fetch('./index.html?nocache='+Date.now());
-    const currentHTML=await currentR.text();
+    const currentHTML=decodeURIComponent(escape(atob(fileD.content.replace(/\n/g,''))));
     // Build new TOURS JS
     const toursJS=JSON.stringify(TOURS_DATA,null,2)
       .replace(/"f":/g,'f:').replace(/"n":/g,'n:').replace(/"d":/g,'d:')
