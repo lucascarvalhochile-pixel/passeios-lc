@@ -610,7 +610,7 @@ let SITE_CONFIG = {
   stat1:'106',stat2:'4.8★',stat3:'105K+',stat4:'2019',
   wa:'5511920619246',waMsg:'Olá LC! Quero conhecer os passeios',
   pixel:'2262354344253278',ga4:'',
-  navColor:'#0100fe',logoHeight:'54'
+  navColor:'#0100fe',logoHeight:'80'
 };
 
 // Auto-login se sessão salva (DEVE vir DEPOIS de SITE_CONFIG)
@@ -843,7 +843,7 @@ function loadConfig(){
   document.getElementById('cfgGA4').value=SITE_CONFIG.ga4||'';
 }
 function saveConfig(){
-  SITE_CONFIG={
+  SITE_CONFIG=Object.assign(SITE_CONFIG,{
     logo:SITE_CONFIG.logo||'',
     heroTitle:document.getElementById('cfgHeroTitle').value.trim(),
     heroSub:document.getElementById('cfgHeroSub').value.trim(),
@@ -855,7 +855,9 @@ function saveConfig(){
     waMsg:document.getElementById('cfgWAMsg').value.trim(),
     pixel:document.getElementById('cfgPixel').value.trim(),
     ga4:document.getElementById('cfgGA4').value.trim(),
-  };
+    navColor:SITE_CONFIG.navColor||'#0100fe',
+    logoHeight:SITE_CONFIG.logoHeight||'80',
+  });
   localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
   toast('Configurações salvas!');
 }
@@ -1015,10 +1017,14 @@ async function deployToGitHub(){
     newHTML=newHTML.replace(/(\.nav-top\{[^}]*height:)[^;]+(;)/,`$1${navH}px$2`);
     newHTML=newHTML.replace(/(\.toolbar\{[^}]*top:)[^;]+(;)/,`$1${navH}px$2`);
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
+    /* Fresh SHA fetch right before PUT to avoid "does not match" errors */
+    const freshR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main&t=${Date.now()}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Cache-Control':'no-cache'}});
+    const freshD=await freshR.json();
+    const freshSha=freshD.sha||sha;
     const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
       method:'PUT',
       headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
-      body:JSON.stringify({message:`admin: update catalog (${TOURS_DATA.length} tours)`,content:encoded,sha})
+      body:JSON.stringify({message:`admin: update catalog (${TOURS_DATA.length} tours)`,content:encoded,sha:freshSha})
     });
     if(putR.ok){
       // Update individual tour HTML files that have heroImg/g2/g3 set
