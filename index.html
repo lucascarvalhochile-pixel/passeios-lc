@@ -627,7 +627,7 @@ function renderCards(){
           <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${t.dur}</span>
           <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>${t.s}</span>
         </div>
-        ${t.price?`<div class="card-price">A partir de <strong>R$ ${t.price}</strong></div>`:''}
+        ${t.price?`<div class="card-price">A partir de <strong>R$ ${t.price.toLocaleString('pt-BR')}</strong></div>`:''}
         <div class="card-foot">
           <div class="card-tags">${t.tags.map(tg=>`<span class="card-tag">${tg}</span>`).join('')}</div>
           <span class="card-cta">${isSuncoast?'Ver ingressos ↗':t.f?'Ver detalhes':'Consultar'}</span>
