@@ -452,8 +452,12 @@ tr:hover td{background:var(--g50)}
       <div class="form-group full">
         <label>URL da imagem de capa (card no catálogo)</label>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="url" id="mImg" placeholder="https://... ou ./img/nome.jpg" style="flex:1">
+          <input type="url" id="mImg" placeholder="https://... ou ./img/nome.jpg" style="flex:1" oninput="updatePhotoPreview('mImg','prevImg')">
           <button type="button" class="btn-upload" onclick="triggerUpload('mImg')">📎 Upload</button>
+        </div>
+        <div id="prevImg" style="margin-top:8px;display:none">
+          <img src="" alt="Capa" style="max-height:90px;max-width:100%;border-radius:7px;border:1.5px solid var(--g100);object-fit:cover" onerror="this.parentElement.style.display='none'">
+          <span style="font-size:.72rem;color:var(--g400);margin-left:6px">Capa atual</span>
         </div>
       </div>
       <div class="form-group full">
@@ -463,23 +467,35 @@ tr:hover td{background:var(--g50)}
       <div class="form-group full" style="border-top:1.5px dashed var(--g100);padding-top:16px;margin-top:4px">
         <label style="color:var(--blue)">🖼 Foto principal / Hero (banner da página interna)</label>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="text" id="mHeroImg" placeholder="./img/nome.jpg" style="flex:1">
+          <input type="text" id="mHeroImg" placeholder="./img/nome.jpg" style="flex:1" oninput="updatePhotoPreview('mHeroImg','prevHeroImg')">
           <button type="button" class="btn-upload" onclick="triggerUpload('mHeroImg')">📎 Upload</button>
+        </div>
+        <div id="prevHeroImg" style="margin-top:8px;display:none">
+          <img src="" alt="Hero" style="max-height:90px;max-width:100%;border-radius:7px;border:1.5px solid var(--g100);object-fit:cover" onerror="this.parentElement.style.display='none'">
+          <span style="font-size:.72rem;color:var(--g400);margin-left:6px">Hero atual</span>
         </div>
         <small style="color:var(--g500);font-size:.74rem;margin-top:4px;display:block">Clique em Upload para enviar do seu computador. Requer publicar para aplicar.</small>
       </div>
       <div class="form-group">
         <label style="color:var(--blue)">📷 Galeria — Foto 2</label>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="text" id="mG2" placeholder="./img/..." style="flex:1">
+          <input type="text" id="mG2" placeholder="./img/..." style="flex:1" oninput="updatePhotoPreview('mG2','prevG2')">
           <button type="button" class="btn-upload" onclick="triggerUpload('mG2')">📎</button>
+        </div>
+        <div id="prevG2" style="margin-top:8px;display:none">
+          <img src="" alt="Foto 2" style="max-height:80px;max-width:100%;border-radius:7px;border:1.5px solid var(--g100);object-fit:cover" onerror="this.parentElement.style.display='none'">
+          <span style="font-size:.72rem;color:var(--g400);margin-left:6px">Foto 2 atual</span>
         </div>
       </div>
       <div class="form-group">
         <label style="color:var(--blue)">📷 Galeria — Foto 3</label>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="text" id="mG3" placeholder="./img/..." style="flex:1">
+          <input type="text" id="mG3" placeholder="./img/..." style="flex:1" oninput="updatePhotoPreview('mG3','prevG3')">
           <button type="button" class="btn-upload" onclick="triggerUpload('mG3')">📎</button>
+        </div>
+        <div id="prevG3" style="margin-top:8px;display:none">
+          <img src="" alt="Foto 3" style="max-height:80px;max-width:100%;border-radius:7px;border:1.5px solid var(--g100);object-fit:cover" onerror="this.parentElement.style.display='none'">
+          <span style="font-size:.72rem;color:var(--g400);margin-left:6px">Foto 3 atual</span>
         </div>
       </div>
       <div class="form-group full">
@@ -637,6 +653,17 @@ function renderDashboard(){
 }
 
 // ─── TOURS TABLE ─────────────────────────────────────────────────────────────
+function photoStatusDots(t){
+  return [
+    {label:'Capa',url:t.img},
+    {label:'Hero',url:t.heroImg},
+    {label:'F2',url:t.g2},
+    {label:'F3',url:t.g3}
+  ].map(d=>d.url
+    ?`<span title="${d.label}: ${d.url}" style="font-size:.6rem;background:#d4edda;color:#1a5c2e;border-radius:3px;padding:1px 5px;font-weight:700;letter-spacing:.01em">${d.label}</span>`
+    :`<span title="${d.label}: sem foto" style="font-size:.6rem;background:var(--g100);color:var(--g300);border-radius:3px;padding:1px 5px">${d.label}</span>`
+  ).join('');
+}
 let editIdx = null;
 function renderToursTable(){
   const q=document.getElementById('tourSearch').value.toLowerCase();
@@ -648,7 +675,11 @@ function renderToursTable(){
   const badgeBadge={top:'<span class="badge badge-top">⭐ Mais vendido</span>',hot:'<span class="badge badge-hot">🔥 Alta procura</span>',new:'<span class="badge badge-new">✨ Único</span>','':'<span class="badge badge-none">—</span>'};
   document.getElementById('toursTableBody').innerHTML=filtered.map(t=>`
     <tr>
-      <td><img class="tour-img-thumb" src="${t.img||''}" onerror="this.src=''" alt=""></td>
+      <td style="white-space:nowrap">
+        <img class="tour-img-thumb" src="${t.img||''}" onerror="this.style.display='none'" alt="" style="display:${t.img?'block':'none'};width:56px;height:40px;object-fit:cover;border-radius:6px;border:1.5px solid var(--g100);margin-bottom:4px">
+        ${!t.img?`<div style="width:56px;height:40px;border-radius:6px;border:1.5px dashed var(--g200);display:flex;align-items:center;justify-content:center;color:var(--g300);font-size:.75rem;margin-bottom:4px">sem capa</div>`:''}
+        <div style="display:flex;gap:2px;flex-wrap:wrap;max-width:62px">${photoStatusDots(t)}</div>
+      </td>
       <td style="max-width:240px"><strong style="font-size:.83rem">${t.n}</strong></td>
       <td><span class="badge badge-${t.country}">${flags[t.country]||''} ${t.d.split('·')[0].trim()}</span></td>
       <td style="color:var(--g500)">${t.dur||'—'}</td>
@@ -661,6 +692,20 @@ function renderToursTable(){
       </div></td>
     </tr>`).join('');
   document.getElementById('tourCount').textContent=`${filtered.length} de ${TOURS_DATA.length} passeios`;
+}
+
+// ─── PHOTO PREVIEW ────────────────────────────────────────────────────────────
+function updatePhotoPreview(inputId, previewId){
+  const url=document.getElementById(inputId).value.trim();
+  const box=document.getElementById(previewId);
+  if(!box)return;
+  if(url){
+    box.querySelector('img').src=url;
+    box.style.display='flex';
+    box.style.alignItems='center';
+  } else {
+    box.style.display='none';
+  }
 }
 
 // ─── MODAL ────────────────────────────────────────────────────────────────────
@@ -682,6 +727,8 @@ function openModal(idx){
   document.getElementById('mG3').value=t.g3||'';
   document.getElementById('mYtVideo').value=t.ytVideo||'';
   document.getElementById('mTags').value=(t.tags||[]).join(', ');
+  // Show existing photo previews
+  [['mImg','prevImg'],['mHeroImg','prevHeroImg'],['mG2','prevG2'],['mG3','prevG3']].forEach(([inp,prev])=>updatePhotoPreview(inp,prev));
   document.getElementById('tourModal').classList.add('open');
 }
 function editTour(i){openModal(i);}
