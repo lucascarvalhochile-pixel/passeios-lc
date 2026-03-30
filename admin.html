@@ -913,7 +913,18 @@ async function deployToGitHub(){
       .replace(/"country":/g,'country:').replace(/"dur":/g,'dur:').replace(/"t":/g,'t:')
       .replace(/"s":/g,'s:').replace(/"img":/g,'img:').replace(/"tags":/g,'tags:').replace(/"badge":/g,'badge:')
       .replace(/"heroImg":/g,'heroImg:').replace(/"g2":/g,'g2:').replace(/"g3":/g,'g3:').replace(/"ytVideo":/g,'ytVideo:');
-    const newHTML=currentHTML.replace(/const TOURS = \[[\s\S]*?\];/,`const TOURS = ${toursJS};`);
+    let newHTML=currentHTML.replace(/const TOURS = \[[\s\S]*?\];/,`const TOURS = ${toursJS};`);
+    // Apply SITE_CONFIG to index.html
+    if(SITE_CONFIG.heroTitle){
+      const ht=SITE_CONFIG.heroTitle.replace(/\[DEST\](.*?)\[\/DEST\]/g,'<span>$1</span>');
+      newHTML=newHTML.replace(/(<h1 class="hero-title">)[\s\S]*?(<\/h1>)/,`$1${ht}$2`);
+    }
+    if(SITE_CONFIG.heroSub) newHTML=newHTML.replace(/(<p class="hero-sub">)[^<]*(<\/p>)/,`$1${SITE_CONFIG.heroSub}$2`);
+    if(SITE_CONFIG.stat1) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Passeios)/,`$1${SITE_CONFIG.stat1}$2`);
+    if(SITE_CONFIG.stat2) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Google)/,`$1${SITE_CONFIG.stat2}$2`);
+    if(SITE_CONFIG.stat3) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Clientes)/,`$1${SITE_CONFIG.stat3}$2`);
+    if(SITE_CONFIG.stat4) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Desde)/,`$1${SITE_CONFIG.stat4}$2`);
+    if(SITE_CONFIG.wa) newHTML=newHTML.replace(/wa\.me\/\d+\?text=[^"']*/g,`wa.me/${SITE_CONFIG.wa}?text=${encodeURIComponent(SITE_CONFIG.waMsg||'Olá LC! Quero conhecer os passeios')}`);
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
     const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
       method:'PUT',
