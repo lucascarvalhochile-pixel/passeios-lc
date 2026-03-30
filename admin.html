@@ -1026,10 +1026,20 @@ async function deployToGitHub(){
   const repo=document.getElementById('ghRepo').value.trim();
   const s=document.getElementById('deployStatus');
   if(!token||!repo){s.textContent='Configure as credenciais primeiro.';s.className='deploy-status err';s.style.display='block';return;}
-  s.textContent='⏳ Gerando index.html...';s.className='deploy-status loading';s.style.display='block';
+  s.textContent='⏳ Conectando ao GitHub...';s.className='deploy-status loading';s.style.display='block';
   try{
     // Get current file from GitHub API (avoids CDN cache issues)
-    const fileR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    let fileR;
+    try{
+      fileR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    }catch(netErr){
+      throw new Error(`Falha de rede ao conectar com GitHub API. Verifique sua internet e tente novamente. (${netErr.message})`);
+    }
+    if(fileR.status===401) throw new Error('Token inválido ou expirado. Vá em Credenciais e atualize o token.');
+    if(fileR.status===403) throw new Error('Sem permissão. Verifique se o token tem acesso ao repositório.');
+    if(fileR.status===404) throw new Error('Repositório não encontrado: '+repo);
+    if(!fileR.ok) throw new Error('GitHub API retornou status '+fileR.status);
+    s.textContent='⏳ Gerando index.html...';
     const fileD=await fileR.json();
     const sha=fileD.sha;
     s.textContent='⏳ Publicando...';
