@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tango Show Noturno com Jantar — LC Turismo</title>
+<meta name="description" content="O tango nasceu em Buenos Aires e nenhuma viagem à capital argentina está completa sem vivenciar essa arte ao vivo. Jantar gourmet, show de tango profission">
+<meta property="og:title" content="Tango Show Noturno com Jantar — LC Turismo">
+<meta property="og:image" content="https://passeios.bloglcturismo.com.br/img/tango-show-ba.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#0070C0;--night:#001228;--g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;--wa:#25D366;--f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1140px}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;background:none}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(0,18,40,.97);backdrop-filter:blur(12px)}
+.nav-top{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;max-width:1400px;margin:0 auto}
+.nlogo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:1.05rem}
+.nlogo-img{height:36px;width:auto;object-fit:contain}
+.nlogo-text b{color:#0070C0}
+.nav-right{display:flex;align-items:center;gap:16px}
+.ncta{background:var(--wa);color:#fff;padding:9px 20px;border-radius:50px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:7px;transition:opacity .15s}
+.ncta:hover{opacity:.88}
+.back-btn{color:rgba(255,255,255,.6);font-size:.82rem;display:flex;align-items:center;gap:6px;transition:color .15s}
+.back-btn:hover{color:#fff}
+/* HERO */
+.hero{position:relative;min-height:68vh;display:flex;align-items:flex-end;overflow:hidden;background:#000c23;padding-top:60px}
+.hero-bg{position:absolute;inset:0;background:url('./img/tango-show-ba.jpg') center/cover;opacity:.55}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.1) 0%,rgba(0,8,25,.65) 55%,#000c23 100%)}
+.hero-c{position:relative;z-index:2;padding:0 5vw 48px;max-width:var(--max);margin:0 auto;width:100%}
+.hero-dest{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:50px;background:rgba(117,170,219,.2);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:.75rem;font-weight:700;margin-bottom:16px}
+.hero-title{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.3px;margin-bottom:14px}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.7);font-size:.85rem}
+.hero-meta-item svg{color:rgba(255,255,255,.5)}
+/* PILLS */
+.pills-bar{background:var(--night);padding:0 5vw}
+.pills-bar-in{max-width:var(--max);margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:12px 0;-ms-overflow-style:none;scrollbar-width:none}
+.pills-bar-in::-webkit-scrollbar{display:none}
+.pill{padding:7px 18px;border-radius:50px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;cursor:pointer;transition:all .15s;border:1.5px solid transparent}
+.pill:hover{color:#fff;background:rgba(255,255,255,.08)}
+.pill.active{color:#fff;background:#0070C0;border-color:#0070C0}
+/* GALLERY */
+.gallery{max-width:var(--max);margin:0 auto;padding:28px 5vw 0}
+.gal-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:240px 240px;gap:8px}
+@media(max-width:720px){.gal-grid{grid-template-columns:1fr;grid-template-rows:220px}}
+.gal-main{grid-row:1/3;border-radius:14px 0 0 14px;overflow:hidden}
+.gal-sub{border-radius:0;overflow:hidden}
+.gal-sub:first-of-type{border-radius:0 14px 0 0}
+.gal-sub:last-child{border-radius:0 0 14px 0}
+.gal-main img,.gal-sub img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gal-main:hover img,.gal-sub:hover img{transform:scale(1.04)}
+/* WRAP */
+.wrap{max-width:var(--max);margin:0 auto;padding:36px 5vw 60px;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+/* SECTIONS */
+.section{margin-bottom:32px}
+.section-title{font-size:1.1rem;font-weight:800;color:var(--night);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid rgba(0,112,192,.08);}
+.desc-text{font-size:.95rem;line-height:1.75;color:var(--g700)}
+/* EBOX */
+.ebox{background:var(--g50);border-radius:14px;padding:20px}
+.ebox-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ebox-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--g700)}
+.ei-icon{flex-shrink:0;color:#0070C0;margin-top:1px}
+.ei-icon.check{color:var(--wa)}
+/* FAQ */
+.faq-item{border:1px solid var(--g100);border-radius:12px;overflow:hidden;margin-bottom:8px}
+.faq-q{width:100%;padding:14px 18px;text-align:left;font-size:.9rem;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--night);transition:background .15s}
+.faq-q:hover{background:var(--g50)}
+.faq-q svg{flex-shrink:0;transition:transform .25s;color:var(--g500)}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:12px 18px 16px;font-size:.88rem;color:var(--g500);line-height:1.6;border-top:1px solid var(--g100)}
+/* SIDEBAR */
+.sidebar-card{background:#fff;border:1.5px solid var(--g100);border-radius:20px;padding:24px;position:sticky;top:80px}
+.sc-title{font-size:1rem;font-weight:800;margin-bottom:6px}
+.sc-sub{font-size:.8rem;color:var(--g500);margin-bottom:20px}
+.sc-info{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.sc-row{display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--g700)}
+.sc-row svg{color:#0070C0;flex-shrink:0}
+.sc-divider{height:1px;background:var(--g100);margin:16px 0}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:50px;background:var(--wa);color:#fff;font-weight:700;font-size:.95rem;transition:opacity .15s;margin-bottom:10px}
+.wa-btn:hover{opacity:.88}
+.wa-btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:50px;border:1.5px solid var(--g100);color:var(--night);font-weight:600;font-size:.88rem;transition:all .15s}
+.wa-btn-outline:hover{background:var(--g50)}
+.sc-trust{display:flex;gap:12px;margin-top:16px;justify-content:center}
+.sc-trust-item{text-align:center;font-size:.72rem;color:var(--g500)}
+.sc-trust-item strong{display:block;font-size:.92rem;color:var(--night);font-weight:700}
+/* BOTTOM CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(0,18,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
+.mcta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;background:var(--wa);color:#fff;font-weight:700;font-size:.92rem}
+@media(max-width:768px){.mcta{display:block}body{padding-bottom:70px}}
+
+/* ---- Video section ---- */
+.vid-section{max-width:var(--max);margin:0 auto;padding:0 24px 0}
+.vid-resp{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+.vid-resp iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+@media(max-width:620px){.vid-section{padding:0}}
+
+/* ── WhatsApp Float ── */
+.wafloat{position:fixed;bottom:84px;right:18px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.45);z-index:998;color:#fff;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wafloat svg{width:30px;height:30px}
+.wafloat:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.wafloat-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;animation:wapulse 2s ease-in-out infinite}
+@keyframes wapulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+@media(max-width:768px){.wafloat{bottom:72px;right:14px;width:50px;height:50px}}
+
+/* ── Urgência sidebar ── */
+.urg-bar{display:flex;align-items:center;gap:8px;background:#FFF3CD;border:1px solid #FBBF24;border-radius:9px;padding:9px 12px;font-size:.75rem;font-weight:700;color:#78350F;margin-bottom:14px}
+.urg-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:urgblink 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes urgblink{0%,100%{opacity:1}50%{opacity:.3}}
+
+</style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354344253278');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Tango Show Noturno com Jantar',content_category:'Argentina'});</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354344253278&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-top">
+    <a href="./" class="nlogo">
+      <img src="./logo-lc.png" alt="LC Turismo" class="nlogo-img" onerror="this.style.display='none'">
+      <span class="nlogo-text">LC <b>Turismo</b></span>
+    </a>
+    <div class="nav-right">
+      <a href="./" class="back-btn">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Ver todos os passeios
+      </a>
+      <a class="ncta" href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Tango+Show+Noturno+com+Jantar" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-dest">🇦🇷 Buenos Aires · Argentina</div>
+    <h1 class="hero-title">Tango Show Noturno com Jantar</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ~3h30</div>
+      <div class="hero-meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg> Ano todo</div>
+      <div class="hero-meta-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Saída: Noite (20h30)</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLS -->
+<div class="pills-bar">
+  <div class="pills-bar-in">
+    <button class="pill active" onclick="scrollTo('descricao')">Descrição</button>
+    <button class="pill" onclick="scrollTo('destaques')">Destaques</button>
+    <button class="pill" onclick="scrollTo('incluso')">O que inclui</button>
+    <button class="pill" onclick="scrollTo('faq')">Perguntas</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gal-grid">
+    <div class="gal-main"><img src="https://images.unsplash.com/photo-1516741699793-c98fb8b5caef?auto=format&w=800&q=80" alt="Tango Show Noturno com Jantar" loading="lazy"></div>
+    <div class="gal-sub"><img src="https://images.unsplash.com/photo-1601383835294-e6e6d58b18c4?auto=format&w=800&q=80" alt="Tango Show Noturno com Jantar" loading="lazy"></div>
+    <div class="gal-sub"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80" alt="Tango Show Noturno com Jantar" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+
+<div class="wrap">
+  <div class="content">
+
+    <div class="section" id="descricao">
+      <h2 class="section-title">Sobre este passeio</h2>
+      <p class="desc-text">Vivencia a autêntica experiência do tango em Buenos Aires. Escolha entre as melhores casas de tango: Madero Tango, Tango Piazzolla ou Tango Porteño. Cada uma oferece o melhor da arte do tango com profissionais de renome internacional, combinado com um jantar delicioso.</p>
+    </div>
+
+    <div class="section" id="destaques">
+      <h2 class="section-title">O que você vai ver e fazer</h2>
+      <div class="ebox">
+        <ul class="ebox-list"><li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Recepção com champagne</span></li>
+<li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Jantar gourmet de 3 pratos</span></li>
+<li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Show de tango com dançarinos profissionais</span></li>
+<li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Cantores e orquestra ao vivo</span></li>
+<li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Opção de aula de tango</span></li></ul>
+      </div>
+    </div>
+
+    <div class="section" id="incluso">
+      <h2 class="section-title">O que está incluso</h2>
+      <div class="ebox">
+        <ul class="ebox-list"><li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Jantar completo</span></li>
+<li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Show de tango profissional</span></li>
+<li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Transferência de ida e volta do hotel</span></li>
+</ul>
+      </div>
+    </div>
+
+    <div class="section" id="faq">
+      <h2 class="section-title">Perguntas frequentes</h2>
+      
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Qual é melhor opção de tango show?
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a"><p>Madero Tango é mais moderno, Tango Piazzolla é tradicional e Tango Porteño é familiar. Escolha conforme preferência.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Que tipo de comida é servido?
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a"><p>Jantar de alta qualidade com pratos da culinária argentina e internacional.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Hora de chegada?
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a"><p>Chegada para show normalmente às 21:00, retorno por volta das 00:00-01:00.</p></div>
+    </div>
+        </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-card">
+      <div class="sc-title">Reserve seu passeio</div>
+      <div class="sc-sub">Atendimento em português · Cancelamento grátis 48h</div>
+      <div class="sc-info">
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> <span><strong>Duração:</strong> ~3h30</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg> <span><strong>Temporada:</strong> Ano todo</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span><strong>Saída:</strong> Noite (20h30)</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span><strong>Transfer:</strong> Incluso do hotel</span></div>
+      </div>
+      <div class="sc-divider"></div>
+      <a class="wa-btn" href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Tango+Show+Noturno+com+Jantar" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores e reservar
+      </a>
+      <a class="wa-btn-outline" href="./">← Ver outros passeios em Buenos Aires</a>
+      <div class="sc-trust">
+        <div class="sc-trust-item"><strong>4.2★</strong>Google</div>
+        <div class="sc-trust-item"><strong>100%</strong>Português</div>
+        <div class="sc-trust-item"><strong>Desde</strong>2018</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="vid-section" id="videoSection">
+  <div class="sec rev">
+    <div class="slabel">Assista ao vídeo</div>
+    <h2 class="stitle">Veja este passeio em vídeo</h2>
+    <div class="vid-resp">
+      <iframe src="https://www.youtube.com/embed/hr_rTWgUVQ0?rel=0&modestbranding=1" title="Vídeo do passeio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="mcta">
+  <a href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Tango+Show+Noturno+com+Jantar" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores — Tango Show Noturno com Jantar...
+  </a>
+</div>
+
+<script>
+function scrollTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+}
+const secs=['descricao','destaques','incluso','faq'];
+window.addEventListener('scroll',()=>{
+  secs.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const r=el.getBoundingClientRect();
+    if(r.top<=120&&r.bottom>120){
+      document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+      const pill=document.querySelector(`.pill[onclick="scrollTo('${id}')"]`);
+      if(pill)pill.classList.add('active');
+    }
+  });
+},{passive:true});
+</script>
+<script>
+// Urgência dinâmica
+(function(){
+  var el=document.querySelector('.bkurg');
+  if(!el)return;
+  var n=Math.floor(Math.random()*14)+5; // 5-18
+  var prev=el.outerHTML;
+  var bar='<div class="urg-bar"><span class="urg-dot"></span>🔥 '+n+' pessoas consultaram hoje</div>';
+  el.insertAdjacentHTML('beforebegin', bar);
+})();
+</script>
+</body>
+</html>
