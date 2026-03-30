@@ -285,6 +285,28 @@ tr:hover td{background:var(--g50)}
           </div>
           <p style="font-size:.75rem;color:var(--g500);margin-top:8px">A logo é salva localmente neste navegador. Para aparecer no site público use a aba <strong>Publicar</strong>.</p>
         </div>
+        <div style="display:flex;gap:16px;margin-top:18px;flex-wrap:wrap;align-items:flex-end">
+          <div class="form-group" style="flex:0 0 auto">
+            <label style="font-size:.78rem;font-weight:700;color:var(--g700)">Cor da barra de navegação</label>
+            <div style="display:flex;align-items:center;gap:10px">
+              <input type="color" id="cfgNavColor" value="#0100fe" onchange="SITE_CONFIG.navColor=this.value;saveData();updateNavPreview()" style="width:44px;height:38px;border:none;cursor:pointer;border-radius:6px">
+              <input type="text" id="cfgNavColorText" value="#0100fe" oninput="document.getElementById('cfgNavColor').value=this.value;SITE_CONFIG.navColor=this.value;saveData();updateNavPreview()" style="width:90px;padding:8px 10px;border:1.5px solid var(--g100);border-radius:8px;font-size:.85rem;font-family:monospace">
+            </div>
+          </div>
+          <div class="form-group" style="flex:1;min-width:200px">
+            <label style="font-size:.78rem;font-weight:700;color:var(--g700)">Altura da logo no site (px)</label>
+            <div style="display:flex;align-items:center;gap:10px">
+              <input type="range" id="cfgLogoSize" min="28" max="80" value="54" oninput="document.getElementById('logoSizeVal').textContent=this.value+'px';SITE_CONFIG.logoHeight=this.value;saveData();updateNavPreview()" style="flex:1">
+              <span id="logoSizeVal" style="font-size:.85rem;font-weight:700;color:var(--g700);min-width:40px">54px</span>
+            </div>
+          </div>
+        </div>
+        <div id="navPreviewBox" style="margin-top:14px;border-radius:10px;overflow:hidden">
+          <div id="navPreviewBar" style="background:#0100fe;height:70px;display:flex;align-items:center;padding:0 20px;gap:16px">
+            <img id="navPreviewLogo" src="./logo-lc.png" style="height:54px;width:auto;object-fit:contain" alt="preview">
+            <span style="color:#fff;font-size:.78rem;opacity:.5;margin-left:auto">Prévia da barra</span>
+          </div>
+        </div>
       </div>
       <div class="config-section">
         <h3>🦸 Hero — Título e subtítulo</h3>
@@ -575,9 +597,10 @@ let TOURS_DATA = [];
 let SITE_CONFIG = {
   logo:'',heroTitle:'A América Latina com quem conhece de verdade',
   heroSub:'Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 24h.',
-  stat1:'106',stat2:'4.2★',stat3:'40K+',stat4:'2018',
+  stat1:'106',stat2:'4.8★',stat3:'105K+',stat4:'2019',
   wa:'5511920619246',waMsg:'Olá LC! Quero conhecer os passeios',
-  pixel:'2262354344253278',ga4:''
+  pixel:'2262354344253278',ga4:'',
+  navColor:'#0100fe',logoHeight:'54'
 };
 
 // Auto-login se sessão salva (DEVE vir DEPOIS de SITE_CONFIG)
@@ -630,6 +653,7 @@ function init(){
   loadData();
   loadConfig();
   loadCredentials();
+  loadNavConfig();
 }
 
 function renderAll(){
@@ -869,6 +893,33 @@ function previewLogo(){
   if(url){img.src=url;box.style.display='flex';}
   else{box.style.display='none';}
 }
+function updateNavPreview(){
+  const c=SITE_CONFIG.navColor||'#0100fe';
+  const h=SITE_CONFIG.logoHeight||'54';
+  const bar=document.getElementById('navPreviewBar');
+  const logo=document.getElementById('navPreviewLogo');
+  if(bar) bar.style.background=c;
+  if(logo) logo.style.height=h+'px';
+  /* sync text input */
+  const txt=document.getElementById('cfgNavColorText');
+  if(txt) txt.value=c;
+}
+function loadNavConfig(){
+  const c=SITE_CONFIG.navColor||'#0100fe';
+  const h=SITE_CONFIG.logoHeight||'54';
+  const colorPicker=document.getElementById('cfgNavColor');
+  const colorText=document.getElementById('cfgNavColorText');
+  const slider=document.getElementById('cfgLogoSize');
+  const sizeVal=document.getElementById('logoSizeVal');
+  if(colorPicker) colorPicker.value=c;
+  if(colorText) colorText.value=c;
+  if(slider) slider.value=h;
+  if(sizeVal) sizeVal.textContent=h+'px';
+  /* update logo src in preview */
+  const logo=document.getElementById('navPreviewLogo');
+  if(logo&&SITE_CONFIG.logo) logo.src=SITE_CONFIG.logo;
+  updateNavPreview();
+}
 
 // ─── DEPLOY ───────────────────────────────────────────────────────────────────
 function loadCredentials(){
@@ -941,6 +992,14 @@ async function deployToGitHub(){
     if(SITE_CONFIG.stat3) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Clientes)/,`$1${SITE_CONFIG.stat3}$2`);
     if(SITE_CONFIG.stat4) newHTML=newHTML.replace(/(<div class="hero-stat"><strong>)[^<]*(<\/strong><span>Desde)/,`$1${SITE_CONFIG.stat4}$2`);
     if(SITE_CONFIG.wa) newHTML=newHTML.replace(/wa\.me\/\d+\?text=[^"']*/g,`wa.me/${SITE_CONFIG.wa}?text=${encodeURIComponent(SITE_CONFIG.waMsg||'Olá LC! Quero conhecer os passeios')}`);
+    /* Navbar color */
+    if(SITE_CONFIG.navColor) newHTML=newHTML.replace(/(\.nav\{[^}]*background:)[^;]+(;)/,`$1${SITE_CONFIG.navColor}$2`);
+    /* Logo height */
+    if(SITE_CONFIG.logoHeight) newHTML=newHTML.replace(/(\.nlogo-img\{[^}]*height:)[^;]+(;)/,`$1${SITE_CONFIG.logoHeight}px$2`);
+    /* Nav height adjust based on logo */
+    const navH=Math.max(60,parseInt(SITE_CONFIG.logoHeight||54)+16);
+    newHTML=newHTML.replace(/(\.nav-top\{[^}]*height:)[^;]+(;)/,`$1${navH}px$2`);
+    newHTML=newHTML.replace(/(\.toolbar\{[^}]*top:)[^;]+(;)/,`$1${navH}px$2`);
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
     const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
       method:'PUT',
