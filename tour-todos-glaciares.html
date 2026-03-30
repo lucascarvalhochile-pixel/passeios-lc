@@ -51,7 +51,7 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 @media(max-width:768px){.nav.solid .nav-links{display:none}.nav-links.open{display:block!important}}
 .nav-links-inner{display:flex;gap:0;padding:0 5vw 14px;flex-wrap:wrap}
 .ndest{position:relative}
-.ndest-btn{background:none;border:none;color:rgba(255,255,255,.75);font-size:.78rem;font-weight:600;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:color .15s;font-family:inherit}
+.ndest-btn{background:none;border:none;color:rgba(255,255,255,.92);font-size:.78rem;font-weight:600;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:color .15s;font-family:inherit}
 .ndest-btn:hover,.ndest-btn.active{color:#fff}
 .ndest-dd{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.15);padding:8px 0;z-index:600}
 .ndest.open .ndest-dd{display:block}
@@ -347,7 +347,7 @@ fbq('track','PageView');
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
       Ver todos os passeios
     </a>
-    <a class="nlogo" href="./index.html">LC <b>Turismo</b></a>
+    <a class="nlogo" href="./index.html"><img src="./logo-lc.png" alt="LC Turismo" class="nlogo-img" style="height:44px;width:auto;object-fit:contain"></a>
     <div class="nav-right">
       <button class="nmenu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -364,28 +364,73 @@ fbq('track','PageView');
         <button class="ndest-btn" onclick="toggleDest(this)">Chile <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="ndest-dd">
           <div class="dd-title">Santiago</div>
-          <a href="./index.html">Valle Nevado</a>
-          <a href="./index.html">Farellones</a>
-          <a href="./index.html">El Colorado</a>
+          <a href="./index.html">Farellones e Neve</a>
           <a href="./index.html">Vinícola Concha y Toro</a>
           <a href="./index.html">Cajón del Maipo</a>
           <a href="./index.html">Valparaíso + Viña del Mar</a>
           <div class="dd-title">Atacama</div>
-          <a href="./index.html">Geysers del Tatio</a>
+          <a href="./index.html">Gêiseres del Tatio</a>
           <a href="./index.html">Valle de la Luna</a>
-          <div class="dd-title">Patagônia</div>
-          <a href="./index.html">Torres del Paine</a>
-          <a href="./index.html">Glaciar Perito Moreno</a>
+          <div class="dd-title">Torres del Paine</div>
+          <a href="./index.html">Trekking Base Torres</a>
+          <a href="./index.html">Glaciar Grey</a>
         </div>
       </div>
       <div class="ndest">
         <button class="ndest-btn" onclick="toggleDest(this)">Argentina <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="ndest-dd">
-          <a href="./tour-maipu-vinhos.html">Maipú Vinhos</a>
-          <a href="./tour-valle-de-uco.html">Valle de Uco</a>
-          <a href="./tour-chandon-picnic.html">Chandon Picnic</a>
-          <a href="./index.html">Buenos Aires</a>
-          <a href="./index.html">Ushuaia</a>
+          <div class="dd-title">Buenos Aires</div>
+          <a href="./index.html">City Tour</a>
+          <a href="./index.html">Tango Show</a>
+          <div class="dd-title">Bariloche</div>
+          <a href="./index.html">Circuito Chico</a>
+          <a href="./index.html">Cerro Catedral</a>
+          <div class="dd-title">El Calafate</div>
+          <a href="./index.html">Perito Moreno</a>
+          <div class="dd-title">Ushuaia</div>
+          <a href="./index.html">Canal Beagle</a>
+          <div class="dd-title">Mendoza</div>
+          <a href="./index.html">Rota dos Vinhos</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Colômbia <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cartagena</div>
+          <a href="./index.html">City Tour</a>
+          <a href="./index.html">Playa Blanca</a>
+          <a href="./index.html">Ilhas Rosário</a>
+          <div class="dd-title">San Andrés</div>
+          <a href="./index.html">Mar das 7 Cores</a>
+          <a href="./index.html">Johnny Cay</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Peru <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cusco</div>
+          <a href="./index.html">Machu Picchu</a>
+          <a href="./index.html">Montanha Colorida</a>
+          <a href="./index.html">Vale Sagrado</a>
+          <div class="dd-title">Lima</div>
+          <a href="./index.html">City Tour Lima</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">México <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cancún</div>
+          <a href="./index.html">Chichen Itzá</a>
+          <a href="./index.html">Xcaret</a>
+          <a href="./index.html">Tulum + Cenote</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Punta Cana <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./index.html">Isla Saona VIP</a>
+          <a href="./index.html">Catamarã dos Sonhos</a>
+          <a href="./index.html">Buggies</a>
         </div>
       </div>
     </div>
