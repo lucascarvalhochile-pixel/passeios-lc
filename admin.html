@@ -734,7 +734,7 @@ function renderToursTable(){
       <td style="color:var(--g500)">${t.dur||'—'}</td>
       <td style="color:var(--g500);font-size:.78rem">${t.t||'—'}</td>
       <td>${badgeBadge[t.badge||'']||badgeBadge['']}</td>
-      <td>${t.price?`<span style="font-weight:700;color:#1a7f37;font-size:.82rem">R$ ${t.price}</span>`:`<span style="color:var(--g300);font-size:.78rem">—</span>`}</td>
+      <td>${t.price?`<span style="font-weight:700;color:#1a7f37;font-size:.82rem">R$ ${t.price.toLocaleString('pt-BR')}</span>`:`<span style="color:var(--g300);font-size:.78rem">—</span>`}</td>
       <td>${t.f?`<span class="has-page">✓ página</span>`:`<span class="no-page">→ WhatsApp</span>`}</td>
       <td><div class="actions">
         <button class="btn btn-outline btn-sm" onclick="editTour(${t._i})">✏️</button>
@@ -1079,7 +1079,7 @@ async function deployToGitHub(){
             if(tour.price){
               const priceCSS=`.tour-price-box{background:linear-gradient(135deg,#f0f5ff,#e8f0fe);border:2px solid #0100fe;border-radius:14px;padding:20px 24px;margin:24px 0;text-align:center}.tour-price-label{font-size:.85rem;color:#555;margin-bottom:4px}.tour-price-val{font-size:1.8rem;font-weight:800;color:#0100fe;letter-spacing:-.5px}.tour-price-note{font-size:.75rem;color:#888;margin-top:4px}.tour-book-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:14px 32px;background:#25d366;color:#fff;font-weight:700;font-size:1rem;border-radius:50px;text-decoration:none;transition:opacity .15s}.tour-book-btn:hover{opacity:.88}`;
               const bookHref=tour.bookUrl||`https://wa.me/${SITE_CONFIG.wa||'5511920619246'}?text=${encodeURIComponent('Olá! Quero reservar: '+tour.n)}`;
-              const priceHTML=`<div class="tour-price-box" id="tourPriceBox"><div class="tour-price-label">A partir de</div><div class="tour-price-val">R$ ${tour.price}</div><div class="tour-price-note">Preço por pessoa · menor tarifa do ano</div><a class="tour-book-btn" href="${bookHref}" target="_blank">📲 Reservar agora</a></div>`;
+              const priceHTML=`<div class="tour-price-box" id="tourPriceBox"><div class="tour-price-label">A partir de</div><div class="tour-price-val">R$ ${tour.price.toLocaleString('pt-BR')}</div><div class="tour-price-note">Preço por pessoa · menor tarifa do ano</div><a class="tour-book-btn" href="${bookHref}" target="_blank">📲 Reservar agora</a></div>`;
               if(!html.includes('.tour-price-box'))html=html.replace('</style>',priceCSS+'\n</style>');
               if(html.includes('id="tourPriceBox"')){
                 html=html.replace(/<div class="tour-price-box"[^]*?<\/div>\s*<\/div>/,priceHTML);
