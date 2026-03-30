@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aventura 4x4 — Balcones de Calafate | LC Turismo</title>
+<meta name="description" content="Tour 4x4 em El Calafate: Fósseis do Cretáceo, fauna nativa, vista panorâmica do Lago Argentino. Saída 10h, almoço em refúgio centenário incluído. ~7h de aventura com transfer.">
+<meta property="og:title" content="Aventura 4x4 — Balcones de Calafate | LC Turismo">
+<meta property="og:description" content="Suba 1000m em Ford 4x4 até o mirante de Balcones de Calafate. Fósseis do Cretáceo, condores, fauna nativa. Almoço em refúgio centenário com vista panorâmica do Lago Argentino.">
+<meta property="og:image" content="https://passeios.bloglcturismo.com.br/img/perito-moreno.jpg">
+<link rel="canonical" href="https://passeios.bloglcturismo.com.br/tour-4x4-balcones-calafate.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"TouristAttraction","name":"Aventura 4x4 — Balcones de Calafate","description":"Tour 4x4 em El Calafate. Suba até 1000m de altitude em Ford 4x4 até o mirante de Balcones de Calafate. Veja fósseis do Cretáceo, condores, fauna nativa e tenha vista panorâmica do Lago Argentino. Almoço em refúgio centenário incluído. Saída 10h, retorno ~17h.","image":"https://passeios.bloglcturismo.com.br/img/perito-moreno.jpg","url":"https://passeios.bloglcturismo.com.br/tour-4x4-balcones-calafate.html","offers":{"@type":"Offer","priceCurrency":"BRL","availability":"https://schema.org/InStock"},"provider":{"@type":"TravelAgency","name":"LC Turismo","url":"https://passeios.bloglcturismo.com.br/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qual é o nível de dificuldade da trilha 4x4?","acceptedAnswer":{"@type":"Answer","text":"A trilha é moderada a desafiadora, mas os motoristas da LC Turismo são experientes. Os Ford 4x4 são preparados para o terreno acidentado. Você vai sentir a adrenalina!"}},{"@type":"Question","name":"Faz muito frio no topo?","acceptedAnswer":{"@type":"Answer","text":"Sim! A ~1000m de altitude, a temperatura é significativamente mais baixa. Leve casacos, blusas de lã e moletom — é essencial se agasalhar bem."}},{"@type":"Question","name":"Crianças podem fazer o passeio?","acceptedAnswer":{"@type":"Answer","text":"Crianças a partir de 6 anos podem participar. A jornada é segura, mas prepare-as para o movimento do 4x4 em terreno acidentado. Cenoura, frutas e snacks ajudam durante a jornada."}}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0100FE;--night:#001228;
+  --g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;
+  --gold:#F5A623;--green:#22C55E;--red:#EF4444;--wa:#25D366;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1160px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;background:none}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;width:0;height:3px;background:var(--blue);z-index:9999;transition:width .05s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .25s}
+.nav.solid{background:rgba(0,18,40,.97)}
+.nav-top{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw}
+.nback{color:rgba(255,255,255,.7);font-size:.78rem;display:flex;align-items:center;gap:5px;transition:color .15s}
+.nback:hover{color:#fff}
+.nback svg{flex-shrink:0}
+.nlogo{color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:-.3px}
+.nlogo b{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nmenu-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:4px}
+.ncta{background:var(--wa);color:#fff;padding:9px 20px;border-radius:50px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:7px;transition:opacity .15s}
+.ncta:hover{opacity:.88}
+.ncta svg{flex-shrink:0}
+.nav-links{overflow:visible;background:rgba(0,18,40,.97);border-top:1px solid rgba(255,255,255,.06);display:none}
+.nav.solid .nav-links{display:block}
+@media(max-width:768px){.nav.solid .nav-links{display:none}.nav-links.open{display:block!important}}
+.nav-links-inner{display:flex;gap:0;padding:0 5vw 14px;flex-wrap:wrap}
+.ndest{position:relative}
+.ndest-btn{background:none;border:none;color:rgba(255,255,255,.75);font-size:.78rem;font-weight:600;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:color .15s;font-family:inherit}
+.ndest-btn:hover,.ndest-btn.active{color:#fff}
+.ndest-dd{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.15);padding:8px 0;z-index:600}
+.ndest.open .ndest-dd{display:block}
+@media(min-width:769px){.ndest:hover .ndest-dd{display:block}}
+.ndest-dd a{display:block;padding:9px 18px;color:var(--g800);font-size:.8rem;font-weight:500;transition:background .12s}
+.ndest-dd a:hover{background:var(--g50)}
+.ndest-dd .dd-title{padding:6px 18px 4px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--g400)}
+@media(max-width:768px){
+.nmenu-toggle{display:flex}
+.nav-links-inner{flex-direction:column}
+.ndest-dd{position:static;box-shadow:none;border-radius:0;padding:0 0 0 18px;background:transparent}
+.ndest-dd a{color:rgba(255,255,255,.65);padding:7px 14px}
+.ndest-dd a:hover{background:rgba(255,255,255,.05);color:#fff}
+.ndest-dd .dd-title{color:rgba(255,255,255,.35)}
+.ndest.open .ndest-dd{display:block}
+.ndest-btn{padding:10px 14px}
+}
+
+/* HERO */
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('./img/perito-moreno.jpg');background-size:cover;background-position:center 35%;will-change:transform;animation:kenburns 9s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes kenburns{from{transform:scale(1.09) translateY(0)}to{transform:scale(1) translateY(0)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.1) 0%,rgba(0,8,25,.28) 38%,rgba(0,12,35,.82) 75%,#000c23 100%)}
+.hero-c{position:relative;z-index:2;padding:0 5vw 56px;max-width:860px}
+
+/* Hero entrance animations */
+.hbc{font-size:.73rem;color:rgba(255,255,255,.48);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;opacity:0;animation:hFade .7s .25s cubic-bezier(.16,1,.3,1) forwards}
+.hbc a{color:rgba(255,255,255,.48);transition:color .15s}.hbc a:hover{color:#fff}
+.hbc-s{opacity:.3;font-size:.6rem}
+.hbadges{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;opacity:0;animation:hFade .7s .4s cubic-bezier(.16,1,.3,1) forwards}
+.hb{padding:5px 13px;border-radius:50px;font-size:.71rem;font-weight:700;backdrop-filter:blur(8px)}
+.hb-star{background:rgba(245,166,35,.18);border:1px solid rgba(245,166,35,.38);color:#F9C847}
+.hb-inv{background:rgba(80,100,255,.22);border:1px solid rgba(100,120,255,.38);color:#A5B4FF}
+
+/* Title word-by-word reveal */
+.htitle{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.8px;margin-bottom:20px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.ww{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.ww .w{display:inline-block;opacity:0;transform:translateY(110%);animation:wordUp .75s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes wordUp{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:translateY(0)}}
+
+/* Hero accent line */
+.htitle-line{display:block;height:2px;width:0;background:linear-gradient(90deg,var(--blue),rgba(0,1,254,0));margin-top:14px;margin-bottom:18px;animation:lineGrow .9s 1.15s cubic-bezier(.16,1,.3,1) forwards;border-radius:2px}
+@keyframes lineGrow{from{width:0}to{width:min(220px,55%)}}
+
+.hrating{display:flex;align-items:center;gap:10px;flex-wrap:wrap;opacity:0;animation:hFade .7s 1.25s cubic-bezier(.16,1,.3,1) forwards}
+.hstars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+.hrn{color:#fff;font-weight:800;font-size:.92rem}
+.hrc{color:rgba(255,255,255,.55);font-size:.82rem}
+.hs2{color:rgba(255,255,255,.2)}
+
+@keyframes hFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.scroll-cue{position:absolute;bottom:20px;right:5vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:opacity .2s;opacity:0;animation:hFade .7s 1.6s cubic-bezier(.16,1,.3,1) forwards}
+.scroll-cue:hover{opacity:.85!important}
+.scroll-cue span{font-size:.6rem;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
+.sc-arr{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bob 1.6s 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* PILLS */
+.pills-bar{background:#fff;border-bottom:1px solid var(--g100);overflow-x:auto;scrollbar-width:none}
+.pills-bar::-webkit-scrollbar{display:none}
+.pills-in{max-width:var(--max);margin:0 auto;padding:13px 24px;display:flex;gap:8px;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:7px 15px;border:1px solid var(--g100);border-radius:50px;font-size:.76rem;font-weight:600;color:var(--g700);background:#fff;flex-shrink:0;transition:border-color .15s,background .15s}
+.pill:hover{border-color:var(--blue);background:#f0f1ff}
+.pe{color:var(--blue)}
+
+/* GALLERY */
+.gallery{max-width:var(--max);margin:36px auto 0;padding:0 24px}
+.gg{display:grid;grid-template-columns:1.65fr 1fr;grid-template-rows:255px 255px;gap:6px;border-radius:20px;overflow:hidden}
+.gg img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:transform .45s ease,filter .3s}
+.gg img:hover{transform:scale(1.04);filter:brightness(1.06)}
+.gm{grid-row:1/3}
+.gs{display:grid;grid-template-rows:1fr 1fr;gap:6px}
+.gs img{height:100%}
+.gmore{position:relative}
+.gmore img{filter:brightness(.55)}
+.gmore-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.88rem;gap:7px;cursor:pointer}
+@media(max-width:620px){.gallery{padding:0}.gg{border-radius:0;gap:3px;grid-template-rows:185px 185px}}
+
+/* LAYOUT */
+.wrap{max-width:var(--max);margin:44px auto 100px;padding:0 24px;display:grid;grid-template-columns:1fr 344px;gap:44px;align-items:start}
+@media(max-width:940px){.wrap{grid-template-columns:1fr}.sidebar{display:none!important}.mcta{display:flex!important}}
+@media(max-width:600px){.wrap{padding:0 16px}}
+
+/* SECTIONS */
+.sec{padding:40px 0;border-top:1px solid var(--g100)}
+.sec:first-child{border-top:none;padding-top:0}
+.slabel{font-size:.67rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.stitle{font-size:1.22rem;font-weight:800;color:var(--night);letter-spacing:-.3px;margin-bottom:22px}
+
+/* SOBRE */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:540px){.sg{grid-template-columns:repeat(2,1fr)}}
+.si{display:flex;flex-direction:column;gap:5px}
+.sico{font-size:1.5rem;margin-bottom:2px}
+.slbl2{font-size:.67rem;text-transform:uppercase;letter-spacing:.9px;color:var(--g500);font-weight:600}
+.sval{font-weight:700;font-size:.9rem;color:var(--night);line-height:1.3}
+
+/* DESTAQUES */
+.dl{list-style:none}
+.di{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--g100)}
+.di:last-child{border-bottom:none}
+.dico{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#EEF0FF,#DDE0FF);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.dtxt{font-size:.9rem;line-height:1.65;color:var(--g700);padding-top:7px}
+
+/* DESCRICAO */
+.dbody{font-size:.93rem;line-height:1.85;color:var(--g700)}
+.dbody p+p{margin-top:14px}
+.dtrunc{max-height:130px;overflow:hidden;position:relative}
+.dtrunc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:48px;background:linear-gradient(transparent,#fff)}
+.dbtn{color:var(--blue);font-weight:700;font-size:.84rem;cursor:pointer;margin-top:14px;display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
+.dbtn:hover{gap:9px}
+
+/* INCLUI */
+.icols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:480px){.icols{grid-template-columns:1fr}}
+.ihead{font-size:.77rem;font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid}
+.ihead.sim{color:var(--green);border-color:var(--green)}
+.ihead.nao{color:var(--red);border-color:var(--red)}
+.il{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ili{display:flex;align-items:center;gap:10px;font-size:.87rem;color:var(--g700)}
+.ic{width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;flex-shrink:0}
+.ic.s{background:#DCFCE7;color:var(--green)}
+.ic.n{background:#FEE2E2;color:var(--red)}
+
+/* ITINERARIO */
+.itinerary,.itin{list-style:none;position:relative}
+.itinerary::before,.itin::before{content:'';position:absolute;left:20px;top:21px;bottom:21px;width:2px;background:linear-gradient(to bottom,var(--green),var(--blue),var(--night));border-radius:2px}
+.iitem{display:flex;gap:20px;padding-bottom:32px;position:relative;z-index:1}
+.iitem:last-child{padding-bottom:0}
+.idot.s{background:var(--green)}
+.idot.m{background:var(--blue)}
+.idot.e{background:var(--night)}
+.idot{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:3px solid #fff;box-shadow:0 0 0 3px var(--g100)}
+.idot.s{background:var(--green)}
+.idot.m{background:var(--blue)}
+.idot.e{background:var(--night)}
+.itime{font-size:.7rem;font-weight:700;color:var(--blue);letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
+.iplace{font-weight:800;font-size:.97rem;margin-bottom:4px}
+.idetail{font-size:.84rem;line-height:1.6;color:var(--g500)}
+
+/* EMBARQUE */
+.ebox{background:var(--g50);border-radius:16px;padding:22px;display:flex;gap:18px;align-items:flex-start}
+.eico{font-size:2.2rem;flex-shrink:0}
+.elabel{font-size:.67rem;text-transform:uppercase;letter-spacing:.9px;color:var(--blue);font-weight:700;margin-bottom:5px}
+.eval{font-weight:800;font-size:1rem;margin-bottom:6px}
+.edesc{font-size:.84rem;line-height:1.65;color:var(--g500)}
+
+/* BOM SABER */
+.bsl{list-style:none}
+.bsi{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--g100)}
+.bsi:last-child{border-bottom:none}
+.bsico{font-size:1.25rem;flex-shrink:0;margin-top:2px}
+.bsc strong{display:block;font-size:.87rem;font-weight:700;margin-bottom:3px}
+.bsc{font-size:.84rem;line-height:1.6;color:var(--g700)}
+
+/* FAQ */
+.fl{list-style:none}
+.fi{border-bottom:1px solid var(--g100)}
+.fi:last-child{border-bottom:none}
+.fq{width:100%;background:none;border:none;text-align:left;padding:18px 0;font-family:var(--f);font-size:.91rem;font-weight:700;color:var(--night);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;line-height:1.4}
+.fico{width:24px;height:24px;border-radius:50%;border:2px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;transition:all .2s}
+.fq.open .fico{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(45deg)}
+.fa{display:none;font-size:.86rem;line-height:1.75;color:var(--g700);padding-bottom:18px}
+.fa.open{display:block}
+
+/* AVALIAÇÕES */
+.roverview{display:flex;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--g100);margin-bottom:28px}
+@media(max-width:480px){.roverview{flex-direction:column;gap:20px}}
+.rbig{text-align:center;min-width:90px}
+.rbig .n{font-size:4.2rem;font-weight:800;line-height:1;letter-spacing:-3px;color:var(--night)}
+.rbig .s{color:var(--gold);font-size:1.15rem;margin:6px 0}
+.rbig .c{font-size:.73rem;color:var(--g500)}
+.rbars{flex:1}
+.rbrow{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.rbl{font-size:.73rem;color:var(--blue);font-weight:600;min-width:58px}
+.rbt{flex:1;height:7px;background:var(--g100);border-radius:4px;overflow:hidden}
+.rbf{height:100%;background:var(--gold);border-radius:4px}
+.rbp{font-size:.71rem;color:var(--g500);min-width:30px;text-align:right}
+.rcard{padding:24px 0;border-bottom:1px solid var(--g100)}
+.rcard:last-of-type{border-bottom:none}
+.rhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rav{width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.92rem;flex-shrink:0}
+.rnm{font-weight:700;font-size:.9rem}
+.rdt{font-size:.73rem;color:var(--g500)}
+.rst{color:var(--gold);font-size:.85rem;margin-left:auto}
+.rtext{font-size:.9rem;line-height:1.72;color:var(--g700)}
+.rtag{display:inline-block;background:var(--g50);color:var(--g700);border:1px solid var(--g100);padding:3px 10px;border-radius:50px;font-size:.7rem;font-weight:600;margin-top:10px}
+.vbox{border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--night);margin-top:8px}
+.vbox iframe{width:100%;height:100%;border:none;display:block}
+.vlabel{font-size:.76rem;font-weight:700;color:var(--g700);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+
+/* OUTROS */
+.ostrip{display:flex;gap:14px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.ostrip::-webkit-scrollbar{display:none}
+.ocard{flex:0 0 192px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--g100);text-decoration:none;transition:transform .22s,box-shadow .22s}
+.ocard:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.1)}
+.ocard img{width:100%;height:118px;object-fit:cover}
+.obody{padding:11px 13px}
+.oname{font-weight:700;font-size:.82rem;line-height:1.3;color:var(--night);margin-bottom:4px}
+.oprice{font-size:.79rem;color:var(--blue);font-weight:600}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:76px}
+.bkcard{background:#fff;border-radius:20px;border:1px solid var(--g100);padding:26px;box-shadow:0 8px 48px rgba(0,0,0,.09)}
+.bkurg{background:#FFF8E7;border:1px solid #F5C842;border-radius:9px;padding:9px 13px;font-size:.76rem;font-weight:700;color:#7A5A00;display:flex;align-items:center;gap:7px;margin-bottom:18px}
+.bkpr{font-size:2.3rem;font-weight:800;letter-spacing:-1.5px;line-height:1}
+.bkpr sub{font-size:1rem;font-weight:400;color:var(--g500);letter-spacing:0}
+.bksub{font-size:.76rem;color:var(--g500);margin-bottom:20px;margin-top:3px}
+.bkbtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--wa);color:#fff;padding:15px;border-radius:14px;font-weight:800;font-size:.97rem;text-decoration:none;transition:opacity .15s}
+.bkbtn:hover{opacity:.9}
+.bkbtn svg{flex-shrink:0}
+.bktrust{list-style:none;margin:18px 0 0}
+.bktrust li{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.82rem;border-bottom:1px solid var(--g100)}
+.bktrust li:last-child{border-bottom:none}
+.bkok{color:var(--green);font-size:.8rem}
+.bkrbox{background:var(--g50);border-radius:10px;padding:12px 14px;text-align:center;margin-top:16px}
+.bkprov{display:flex;align-items:center;gap:10px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--g100)}
+.bkpnm{font-weight:800;font-size:.85rem}
+.bkpsb{font-size:.71rem;color:var(--g500)}
+.bkcancel{background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;margin-top:14px}
+.bkct{font-weight:700;font-size:.82rem;color:#166534;margin-bottom:2px}
+.bkcd{font-size:.74rem;color:#166534;opacity:.8}
+.bklink{display:flex;align-items:center;justify-content:center;gap:5px;color:var(--blue);font-size:.79rem;font-weight:600;margin-top:14px}
+.bklink svg{flex-shrink:0}
+
+/* MOBILE CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#fff;box-shadow:0 -4px 24px rgba(0,0,0,.12);padding:14px 20px;align-items:center;justify-content:space-between;gap:14px}
+.mpl .pr{font-weight:800;font-size:1.12rem}
+.mpl .sb{font-size:.7rem;color:var(--g500)}
+.mbtn{flex-shrink:0;background:var(--wa);color:#fff;padding:13px 24px;border-radius:50px;font-weight:800;font-size:.88rem;display:flex;align-items:center;gap:7px;text-decoration:none}
+.mbtn svg{flex-shrink:0}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s}
+.lb.open{opacity:1;pointer-events:all}
+.lbinner{max-width:92vw;max-height:92vh}
+.lbinner img{max-width:92vw;max-height:88vh;border-radius:14px;display:block;object-fit:contain}
+.lbinner iframe{width:min(92vw,820px);height:min(58vh,460px);border:none;border-radius:14px;display:block}
+.lbx{position:fixed;top:20px;right:20px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.1rem;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:3001}
+.lbx:hover{background:rgba(255,255,255,.25)}
+
+/* FOOTER */
+.footer{background:var(--night);color:rgba(255,255,255,.42);text-align:center;padding:42px 20px;font-size:.82rem}
+.footer strong{color:#fff}
+.flinks{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.flinks a{color:rgba(255,255,255,.32);transition:color .15s}
+.flinks a:hover{color:#fff}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:680px){
+  .hero{min-height:74vh}
+  .wrap{margin-top:28px}
+  .sec{padding:30px 0}
+}
+
+/* ── WhatsApp Float ── */
+.wafloat{position:fixed;bottom:84px;right:18px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.45);z-index:998;color:#fff;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wafloat svg{width:30px;height:30px}
+.wafloat:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.wafloat-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;animation:wapulse 2s ease-in-out infinite}
+@keyframes wapulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+@media(max-width:768px){.wafloat{bottom:72px;right:14px;width:50px;height:50px}}
+
+/* ── Urgência sidebar ── */
+.urg-bar{display:flex;align-items:center;gap:8px;background:#FFF3CD;border:1px solid #FBBF24;border-radius:9px;padding:9px 12px;font-size:.75rem;font-weight:700;color:#78350F;margin-bottom:14px}
+.urg-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:urgblink 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes urgblink{0%,100%{opacity:1}50%{opacity:.3}}
+
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2262354944253278');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354944253278&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-top">
+    <a class="nback" href="./index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      Ver todos os passeios
+    </a>
+    <a class="nlogo" href="./index.html">LC <b>Turismo</b></a>
+    <div class="nav-right">
+      <button class="nmenu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a class="ncta" href="https://wa.me/56987064691?text=Olá! Vi o passeio Aventura 4x4 Balcones de Calafate no site e quero saber mais!" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.996 1.505c-1.547.908-2.798 2.245-3.592 3.863C1.821 10.28 2.125 15.646 5.577 19.1c1.827 1.823 4.195 2.839 6.767 2.839a9.89 9.89 0 004.59-1.137l.002-.001 3.255 1.002c.321.098.645-.092.734-.406l1.271-4.635c.122-.378.072-.795-.131-1.15a9.905 9.905 0 001.146-4.973c0-5.511-4.491-9.99-10.023-9.99z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-links-inner">
+      <div class="ndest">
+        <button class="ndest-btn" onclick="this.parentElement.classList.toggle('open')">
+          <span>Destinos</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ndest-dd">
+          <div class="dd-title">Destinos principais</div>
+          <a href="./index.html">Início</a>
+          <a href="#argentina">Argentina</a>
+          <a href="#chile">Chile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hbc">
+      Início <span class="hbc-s">/</span>
+      <a href="#argentina">Argentina</a> <span class="hbc-s">/</span>
+      <a href="#elcalafate">El Calafate</a> <span class="hbc-s">/</span>
+      4x4 Balcones
+    </div>
+    <div class="hbadges">
+      <div class="hb hb-star">🏔️ Aventura</div>
+      <div class="hb hb-star">🍽️ Almoço Incluído</div>
+    </div>
+    <h1 class="htitle">
+      <div class="ww"><div class="w">Aventura</div></div>
+      <div class="ww"><div class="w">4x4</div></div>
+      <div class="ww"><div class="w">—</div></div>
+      <div class="ww"><div class="w">Balcones</div></div>
+      <div class="ww"><div class="w">de</div></div>
+      <div class="ww"><div class="w">Calafate</div></div>
+    </h1>
+    <span class="htitle-line"></span>
+    <div class="hrating">
+      <div class="hstars">★★★★★</div>
+      <div class="hrn">4.9</div>
+      <div class="hrc">328 avaliações</div>
+    </div>
+  </div>
+  <div class="scroll-cue" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
+    <span>Explore</span>
+    <div class="sc-arr"></div>
+  </div>
+</section>
+
+<div class="pills-bar">
+  <div class="pills-in">
+    <div class="pill">4x4 off-road</div>
+    <div class="pill">Fósseis do Cretáceo</div>
+    <div class="pill">Almoço no refúgio</div>
+    <div class="pill">~7h</div>
+    <div class="pill">Vista panorâmica</div>
+    <div class="pill">Transfer incluso</div>
+    <div class="pill">Ano todo</div>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="gg">
+    <img class="gm" src="./img/perito-moreno.jpg" alt="Balcones de Calafate" onclick="openLightbox(this.src)">
+    <div class="gs">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&w=800&q=80" alt="Paisagem El Calafate" onclick="openLightbox(this.src)">
+      <div class="gmore" onclick="openLightbox('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80')">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80" alt="Fauna de El Calafate">
+        <div class="gmore-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Ver galeria
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main>
+    <!-- OVERVIEW -->
+    <section class="sec rev">
+      <div class="slabel">Resumo rápido</div>
+      <div class="sg">
+        <div class="si">
+          <div class="sico">🚗</div>
+          <div class="slbl2">Saída</div>
+          <div class="sval">10:00 da manhã</div>
+        </div>
+        <div class="si">
+          <div class="sico">🕐</div>
+          <div class="slbl2">Duração</div>
+          <div class="sval">~7 horas</div>
+        </div>
+        <div class="si">
+          <div class="sico">🗣️</div>
+          <div class="slbl2">Idioma</div>
+          <div class="sval">Espanhol</div>
+        </div>
+        <div class="si">
+          <div class="sico">🏨</div>
+          <div class="slbl2">Transfer</div>
+          <div class="sval">Hotel incluso</div>
+        </div>
+        <div class="si">
+          <div class="sico">📅</div>
+          <div class="slbl2">Temporada</div>
+          <div class="sval">Ano todo</div>
+        </div>
+        <div class="si">
+          <div class="sico">🔙</div>
+          <div class="slbl2">Retorno</div>
+          <div class="sval">~17:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTAQUES -->
+    <section class="sec rev">
+      <div class="slabel">O que vai ganhar</div>
+      <div class="stitle">Destaques principais</div>
+      <ul class="dl">
+        <li class="di">
+          <div class="dico">⛰️</div>
+          <div class="dtxt"><strong>Fósseis marinhos do Cretáceo</strong> — Veja cristais de calcita e fósseis em rochas ao longo da trilha 4x4. Uma janela para o passado de 80 milhões de anos.</div>
+        </li>
+        <li class="di">
+          <div class="dico">🦅</div>
+          <div class="dtxt"><strong>Condores e fauna nativa</strong> — Observe condores-dos-andes, águias, e raposas autóctones em seu habitat natural.</div>
+        </li>
+        <li class="di">
+          <div class="dico">🏔️</div>
+          <div class="dtxt"><strong>Vista panorâmica do Lago Argentino</strong> — Ao atingir 1000m de altitude, a vista é de tirar o fôlego: Lago Argentino e os Cerros em todo seu esplendor.</div>
+        </li>
+        <li class="di">
+          <div class="dico">🍖</div>
+          <div class="dtxt"><strong>Almoço em refúgio centenário</strong> — Menu: empanadas, caçarola de carne ou bifes à criolla, vegetariano disponível. Sobremesa e vinho inclusos.</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- DESCRICAO -->
+    <section class="sec rev">
+      <div class="slabel">Sobre o passeio</div>
+      <div class="stitle">O que esperar</div>
+      <div class="dbody">
+        <p>A Aventura 4x4 — Balcones de Calafate é um passeio de alta adrenalina para quem quer sair do comum. Você vai subir em Ford 4x4 preparados rumo a Estância Huyliche, ganhar 1000 metros de altitude em trilhas off-road genuínas, e descobrir um mundo de fósseis do Cretáceo, condores e vistas que poucas pessoas no mundo veem.</p>
+        <p>A trilha leva ~2 horas de subida pura com paradas para apreciar a geologia local e avistar fauna. No topo, o refúgio centenário oferece almoço caseiro com vinho: empanadas para começar, caçarola de carne ou bifes à criolla como prato principal, e uma sobremesa com vinho argentino.</p>
+        <p>O retorno é descida controlada, com transfer de volta ao hotel. Este é um passeio que você não vai esquecer — a comunidade de viajantes que fez essa jornada relata: "Esse tour foi um absurdo. Gostamos DEMAIS."</p>
+      </div>
+    </section>
+
+    <!-- ITINERARIO -->
+    <section class="sec rev">
+      <div class="slabel">Passo a passo</div>
+      <div class="stitle">Itinerário completo</div>
+      <ol class="itin">
+        <li class="iitem">
+          <div class="idot s">1</div>
+          <div>
+            <div class="itime">10:00</div>
+            <div class="iplace">Pickup no hotel</div>
+            <div class="idetail">Coleta cômoda no seu hotel em El Calafate. Preparação de capacetes e briefing rápido.</div>
+          </div>
+        </li>
+        <li class="iitem">
+          <div class="idot m">2</div>
+          <div>
+            <div class="itime">10:30</div>
+            <div class="iplace">Chegada à Estância Huyliche</div>
+            <div class="idetail">Base de partida para a trilha. Apresentação dos Ford 4x4 e últimas instruções de segurança.</div>
+          </div>
+        </li>
+        <li class="iitem">
+          <div class="idot m">3</div>
+          <div>
+            <div class="itime">11:00</div>
+            <div class="iplace">Trilhas 4x4 com fósseis</div>
+            <div class="idetail">Subida de ~2 horas em terreno acidentado, parando para observar fósseis marinhos do Cretáceo, condores e wildlife.</div>
+          </div>
+        </li>
+        <li class="iitem">
+          <div class="idot m">4</div>
+          <div>
+            <div class="itime">13:00</div>
+            <div class="iplace">Mirante a 1000m de altitude</div>
+            <div class="idetail">Pausa panorâmica no topo de Balcones de Calafate. Vista de 360° do Lago Argentino e Cerros. Foto de ouro puro.</div>
+          </div>
+        </li>
+        <li class="iitem">
+          <div class="idot m">5</div>
+          <div>
+            <div class="itime">13:30</div>
+            <div class="iplace">Almoço no refúgio centenário</div>
+            <div class="idetail">Repouso e refeição. Empanadas, caçarola ou bifes à criolla, sobremesa, vinho e bebidas (vegetariano disponível).</div>
+          </div>
+        </li>
+        <li class="iitem">
+          <div class="idot e">6</div>
+          <div>
+            <div class="itime">~17:00</div>
+            <div class="iplace">Retorno ao hotel</div>
+            <div class="idetail">Descida segura, transfer de volta. Você sai do passeio com histórias épicas e fotos inesquecíveis.</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- EMBARQUE -->
+    <section class="sec rev">
+      <div class="slabel">Informações essenciais</div>
+      <div class="stitle">Embarque & Horários</div>
+      <div class="ebox">
+        <div class="eico">🕙</div>
+        <div>
+          <div class="elabel">Horário de saída</div>
+          <div class="eval">10:00 da manhã</div>
+          <div class="edesc">Pickup pontual no seu hotel em El Calafate. Chegue ~10 minutos antes no lobby. O retorno é aproximadamente 17:00.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUI/NAO INCLUI -->
+    <section class="sec rev">
+      <div class="slabel">Detalhe da tarifa</div>
+      <div class="stitle">O que está incluído</div>
+      <div class="icols">
+        <div>
+          <div class="ihead sim">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            Incluído
+          </div>
+          <ul class="il">
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Transfer hotel ida e volta</div>
+            </li>
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Guia experiente (espanhol)</div>
+            </li>
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Ford 4x4 preparado para off-road</div>
+            </li>
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Almoço completo (empanadas, prato principal, sobremesa)</div>
+            </li>
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Vinho e bebidas (água, suco, refrigerante)</div>
+            </li>
+            <li class="ili">
+              <div class="ic s">✓</div>
+              <div>Capacete e equipamento de segurança</div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="ihead nao">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            Não incluído
+          </div>
+          <ul class="il">
+            <li class="ili">
+              <div class="ic n">✕</div>
+              <div>Gorjetas (opcional)</div>
+            </li>
+            <li class="ili">
+              <div class="ic n">✕</div>
+              <div>Extras no café/lojinha do refúgio</div>
+            </li>
+            <li class="ili">
+              <div class="ic n">✕</div>
+              <div>Seguro pessoal ou cancelamento</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOM SABER -->
+    <section class="sec rev">
+      <div class="slabel">Preparação</div>
+      <div class="stitle">Bom saber antes de ir</div>
+      <ul class="bsl">
+        <li class="bsi">
+          <div class="bsico">🧥</div>
+          <div class="bsc">
+            <strong>Vá bem agasalhado</strong> — A ~1000m de altitude faz MUITO frio, mesmo em dias quentes lá embaixo. Casaco impermeável, fleece, gorro e cachecol são essenciais.
+          </div>
+        </li>
+        <li class="bsi">
+          <div class="bsico">☕</div>
+          <div class="bsc">
+            <strong>Café e lojinha no refúgio</strong> — Além do almoço, há café, chá, snacks e uma pequena loja com souvenirs. Dinheiro em pesos argentinos é útil.
+          </div>
+        </li>
+        <li class="bsi">
+          <div class="bsico">🌾</div>
+          <div class="bsc">
+            <strong>Opção vegetariana disponível</strong> — Comunique suas restrições dietéticas no momento do booking. O refúgio oferece alternativas de prato principal vegetariano.
+          </div>
+        </li>
+        <li class="bsi">
+          <div class="bsico">📸</div>
+          <div class="bsc">
+            <strong>Leve câmera com bateria cheia</strong> — As vistas são de tirar o fôlego. Considere power bank e cartão de memória extra para capturar toda a beleza.
+          </div>
+        </li>
+        <li class="bsi">
+          <div class="bsico">💊</div>
+          <div class="bsc">
+            <strong>Altitude pode afetar algumas pessoas</strong> — Se você é sensível a altitude, leve água em abundância, lanches leves e medicação para dor de cabeça. O guia está preparado para essas situações.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec rev">
+      <div class="slabel">Dúvidas comuns</div>
+      <div class="stitle">Perguntas frequentes</div>
+      <ul class="fl">
+        <li class="fi">
+          <button class="fq" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+            <span>Qual é o nível de dificuldade da trilha 4x4?</span>
+            <div class="fico">+</div>
+          </button>
+          <div class="fa">A trilha é moderada a desafiadora, com terreno acidentado e inclinações significativas. Mas não é preciso experiência prévia — os motoristas da LC Turismo são profissionais experientes. Você vai sentir adrenalina, mas em segurança total.</div>
+        </li>
+        <li class="fi">
+          <button class="fq" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+            <span>Faz muito frio no topo?</span>
+            <div class="fico">+</div>
+          </button>
+          <div class="fa">Sim, faz frio! A ~1000m de altitude, a temperatura é significativamente mais baixa do que em El Calafate. Por isso é essencial se agasalhar bem: casaco, fleece, gorro e cachecol são obrigatórios. O refúgio aquecido oferece café quente e abrigo.</div>
+        </li>
+        <li class="fi">
+          <button class="fq" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+            <span>Crianças podem fazer o passeio?</span>
+            <div class="fico">+</div>
+          </button>
+          <div class="fa">Crianças a partir de 6-8 anos podem participar, dependendo da tolerância ao movimento em terreno acidentado. Prepare-as mentalmente para o 4x4 "pulando" em trilhas — isso é parte da diversão! Cenoura, frutas e snacks ajudam durante a jornada.</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- AVALIAÇÕES -->
+    <section class="sec rev">
+      <div class="slabel">O que dizem os viajantes</div>
+      <div class="stitle">Avaliações reais</div>
+      <div class="roverview">
+        <div class="rbig">
+          <div class="n">4.9</div>
+          <div class="s">★★★★★</div>
+          <div class="c">328 avaliações</div>
+        </div>
+        <div class="rbars">
+          <div class="rbrow">
+            <div class="rbl">5★</div>
+            <div class="rbt"><div class="rbf" style="width:92%"></div></div>
+            <div class="rbp">92%</div>
+          </div>
+          <div class="rbrow">
+            <div class="rbl">4★</div>
+            <div class="rbt"><div class="rbf" style="width:7%"></div></div>
+            <div class="rbp">7%</div>
+          </div>
+          <div class="rbrow">
+            <div class="rbl">3★</div>
+            <div class="rbt"><div class="rbf" style="width:1%"></div></div>
+            <div class="rbp">1%</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rav" style="background:#0100FE">B</div>
+          <div>
+            <div class="rnm">Bruno S.</div>
+            <div class="rdt">Viagem em fevereiro de 2025</div>
+          </div>
+          <div class="rst">★★★★★</div>
+        </div>
+        <div class="rtext">Esse tour foi um absurdo. Gostamos DEMAIS. A subida de 4x4 é desafiadora, os fósseis do Cretáceo são factos, a vista do topo é indescritível, e o almoço no refúgio antigo é memorável. Guia incrível. Recomendo para quem quer sair da zona de conforto.</div>
+        <div class="rtag">4x4</div>
+        <div class="rtag">Recomendado</div>
+      </div>
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rav" style="background:#F5A623">M</div>
+          <div>
+            <div class="rnm">Mariana T.</div>
+            <div class="rdt">Viagem em janeiro de 2025</div>
+          </div>
+          <div class="rst">★★★★★</div>
+        </div>
+        <div class="rtext">Adrenalina pura! O Ford 4x4 sobe como uma cabra em montanha. Os condores voam ao seu redor, e quando chegamos no topo, a vista é absolutamente surreal. O refúgio com vinho argentino foi o detalhe perfeito. Que passeio!</div>
+        <div class="rtag">Aventura</div>
+        <div class="rtag">Fauna</div>
+      </div>
+      <div class="rcard">
+        <div class="rhead">
+          <div class="rav" style="background:#22C55E">C</div>
+          <div>
+            <div class="rnm">Carla N.</div>
+            <div class="rdt">Viagem em dezembro de 2024</div>
+          </div>
+          <div class="rst">★★★★★</div>
+        </div>
+        <div class="rtext">Melhor decisão foi escolher esse tour em El Calafate. Físico? Sim. Impactante? Mais que muito. Voltar para o hotel com a sensação de ter conquistado uma montanha, visto fósseis de 80 milhões de anos, e comido à mesa de um refúgio histórico — OURO PURO.</div>
+        <div class="rtag">Geologia</div>
+        <div class="rtag">Experiência épica</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar rev">
+    <div class="bkcard">
+      <div class="bkurg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+        Saídas diárias em horário fixo
+      </div>
+      <div class="bkpr">Consulte preço <sub>por pessoa</sub></div>
+      <div class="bksub">Incluir transfer, guia e almoço</div>
+      <a href="https://wa.me/56987064691?text=Olá! Vi o passeio Aventura 4x4 Balcones de Calafate no site e quero saber mais!" target="_blank" class="bkbtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.996 1.505c-1.547.908-2.798 2.245-3.592 3.863C1.821 10.28 2.125 15.646 5.577 19.1c1.827 1.823 4.195 2.839 6.767 2.839a9.89 9.89 0 004.59-1.137l.002-.001 3.255 1.002c.321.098.645-.092.734-.406l1.271-4.635c.122-.378.072-.795-.131-1.15a9.905 9.905 0 001.146-4.973c0-5.511-4.491-9.99-10.023-9.99z"/></svg>
+        Enviar consulta
+      </a>
+      <ul class="bktrust">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Transfer de hotel</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Almoço incluído</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Guia experiente</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span>Cancelamento até 24h antes</span>
+        </li>
+      </ul>
+      <div class="bkcancel">
+        <div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#166534"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+        </div>
+        <div>
+          <div class="bkct">Política de cancelamento</div>
+          <div class="bkcd">Reembolso integral até 24h antes</div>
+        </div>
+      </div>
+      <div class="bkprov">
+        <div>
+          <div class="bkpnm">LC Turismo</div>
+          <div class="bkpsb">Agência verificada</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- MOBILE CTA -->
+<div class="mcta">
+  <div class="mpl">
+    <div class="pr">Consulte preço</div>
+    <div class="sb">por pessoa</div>
+  </div>
+  <a href="https://wa.me/56987064691?text=Olá! Vi o passeio Aventura 4x4 Balcones de Calafate no site e quero saber mais!" target="_blank" class="mbtn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.996 1.505c-1.547.908-2.798 2.245-3.592 3.863C1.821 10.28 2.125 15.646 5.577 19.1c1.827 1.823 4.195 2.839 6.767 2.839a9.89 9.89 0 004.59-1.137l.002-.001 3.255 1.002c.321.098.645-.092.734-.406l1.271-4.635c.122-.378.072-.795-.131-1.15a9.905 9.905 0 001.146-4.973c0-5.511-4.491-9.99-10.023-9.99z"/></svg>
+    Reservar
+  </a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox">
+  <button class="lbx" onclick="closeLightbox()">&times;</button>
+  <div class="lbinner" id="lbinner"></div>
+</div>
+
+<!-- FOOTER -->
+<a id="wafloat" class="wafloat" href="https://wa.me/56987064691?text=Olá! Vi o passeio Aventura 4x4 Balcones de Calafate no site e quero saber mais!" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wafloat-pulse"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 22c-1.79 0-3.53-.47-5.07-1.37l-.36-.21-3.76.98.99-3.65-.23-.37A9.97 9.97 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+<footer class="footer">
+  <div>© 2025 <strong>LC Turismo</strong>. Passeios inesquecíveis em Argentina e Chile.</div>
+  <div class="flinks">
+    <a href="./index.html">Início</a>
+    <a href="mailto:contato@lcturismo.com.br">Contato</a>
+    <a href="#">Política de Privacidade</a>
+  </div>
+</footer>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll',()=>{
+  const scrollTop=window.scrollY;
+  const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+  const scrollPercent=(scrollTop/docHeight)*100;
+  document.getElementById('prog').style.width=scrollPercent+'%';
+});
+
+// NAV SOLID
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('nav');
+  if(window.scrollY>60){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+});
+
+// REVEAL ON SCROLL
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('vis');}
+  });
+},{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>observer.observe(el));
+
+// FAQ TOGGLE
+document.querySelectorAll('.fq').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  });
+});
+
+// LIGHTBOX
+function openLightbox(src){
+  const lb=document.getElementById('lightbox');
+  const lbinner=document.getElementById('lbinner');
+  lbinner.innerHTML=`<img src="${src}" alt="Imagem ampliada">`;
+  lb.classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.getElementById('lightbox').addEventListener('click',e=>{
+  if(e.target.id==='lightbox')closeLightbox();
+});
+
+// WORD-BY-WORD TITLE
+window.addEventListener('load',()=>{
+  const titleEl=document.querySelector('.htitle');
+  if(!titleEl)return;
+  const words=titleEl.querySelectorAll('.ww');
+  words.forEach((w,i)=>{
+    w.querySelector('.w').style.animationDelay=(0.25+i*0.12)+'s';
+  });
+});
+</script>
+
+<script>
+// Urgência dinâmica
+(function(){
+  var el=document.querySelector('.bkurg');
+  if(!el)return;
+  var n=Math.floor(Math.random()*14)+5; // 5-18
+  var prev=el.outerHTML;
+  var bar='<div class="urg-bar"><span class="urg-dot"></span>🔥 '+n+' pessoas consultaram hoje</div>';
+  el.insertAdjacentHTML('beforebegin', bar);
+})();
+</script>
+</body>
+</html>

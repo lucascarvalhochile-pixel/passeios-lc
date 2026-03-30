@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>City Tour Caminhando Santiago saindo de Santiago | LC Turismo</title>
+<meta name="description" content="City Tour a pé por Santiago do Chile. Centro histórico, La Moneda, Cerro Santa Lucía, Mercado Central. Guia em português. Ano todo.">
+<meta property="og:title" content="City Tour Caminhando Santiago | LC Turismo">
+<meta property="og:description" content="City Tour a pé por Santiago do Chile. Centro histórico, La Moneda, Cerro Santa Lucía, Mercado Central. Guia em português. Ano todo.">
+<meta property="og:image" content="https://passeios.bloglcturismo.com.br/img/city-tour-santiago.jpg">
+<link rel="canonical" href="https://passeios.bloglcturismo.com.br/tour-city-tour-santiago.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "name": "City Tour Caminhando Santiago saindo de Santiago", "description": "City Tour a pé por Santiago do Chile. Centro histórico, La Moneda, Cerro Santa Lucía, Mercado Central. Guia em português. Ano todo.", "image": "https://passeios.bloglcturismo.com.br/img/city-tour-santiago.jpg", "url": "https://passeios.bloglcturismo.com.br/tour-city-tour-santiago.html", "offers": {"@type": "Offer", "priceCurrency": "BRL", "availability": "https://schema.org/InStock"}, "provider": {"@type": "TravelAgency", "name": "LC Turismo", "url": "https://passeios.bloglcturismo.com.br/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo dura?", "acceptedAnswer": {"@type": "Answer", "text": "Aproximadamente 4 horas de caminhada guiada."}}, {"@type": "Question", "name": "Precisa de condicionamento físico?", "acceptedAnswer": {"@type": "Answer", "text": "Não. É um passeio leve a pé, com algumas subidas no Cerro Santa Lucía."}}, {"@type": "Question", "name": "Opera em qualquer dia?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, opera todos os dias, o ano inteiro."}}]}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#0100FE;--night:#001228;
+  --g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;
+  --gold:#F5A623;--green:#22C55E;--red:#EF4444;--wa:#25D366;
+  --f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1160px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;background:none}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;width:0;height:3px;background:var(--blue);z-index:9999;transition:width .05s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .25s}
+.nav.solid{background:rgba(0,18,40,.97)}
+.nav-top{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw}
+.nback{color:rgba(255,255,255,.7);font-size:.78rem;display:flex;align-items:center;gap:5px;transition:color .15s}
+.nback:hover{color:#fff}
+.nback svg{flex-shrink:0}
+.nlogo{color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:-.3px}
+.nlogo b{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nmenu-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:4px}
+.ncta{background:var(--wa);color:#fff;padding:9px 20px;border-radius:50px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:7px;transition:opacity .15s}
+.ncta:hover{opacity:.88}
+.ncta svg{flex-shrink:0}
+.nav-links{overflow:visible;background:rgba(0,18,40,.97);border-top:1px solid rgba(255,255,255,.06);display:none}
+.nav.solid .nav-links{display:block}
+@media(max-width:768px){.nav.solid .nav-links{display:none}.nav-links.open{display:block!important}}
+.nav-links-inner{display:flex;gap:0;padding:0 5vw 14px;flex-wrap:wrap}
+.ndest{position:relative}
+.ndest-btn{background:none;border:none;color:rgba(255,255,255,.75);font-size:.78rem;font-weight:600;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:color .15s;font-family:inherit}
+.ndest-btn:hover,.ndest-btn.active{color:#fff}
+.ndest-dd{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.15);padding:8px 0;z-index:600}
+.ndest.open .ndest-dd{display:block}
+@media(min-width:769px){.ndest:hover .ndest-dd{display:block}}
+.ndest-dd a{display:block;padding:9px 18px;color:var(--g800);font-size:.8rem;font-weight:500;transition:background .12s}
+.ndest-dd a:hover{background:var(--g50)}
+.ndest-dd .dd-title{padding:6px 18px 4px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--g400)}
+@media(max-width:768px){
+.nmenu-toggle{display:flex}
+.nav-links-inner{flex-direction:column}
+.ndest-dd{position:static;box-shadow:none;border-radius:0;padding:0 0 0 18px;background:transparent}
+.ndest-dd a{color:rgba(255,255,255,.65);padding:7px 14px}
+.ndest-dd a:hover{background:rgba(255,255,255,.05);color:#fff}
+.ndest-dd .dd-title{color:rgba(255,255,255,.35)}
+.ndest.open .ndest-dd{display:block}
+.ndest-btn{padding:10px 14px}
+}
+
+/* HERO */
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 35%;will-change:transform;animation:kenburns 9s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes kenburns{from{transform:scale(1.09) translateY(0)}to{transform:scale(1) translateY(0)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.1) 0%,rgba(0,8,25,.28) 38%,rgba(0,12,35,.82) 75%,#000c23 100%)}
+.hero-c{position:relative;z-index:2;padding:0 5vw 56px;max-width:860px}
+
+/* Hero entrance animations */
+.hbc{font-size:.73rem;color:rgba(255,255,255,.48);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;opacity:0;animation:hFade .7s .25s cubic-bezier(.16,1,.3,1) forwards}
+.hbc a{color:rgba(255,255,255,.48);transition:color .15s}.hbc a:hover{color:#fff}
+.hbc-s{opacity:.3;font-size:.6rem}
+.hbadges{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;opacity:0;animation:hFade .7s .4s cubic-bezier(.16,1,.3,1) forwards}
+.hb{padding:5px 13px;border-radius:50px;font-size:.71rem;font-weight:700;backdrop-filter:blur(8px)}
+.hb-star{background:rgba(245,166,35,.18);border:1px solid rgba(245,166,35,.38);color:#F9C847}
+.hb-inv{background:rgba(80,100,255,.22);border:1px solid rgba(100,120,255,.38);color:#A5B4FF}
+
+/* Title word-by-word reveal */
+.htitle{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.8px;margin-bottom:20px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.ww{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.ww .w{display:inline-block;opacity:0;transform:translateY(110%);animation:wordUp .75s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes wordUp{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:translateY(0)}}
+
+/* Hero accent line */
+.htitle-line{display:block;height:2px;width:0;background:linear-gradient(90deg,var(--blue),rgba(0,1,254,0));margin-top:14px;margin-bottom:18px;animation:lineGrow .9s 1.15s cubic-bezier(.16,1,.3,1) forwards;border-radius:2px}
+@keyframes lineGrow{from{width:0}to{width:min(220px,55%)}}
+
+.hrating{display:flex;align-items:center;gap:10px;flex-wrap:wrap;opacity:0;animation:hFade .7s 1.25s cubic-bezier(.16,1,.3,1) forwards}
+.hstars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+.hrn{color:#fff;font-weight:800;font-size:.92rem}
+.hrc{color:rgba(255,255,255,.55);font-size:.82rem}
+.hs2{color:rgba(255,255,255,.2)}
+
+@keyframes hFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.scroll-cue{position:absolute;bottom:20px;right:5vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:opacity .2s;opacity:0;animation:hFade .7s 1.6s cubic-bezier(.16,1,.3,1) forwards}
+.scroll-cue:hover{opacity:.85!important}
+.scroll-cue span{font-size:.6rem;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
+.sc-arr{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bob 1.6s 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* PILLS */
+.pills-bar{background:#fff;border-bottom:1px solid var(--g100);overflow-x:auto;scrollbar-width:none}
+.pills-bar::-webkit-scrollbar{display:none}
+.pills-in{max-width:var(--max);margin:0 auto;padding:13px 24px;display:flex;gap:8px;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:7px 15px;border:1px solid var(--g100);border-radius:50px;font-size:.76rem;font-weight:600;color:var(--g700);background:#fff;flex-shrink:0;transition:border-color .15s,background .15s}
+.pill:hover{border-color:var(--blue);background:#f0f1ff}
+.pe{color:var(--blue)}
+
+/* GALLERY */
+.gallery{max-width:var(--max);margin:36px auto 0;padding:0 24px}
+.gg{display:grid;grid-template-columns:1.65fr 1fr;grid-template-rows:255px 255px;gap:6px;border-radius:20px;overflow:hidden}
+.gg img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:transform .45s ease,filter .3s}
+.gg img:hover{transform:scale(1.04);filter:brightness(1.06)}
+.gm{grid-row:1/3}
+.gs{display:grid;grid-template-rows:1fr 1fr;gap:6px}
+.gs img{height:100%}
+.gmore{position:relative}
+.gmore img{filter:brightness(.55)}
+.gmore-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.88rem;gap:7px;cursor:pointer}
+@media(max-width:620px){.gallery{padding:0}.gg{border-radius:0;gap:3px;grid-template-rows:185px 185px}}
+
+/* LAYOUT */
+.wrap{max-width:var(--max);margin:44px auto 100px;padding:0 24px;display:grid;grid-template-columns:1fr 344px;gap:44px;align-items:start}
+@media(max-width:940px){.wrap{grid-template-columns:1fr}.sidebar{display:none!important}.mcta{display:flex!important}}
+@media(max-width:600px){.wrap{padding:0 16px}}
+
+/* SECTIONS */
+.sec{padding:40px 0;border-top:1px solid var(--g100)}
+.sec:first-child{border-top:none;padding-top:0}
+.slabel{font-size:.67rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.stitle{font-size:1.22rem;font-weight:800;color:var(--night);letter-spacing:-.3px;margin-bottom:22px}
+
+/* SOBRE */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:540px){.sg{grid-template-columns:repeat(2,1fr)}}
+.si{display:flex;flex-direction:column;gap:5px}
+.sico{font-size:1.5rem;margin-bottom:2px}
+.slbl2{font-size:.67rem;text-transform:uppercase;letter-spacing:.9px;color:var(--g500);font-weight:600}
+.sval{font-weight:700;font-size:.9rem;color:var(--night);line-height:1.3}
+
+/* DESTAQUES */
+.dl{list-style:none}
+.di{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--g100)}
+.di:last-child{border-bottom:none}
+.dico{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#EEF0FF,#DDE0FF);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.dtxt{font-size:.9rem;line-height:1.65;color:var(--g700);padding-top:7px}
+
+/* DESCRICAO */
+.dbody{font-size:.93rem;line-height:1.85;color:var(--g700)}
+.dbody p+p{margin-top:14px}
+.dtrunc{max-height:130px;overflow:hidden;position:relative}
+.dtrunc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:48px;background:linear-gradient(transparent,#fff)}
+.dbtn{color:var(--blue);font-weight:700;font-size:.84rem;cursor:pointer;margin-top:14px;display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
+.dbtn:hover{gap:9px}
+
+/* INCLUI */
+.icols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:480px){.icols{grid-template-columns:1fr}}
+.ihead{font-size:.77rem;font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid}
+.ihead.sim{color:var(--green);border-color:var(--green)}
+.ihead.nao{color:var(--red);border-color:var(--red)}
+.il{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ili{display:flex;align-items:center;gap:10px;font-size:.87rem;color:var(--g700)}
+.ic{width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;flex-shrink:0}
+.ic.s{background:#DCFCE7;color:var(--green)}
+.ic.n{background:#FEE2E2;color:var(--red)}
+
+/* ITINERARIO */
+.itinerary,.itin{list-style:none;position:relative}
+.itinerary::before,.itin::before{content:'';position:absolute;left:20px;top:21px;bottom:21px;width:2px;background:linear-gradient(to bottom,var(--green),var(--blue),var(--night));border-radius:2px}
+.iitem{display:flex;gap:20px;padding-bottom:32px;position:relative;z-index:1}
+.iitem:last-child{padding-bottom:0}
+.idot.s{background:var(--green)}
+.idot.m{background:var(--blue)}
+.idot.e{background:var(--night)}
+.idot{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:3px solid #fff;box-shadow:0 0 0 3px var(--g100)}
+.idot.s{background:var(--green)}
+.idot.m{background:var(--blue)}
+.idot.e{background:var(--night)}
+.itime{font-size:.7rem;font-weight:700;color:var(--blue);letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
+.iplace{font-weight:800;font-size:.97rem;margin-bottom:4px}
+.idetail{font-size:.84rem;line-height:1.6;color:var(--g500)}
+
+/* EMBARQUE */
+.ebox{background:var(--g50);border-radius:16px;padding:22px;display:flex;gap:18px;align-items:flex-start}
+.eico{font-size:2.2rem;flex-shrink:0}
+.elabel{font-size:.67rem;text-transform:uppercase;letter-spacing:.9px;color:var(--blue);font-weight:700;margin-bottom:5px}
+.eval{font-weight:800;font-size:1rem;margin-bottom:6px}
+.edesc{font-size:.84rem;line-height:1.65;color:var(--g500)}
+
+/* BOM SABER */
+.bsl{list-style:none}
+.bsi{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--g100)}
+.bsi:last-child{border-bottom:none}
+.bsico{font-size:1.25rem;flex-shrink:0;margin-top:2px}
+.bsc strong{display:block;font-size:.87rem;font-weight:700;margin-bottom:3px}
+.bsc{font-size:.84rem;line-height:1.6;color:var(--g700)}
+
+/* FAQ */
+.fl{list-style:none}
+.fi{border-bottom:1px solid var(--g100)}
+.fi:last-child{border-bottom:none}
+.fq{width:100%;background:none;border:none;text-align:left;padding:18px 0;font-family:var(--f);font-size:.91rem;font-weight:700;color:var(--night);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;line-height:1.4}
+.fico{width:24px;height:24px;border-radius:50%;border:2px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;transition:all .2s}
+.fq.open .fico{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(45deg)}
+.fa{display:none;font-size:.86rem;line-height:1.75;color:var(--g700);padding-bottom:18px}
+.fa.open{display:block}
+
+/* AVALIAÇÕES */
+.roverview{display:flex;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--g100);margin-bottom:28px}
+@media(max-width:480px){.roverview{flex-direction:column;gap:20px}}
+.rbig{text-align:center;min-width:90px}
+.rbig .n{font-size:4.2rem;font-weight:800;line-height:1;letter-spacing:-3px;color:var(--night)}
+.rbig .s{color:var(--gold);font-size:1.15rem;margin:6px 0}
+.rbig .c{font-size:.73rem;color:var(--g500)}
+.rbars{flex:1}
+.rbrow{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.rbl{font-size:.73rem;color:var(--blue);font-weight:600;min-width:58px}
+.rbt{flex:1;height:7px;background:var(--g100);border-radius:4px;overflow:hidden}
+.rbf{height:100%;background:var(--gold);border-radius:4px}
+.rbp{font-size:.71rem;color:var(--g500);min-width:30px;text-align:right}
+.rcard{padding:24px 0;border-bottom:1px solid var(--g100)}
+.rcard:last-of-type{border-bottom:none}
+.rhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rav{width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.92rem;flex-shrink:0}
+.rnm{font-weight:700;font-size:.9rem}
+.rdt{font-size:.73rem;color:var(--g500)}
+.rst{color:var(--gold);font-size:.85rem;margin-left:auto}
+.rtext{font-size:.9rem;line-height:1.72;color:var(--g700)}
+.rtag{display:inline-block;background:var(--g50);color:var(--g700);border:1px solid var(--g100);padding:3px 10px;border-radius:50px;font-size:.7rem;font-weight:600;margin-top:10px}
+.vbox{border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--night);margin-top:8px}
+.vbox iframe{width:100%;height:100%;border:none;display:block}
+.vlabel{font-size:.76rem;font-weight:700;color:var(--g700);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+
+/* OUTROS */
+.ostrip{display:flex;gap:14px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.ostrip::-webkit-scrollbar{display:none}
+.ocard{flex:0 0 192px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--g100);text-decoration:none;transition:transform .22s,box-shadow .22s}
+.ocard:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.1)}
+.ocard img{width:100%;height:118px;object-fit:cover}
+.obody{padding:11px 13px}
+.oname{font-weight:700;font-size:.82rem;line-height:1.3;color:var(--night);margin-bottom:4px}
+.oprice{font-size:.79rem;color:var(--blue);font-weight:600}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:76px}
+.bkcard{background:#fff;border-radius:20px;border:1px solid var(--g100);padding:26px;box-shadow:0 8px 48px rgba(0,0,0,.09)}
+.bkurg{background:#FFF8E7;border:1px solid #F5C842;border-radius:9px;padding:9px 13px;font-size:.76rem;font-weight:700;color:#7A5A00;display:flex;align-items:center;gap:7px;margin-bottom:18px}
+.bkpr{font-size:2.3rem;font-weight:800;letter-spacing:-1.5px;line-height:1}
+.bkpr sub{font-size:1rem;font-weight:400;color:var(--g500);letter-spacing:0}
+.bksub{font-size:.76rem;color:var(--g500);margin-bottom:20px;margin-top:3px}
+.bkbtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--wa);color:#fff;padding:15px;border-radius:14px;font-weight:800;font-size:.97rem;text-decoration:none;transition:opacity .15s}
+.bkbtn:hover{opacity:.9}
+.bkbtn svg{flex-shrink:0}
+.bktrust{list-style:none;margin:18px 0 0}
+.bktrust li{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.82rem;border-bottom:1px solid var(--g100)}
+.bktrust li:last-child{border-bottom:none}
+.bkok{color:var(--green);font-size:.8rem}
+.bkrbox{background:var(--g50);border-radius:10px;padding:12px 14px;text-align:center;margin-top:16px}
+.bkprov{display:flex;align-items:center;gap:10px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--g100)}
+.bkpnm{font-weight:800;font-size:.85rem}
+.bkpsb{font-size:.71rem;color:var(--g500)}
+.bkcancel{background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;margin-top:14px}
+.bkct{font-weight:700;font-size:.82rem;color:#166534;margin-bottom:2px}
+.bkcd{font-size:.74rem;color:#166534;opacity:.8}
+.bklink{display:flex;align-items:center;justify-content:center;gap:5px;color:var(--blue);font-size:.79rem;font-weight:600;margin-top:14px}
+.bklink svg{flex-shrink:0}
+
+/* MOBILE CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#fff;box-shadow:0 -4px 24px rgba(0,0,0,.12);padding:14px 20px;align-items:center;justify-content:space-between;gap:14px}
+.mpl .pr{font-weight:800;font-size:1.12rem}
+.mpl .sb{font-size:.7rem;color:var(--g500)}
+.mbtn{flex-shrink:0;background:var(--wa);color:#fff;padding:13px 24px;border-radius:50px;font-weight:800;font-size:.88rem;display:flex;align-items:center;gap:7px;text-decoration:none}
+.mbtn svg{flex-shrink:0}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s}
+.lb.open{opacity:1;pointer-events:all}
+.lbinner{max-width:92vw;max-height:92vh}
+.lbinner img{max-width:92vw;max-height:88vh;border-radius:14px;display:block;object-fit:contain}
+.lbinner iframe{width:min(92vw,820px);height:min(58vh,460px);border:none;border-radius:14px;display:block}
+.lbx{position:fixed;top:20px;right:20px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.1rem;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:3001}
+.lbx:hover{background:rgba(255,255,255,.25)}
+
+/* FOOTER */
+.footer{background:var(--night);color:rgba(255,255,255,.42);text-align:center;padding:42px 20px;font-size:.82rem}
+.footer strong{color:#fff}
+.flinks{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.flinks a{color:rgba(255,255,255,.32);transition:color .15s}
+.flinks a:hover{color:#fff}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:680px){
+  .hero{min-height:74vh}
+  .wrap{margin-top:28px}
+  .sec{padding:30px 0}
+}
+
+/* ---- Video section ---- */
+.vid-section{max-width:var(--max);margin:0 auto;padding:0 24px 0}
+.vid-resp{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+.vid-resp iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+@media(max-width:620px){.vid-section{padding:0}}
+
+/* ── WhatsApp Float ── */
+.wafloat{position:fixed;bottom:84px;right:18px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.45);z-index:998;color:#fff;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wafloat svg{width:30px;height:30px}
+.wafloat:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.wafloat-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;animation:wapulse 2s ease-in-out infinite}
+@keyframes wapulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+@media(max-width:768px){.wafloat{bottom:72px;right:14px;width:50px;height:50px}}
+
+/* ── Urgência sidebar ── */
+.urg-bar{display:flex;align-items:center;gap:8px;background:#FFF3CD;border:1px solid #FBBF24;border-radius:9px;padding:9px 12px;font-size:.75rem;font-weight:700;color:#78350F;margin-bottom:14px}
+.urg-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:urgblink 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes urgblink{0%,100%{opacity:1}50%{opacity:.3}}
+
+</style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2262354344253278');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354344253278&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+<!-- GA4: substituir G-XXXXXXXXXX pelo seu Measurement ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+
+</head>
+<body>
+
+<div id="prog"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-top">
+    <a class="nback" href="./index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      Ver todos os passeios
+    </a>
+    <a class="nlogo" href="./index.html">LC <b>Turismo</b></a>
+    <div class="nav-right">
+      <button class="nmenu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a class="ncta" href="https://wa.me/5511920619246?text=Olá!%20Quero%20saber%20mais%20sobre%20passeios%20na%20LC%20Turismo!" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com consultor
+      </a>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-links-inner">
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Chile <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Santiago</div>
+                    <a href="./index.html">Farellones</a>
+          <a href="./index.html">El Colorado</a>
+          <a href="./index.html">Vinícola Concha y Toro</a>
+          <a href="./index.html">Cajón del Maipo</a>
+          <a href="./index.html">Valparaíso + Viña del Mar</a>
+          <div class="dd-title">Atacama</div>
+          <a href="./index.html">Geysers del Tatio</a>
+          <a href="./index.html">Valle de la Luna</a>
+          <div class="dd-title">Patagônia</div>
+          <a href="./index.html">Torres del Paine</a>
+          <a href="./index.html">Glaciar Perito Moreno</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Peru <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./index.html">Machu Picchu</a>
+          <a href="./index.html">Vale Sagrado</a>
+          <a href="./index.html">Cusco City Tour</a>
+          <a href="./index.html">Montanha Colorida</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Bolívia <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./index.html">Salar de Uyuni</a>
+          <a href="./index.html">La Paz City Tour</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Argentina <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./index.html">Mendoza</a>
+          <a href="./index.html">Buenos Aires</a>
+          <a href="./index.html">Ushuaia</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg" style="background-image: url('./img/city-tour-santiago.jpg'); background-size: cover; background-position: center;"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hbc">
+      <a href="./index.html">Início</a><span class="hbc-s">›</span>
+      <a href="./index.html">Chile</a><span class="hbc-s">›</span>
+      <a href="./index.html">Santiago</a><span class="hbc-s">›</span>
+      <span>City Tour Caminhando Santiago</span>
+    </div>
+    <div class="hbadges">
+      
+    </div>
+    <h1 class="htitle">
+      <span class="ww"><span class="w" style="animation-delay:0.6s">City</span></span>
+<span class="ww"><span class="w" style="animation-delay:0.72s">Tour</span></span>
+<span class="ww"><span class="w" style="animation-delay:0.84s">Santiago</span></span>
+
+    </h1>
+    <div class="htitle-line"></div>
+    <div class="hrating">
+      <span style="color:rgba(255,255,255,.52);font-size:.81rem">A história, cultura e vida de Santiago — a pé, como os locais</span>
+    </div>
+  </div>
+  <div class="scroll-cue" onclick="document.getElementById('pillsbar').scrollIntoView({behavior:'smooth'})">
+    <span>Explorar</span>
+    <div class="sc-arr"></div>
+  </div>
+</section>
+
+
+<div class="pills-bar" id="pillsbar">
+  <div class="pills-in">
+    <span class="pill"><span class="pe">🇧🇷</span> Guia em português</span>
+    <span class="pill"><span class="pe">🚐</span> Transfer do hotel</span>
+    <span class="pill"><span class="pe">⏱</span> Meio dia (~4h) · Meio dia</span>
+    <span class="pill"><span class="pe">🌅</span> Manhã</span>
+    <span class="pill"><span class="pe">☀️</span> Ano todo</span>
+    <span class="pill"><span class="pe">✅</span> Cancelamento grátis 48h</span>
+  </div>
+</div>
+
+
+<div class="gallery rev">
+  <div class="gg">
+    <img class="gm" src="./img/city-tour-santiago.jpg" alt="City Tour Caminhando Santiago" onclick="openLb('img','https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10559/photo/capa/1.jpg')">
+    <div class="gs">
+      <img loading="lazy" src="./img/city-tour-santiago.jpg" alt="City Tour Caminhando Santiago - Foto 2" onclick="openLb('img','https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10559/photo/capa/1.jpg')">
+      <div class="gmore">
+        <img loading="lazy" src="./img/city-tour-santiago.jpg" alt="City Tour Caminhando Santiago - Foto 3">
+        <div class="gmore-btn" onclick="openLb('img','https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10559/photo/capa/1.jpg')">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Ver todas as fotos
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div>
+    <div class="sec rev">
+      <div class="slabel">Visão geral</div>
+      <h2 class="stitle">Sobre esta atividade</h2>
+      <div class="sg">
+        <div class="si"><span class="sico">🌅</span><span class="slbl2">Saída</span><span class="sval">Manhã</span></div>
+        <div class="si"><span class="sico">⏱</span><span class="slbl2">Duração</span><span class="sval">Meio dia (~4h)</span></div>
+        <div class="si"><span class="sico">🚐</span><span class="slbl2">Retorno</span><span class="sval">Meio dia</span></div>
+        <div class="si"><span class="sico">🗣️</span><span class="slbl2">Idioma</span><span class="sval">Português e Espanhol</span></div>
+        <div class="si"><span class="sico">🚐</span><span class="slbl2">Transfer</span><span class="sval">Do hotel incluso</span></div>
+        <div class="si"><span class="sico">✅</span><span class="slbl2">Cancelamento</span><span class="sval">Grátis com 48h</span></div>
+      </div>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Por que ir</div>
+      <h2 class="stitle">Destaques da experiência</h2>
+      <ul class="dl">
+        <li class="di"><div class="dico">🏔️</div><div class="dtxt">Palácio de La Moneda e Plaza de Armas</div></li>
+<li class="di"><div class="dico">📸</div><div class="dtxt">Cerro Santa Lucía — mirante no coração da cidade</div></li>
+<li class="di"><div class="dico">🚐</div><div class="dtxt">Mercado Central — gastronomia chilena autêntica</div></li>
+<li class="di"><div class="dico">❄️</div><div class="dtxt">Bairro Lastarria — arte, cafés e cultura</div></li>
+<li class="di"><div class="dico">🍽️</div><div class="dtxt">História e curiosidades com guia brasileiro</div></li>
+
+      </ul>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">A experiência</div>
+      <h2 class="stitle">Descrição completa</h2>
+      <div class="dbody">
+        <div class="dtrunc" id="desc">
+          <p>O City Tour Caminhando Santiago é uma experiência imperdível em Santiago. A história, cultura e vida de Santiago — a pé, como os locais. Com guia em português e transfer do hotel, esta é uma das atividades mais procuradas por brasileiros no Chile.</p>
+          <p>O passeio começa com a busca no seu hotel em Santiago pela manhã. À medida que seguimos viagem, a paisagem se transforma e os cenários ficam cada vez mais impressionantes. Os destaques incluem: palácio de la moneda e plaza de armas, cerro santa lucía — mirante no coração da cidade, mercado central — gastronomia chilena autêntica.</p>
+          <p>O roteiro inclui passagem por Centro Histórico, Cerro Santa Lucía, Mercado Central e Lastarria. Em cada parada, o guia compartilha informações, curiosidades e garante que você aproveite ao máximo cada momento. As fotos ficam incríveis e as memórias são para a vida toda.</p>
+          <p>O passeio inclui guia bilíngue em português, roteiro a pé pelo centro histórico. Com duração de Meio dia (~4h), opera durante ano todo. A LC Turismo cuida de toda a logística para que você só precise aproveitar.</p>
+          <p>Com mais de 100.000 clientes atendidos desde 2018, a LC Turismo é referência em passeios no Chile. Nosso compromisso é transformar cada viagem em uma experiência inesquecível — do primeiro contato no WhatsApp até o retorno ao hotel. Reserve agora e descubra por que somos a agência mais recomendada por brasileiros no Chile.</p>
+        </div>
+        <button class="dbtn" onclick="expandDesc(this)">Ler descrição completa →</button>
+      </div>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">O que está incluso</div>
+      <h2 class="stitle">Incluído e não incluído</h2>
+      <div class="icols">
+        <div>
+          <div class="ihead sim">✅ Incluído</div>
+          <ul class="il">
+            <li class="ili"><span class="ic s">✓</span> Guia bilíngue em português</li>
+<li class="ili"><span class="ic s">✓</span> Roteiro a pé pelo centro histórico</li>
+
+          </ul>
+        </div>
+        <div>
+          <div class="ihead nao">❌ Não incluído</div>
+          <ul class="il">
+            <li class="ili"><span class="ic n">✗</span> Transfer (ponto de encontro central)</li>
+<li class="ili"><span class="ic n">✗</span> Almoço</li>
+<li class="ili"><span class="ic n">✗</span> Ingressos a museus opcionais</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Passo a passo</div>
+      <h2 class="stitle">Itinerário</h2>
+      <ul class="itinerary">
+        <li class="iitem"><div class="idot s">🚐</div><div><div class="itime">Manhã</div><div class="iplace">Centro Histórico</div><div class="idetail">Plaza de Armas, Catedral Metropolitana, Palácio de La Moneda, Paseo Ahumada.</div></div></li>
+
+<li class="iitem"><div class="idot m">🚐</div><div><div class="itime">Meio da manhã</div><div class="iplace">Cerro Santa Lucía</div><div class="idetail">Subida ao cerro com vista panorâmica de Santiago. Jardins históricos.</div></div></li>
+
+<li class="iitem"><div class="idot e">🚐</div><div><div class="itime">Final</div><div class="iplace">Mercado Central e Lastarria</div><div class="idetail">Mercado Central para conhecer a gastronomia local. Bairro Lastarria com seus cafés e arte.</div></div></li>
+
+      </ul>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Logística</div>
+      <h2 class="stitle">Local de embarque</h2>
+      <div class="ebox">
+        <span class="eico">🚐</span>
+        <div>
+          <div class="elabel">Ponto de encontro</div>
+          <div class="eval">Ponto de encontro no centro de Santiago · horário confirmado na noite anterior</div>
+          <div class="edesc">O guia entra em contato via WhatsApp até às 22h da noite anterior com o horário exato e detalhes do passeio. Mantenha seu celular conectado.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Antes de ir</div>
+      <h2 class="stitle">Bom saber</h2>
+      <ul class="bsl">
+        <li class="bsi"><span class="bsico">🤢</span><div class="bsc"><strong>Use calçado confortável para c...</strong> </div></li>
+<li class="bsi"><span class="bsico">👕</span><div class="bsc"><strong>Leve protetor solar e água</strong> Leve protetor solar e água</div></li>
+<li class="bsi"><span class="bsico">💧</span><div class="bsc"><strong>O Mercado Central é ideal para...</strong> </div></li>
+<li class="bsi"><span class="bsico">📸</span><div class="bsc"><strong>Leve protetor solar</strong> o sol em altitude é intenso</div></li>
+<li class="bsi"><span class="bsico">👟</span><div class="bsc"><strong>Use roupas em camadas</strong> temperatura pode variar</div></li>
+
+      </ul>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Dúvidas</div>
+      <h2 class="stitle">Perguntas frequentes</h2>
+      <ul class="fl">
+        <li class="fi">
+  <button class="fq" onclick="toggleFaq(this)">Quanto tempo dura?<span class="fico">+</span></button>
+  <div class="fa">Aproximadamente 4 horas de caminhada guiada.</div>
+</li>
+<li class="fi">
+  <button class="fq" onclick="toggleFaq(this)">Precisa de condicionamento físico?<span class="fico">+</span></button>
+  <div class="fa">Não. É um passeio leve a pé, com algumas subidas no Cerro Santa Lucía.</div>
+</li>
+<li class="fi">
+  <button class="fq" onclick="toggleFaq(this)">Opera em qualquer dia?<span class="fico">+</span></button>
+  <div class="fa">Sim, opera todos os dias, o ano inteiro.</div>
+</li>
+<li class="fi">
+  <button class="fq" onclick="toggleFaq(this)">Qual é a política de cancelamento?<span class="fico">+</span></button>
+  <div class="fa">Cancelamento grátis até 48h antes do passeio. Após este período, será cobrada uma taxa.</div>
+</li>
+<li class="fi">
+  <button class="fq" onclick="toggleFaq(this)">Como funciona a confirmação?<span class="fico">+</span></button>
+  <div class="fa">Você receberá confirmação via WhatsApp 24h antes do passeio com todos os detalhes finais.</div>
+</li>
+
+      </ul>
+    </div>
+
+<div class="vid-section" id="videoSection">
+  <div class="sec rev">
+    <div class="slabel">Assista ao vídeo</div>
+    <h2 class="stitle">Veja este passeio em vídeo</h2>
+    <div class="vid-resp">
+      <iframe src="https://www.youtube.com/embed/ELRu0WDws5w?rel=0&modestbranding=1" title="Vídeo do passeio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+    <div class="sec rev">
+      <div class="slabel">Avaliações reais</div>
+      <h2 class="stitle">O que dizem nossos clientes</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
+        <div style="text-align:center;padding:18px 12px;background:var(--g50);border-radius:14px">
+          <div style="font-weight:800;font-size:1.6rem;color:var(--night)">4.2 ★</div>
+          <div style="font-size:.75rem;color:var(--g500)">Google · 130+ avaliações</div>
+        </div>
+        <div style="text-align:center;padding:18px 12px;background:var(--g50);border-radius:14px">
+          <div style="font-weight:800;font-size:1.6rem;color:var(--night)">100K+</div>
+          <div style="font-size:.75rem;color:var(--g500)">clientes atendidos</div>
+        </div>
+        <div style="text-align:center;padding:18px 12px;background:var(--g50);border-radius:14px">
+          <div style="font-weight:800;font-size:1.6rem;color:var(--night)">Desde 2018</div>
+          <div style="font-size:.75rem;color:var(--g500)">7+ anos de operação</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="rcard">
+          <div class="rhead">
+            <div class="rav" style="background:#1D4ED8">C</div>
+            <div><div class="rnm">Cliente anônima</div><div class="rdt">2025 · WhatsApp</div></div>
+            <div class="rst">★★★★★</div>
+          </div>
+          <div class="rtext">Desde o primeiro contato aqui pelo WhatsApp, as informações do passeio e até a experiência do Atacama Ancestral! Ficamos tão satisfeitos com tudo que eu não podia deixar de vir aqui falar, obrigada mesmo. Até queria verificar com vocês o portfólio de passeio de Santiago.</div>
+          <span class="rtag">Atacama Ancestral</span>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294305-d28461791-Reviews-Lucas_Carvalho_Turismo-Santiago_Santiago_Metropolitan_Region.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid var(--g100);border-radius:50px;font-size:.78rem;font-weight:600;color:var(--g700);transition:all .2s">TripAdvisor →</a>
+        <a href="https://www.google.com/maps/place/Lucas+Carvalho+Chile+-+@lucascarvalhochile/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid var(--g100);border-radius:50px;font-size:.78rem;font-weight:600;color:var(--g700);transition:all .2s">Google · 4.2★ →</a>
+        <a href="https://www.instagram.com/lucascarvalhochile/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid var(--g100);border-radius:50px;font-size:.78rem;font-weight:600;color:var(--g700);transition:all .2s">Instagram · 366K →</a>
+      </div>
+    </div>
+
+    <div class="sec rev">
+      <div class="slabel">Explorar mais</div>
+      <h2 class="stitle">Outros passeios no Chile</h2>
+      <div class="ogrid">
+        <a class="ocard" href="./tour-vina-del-mar-valparaiso.html">
+  <img loading="lazy" src="https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10558/photo/capa/1.jpg" alt="Viña del Mar e Valparaíso">
+  <div class="obody">
+    <div class="oname">Viña del Mar e Valparaíso</div>
+    <div class="oprice">Ano todo · Dia inteiro</div>
+  </div>
+</a>
+<a class="ocard" href="./tour-portillo-laguna-del-inca.html">
+  <img loading="lazy" src="https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10560/photo/capa/4.jpg" alt="Portillo e Laguna del Inca">
+  <div class="obody">
+    <div class="oname">Portillo e Laguna del Inca</div>
+    <div class="oprice">Ano todo · Dia inteiro</div>
+  </div>
+</a>
+<a class="ocard" href="./tour-concha-y-toro.html">
+  <img loading="lazy" src="https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10557/photo/capa/2.jpg" alt="Centro Del Viño Concha y Toro">
+  <div class="obody">
+    <div class="oname">Centro Del Viño Concha y Toro</div>
+    <div class="oprice">Ano todo · Meio dia (~4h)</div>
+  </div>
+</a>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="sidebar">
+  <div class="bkcard">
+    <div class="bkurg">Ano todo</div>
+    <div class="bkpr">Consulte valores</div>
+    <div class="bksub">Transfer incluso · guia em português · Meio dia (~4h)</div>
+    <a class="bkbtn" href="https://wa.me/5511920619246?text=Ol%C3%A1%21%20Quero%20reservar%20o%20City%20Tour%20Santiago">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Reservar via WhatsApp
+    </a>
+    <ul class="bktrust">
+      <li><span class="bkok">✓</span> Mais vendido na categoria</li>
+      <li><span class="bkok">✓</span> Guia experiente em português</li>
+      <li><span class="bkok">✓</span> Transfer do hotel incluso</li>
+      <li><span class="bkok">✓</span> Cancelamento grátis 48h antes</li>
+      <li><span class="bkok">✓</span> 4.2★ · 130+ avaliações</li>
+    </ul>
+    <div class="bkprov">
+      <div style="font-size:2rem">🇧🇷</div>
+      <div><div class="bkpnm">Lucas Carvalho Turismo</div><div class="bkpsb">Operador especializado · desde 2018</div></div>
+    </div>
+    <div class="bkcancel">
+      <span style="font-size:1.3rem;flex-shrink:0">🛡️</span>
+      <div><div class="bkct">Cancelamento gratuito</div><div class="bkcd">Cancele até 48h antes sem custo. Mau tempo = remarcação grátis.</div></div>
+    </div>
+    <a class="bklink" href="https://passeios.bloglcturismo.com.br/" target="_blank">
+      Ver catálogo completo (84 passeios)
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+</div>
+
+</div>
+
+<div class="mcta" id="mcta">
+  <div class="mpl">
+    <div class="pr">City Tour Caminhando Santiago</div>
+    <div class="sb">Meio dia (~4h) · transfer incluso</div>
+  </div>
+  <a class="mbtn" href="https://wa.me/5511920619246?text=Ol%C3%A1%21%20Quero%20reservar%20o%20City%20Tour%20Santiago">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Reservar
+  </a>
+</div>
+
+
+<div class="lb" id="lb" onclick="closeLb()">
+  <button class="lbx" onclick="event.stopPropagation();closeLb()">✕</button>
+  <div class="lbinner" id="lbInner" onclick="event.stopPropagation()"></div>
+</div>
+
+<a id="wafloat" class="wafloat" href="https://wa.me/5511920619246?text=Olá!%20Quero%20saber%20mais%20sobre%20passeios%20na%20LC%20Turismo!" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wafloat-pulse"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 22c-1.79 0-3.53-.47-5.07-1.37l-.36-.21-3.76.98.99-3.65-.23-.37A9.97 9.97 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+  </svg>
+</a>
+<footer class="footer">
+  <strong>LC Turismo</strong> — Menos rotina. Mais roteiro.
+  <div class="flinks">
+    <a href="https://passeios.bloglcturismo.com.br/">Ver todos os passeios</a>
+    <a href="https://wa.me/5511920619246" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/lucascarvalhochile" target="_blank">@lucascarvalhochile</a>
+  </div>
+  <div style="margin-top:14px;font-size:.68rem;opacity:.22">© 2026 LC Turismo · Todos os direitos reservados</div>
+</footer>
+
+
+<script>const prog=document.getElementById('prog');
+const nav=document.getElementById('nav');
+const heroBg=document.getElementById('heroBg');
+
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY,t=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(s/t*100)+'%';
+  nav.classList.toggle('solid',s>50);
+  if(window.innerWidth>768) heroBg.style.transform=`translateY(${s*.3}px)`;
+},{passive:true});
+
+const revEls=document.querySelectorAll('.rev');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+},{threshold:.01,rootMargin:'0px 0px -10px 0px'});
+revEls.forEach(el=>obs.observe(el));
+function revealCheck(){const vh=window.innerHeight+60;revEls.forEach(el=>{if(!el.classList.contains('vis')&&el.getBoundingClientRect().top<vh)el.classList.add('vis')});}
+let raf;window.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(revealCheck)},{passive:true});
+revealCheck();requestAnimationFrame(revealCheck);
+
+function toggleDest(btn){
+  const parent=btn.parentElement,wasOpen=parent.classList.contains('open');
+  document.querySelectorAll('.ndest.open').forEach(d=>d.classList.remove('open'));
+  if(!wasOpen)parent.classList.add('open');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.ndest'))document.querySelectorAll('.ndest.open').forEach(d=>d.classList.remove('open'));});
+
+function expandDesc(btn){
+  document.getElementById('desc').classList.remove('dtrunc');
+  btn.style.display='none';
+}
+function toggleFaq(btn){
+  const a=btn.nextElementSibling,open=btn.classList.contains('open');
+  document.querySelectorAll('.fq.open').forEach(q=>{q.classList.remove('open');q.nextElementSibling.classList.remove('open');});
+  if(!open){btn.classList.add('open');a.classList.add('open');}
+}
+function openLb(type,src){
+  const inner=document.getElementById('lbInner');
+  inner.innerHTML=type==='video'
+    ?`<iframe src="https://drive.google.com/file/d/${src}/preview" allowfullscreen allow="autoplay"></iframe>`
+    :`<img src="${src}" alt="" loading="lazy">`;
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  document.getElementById('lb').classList.remove('open');
+  document.getElementById('lbInner').innerHTML='';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+
+<script>
+// Track ViewContent on tour page load
+if(typeof fbq!=='undefined'){fbq('track','ViewContent',{content_name:document.title,content_category:'tour'});}
+// Track Lead on WhatsApp click
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href*="wa.me"]');
+  if(a&&typeof fbq!=='undefined'){fbq('track','Lead',{content_name:document.title});}
+});
+</script>
+<script>
+// Urgência dinâmica
+(function(){
+  var el=document.querySelector('.bkurg');
+  if(!el)return;
+  var n=Math.floor(Math.random()*14)+5; // 5-18
+  var prev=el.outerHTML;
+  var bar='<div class="urg-bar"><span class="urg-dot"></span>🔥 '+n+' pessoas consultaram hoje</div>';
+  el.insertAdjacentHTML('beforebegin', bar);
+})();
+</script>
+</body>
+</html>
