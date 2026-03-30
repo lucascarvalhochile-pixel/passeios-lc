@@ -1071,6 +1071,29 @@ async function deployToGitHub(){
     const navH=Math.max(60,parseInt(SITE_CONFIG.logoHeight||54)+16);
     newHTML=newHTML.replace(/(\.nav-top\{[^}]*height:)[^;]+(;)/,`$1${navH}px$2`);
     newHTML=newHTML.replace(/(\.toolbar\{[^}]*top:)[^;]+(;)/,`$1${navH}px$2`);
+    /* ── Favicon upload (BEFORE encoding index.html so link tag is updated) ── */
+    if(SITE_CONFIG.favicon && SITE_CONFIG.faviconName){
+      try{
+        s.textContent='⏳ Publicando favicon...';
+        const favExt=SITE_CONFIG.faviconName.split('.').pop().toLowerCase();
+        const favPath=favExt==='svg'?'favicon.svg':'favicon.png';
+        const favMime=favExt==='svg'?'svg+xml':favExt==='ico'?'x-icon':'png';
+        const rawB64=SITE_CONFIG.favicon.replace(/^data:[^;]+;base64,/,'');
+        const favCheckR=await fetch(`https://api.github.com/repos/${repo}/contents/${favPath}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+        const favBody={message:'admin: update favicon',content:rawB64};
+        if(favCheckR.ok){const fd2=await favCheckR.json();favBody.sha=fd2.sha;}
+        const favPutR=await fetch(`https://api.github.com/repos/${repo}/contents/${favPath}`,{
+          method:'PUT',
+          headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+          body:JSON.stringify(favBody)
+        });
+        if(favPutR.ok){
+          /* Update <link rel="icon"> in index.html BEFORE encoding */
+          newHTML=newHTML.replace(/<link rel="icon"[^>]*>/g,`<link rel="icon" href="./${favPath}" type="image/${favMime}">`);
+        }
+      }catch(favErr){console.warn('Favicon deploy failed:',favErr);}
+      s.textContent='⏳ Publicando site...';
+    }
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
     /* Fresh SHA fetch right before PUT to avoid "does not match" errors */
     const freshR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main&t=${Date.now()}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
@@ -1160,26 +1183,6 @@ async function deployToGitHub(){
             }
           }catch(e2){console.error('Tour file update failed:',tour.f,e2);}
         }
-      }
-      // Deploy favicon if one was uploaded
-      if(SITE_CONFIG.favicon && SITE_CONFIG.faviconName){
-        try{
-          s.textContent='⏳ Publicando favicon...';
-          const faviconExt=SITE_CONFIG.faviconName.split('.').pop().toLowerCase();
-          const faviconPath=faviconExt==='svg'?'favicon.svg':'favicon.png';
-          // Extract base64 data (strip data:image/...;base64, prefix)
-          const rawB64=SITE_CONFIG.favicon.replace(/^data:[^;]+;base64,/,'');
-          const faviconCheckR=await fetch(`https://api.github.com/repos/${repo}/contents/${faviconPath}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
-          const faviconBody={message:`admin: update favicon`,content:rawB64};
-          if(faviconCheckR.ok){const fd2=await faviconCheckR.json();faviconBody.sha=fd2.sha;}
-          await fetch(`https://api.github.com/repos/${repo}/contents/${faviconPath}`,{
-            method:'PUT',
-            headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
-            body:JSON.stringify(faviconBody)
-          });
-          // Update <link rel="icon"> in index.html to point to new favicon
-          newHTML=newHTML.replace(/<link rel="icon"[^>]*>/g,`<link rel="icon" href="./${faviconPath}" type="image/${faviconExt==='svg'?'svg+xml':faviconExt==='ico'?'x-icon':'png'}">`);
-        }catch(favErr){console.warn('Favicon deploy failed:',favErr);}
       }
       const pd=await putR.json();
       const pagesNote=updatedPages>0?` + ${updatedPages} página(s) com fotos atualizadas`:'';
