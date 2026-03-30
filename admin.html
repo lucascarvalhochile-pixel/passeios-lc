@@ -310,6 +310,29 @@ tr:hover td{background:var(--g50)}
         </div>
       </div>
       <div class="config-section">
+        <h3>🔖 Ícone da aba do navegador (Favicon)</h3>
+        <div class="form-group">
+          <label>Fazer upload do favicon (PNG, SVG, ICO — recomendado 512×512px)</label>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <label style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:var(--blue);color:#fff;border-radius:8px;font-size:.83rem;font-weight:700;cursor:pointer">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Escolher arquivo
+              <input type="file" id="faviconFileInput" accept="image/*,.ico,.svg" style="display:none" onchange="handleFaviconUpload(this)">
+            </label>
+            <span id="faviconFileName" style="font-size:.8rem;color:var(--g500)">Nenhum arquivo selecionado</span>
+          </div>
+          <div id="faviconPreviewBox" style="margin-top:12px;display:none;align-items:center;gap:12px">
+            <img id="faviconPreview" style="width:48px;height:48px;object-fit:contain;border-radius:8px;border:1px solid var(--g100);background:#f5f5f5;padding:4px" alt="favicon preview">
+            <div>
+              <p style="font-size:.82rem;font-weight:600;color:var(--g700)">Prévia do ícone</p>
+              <p style="font-size:.73rem;color:var(--g500)">Aparece na aba do browser e favoritos</p>
+            </div>
+          </div>
+          <p style="font-size:.75rem;color:var(--g500);margin-top:8px">Após upload clique em <strong>Publicar no GitHub</strong> para aplicar no site.</p>
+        </div>
+      </div>
+
+      <div class="config-section">
         <h3>🦸 Hero — Título e subtítulo</h3>
         <div class="config-grid">
           <div class="form-group full">
@@ -861,6 +884,28 @@ function saveConfig(){
   localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
   toast('Configurações salvas!');
 }
+function handleFaviconUpload(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const b64=e.target.result;
+    SITE_CONFIG.favicon=b64;
+    SITE_CONFIG.faviconName=file.name;
+    SITE_CONFIG.faviconType=file.type||'image/png';
+    localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
+    document.getElementById('faviconFileName').textContent=file.name;
+    const box=document.getElementById('faviconPreviewBox');
+    const img=document.getElementById('faviconPreview');
+    img.src=b64; box.style.display='flex';
+    // Update favicon in current admin tab
+    let link=document.querySelector("link[rel='icon']");
+    if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}
+    link.href=b64;
+    toast('Favicon carregado! Clique em Publicar para aplicar no site.');
+  };
+  reader.readAsDataURL(file);
+}
 function handleLogoUpload(input){
   const file=input.files[0];
   if(!file)return;
@@ -1105,6 +1150,26 @@ async function deployToGitHub(){
             }
           }catch(e2){console.error('Tour file update failed:',tour.f,e2);}
         }
+      }
+      // Deploy favicon if one was uploaded
+      if(SITE_CONFIG.favicon && SITE_CONFIG.faviconName){
+        try{
+          s.textContent='⏳ Publicando favicon...';
+          const faviconExt=SITE_CONFIG.faviconName.split('.').pop().toLowerCase();
+          const faviconPath=faviconExt==='svg'?'favicon.svg':'favicon.png';
+          // Extract base64 data (strip data:image/...;base64, prefix)
+          const rawB64=SITE_CONFIG.favicon.replace(/^data:[^;]+;base64,/,'');
+          const faviconCheckR=await fetch(`https://api.github.com/repos/${repo}/contents/${faviconPath}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+          const faviconBody={message:`admin: update favicon`,content:rawB64};
+          if(faviconCheckR.ok){const fd2=await faviconCheckR.json();faviconBody.sha=fd2.sha;}
+          await fetch(`https://api.github.com/repos/${repo}/contents/${faviconPath}`,{
+            method:'PUT',
+            headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+            body:JSON.stringify(faviconBody)
+          });
+          // Update <link rel="icon"> in index.html to point to new favicon
+          newHTML=newHTML.replace(/<link rel="icon"[^>]*>/g,`<link rel="icon" href="./${faviconPath}" type="image/${faviconExt==='svg'?'svg+xml':faviconExt==='ico'?'x-icon':'png'}">`);
+        }catch(favErr){console.warn('Favicon deploy failed:',favErr);}
       }
       const pd=await putR.json();
       const pagesNote=updatedPages>0?` + ${updatedPages} página(s) com fotos atualizadas`:'';
