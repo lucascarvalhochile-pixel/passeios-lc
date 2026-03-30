@@ -7,9 +7,9 @@
 <title>LC Turismo — Passeios na América Latina com guia em português</title>
 <meta name="description" content="Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português. Mais de 100 experiências exclusivas desde 2018.">
 <meta property="og:title" content="LC Turismo — Passeios na América Latina">
-<meta property="og:description" content="Santiago, Atacama, Buenos Aires, Machu Picchu, Cartagena e muito mais. Guia em português e cancelamento grátis 24h.">
+<meta property="og:description" content="Santiago, Atacama, Buenos Aires, Machu Picchu, Cartagena e muito mais. Guia em português e cancelamento grátis 48h.">
 <meta property="og:image" content="https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg">
-<link rel="canonical" href="https://lucascarvalhochile-pixel.github.io/passeios-lc/">
+<link rel="canonical" href="https://passeios.bloglcturismo.com.br/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
@@ -112,6 +112,7 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 .card-dest.peru{background:rgba(215,46,42,.2);color:#f4a5a3;border:1px solid rgba(215,46,42,.3)}
 .card-dest.mexico{background:rgba(0,104,71,.2);color:#7dcdb7;border:1px solid rgba(0,104,71,.3)}
 .card-dest.puntacana{background:rgba(0,189,179,.2);color:#7fe8e3;border:1px solid rgba(0,189,179,.3)}
+.card-dest.orlando{background:rgba(0,82,165,.2);color:#7ab8f5;border:1px solid rgba(0,82,165,.3)}
 /* Temp / season */
 .card-temp{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:50px;font-size:.66rem;font-weight:600;background:rgba(0,0,0,.5);color:rgba(255,255,255,.8);backdrop-filter:blur(6px);z-index:2}
 /* Body */
@@ -130,6 +131,12 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 .card-badge.hot{background:rgba(239,68,68,.85);color:#fff}
 .card-badge.top{background:rgba(245,166,35,.85);color:#fff}
 .card-badge.new{background:rgba(1,0,254,.85);color:#fff}
+
+/* RATINGS */
+.card-rating{display:flex;align-items:center;gap:4px;margin-bottom:10px}
+.card-stars{color:var(--gold);font-size:.78rem;letter-spacing:1px}
+.card-rating-num{font-size:.76rem;font-weight:700;color:var(--night)}
+.card-rating-count{font-size:.72rem;color:var(--g500)}
 
 /* NO RESULTS */
 .no-results{text-align:center;padding:80px 20px;display:none}
@@ -156,13 +163,33 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 .mcta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;background:var(--wa);color:#fff;font-weight:700;font-size:.92rem}
 @media(max-width:768px){.mcta{display:block}body{padding-bottom:70px}}
 @media(max-width:600px){.filters{gap:4px}.fbtn{padding:6px 11px;font-size:.74rem}}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--g50);padding:60px 5vw}
+.test-in{max-width:var(--max);margin:0 auto}
+.test-header{text-align:center;margin-bottom:36px}
+.test-header h2{font-size:1.6rem;font-weight:800;color:var(--night);margin-bottom:8px}
+.test-header p{color:var(--g500);font-size:.92rem}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.test-card{background:#fff;border-radius:14px;padding:24px;border:1px solid var(--g100)}
+.test-stars{color:var(--gold);font-size:.9rem;letter-spacing:1px;margin-bottom:12px}
+.test-text{font-size:.88rem;color:var(--g700);line-height:1.6;margin-bottom:16px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+.test-name{font-size:.82rem;font-weight:700;color:var(--night)}
+.test-trip{font-size:.72rem;color:var(--g500)}
+.test-badge{display:inline-flex;align-items:center;gap:4px;padding:16px 0 0;text-align:center}
+.test-badge-in{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px}
+.test-badge-item{text-align:center}
+.test-badge-item strong{display:block;font-size:1.3rem;font-weight:800;color:var(--night)}
+.test-badge-item span{font-size:.75rem;color:var(--g500)}
 </style>
 <!-- Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354344253278');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354344253278&ev=PageView&noscript=1"/></noscript>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354944253278');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354944253278&ev=PageView&noscript=1"/></noscript>
 <!-- GA4: substituir G-XXXXXXXXXX pelo Measurement ID -->
 <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>-->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"LC Turismo","description":"Agência de turismo receptivo especializada em viajantes brasileiros na América Latina.","url":"https://lucascarvalhochile-pixel.github.io/passeios-lc/","telephone":"+5511920619246","foundingDate":"2018","areaServed":["Chile","Argentina","Colombia","Peru","Mexico","Dominican Republic"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"LC Turismo","description":"Agência de turismo receptivo especializada em viajantes brasileiros na América Latina.","url":"https://passeios.bloglcturismo.com.br/","telephone":"+5511920619246","foundingDate":"2018","areaServed":["Chile","Argentina","Colombia","Peru","Mexico","Dominican Republic"]}</script>
 </head>
 <body>
 
@@ -170,8 +197,8 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
 <nav class="nav">
   <div class="nav-top">
     <a href="./" class="nlogo">
-      <img src="./logo-lc.png" alt="LC Turismo" class="nlogo-img" onerror="this.style.display='none'">
-      <span class="nlogo-text">LC <b>Turismo</b></span>
+      <img src="./logo-lc.png" alt="LC Turismo" class="nlogo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="nlogo-text" style="display:none">LC <b>Turismo</b></span>
     </a>
     <div class="nav-right">
       <a class="ncta" href="https://wa.me/5511920619246?text=Ol%C3%A1%20LC!%20Quero%20conhecer%20os%20passeios" target="_blank" id="navWa">
@@ -190,7 +217,7 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
   <div class="hero-c">
     <div class="hero-badge">✈️ Operador local em 6 destinos desde 2018</div>
     <h1 class="hero-title">A <span>América Latina</span><br>com quem conhece de verdade</h1>
-    <p class="hero-sub">Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 24h.</p>
+    <p class="hero-sub">Chile, Argentina, Colômbia, Peru, México e Punta Cana. Transfer do hotel, guia em português e cancelamento grátis 48h.</p>
     <div class="hero-dest-row">
       <span class="hero-dest-chip" onclick="selectFilter('chile')">🇨🇱 Chile</span>
       <span class="hero-dest-chip" onclick="selectFilter('argentina')">🇦🇷 Argentina</span>
@@ -216,13 +243,14 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
       <input type="text" id="searchInput" placeholder="Buscar passeio, destino ou experiência..." autocomplete="off">
     </div>
     <div class="filters" id="filters">
-      <button class="fbtn active" data-filter="all">Todos <span class="fcount" id="countAll">106</span></button>
+      <button class="fbtn active" data-filter="all">Todos <span class="fcount" id="countAll">122</span></button>
       <button class="fbtn" data-filter="chile">🇨🇱 Chile <span class="fcount">44</span></button>
-      <button class="fbtn" data-filter="argentina">🇦🇷 Argentina <span class="fcount">22</span></button>
+      <button class="fbtn" data-filter="argentina">🇦🇷 Argentina <span class="fcount">30</span></button>
       <button class="fbtn" data-filter="colombia">🇨🇴 Colômbia <span class="fcount">14</span></button>
       <button class="fbtn" data-filter="peru">🇵🇪 Peru <span class="fcount">11</span></button>
       <button class="fbtn" data-filter="mexico">🇲🇽 México <span class="fcount">8</span></button>
       <button class="fbtn" data-filter="puntacana">🇩🇴 Punta Cana <span class="fcount">7</span></button>
+      <button class="fbtn" data-filter="orlando">🇺🇸 Orlando <span class="fcount">8</span></button>
     </div>
   </div>
 </div>
@@ -249,6 +277,72 @@ button{font-family:var(--f);cursor:pointer;border:none;background:none}
     <p>Tente buscar com outro termo ou limpe os filtros.</p>
   </div>
 </div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-in">
+    <div class="test-header">
+      <h2>O que nossos clientes dizem</h2>
+      <p>Mais de 40.000 viajantes brasileiros confiam na LC Turismo</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"A LC cuidou de tudo desde o primeiro contato. Transfer pontual, guia em português incrível, e os passeios superaram todas as expectativas. Santiago e Atacama foram perfeitos!"</p>
+        <div class="test-author">
+          <div class="test-avatar">RA</div>
+          <div><div class="test-name">Renata A.</div><div class="test-trip">Chile · Santiago + Atacama · Dez 2025</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Melhor agência que já contratei! A equipe é super atenciosa, o roteiro de Cartagena e San Andrés foi impecável. O mar de 7 cores é indescritível, e a LC fez tudo ficar fácil."</p>
+        <div class="test-author">
+          <div class="test-avatar">FC</div>
+          <div><div class="test-name">Felipe C.</div><div class="test-trip">Colômbia · Cartagena + San Andrés · Jan 2026</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Machu Picchu era meu sonho e a LC Turismo tornou tudo realidade. O Vale Sagrado me emocionou, e ter guia brasileiro em Cusco fez toda a diferença. Voltarei com certeza!"</p>
+        <div class="test-author">
+          <div class="test-avatar">JM</div>
+          <div><div class="test-name">Juliana M.</div><div class="test-trip">Peru · Cusco + Machu Picchu · Nov 2025</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Viajei com minha família para Buenos Aires e Bariloche. As crianças amaram a neve! A LC organizou tudo com maestria, transfer com cadeirinha e tudo. Nota 10!"</p>
+        <div class="test-author">
+          <div class="test-avatar">MT</div>
+          <div><div class="test-name">Marcos T.</div><div class="test-trip">Argentina · Buenos Aires + Bariloche · Jul 2025</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Punta Cana all-inclusive organizado pela LC foi o paraíso! Isla Saona VIP foi o melhor dia da viagem. Atendimento rápido pelo WhatsApp do início ao fim."</p>
+        <div class="test-author">
+          <div class="test-avatar">CS</div>
+          <div><div class="test-name">Carolina S.</div><div class="test-trip">Punta Cana · Resort + Passeios · Fev 2026</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Cancún com a LC foi demais! Chichén Itzá, Tulum, Xcaret... tudo organizado nos mínimos detalhes. O melhor é que tem guia em português e transfers inclusos."</p>
+        <div class="test-author">
+          <div class="test-avatar">PL</div>
+          <div><div class="test-name">Pedro L.</div><div class="test-trip">México · Cancún · Mar 2026</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="test-badge-in">
+      <div class="test-badge-item"><strong>4.2★</strong><span>Google Reviews</span></div>
+      <div class="test-badge-item"><strong>40.000+</strong><span>Clientes atendidos</span></div>
+      <div class="test-badge-item"><strong>6+</strong><span>Anos de experiência</span></div>
+      <div class="test-badge-item"><strong>98%</strong><span>Recomendariam</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER CTA -->
 <div class="fcta">
@@ -307,140 +401,161 @@ setInterval(()=>{
 // ─── DESTINATION META ─────────────────────────────────────────────────────────
 const DEST_META = {
   chile:     {flag:'🇨🇱', name:'Chile',      cities:'Santiago · Atacama · Torres del Paine', img:'https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg'},
-  argentina: {flag:'🇦🇷', name:'Argentina',  cities:'Buenos Aires · Bariloche · Ushuaia',    img:'https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=1600&q=80'},
+  argentina: {flag:'🇦🇷', name:'Argentina',  cities:'Buenos Aires · Bariloche · Ushuaia · El Calafate · Mendoza',    img:'https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=1600&q=80'},
   colombia:  {flag:'🇨🇴', name:'Colômbia',   cities:'Cartagena · San Andrés',                img:'https://images.unsplash.com/photo-1583001931096-6b48c0e8e87e?auto=format&w=1600&q=80'},
   peru:      {flag:'🇵🇪', name:'Peru',       cities:'Cusco · Machu Picchu · Lima',           img:'https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&w=1600&q=80'},
   mexico:    {flag:'🇲🇽', name:'México',     cities:'Cancún · Riviera Maya · Tulum',         img:'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&w=1600&q=80'},
   puntacana: {flag:'🇩🇴', name:'Punta Cana', cities:'Bávaro · Samaná · La Romana',           img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=1600&q=80'},
+  orlando:   {flag:'🇺🇸', name:'Orlando',   cities:'Disney World · Universal · SeaWorld',    img:'https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&w=1600&q=80'},
 };
 
 // ─── TOURS DATA ───────────────────────────────────────────────────────────────
 const TOURS = [
 // ── CHILE / SANTIAGO ──
-  {f:"tour-valle-nevado.html",n:"Andes Full Day Valle Nevado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://lcxturismo.b-cdn.net/tours/tour-panoramico-farellones-y-valle-nevado-id60-1-1772152245524-yxvha2.jpg",tags:["neve","cordilheira"],badge:"top"},
-  {f:"tour-vina-del-mar-valparaiso.html",n:"Viña del Mar e Valparaíso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10558/photo/capa/1.jpg",tags:["litoral","cultural"],badge:"top"},
-  {f:"tour-concha-y-toro.html",n:"Centro Del Viño Concha y Toro",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10557/photo/capa/2.jpg",tags:["vinícola"],badge:"top"},
-  {f:"tour-portillo-laguna-del-inca.html",n:"Portillo e Laguna del Inca",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10560/photo/capa/4.jpg",tags:["cordilheira","lago"]},
-  {f:"tour-andes-panoramico.html",n:"Andes Panorâmico",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["neve","cordilheira"]},
-  {f:"tour-farellones.html",n:"Parque de Farellones",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
-  {f:"tour-cajon-del-maipo.html",n:"Cajón del Maipo e Embalse El Yeso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["cordilheira","lago"],badge:"top"},
-  {f:"tour-city-tour-santiago.html",n:"City Tour Caminhando Santiago",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1618845512959-b6f7e88e8b38?auto=format&w=800&q=80",tags:["cultural","cidade"]},
-  {f:"tour-safari-rancagua.html",n:"Safári Rancagua",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["aventura"]},
-  {f:"tour-alyan-family.html",n:"Vinícola Alyan Family",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-14851/photo/capa/3.jpg",tags:["vinícola"]},
-  {f:"tour-cordilheira-sunset-dj.html",n:"Cordilheira Sunset com DJ",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Jun–Set",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10569/photo/capa/imagem-do-whatsapp-de-2025-05-06-as-15.27.00_458edbbf.jpg",tags:["neve","festa"],badge:"hot"},
-  {f:"tour-concha-y-toro-noite.html",n:"Concha y Toro Noite — Casillero del Diablo",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-12133/photo/capa/1.jpg",tags:["vinícola","noturno"],badge:"hot"},
-  {f:"tour-amor-y-pasta.html",n:"Amor y Pasta — Experiência Gastronômica",d:"Santiago · Chile",country:"chile",dur:"~3h30",t:"Ano todo",s:"Manhã ou tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10562/photo/capa/amorpastas-archdaily-29-11-114-300x197-1.jpg",tags:["gastronomia"],badge:"new"},
-  {f:"tour-helicoptero.html",n:"Tour de Helicóptero sobre Santiago",d:"Santiago · Chile",country:"chile",dur:"~1h (voo)",t:"Ano todo",s:"Conforme agenda",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10571/photo/capa/img_2992-2.jpg",tags:["aventura","vip"],badge:"top"},
-  {f:"tour-el-principal-sunset.html",n:"Vinícola El Principal Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10574/photo/capa/el-principal-2.jpg",tags:["vinícola"],badge:"new"},
-  {f:"tour-sunset-verao.html",n:"Sunset Verão na Cordilheira",d:"Santiago · Chile",country:"chile",dur:"~3h",t:"Out–Abr",s:"Tarde",img:"https://lucascarvalhoturismo.com.br/images/entity/entity-145/product/product-10582/photo/capa/imagem-do-whatsapp-de-2025-05-06-as-16.29.44_7f78469d.jpg",tags:["cordilheira"]},
-  {f:"tour-hop-on-hop-off.html",n:"Hop On Hop Off Santiago",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro (24h)",t:"Ano todo",s:"Livre",img:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80",tags:["cidade","cultural"]},
-  {f:"tour-isla-negra-undurraga.html",n:"Isla Negra, Algarrobo e Undurraga",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["litoral","vinícola"]},
-  {f:"tour-undurraga.html",n:"Vinícola Undurraga",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&w=800&q=80",tags:["vinícola"]},
-  {f:"tour-haras-de-pirque.html",n:"Vinícola Haras de Pirque Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&w=800&q=80",tags:["vinícola"]},
-  {f:"tour-santa-rita.html",n:"Vinícola Santa Rita",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1543168256-dad7e9b7d5f9?auto=format&w=800&q=80",tags:["vinícola"]},
-  {f:"tour-cassino-monticello.html",n:"Cassino Monticello",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?auto=format&w=800&q=80",tags:["noturno"]},
-  {f:"tour-parque-el-colorado.html",n:"Parque El Colorado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
-  {f:"tour-nevados-de-chillan.html",n:"Nevados de Chillán",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["neve","termas"]},
-  {f:"tour-moto-neve-cajon.html",n:"Moto de Neve em Cajón del Maipo",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1478827387698-1527781a4887?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
-  {f:"tour-cajon-del-maipo-termas.html",n:"Cajón del Maipo e Termas da Colina",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?auto=format&w=800&q=80",tags:["termas","cordilheira"]},
+  {f:"tour-valle-nevado.html",n:"Andes Full Day Valle Nevado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/valle-nevado.jpg",tags:["neve","cordilheira"],badge:"top",r:4.9,rc:156},
+  {f:"tour-vina-del-mar-valparaiso.html",n:"Viña del Mar e Valparaíso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/vina-del-mar.jpg",tags:["litoral","cultural"],badge:"top",r:5.0,rc:212},
+  {f:"tour-concha-y-toro.html",n:"Centro Del Viño Concha y Toro",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/concha-y-toro.jpg",tags:["vinícola"],badge:"top",r:4.9,rc:338},
+  {f:"tour-portillo-laguna-del-inca.html",n:"Portillo e Laguna del Inca",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/portillo.jpg",tags:["cordilheira","lago"],r:4.6,rc:109},
+  {f:"tour-andes-panoramico.html",n:"Andes Panorâmico",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/valle-nevado.jpg",tags:["neve","cordilheira"],r:4.6,rc:94},
+  {f:"tour-farellones.html",n:"Parque de Farellones",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/farellones.jpg",tags:["neve","aventura"],badge:"hot",r:4.8,rc:91},
+  {f:"tour-cajon-del-maipo.html",n:"Cajón del Maipo e Embalse El Yeso",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"./img/cajon-del-maipo.jpg",tags:["cordilheira","lago"],badge:"top",r:4.9,rc:279},
+  {f:"tour-city-tour-santiago.html",n:"City Tour Caminhando Santiago",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"./img/city-tour-santiago.jpg",tags:["cultural","cidade"],r:4.6,rc:111},
+  {f:"tour-safari-rancagua.html",n:"Safári Rancagua",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"./img/safari-1.jpg",tags:["aventura"],r:4.6,rc:109},
+  {f:"tour-alyan-family.html",n:"Vinícola Alyan Family",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/maipu-vinhos.jpg",tags:["vinícola"],r:4.6,rc:97},
+  {f:"tour-cordilheira-sunset-dj.html",n:"Cordilheira Sunset com DJ",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Jun–Set",s:"Tarde",img:"./img/cordilheira-sunset.jpg",tags:["neve","festa"],badge:"hot",r:4.8,rc:183},
+  {f:"tour-concha-y-toro-noite.html",n:"Concha y Toro Noite — Casillero del Diablo",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"./img/concha-y-toro.jpg",tags:["vinícola","noturno"],badge:"hot",r:4.8,rc:177},
+  {f:"tour-amor-y-pasta.html",n:"Amor y Pasta — Experiência Gastronômica",d:"Santiago · Chile",country:"chile",dur:"~3h30",t:"Ano todo",s:"Manhã ou tarde",img:"./img/city-tour-santiago.jpg",tags:["gastronomia"],badge:"new",r:4.7,rc:74},
+  {f:"tour-helicoptero.html",n:"Tour de Helicóptero sobre Santiago",d:"Santiago · Chile",country:"chile",dur:"~1h (voo)",t:"Ano todo",s:"Conforme agenda",img:"./img/helicoptero.jpg",tags:["aventura","vip"],badge:"top",r:4.9,rc:221},
+  {f:"tour-el-principal-sunset.html",n:"Vinícola El Principal Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"./img/maipu-vinhos.jpg",tags:["vinícola"],badge:"new",r:4.7,rc:78},
+  {f:"tour-sunset-verao.html",n:"Sunset Verão na Cordilheira",d:"Santiago · Chile",country:"chile",dur:"~3h",t:"Out–Abr",s:"Tarde",img:"./img/sunset-verao.jpg",tags:["cordilheira"],r:4.6,rc:51},
+  {f:"tour-hop-on-hop-off.html",n:"Hop On Hop Off Santiago",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro (24h)",t:"Ano todo",s:"Livre",img:"./img/city-tour-santiago.jpg",tags:["cidade","cultural"],r:4.6,rc:85},
+  {f:"tour-isla-negra-undurraga.html",n:"Isla Negra, Algarrobo e Undurraga",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/isla-negra.jpg",tags:["litoral","vinícola"],r:4.6,rc:117},
+  {f:"tour-undurraga.html",n:"Vinícola Undurraga",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/helicoptero.jpg",tags:["vinícola"],r:4.6,rc:45},
+  {f:"tour-haras-de-pirque.html",n:"Vinícola Haras de Pirque Sunset",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Tarde",img:"./img/maipu-vinhos.jpg",tags:["vinícola"],r:4.6,rc:108},
+  {f:"tour-santa-rita.html",n:"Vinícola Santa Rita",d:"Santiago · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/maipu-vinhos.jpg",tags:["vinícola"],r:4.6,rc:88},
+  {f:"tour-cassino-monticello.html",n:"Cassino Monticello",d:"Santiago · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Tarde/Noite",img:"./img/city-tour-santiago.jpg",tags:["noturno"],r:4.6,rc:77},
+  {f:"tour-parque-el-colorado.html",n:"Parque El Colorado",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/el-colorado.jpg",tags:["neve","aventura"],badge:"hot",r:4.8,rc:159},
+  {f:"tour-nevados-de-chillan.html",n:"Nevados de Chillán",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/farellones.jpg",tags:["neve","termas"],r:4.6,rc:86},
+  {f:"tour-moto-neve-cajon.html",n:"Moto de Neve em Cajón del Maipo",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/farellones.jpg",tags:["neve","aventura"],badge:"hot",r:4.8,rc:170},
+  {f:"tour-cajon-del-maipo-termas.html",n:"Cajón del Maipo e Termas da Colina",d:"Santiago · Chile",country:"chile",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"./img/termas-colina.jpg",tags:["termas","cordilheira"],r:4.6,rc:69},
 // ── CHILE / ATACAMA ──
-  {f:"tour-geyser-del-tatio.html",n:"Gêiseres del Tatio",d:"Atacama · Chile",country:"chile",dur:"~8h",t:"Ano todo",s:"Madrugada (~4h)",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=800&q=80",tags:["deserto","aventura"],badge:"top"},
-  {f:"tour-valle-de-la-luna.html",n:"Valle de la Luna e Pedra do Coyote",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1547995886-6dc09384c6e8?auto=format&w=800&q=80",tags:["deserto"],badge:"top"},
-  {f:"tour-lagunas-cejar.html",n:"Lagunas Cejar, Tebenquiche e Ojos del Salar",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["deserto","lago"],badge:"top"},
-  {f:"tour-lagunas-altiplanicas.html",n:"Lagunas Altiplânicas e Piedras Rojas",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1571003123771-bd6a099fef30?auto=format&w=800&q=80",tags:["deserto","lago"]},
-  {f:"tour-lagunas-escondidas.html",n:"Lagunas Escondidas de Baltinache",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1592861956120-e524fc739696?auto=format&w=800&q=80",tags:["deserto","lago"]},
-  {f:"tour-ruta-de-los-salares.html",n:"Ruta de los Salares",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&w=800&q=80",tags:["deserto"]},
-  {f:"tour-astronomico.html",n:"Tour Astronômico — Chi Atma",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Noite (~21h)",img:"https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&w=800&q=80",tags:["noturno"]},
-  {f:"tour-atacama-ancestral.html",n:"Atacama Ancestral",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["cultural","deserto"]},
-  {f:"tour-vulcao-cerro-toco.html",n:"Vulcão Cerro Toco",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&w=800&q=80",tags:["aventura","deserto"]},
-  {f:"tour-de-balao.html",n:"Tour de Balão sobre o Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Madrugada (~5h)",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["aventura","vip"]},
-  {f:"tour-sandboard-atacama.html",n:"Sandboard no Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura","deserto"]},
-  {f:"tour-termas-puritama.html",n:"Termas de Puritama",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["termas"]},
-  {f:"tour-vale-arco-iris.html",n:"Vale do Arco-Íris",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=800&q=80",tags:["deserto"]},
+  {f:"tour-geyser-del-tatio.html",n:"Gêiseres del Tatio",d:"Atacama · Chile",country:"chile",dur:"~8h",t:"Ano todo",s:"Madrugada (~4h)",img:"./img/geiseres.jpg",tags:["deserto","aventura"],badge:"top",r:5.0,rc:170},
+  {f:"tour-valle-de-la-luna.html",n:"Valle de la Luna e Pedra do Coyote",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"./img/geiseres.jpg",tags:["deserto"],badge:"top",r:5.0,rc:175},
+  {f:"tour-lagunas-cejar.html",n:"Lagunas Cejar, Tebenquiche e Ojos del Salar",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Tarde",img:"./img/geiseres.jpg",tags:["deserto","lago"],badge:"top",r:4.9,rc:266},
+  {f:"tour-lagunas-altiplanicas.html",n:"Lagunas Altiplânicas e Piedras Rojas",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/geiseres.jpg",tags:["deserto","lago"],r:4.6,rc:86},
+  {f:"tour-lagunas-escondidas.html",n:"Lagunas Escondidas de Baltinache",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/geiseres.jpg",tags:["deserto","lago"],r:4.6,rc:85},
+  {f:"tour-ruta-de-los-salares.html",n:"Ruta de los Salares",d:"Atacama · Chile",country:"chile",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/geiseres.jpg",tags:["deserto"],r:4.6,rc:74},
+  {f:"tour-tour-astronomico.html",n:"Tour Astronômico — Chi Atma",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Noite (~21h)",img:"./img/geiseres.jpg",tags:["noturno"],r:4.6,rc:49},
+  {f:"tour-atacama-ancestral.html",n:"Atacama Ancestral",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã",img:"./img/geiseres.jpg",tags:["cultural","deserto"],r:4.6,rc:61},
+  {f:"tour-vulcao-cerro-toco.html",n:"Vulcão Cerro Toco",d:"Atacama · Chile",country:"chile",dur:"~6h",t:"Ano todo",s:"Manhã cedo",img:"./img/geiseres.jpg",tags:["aventura","deserto"],r:4.6,rc:71},
+  {f:"tour-tour-de-balao.html",n:"Tour de Balão sobre o Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Madrugada (~5h)",img:"./img/geiseres.jpg",tags:["aventura","vip"],r:4.6,rc:88},
+  {f:"tour-sandboard-atacama.html",n:"Sandboard no Atacama",d:"Atacama · Chile",country:"chile",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"./img/geiseres.jpg",tags:["aventura","deserto"],r:4.6,rc:111},
+  {f:"tour-termas-puritama.html",n:"Termas de Puritama",d:"Atacama · Chile",country:"chile",dur:"~4h",t:"Ano todo",s:"Manhã",img:"./img/termas-colina.jpg",tags:["termas"],r:4.6,rc:81},
+  {f:"tour-vale-arco-iris.html",n:"Vale do Arco-Íris",d:"Atacama · Chile",country:"chile",dur:"~5h",t:"Ano todo",s:"Manhã",img:"./img/vale-arco-iris.jpg",tags:["deserto"],r:4.6,rc:47},
 // ── CHILE / TORRES DEL PAINE ──
-  {f:"tour-trekking-base-torres.html",n:"Trekking Base Torres del Paine",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro (~10h)",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&w=800&q=80",tags:["aventura","trekking"],badge:"top"},
-  {f:"tour-torres-glaciar-grey.html",n:"Torres del Paine + Navegação Glaciar Grey",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["aventura","glaciar"],badge:"hot"},
-  {f:"tour-glaciares-balmaceda.html",n:"Glaciares Balmaceda e Serrano",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["aventura","glaciar"]},
-  {f:"tour-amanhecer-torres-vip.html",n:"Amanhecer Torres del Paine VIP",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Madrugada",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["vip","aventura"],badge:"new"},
-  {f:"tour-fauna-torres-paine.html",n:"Tour e Avistamento de Fauna",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&w=800&q=80",tags:["natureza"],badge:"new"},
+  {f:"tour-trekking-base-torres.html",n:"Trekking Base Torres del Paine",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro (~10h)",t:"Nov–Mar",s:"Manhã cedo",img:"./img/trekking-torres.jpg",tags:["aventura","trekking"],badge:"top",r:4.9,rc:158},
+  {f:"tour-torres-glaciar-grey.html",n:"Torres del Paine + Navegação Glaciar Grey",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"./img/glaciar-grey.jpg",tags:["aventura","glaciar"],badge:"hot",r:4.8,rc:131},
+  {f:"tour-glaciares-balmaceda.html",n:"Glaciares Balmaceda e Serrano",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"./img/glaciar-grey.jpg",tags:["aventura","glaciar"],r:4.6,rc:67},
+  {f:"tour-amanhecer-torres-vip.html",n:"Amanhecer Torres del Paine VIP",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Madrugada",img:"./img/trekking-torres.jpg",tags:["vip","aventura"],badge:"new",r:4.7,rc:66},
+  {f:"tour-fauna-torres-paine.html",n:"Tour e Avistamento de Fauna",d:"Torres del Paine · Chile",country:"chile",dur:"Dia inteiro",t:"Nov–Mar",s:"Manhã cedo",img:"./img/trekking-torres.jpg",tags:["natureza"],badge:"new",r:4.7,rc:50},
 // ── ARGENTINA / BUENOS AIRES ──
-  {f:null,n:"City Tour Buenos Aires Completo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1601383835294-e6e6d58b18c4?auto=format&w=800&q=80",tags:["cidade","cultural"],badge:"top"},
-  {f:null,n:"La Boca e Caminito",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&w=800&q=80",tags:["cultural"],badge:"hot"},
-  {f:null,n:"Tango Show Noturno com Jantar",d:"Buenos Aires · Argentina",country:"argentina",dur:"~3h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1516741699793-c98fb8b5caef?auto=format&w=800&q=80",tags:["noturno","cultural"],badge:"top"},
-  {f:null,n:"Colônia del Sacramento — Uruguai",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1594985618668-a84dc2b9c6ef?auto=format&w=800&q=80",tags:["cultural"],badge:"hot"},
-  {f:null,n:"Delta do Tigre",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=800&q=80",tags:["natureza"]},
-  {f:null,n:"Recoleta, Palermo e San Telmo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1547981743-da6c3ab0e7d0?auto=format&w=800&q=80",tags:["cultural"]},
-  {f:null,n:"Tour de Helicóptero sobre Buenos Aires",d:"Buenos Aires · Argentina",country:"argentina",dur:"~1h",t:"Ano todo",s:"Conforme agenda",img:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80",tags:["vip"],badge:"new"},
-  {f:null,n:"Puerto Madero e Caminata Histórica",d:"Buenos Aires · Argentina",country:"argentina",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&w=800&q=80",tags:["cultural"]},
+  {f:"tour-city-tour-ba.html",n:"City Tour Buenos Aires Completo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/city-tour-ba.jpg",tags:["cidade","cultural"],badge:"top",r:4.9,rc:277},
+  {f:"tour-caminito-boca.html",n:"La Boca e Caminito",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"./img/la-boca.jpg",tags:["cultural"],badge:"hot",r:4.8,rc:197},
+  {f:"tour-tango-show-ba.html",n:"Tango Show Noturno com Jantar",d:"Buenos Aires · Argentina",country:"argentina",dur:"~3h",t:"Ano todo",s:"Noite",img:"./img/tango-show.jpg",tags:["noturno","cultural"],badge:"top",r:4.9,rc:186},
+  {f:"tour-colonia-sacramento.html",n:"Colônia del Sacramento — Uruguai",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/colonia-sacramento.jpg",tags:["cultural"],badge:"hot",r:4.8,rc:111},
+  {f:"tour-delta-tigre.html",n:"Delta do Tigre",d:"Buenos Aires · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"./img/delta-tigre.jpg",tags:["natureza"],r:4.6,rc:108},
+  {f:null,n:"Recoleta, Palermo e San Telmo",d:"Buenos Aires · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&w=800&q=80",tags:["cultural"],r:4.6,rc:114},
+  {f:null,n:"Tour de Helicóptero sobre Buenos Aires",d:"Buenos Aires · Argentina",country:"argentina",dur:"~1h",t:"Ano todo",s:"Conforme agenda",img:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&w=800&q=80",tags:["vip"],badge:"new",r:4.7,rc:67},
+  {f:null,n:"Puerto Madero e Caminata Histórica",d:"Buenos Aires · Argentina",country:"argentina",dur:"~4h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&w=800&q=80",tags:["cultural"],r:4.6,rc:68},
 // ── ARGENTINA / BARILOCHE ──
-  {f:null,n:"Circuito Chico — Lagos e Floresta",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518791841217-8f162f1912fa?auto=format&w=800&q=80",tags:["natureza","lago"],badge:"top"},
-  {f:null,n:"Cerro Catedral — Neve e Ski",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&w=800&q=80",tags:["neve","aventura"],badge:"hot"},
-  {f:null,n:"Sete Lagos — Rota Panorâmica",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80",tags:["natureza","lago"],badge:"top"},
-  {f:null,n:"Ilha Victoria e Floresta dos Arrayanes",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&w=800&q=80",tags:["natureza"]},
-  {f:null,n:"Puerto Blest e Lago Frías",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?auto=format&w=800&q=80",tags:["natureza","lago"]},
-  {f:null,n:"Colônia Suíça + Cerro Campanario",d:"Bariloche · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&w=800&q=80",tags:["natureza"]},
-  {f:null,n:"Trekking Pampa Linda e Glaciar Tronador",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Abr",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80",tags:["aventura","trekking"]},
+  {f:"tour-circuito-chico.html",n:"Circuito Chico — Lagos e Floresta",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/isla-victoria.jpg",tags:["natureza","lago"],badge:"top",r:5.0,rc:185},
+  {f:"tour-cerro-catedral-neve.html",n:"Cerro Catedral — Neve e Ski",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Jun–Set",s:"Manhã cedo",img:"./img/glaciar-tronador.jpg",tags:["neve","aventura"],badge:"hot",r:4.8,rc:91},
+  {f:"tour-sete-lagos.html",n:"Sete Lagos — Rota Panorâmica",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"./img/glaciar-tronador.jpg",tags:["natureza","lago"],badge:"top",r:5.0,rc:178},
+  {f:null,n:"Ilha Victoria e Floresta dos Arrayanes",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"./img/isla-victoria.jpg",tags:["natureza"],r:4.6,rc:60},
+  {f:null,n:"Puerto Blest e Lago Frías",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Out–Abr",s:"Manhã cedo",img:"./img/playa-blanca.jpg",tags:["natureza","lago"],r:4.6,rc:94},
+  {f:null,n:"Colônia Suíça + Cerro Campanario",d:"Bariloche · Argentina",country:"argentina",dur:"Meio dia",t:"Ano todo",s:"Tarde",img:"./img/montanha-7-cores.jpg",tags:["natureza"],r:4.6,rc:89},
+  {f:null,n:"Trekking Pampa Linda e Glaciar Tronador",d:"Bariloche · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Abr",s:"Manhã cedo",img:"./img/glaciar-tronador.jpg",tags:["aventura","trekking"],r:4.6,rc:99},
 // ── ARGENTINA / USHUAIA ──
-  {f:null,n:"Trem do Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&w=800&q=80",tags:["aventura"],badge:"top"},
-  {f:null,n:"Canal Beagle + Ilha dos Pingüins",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"top"},
-  {f:null,n:"Parque Nacional Tierra del Fuego",d:"Ushuaia · Argentina",country:"argentina",dur:"~5h",t:"Nov–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1478827387698-1527781a4887?auto=format&w=800&q=80",tags:["natureza","trekking"],badge:"hot"},
-  {f:null,n:"Estância Harberton + Pinguineira",d:"Ushuaia · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Fev",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["natureza"]},
-  {f:null,n:"Glaciar Martial",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Out–Abr",s:"Manhã",img:"https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?auto=format&w=800&q=80",tags:["aventura","glaciar"]},
-  {f:null,n:"City Tour Ushuaia — Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"Meio dia",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["cidade"]},
-  {f:null,n:"Passeio de Kayak no Canal Beagle",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["aventura"],badge:"new"},
+  {f:"tour-trem-fim-do-mundo.html",n:"Trem do Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"./img/trekking-torres.jpg",tags:["aventura"],badge:"top",r:4.9,rc:291},
+  {f:"tour-canal-beagle.html",n:"Canal Beagle + Ilha dos Pingüins",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Nov–Mar",s:"Manhã",img:"./img/trekking-torres.jpg",tags:["natureza","aventura"],badge:"top",r:5.0,rc:152},
+  {f:"tour-tierra-del-fuego.html",n:"Parque Nacional Tierra del Fuego",d:"Ushuaia · Argentina",country:"argentina",dur:"~5h",t:"Nov–Mar",s:"Manhã cedo",img:"./img/trekking-torres.jpg",tags:["natureza","trekking"],badge:"hot",r:4.8,rc:94},
+  {f:null,n:"Estância Harberton + Pinguineira",d:"Ushuaia · Argentina",country:"argentina",dur:"Dia inteiro",t:"Nov–Fev",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1598439210625-5067c578f3f6?auto=format&w=800&q=80",tags:["natureza"],r:4.6,rc:108},
+  {f:null,n:"Glaciar Martial",d:"Ushuaia · Argentina",country:"argentina",dur:"~4h",t:"Out–Abr",s:"Manhã",img:"https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&w=800&q=80",tags:["aventura","glaciar"],r:4.6,rc:83},
+  {f:null,n:"City Tour Ushuaia — Fim do Mundo",d:"Ushuaia · Argentina",country:"argentina",dur:"Meio dia",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&w=800&q=80",tags:["cidade"],r:4.6,rc:95},
+  {f:null,n:"Passeio de Kayak no Canal Beagle",d:"Ushuaia · Argentina",country:"argentina",dur:"~3h",t:"Nov–Mar",s:"Manhã",img:"https://images.unsplash.com/photo-1545147986-a9d6f2ab03b5?auto=format&w=800&q=80",tags:["aventura"],badge:"new",r:4.7,rc:30},
+// ── ARGENTINA / EL CALAFATE ──
+  {f:"tour-perito-moreno.html",n:"Glaciar Perito Moreno + Navegação Spirit",d:"El Calafate · Argentina",country:"argentina",dur:"~6h",t:"Ano todo",s:"Manhã",img:"./img/glaciar-grey.jpg",tags:["glaciar","natureza"],badge:"top",r:4.9,rc:187},
+  {f:"tour-todos-glaciares.html",n:"Expedição Todos os Glaciares",d:"El Calafate · Argentina",country:"argentina",dur:"9h",t:"Ano todo",s:"Manhã cedo",img:"./img/glaciar-grey.jpg",tags:["glaciar","aventura"],badge:"top",r:5.0,rc:142},
+  {f:"tour-4x4-balcones-calafate.html",n:"Aventura 4x4 — Balcones de Calafate",d:"El Calafate · Argentina",country:"argentina",dur:"~7h",t:"Ano todo",s:"Manhã",img:"./img/glaciar-tronador.jpg",tags:["aventura","4x4"],badge:"hot",r:4.9,rc:98},
+  {f:"tour-nativo-experience.html",n:"Nativo Experience — Cultura Tehuelche",d:"El Calafate · Argentina",country:"argentina",dur:"~4h",t:"Ano todo",s:"Manhã",img:"./img/vale-arco-iris.jpg",tags:["cultural","natureza"],badge:"new",r:4.8,rc:64},
+// ── ARGENTINA / MENDOZA ──
+  {f:"tour-maipu-vinhos.html",n:"Full Day Maipú — Vinícolas e Almoço",d:"Mendoza · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"./img/maipu-vinhos.jpg",tags:["vinícola","gastronomia"],badge:"top",r:4.9,rc:134},
+  {f:"tour-valle-de-uco.html",n:"Valle de Uco — Andeluna e Salentein",d:"Mendoza · Argentina",country:"argentina",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/maipu-vinhos.jpg",tags:["vinícola"],badge:"hot",r:4.8,rc:87},
+  {f:"tour-chandon-picnic.html",n:"Bodega Chandon — Picnic Gourmet",d:"Mendoza · Argentina",country:"argentina",dur:"~5h",t:"Ano todo",s:"Manhã",img:"./img/maipu-vinhos.jpg",tags:["vinícola","gastronomia"],badge:"new",r:4.8,rc:56},
+  {f:"tour-alta-montanha-mendoza.html",n:"Alta Montaña — Aconcágua e Cristo Redentor",d:"Mendoza · Argentina",country:"argentina",dur:"12h",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&w=800&q=80",tags:["cordilheira","aventura"],badge:"top",r:4.9,rc:163},
 // ── COLOMBIA / CARTAGENA ──
-  {f:null,n:"City Tour Cartagena — Muralhas e Centro Histórico",d:"Cartagena · Colômbia",country:"colombia",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1583001931096-6b48c0e8e87e?auto=format&w=800&q=80",tags:["cultural","cidade"],badge:"top"},
-  {f:null,n:"Ilhas do Rosário — Arquipélago Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1559494007-9f5847c49d94?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
-  {f:null,n:"Playa Blanca — Areia Branca e Mar Turquesa",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],badge:"hot"},
-  {f:null,n:"Sunset em Catamarã pelo Caribe",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["noturno"],badge:"hot"},
-  {f:null,n:"Castillo San Felipe e Murallas Históricas",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1565118531796-763e5082d113?auto=format&w=800&q=80",tags:["cultural","histórico"]},
-  {f:null,n:"Barú e Praias Exóticas",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"]},
-  {f:null,n:"Tour Gastronômico Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&w=800&q=80",tags:["gastronomia"]},
-  {f:null,n:"Barco Pirata Tour Noturno",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1468581264429-2548ef9eb732?auto=format&w=800&q=80",tags:["noturno"],badge:"new"},
+  {f:"tour-city-tour-cartagena.html",n:"City Tour Cartagena — Muralhas e Centro Histórico",d:"Cartagena · Colômbia",country:"colombia",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"./img/city-tour-cartagena.jpg",tags:["cultural","cidade"],badge:"top",r:5.0,rc:334},
+  {f:"tour-ilhas-rosario.html",n:"Ilhas do Rosário — Arquipélago Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/ilhas-rosario.jpg",tags:["praia","snorkeling"],badge:"top",r:4.9,rc:278},
+  {f:"tour-playa-blanca.html",n:"Playa Blanca — Areia Branca e Mar Turquesa",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/playa-blanca.jpg",tags:["praia"],badge:"hot",r:4.8,rc:144},
+  {f:null,n:"Sunset em Catamarã pelo Caribe",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Tarde",img:"./img/playa-blanca.jpg",tags:["noturno"],badge:"hot",r:4.8,rc:191},
+  {f:null,n:"Castillo San Felipe e Murallas Históricas",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1565118531796-763e5082d113?auto=format&w=800&q=80",tags:["cultural","histórico"],r:4.6,rc:104},
+  {f:null,n:"Barú e Praias Exóticas",d:"Cartagena · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"],r:4.6,rc:59},
+  {f:null,n:"Tour Gastronômico Caribenho",d:"Cartagena · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&w=800&q=80",tags:["gastronomia"],r:4.6,rc:60},
+  {f:null,n:"Barco Pirata Tour Noturno",d:"Cartagena · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Noite",img:"./img/barco-pirata.jpg",tags:["noturno"],badge:"new",r:4.7,rc:79},
 // ── COLOMBIA / SAN ANDRÉS ──
-  {f:null,n:"Mar das 7 Cores — Tour de Barco Completo",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1499234022991-ec2f55ce3b6c?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
-  {f:null,n:"Johnny Cay — Ilha do Paraíso",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&w=800&q=80",tags:["praia"],badge:"top"},
-  {f:null,n:"Acuario Natural de San Andrés",d:"San Andrés · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["snorkeling","natureza"],badge:"hot"},
-  {f:null,n:"Passeio de Catamarã com Snorkeling",d:"San Andrés · Colômbia",country:"colombia",dur:"~5h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["aventura","praia"]},
-  {f:null,n:"Isla Providencia — Caribe Intocado",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],badge:"new"},
-  {f:null,n:"Volta de ATV pela Ilha",d:"San Andrés · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"]},
+  {f:"tour-mar-7-cores.html",n:"Mar das 7 Cores — Tour de Barco Completo",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top",r:5.0,rc:150},
+  {f:"tour-johnny-cay.html",n:"Johnny Cay — Ilha do Paraíso",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/johnny-cay.webp",tags:["praia"],badge:"top",r:4.9,rc:275},
+  {f:null,n:"Acuario Natural de San Andrés",d:"San Andrés · Colômbia",country:"colombia",dur:"~4h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["snorkeling","natureza"],badge:"hot",r:4.8,rc:198},
+  {f:null,n:"Passeio de Catamarã com Snorkeling",d:"San Andrés · Colômbia",country:"colombia",dur:"~5h",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&w=800&q=80",tags:["aventura","praia"],r:4.6,rc:79},
+  {f:null,n:"Isla Providencia — Caribe Intocado",d:"San Andrés · Colômbia",country:"colombia",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],badge:"new",r:4.7,rc:45},
+  {f:null,n:"Volta de ATV pela Ilha",d:"San Andrés · Colômbia",country:"colombia",dur:"~3h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"],r:4.6,rc:50},
 // ── PERU / CUSCO ──
-  {f:null,n:"Machu Picchu Classic — Cidadela Inca",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"top"},
-  {f:null,n:"Machu Picchu + Huayna Picchu",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1580392412502-3793e0a6cef8?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"top"},
-  {f:null,n:"City Tour Cusco — Arqueologia Inca",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["cultural","histórico"],badge:"hot"},
-  {f:null,n:"Vale Sagrado dos Incas",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&w=800&q=80",tags:["histórico","natureza"],badge:"top"},
-  {f:null,n:"Montanha de 7 Cores (Vinicunca)",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Abr–Out",s:"Manhã muito cedo",img:"https://images.unsplash.com/photo-1571003123771-bd6a099fef30?auto=format&w=800&q=80",tags:["aventura","natureza"],badge:"hot"},
-  {f:null,n:"Lago Titicaca — Ilhas Flutuantes",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1535591672326-8cf3ddac2e36?auto=format&w=800&q=80",tags:["cultural","natureza"]},
-  {f:null,n:"Maras, Moray e Salineras",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&w=800&q=80",tags:["histórico"]},
-  {f:null,n:"Qoricancha e Sacsayhuamán",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1539556920498-ea56cb4ee7ad?auto=format&w=800&q=80",tags:["histórico","cultural"]},
+  {f:"tour-machu-picchu.html",n:"Machu Picchu Classic — Cidadela Inca",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/machu-picchu.webp",tags:["histórico","aventura"],badge:"top",r:4.9,rc:274},
+  {f:null,n:"Machu Picchu + Huayna Picchu",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"top",r:5.0,rc:344},
+  {f:"tour-city-tour-cusco.html",n:"City Tour Cusco — Arqueologia Inca",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"./img/city-tour-cusco.jpg",tags:["cultural","histórico"],badge:"hot",r:4.8,rc:96},
+  {f:"tour-vale-sagrado.html",n:"Vale Sagrado dos Incas",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/montanha-7-cores.jpg",tags:["histórico","natureza"],badge:"top",r:4.9,rc:271},
+  {f:"tour-montanha-colorida.html",n:"Montanha de 7 Cores (Vinicunca)",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Abr–Out",s:"Manhã muito cedo",img:"./img/montanha-7-cores.jpg",tags:["aventura","natureza"],badge:"hot",r:4.8,rc:101},
+  {f:null,n:"Lago Titicaca — Ilhas Flutuantes",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?auto=format&w=800&q=80",tags:["cultural","natureza"],r:4.6,rc:117},
+  {f:null,n:"Maras, Moray e Salineras",d:"Cusco · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&w=800&q=80",tags:["histórico"],r:4.6,rc:67},
+  {f:null,n:"Qoricancha e Sacsayhuamán",d:"Cusco · Peru",country:"peru",dur:"Meio dia",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&w=800&q=80",tags:["histórico","cultural"],r:4.6,rc:65},
 // ── PERU / LIMA ──
-  {f:null,n:"City Tour Lima — Gastronomia e História",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&w=800&q=80",tags:["cidade","cultural"],badge:"top"},
-  {f:null,n:"Islas Ballestas e Reserva de Paracas",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza","aventura"]},
-  {f:null,n:"Huacachina — Oásis no Deserto",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1547995886-6dc09384c6e8?auto=format&w=800&q=80",tags:["deserto","aventura"],badge:"hot"},
+  {f:"tour-city-tour-lima.html",n:"City Tour Lima — Gastronomia e História",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"./img/city-tour-lima.jpg",tags:["cidade","cultural"],badge:"top",r:5.0,rc:252},
+  {f:null,n:"Islas Ballestas e Reserva de Paracas",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza","aventura"],r:4.6,rc:87},
+  {f:null,n:"Huacachina — Oásis no Deserto",d:"Lima · Peru",country:"peru",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?auto=format&w=800&q=80",tags:["deserto","aventura"],badge:"hot",r:4.8,rc:146},
 // ── MEXICO / CANCUN ──
-  {f:null,n:"Chichen Itzá — Maravilha do Mundo",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&w=800&q=80",tags:["histórico"],badge:"top"},
-  {f:null,n:"Xcaret — Parque Eco-Arqueológico",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"top"},
-  {f:null,n:"Tulum e Cenote — Ruínas à Beira-Mar",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&w=800&q=80",tags:["histórico","aventura"],badge:"hot"},
-  {f:null,n:"Xel-Há — Parque Aquático Natural",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1559494007-9f5847c49d94?auto=format&w=800&q=80",tags:["natureza","aventura"],badge:"hot"},
-  {f:null,n:"Holbox — Ilha da Bioluminescência",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"],badge:"new"},
-  {f:null,n:"Isla Mujeres — Tour de Catamarã",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1499234022991-ec2f55ce3b6c?auto=format&w=800&q=80",tags:["praia"]},
-  {f:null,n:"Cozumel Mergulho e Snorkeling",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["aventura","snorkeling"]},
-  {f:null,n:"Playa del Carmen e Quinta Avenida",d:"Cancún · México",country:"mexico",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia","cidade"]},
+  {f:"tour-chichen-itza.html",n:"Chichen Itzá — Maravilha do Mundo",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/montanha-7-cores.jpg",tags:["histórico"],badge:"top",r:4.9,rc:213},
+  {f:"tour-xcaret.html",n:"Xcaret — Parque Eco-Arqueológico",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/xcaret.jpg",tags:["natureza","aventura"],badge:"top",r:4.9,rc:236},
+  {f:"tour-tulum-cenote.html",n:"Tulum e Cenote — Ruínas à Beira-Mar",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/tulum.png",tags:["histórico","aventura"],badge:"hot",r:4.8,rc:150},
+  {f:null,n:"Xel-Há — Parque Aquático Natural",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/xel-ha.jpg",tags:["natureza","aventura"],badge:"hot",r:4.8,rc:108},
+  {f:null,n:"Holbox — Ilha da Bioluminescência",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&w=800&q=80",tags:["praia"],badge:"new",r:4.7,rc:75},
+  {f:null,n:"Isla Mujeres — Tour de Catamarã",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1510097467424-192d713fd8b2?auto=format&w=800&q=80",tags:["praia"],r:4.6,rc:69},
+  {f:null,n:"Cozumel Mergulho e Snorkeling",d:"Cancún · México",country:"mexico",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80",tags:["aventura","snorkeling"],r:4.6,rc:44},
+  {f:null,n:"Playa del Carmen e Quinta Avenida",d:"Cancún · México",country:"mexico",dur:"~4h",t:"Ano todo",s:"Tarde",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia","cidade"],r:4.6,rc:49},
 // ── PUNTA CANA ──
-  {f:null,n:"Isla Saona VIP — Praia dos Sonhos",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1563911302283-d5f01f5b83e4?auto=format&w=800&q=80",tags:["praia","vip"],badge:"top"},
-  {f:null,n:"Catamarã dos Sonhos — Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1545579133-99bb5ad189be?auto=format&w=800&q=80",tags:["praia","snorkeling"],badge:"top"},
-  {f:null,n:"Scape Park — Aventura Completa",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1439853949212-36591e80f20c?auto=format&w=800&q=80",tags:["aventura"],badge:"hot"},
-  {f:null,n:"Buggies 4x4 + Cenote + Laguna",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~5h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"],badge:"hot"},
-  {f:null,n:"Coco Bongo — A Festa do Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~4h",t:"Ano todo",s:"Noite",img:"https://images.unsplash.com/photo-1516741699793-c98fb8b5caef?auto=format&w=800&q=80",tags:["noturno"],badge:"new"},
-  {f:null,n:"Samaná e Baleias Jubarte",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Jan–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza"],badge:"new"},
-  {f:null,n:"Bávaro Beach — Praias Exclusivas",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"]},
+  {f:"tour-isla-saona-vip.html",n:"Isla Saona VIP — Praia dos Sonhos",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/playa-blanca.jpg",tags:["praia","vip"],badge:"top",r:4.9,rc:221},
+  {f:"tour-catamara-puntacana.html",n:"Catamarã dos Sonhos — Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"./img/playa-blanca.jpg",tags:["praia","snorkeling"],badge:"top",r:5.0,rc:204},
+  {f:null,n:"Scape Park — Aventura Completa",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&w=800&q=80",tags:["aventura"],badge:"hot",r:4.8,rc:172},
+  {f:"tour-buggies-puntacana.html",n:"Buggies 4x4 + Cenote + Laguna",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~5h",t:"Ano todo",s:"Manhã ou tarde",img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&w=800&q=80",tags:["aventura"],badge:"hot",r:4.8,rc:153},
+  {f:null,n:"Coco Bongo — A Festa do Caribe",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"~4h",t:"Ano todo",s:"Noite",img:"./img/coco-bongo.jpg",tags:["noturno"],badge:"new",r:4.7,rc:45},
+  {f:null,n:"Samaná e Baleias Jubarte",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Jan–Mar",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&w=800&q=80",tags:["natureza"],badge:"new",r:4.7,rc:56},
+  {f:null,n:"Bávaro Beach — Praias Exclusivas",d:"Punta Cana · Rep. Dominicana",country:"puntacana",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",tags:["praia"],r:4.6,rc:52},
+// ── ORLANDO / DISNEY ──
+  {f:"_suncoast",n:"Walt Disney World — Magic Kingdom",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&w=800&q=80",tags:["disney","parque"],badge:"top",r:5.0,rc:412},
+  {f:"_suncoast",n:"Universal Studios Orlando",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&w=800&q=80",tags:["parque","aventura"],badge:"top",r:4.9,rc:387},
+  {f:"_suncoast",n:"Disney Hollywood Studios",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&w=800&q=80",tags:["disney","parque"],badge:"hot",r:4.9,rc:298},
+  {f:"_suncoast",n:"Disney EPCOT — Volta ao Mundo",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&w=800&q=80",tags:["disney","cultural"],badge:"hot",r:4.8,rc:256},
+  {f:"_suncoast",n:"Disney Animal Kingdom",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&w=800&q=80",tags:["disney","natureza"],badge:"top",r:4.8,rc:231},
+  {f:"_suncoast",n:"Islands of Adventure + Mundo do Harry Potter",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã cedo",img:"https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&w=800&q=80",tags:["parque","aventura"],badge:"hot",r:4.9,rc:345},
+  {f:"_suncoast",n:"SeaWorld Orlando",d:"Orlando · EUA",country:"orlando",dur:"Dia inteiro",t:"Ano todo",s:"Manhã",img:"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&w=800&q=80",tags:["parque","natureza"],r:4.7,rc:178},
+  {f:"_suncoast",n:"Combo Ingressos Orlando — Melhor Preço",d:"Orlando · EUA",country:"orlando",dur:"Multi-dia",t:"Ano todo",s:"Flexível",img:"https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&w=800&q=80",tags:["disney","parque"],badge:"new",r:4.8,rc:164},
 ];
+
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function destClass(t){
   if(t.d.includes('Atacama'))return 'atacama';
   if(t.d.includes('Torres'))return 'torres';
-  const m={chile:'santiago',argentina:'argentina',colombia:'colombia',peru:'peru',mexico:'mexico',puntacana:'puntacana'};
+  const m={chile:'santiago',argentina:'argentina',colombia:'colombia',peru:'peru',mexico:'mexico',puntacana:'puntacana',orlando:'orlando'};
   return m[t.country]||'santiago';
 }
 function destLabel(t){
@@ -456,12 +571,15 @@ function destLabel(t){
   if(t.d.includes('Lima'))return '🇵🇪 Lima';
   if(t.d.includes('Cancún'))return '🇲🇽 Cancún';
   if(t.d.includes('Punta Cana'))return '🇩🇴 Punta Cana';
+  if(t.d.includes('Orlando'))return '🇺🇸 Orlando';
+  if(t.d.includes('El Calafate'))return '🇦🇷 El Calafate';
+  if(t.d.includes('Mendoza'))return '🇦🇷 Mendoza';
   return t.d.split('·')[0].trim();
 }
 function bgClass(t){
   if(t.d.includes('Atacama'))return ' atacama-bg';
   if(t.d.includes('Torres'))return ' torres-bg';
-  const m={argentina:'arg-bg',colombia:'col-bg',peru:'per-bg',mexico:'mex-bg',puntacana:'pca-bg'};
+  const m={argentina:'arg-bg',colombia:'col-bg',peru:'per-bg',mexico:'mex-bg',puntacana:'pca-bg',orlando:'orl-bg'};
   return m[t.country] ? ' '+m[t.country] : '';
 }
 function waUrl(name){
@@ -486,9 +604,10 @@ function renderCards(){
   if(!filtered.length){grid.innerHTML='';noResults.style.display='block';return;}
   noResults.style.display='none';
   grid.innerHTML=filtered.map((t,i)=>{
-    const href=t.f?`'./${t.f}'`:null;
-    const link=t.f?`./${t.f}`:waUrl(t.n);
-    const ext=t.f?'':' target="_blank"';
+    const isSuncoast=t.f==='_suncoast';
+    const suncoastUrl='https://lucascarvalhoturismo.suncoastusa.com.br/Default.aspx?chave=80887667-3C65-41A6-BE42-3B428FE873EE';
+    const link=isSuncoast?suncoastUrl:t.f?`./${t.f}`:waUrl(t.n);
+    const ext=(!t.f||isSuncoast)?' target="_blank"':'';
     const waTrack=!t.f?` onclick="if(window.fbq)fbq('track','Lead')"`:` onclick="if(window.fbq)fbq('track','ViewContent',{content_name:'${t.n.replace(/'/g,"\\'")}'})"`;
     return `<a class="card" href="${link}"${ext}${waTrack} style="animation-delay:${Math.min(i*.04,.32).toFixed(2)}s">
       <div class="card-img${bgClass(t)}">
@@ -499,13 +618,18 @@ function renderCards(){
       </div>
       <div class="card-body">
         <h3 class="card-title">${t.n}</h3>
+        <div class="card-rating">
+          <span class="card-stars">${'★'.repeat(Math.floor(t.r))}${t.r%1>=0.5?'½':''}</span>
+          <span class="card-rating-num">${t.r}</span>
+          <span class="card-rating-count">(${t.rc})</span>
+        </div>
         <div class="card-meta">
           <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${t.dur}</span>
           <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>${t.s}</span>
         </div>
         <div class="card-foot">
           <div class="card-tags">${t.tags.map(tg=>`<span class="card-tag">${tg}</span>`).join('')}</div>
-          <span class="card-cta">${t.f?'Ver detalhes':'Consultar'}</span>
+          <span class="card-cta">${isSuncoast?'Ver ingressos ↗':t.f?'Ver detalhes':'Consultar'}</span>
         </div>
       </div>
     </a>`;
