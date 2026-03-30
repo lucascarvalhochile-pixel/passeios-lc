@@ -562,12 +562,6 @@ function doLogin(){
     document.getElementById('loginPass').value='';
   }
 }
-// Auto-login se sessão salva
-if(localStorage.getItem('lcAdminSession')==='1'){
-  document.getElementById('loginScreen').classList.add('hidden');
-  document.getElementById('app').classList.add('visible');
-  init();
-}
 document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 
 // ─── DATA STORE ───────────────────────────────────────────────────────────────
@@ -580,6 +574,13 @@ let SITE_CONFIG = {
   wa:'5511920619246',waMsg:'Olá LC! Quero conhecer os passeios',
   pixel:'2262354344253278',ga4:''
 };
+
+// Auto-login se sessão salva (DEVE vir DEPOIS de SITE_CONFIG)
+if(localStorage.getItem('lcAdminSession')==='1'){
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+  init();
+}
 
 function loadData(){
   const stored=localStorage.getItem('lcTours');
