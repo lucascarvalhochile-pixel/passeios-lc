@@ -36,6 +36,7 @@ input,textarea,select{font-family:var(--f)}
 .sidebar-logo a{font-size:1rem;font-weight:800;color:#fff}
 .sidebar-logo a span{color:var(--blue)}
 .sidebar-logo small{display:block;color:rgba(255,255,255,.35);font-size:.7rem;margin-top:2px}
+.sidebar-logo img.logo-img{height:36px;width:auto;max-width:160px;object-fit:contain;display:block}
 .nav-items{padding:16px 12px;flex:1}
 .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,.55);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:2px}
 .nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
@@ -116,6 +117,9 @@ tr:hover td{background:var(--g50)}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue)}
 .form-group textarea{resize:vertical;min-height:80px}
 .modal-footer{display:flex;justify-content:flex-end;gap:12px;margin-top:24px;padding-top:24px;border-top:1px solid var(--g100)}
+.btn-upload{padding:9px 13px;background:var(--g50);border:1.5px solid var(--g100);border-radius:8px;font-size:.8rem;font-weight:700;color:var(--g700);cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.btn-upload:hover{background:var(--g100);border-color:var(--g300)}
+.btn-upload.loading{opacity:.6;pointer-events:none}
 
 /* CONFIG PAGE */
 .config-section{background:#fff;border-radius:14px;border:1px solid var(--g100);padding:24px;margin-bottom:20px}
@@ -149,7 +153,7 @@ tr:hover td{background:var(--g50)}
 <!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-logo">LC <span>Turismo</span></div>
+    <div class="login-logo" id="loginLogo">LC <span>Turismo</span></div>
     <div class="login-sub">Painel Administrativo</div>
     <input type="password" id="loginPass" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">Entrar</button>
@@ -162,7 +166,7 @@ tr:hover td{background:var(--g50)}
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <a href="./">LC <span>Turismo</span></a>
+      <a href="./" id="sidebarLogoLink">LC <span>Turismo</span></a>
       <small>Painel Admin</small>
     </div>
     <nav class="nav-items">
@@ -260,16 +264,24 @@ tr:hover td{background:var(--g50)}
       <div class="config-section">
         <h3>🖼️ Logo da LC Turismo</h3>
         <div class="form-group">
-          <label>URL da imagem da logo (PNG, SVG ou JPG)</label>
-          <div style="display:flex;gap:10px">
-            <input type="url" id="cfgLogo" placeholder="https://... ou deixe vazio para usar texto" style="flex:1;padding:10px 12px;border:1.5px solid var(--g100);border-radius:8px;font-size:.88rem;outline:none">
-            <button class="btn btn-outline" onclick="previewLogo()">Visualizar</button>
+          <label>Fazer upload da logo (PNG, SVG ou JPG)</label>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <label style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:var(--blue);color:#fff;border-radius:8px;font-size:.83rem;font-weight:700;cursor:pointer">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Escolher arquivo
+              <input type="file" id="logoFileInput" accept="image/*" style="display:none" onchange="handleLogoUpload(this)">
+            </label>
+            <span id="logoFileName" style="font-size:.8rem;color:var(--g500)">Nenhum arquivo selecionado</span>
+            <button class="btn btn-outline btn-sm" onclick="clearLogo()" id="logoClearBtn" style="display:none">✕ Remover logo</button>
           </div>
-          <div id="logoPreviewBox" style="margin-top:12px;display:none;background:var(--night);padding:16px;border-radius:10px">
-            <img id="logoPreview" style="height:40px;width:auto" alt="logo">
-            <p style="color:rgba(255,255,255,.5);font-size:.75rem;margin-top:8px">Prévia na navbar</p>
+          <div id="logoPreviewBox" style="margin-top:14px;display:none;background:var(--night);padding:16px 20px;border-radius:10px;display:flex;align-items:center;gap:16px">
+            <img id="logoPreview" style="height:44px;width:auto;max-width:200px;object-fit:contain" alt="logo">
+            <div>
+              <p style="color:#fff;font-size:.82rem;font-weight:600">Prévia na barra lateral</p>
+              <p style="color:rgba(255,255,255,.45);font-size:.73rem;margin-top:2px">Aparecerá também na tela de login</p>
+            </div>
           </div>
-          <p style="font-size:.75rem;color:var(--g500);margin-top:4px">Coloque o arquivo logo-lc.png na pasta do site, ou use uma URL externa.</p>
+          <p style="font-size:.75rem;color:var(--g500);margin-top:8px">A logo é salva localmente neste navegador. Para aparecer no site público use a aba <strong>Publicar</strong>.</p>
         </div>
       </div>
       <div class="config-section">
@@ -438,12 +450,42 @@ tr:hover td{background:var(--g50)}
         </select>
       </div>
       <div class="form-group full">
-        <label>URL da imagem de capa</label>
-        <input type="url" id="mImg" placeholder="https://...">
+        <label>URL da imagem de capa (card no catálogo)</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="url" id="mImg" placeholder="https://... ou ./img/nome.jpg" style="flex:1">
+          <button type="button" class="btn-upload" onclick="triggerUpload('mImg')">📎 Upload</button>
+        </div>
       </div>
       <div class="form-group full">
         <label>Arquivo da página (deixe vazio para link direto ao WhatsApp)</label>
         <input type="text" id="mFile" placeholder="Ex: tour-valle-nevado.html">
+      </div>
+      <div class="form-group full" style="border-top:1.5px dashed var(--g100);padding-top:16px;margin-top:4px">
+        <label style="color:var(--blue)">🖼 Foto principal / Hero (banner da página interna)</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="text" id="mHeroImg" placeholder="./img/nome.jpg" style="flex:1">
+          <button type="button" class="btn-upload" onclick="triggerUpload('mHeroImg')">📎 Upload</button>
+        </div>
+        <small style="color:var(--g500);font-size:.74rem;margin-top:4px;display:block">Clique em Upload para enviar do seu computador. Requer publicar para aplicar.</small>
+      </div>
+      <div class="form-group">
+        <label style="color:var(--blue)">📷 Galeria — Foto 2</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="text" id="mG2" placeholder="./img/..." style="flex:1">
+          <button type="button" class="btn-upload" onclick="triggerUpload('mG2')">📎</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color:var(--blue)">📷 Galeria — Foto 3</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="text" id="mG3" placeholder="./img/..." style="flex:1">
+          <button type="button" class="btn-upload" onclick="triggerUpload('mG3')">📎</button>
+        </div>
+      </div>
+      <div class="form-group full">
+        <label style="color:var(--blue)">▶️ Vídeo YouTube</label>
+        <input type="text" id="mYtVideo" placeholder="https://youtube.com/watch?v=... ou só o ID (ex: FdmjFRRz2uk)">
+        <small style="color:var(--g500);font-size:.74rem;margin-top:4px;display:block">Cole o link do vídeo do canal LC Turismo para exibir na página do passeio.</small>
       </div>
       <div class="form-group full">
         <label>Tags (separadas por vírgula)</label>
@@ -458,6 +500,14 @@ tr:hover td{background:var(--g50)}
 </div>
 
 <div id="toast"></div>
+<input type="file" id="imgFileInput" accept="image/*" style="display:none" onchange="handleImgUpload(event)">
+<div id="uploadOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,8,.55);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:16px;padding:32px 40px;text-align:center;min-width:260px">
+    <div id="uploadSpinner" style="font-size:2rem;margin-bottom:12px">⏳</div>
+    <div id="uploadMsg" style="font-weight:700;color:var(--night);font-size:.95rem">Enviando foto...</div>
+    <div id="uploadSub" style="color:var(--g500);font-size:.8rem;margin-top:4px"></div>
+  </div>
+</div>
 
 <script>
 // ─── AUTH ─────────────────────────────────────────────────────────────────────
@@ -627,6 +677,10 @@ function openModal(idx){
   document.getElementById('mBadge').value=t.badge||'';
   document.getElementById('mImg').value=t.img||'';
   document.getElementById('mFile').value=t.f||'';
+  document.getElementById('mHeroImg').value=t.heroImg||'';
+  document.getElementById('mG2').value=t.g2||'';
+  document.getElementById('mG3').value=t.g3||'';
+  document.getElementById('mYtVideo').value=t.ytVideo||'';
   document.getElementById('mTags').value=(t.tags||[]).join(', ');
   document.getElementById('tourModal').classList.add('open');
 }
@@ -643,6 +697,10 @@ function saveTour(){
     s:document.getElementById('mDepart').value.trim(),
     badge:document.getElementById('mBadge').value||undefined,
     img:document.getElementById('mImg').value.trim(),
+    heroImg:document.getElementById('mHeroImg').value.trim()||undefined,
+    g2:document.getElementById('mG2').value.trim()||undefined,
+    g3:document.getElementById('mG3').value.trim()||undefined,
+    ytVideo:(()=>{const v=document.getElementById('mYtVideo').value.trim();if(!v)return undefined;const m=v.match(/[?&]v=([^&]+)/)||v.match(/youtu\.be\/([^?]+)/)||v.match(/embed\/([^?]+)/);return m?m[1]:v;})(),
     tags:document.getElementById('mTags').value.split(',').map(x=>x.trim()).filter(Boolean)
   };
   if(!t.n){toast('Nome é obrigatório','err');return;}
@@ -662,7 +720,16 @@ function deleteTour(i){
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 function loadConfig(){
-  document.getElementById('cfgLogo').value=SITE_CONFIG.logo||'';
+  // Logo preview restore
+  if(SITE_CONFIG.logo){
+    const box=document.getElementById('logoPreviewBox');
+    const img=document.getElementById('logoPreview');
+    img.src=SITE_CONFIG.logo;box.style.display='flex';
+    document.getElementById('logoFileName').textContent='Logo salva';
+    document.getElementById('logoClearBtn').style.display='inline-flex';
+  }
+  // Apply logo to sidebar & login
+  applyLogo(SITE_CONFIG.logo||'');
   document.getElementById('cfgHeroTitle').value=SITE_CONFIG.heroTitle||'';
   document.getElementById('cfgHeroSub').value=SITE_CONFIG.heroSub||'';
   document.getElementById('cfgStat1').value=SITE_CONFIG.stat1||'';
@@ -676,7 +743,7 @@ function loadConfig(){
 }
 function saveConfig(){
   SITE_CONFIG={
-    logo:document.getElementById('cfgLogo').value.trim(),
+    logo:SITE_CONFIG.logo||'',
     heroTitle:document.getElementById('cfgHeroTitle').value.trim(),
     heroSub:document.getElementById('cfgHeroSub').value.trim(),
     stat1:document.getElementById('cfgStat1').value.trim(),
@@ -691,11 +758,53 @@ function saveConfig(){
   localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
   toast('Configurações salvas!');
 }
+function handleLogoUpload(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const b64=e.target.result;
+    SITE_CONFIG.logo=b64;
+    localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
+    document.getElementById('logoFileName').textContent=file.name;
+    document.getElementById('logoClearBtn').style.display='inline-flex';
+    const box=document.getElementById('logoPreviewBox');
+    const img=document.getElementById('logoPreview');
+    img.src=b64;box.style.display='flex';
+    applyLogo(b64);
+    toast('Logo carregada e salva!');
+  };
+  reader.readAsDataURL(file);
+}
+function clearLogo(){
+  SITE_CONFIG.logo='';
+  localStorage.setItem('lcConfig',JSON.stringify(SITE_CONFIG));
+  document.getElementById('logoFileName').textContent='Nenhum arquivo selecionado';
+  document.getElementById('logoClearBtn').style.display='none';
+  document.getElementById('logoPreviewBox').style.display='none';
+  document.getElementById('logoFileInput').value='';
+  applyLogo('');
+  toast('Logo removida');
+}
+function applyLogo(src){
+  const sideLink=document.getElementById('sidebarLogoLink');
+  const loginLogo=document.getElementById('loginLogo');
+  if(src){
+    sideLink.innerHTML=`<img src="${src}" class="logo-img" alt="LC Turismo">`;
+    loginLogo.innerHTML=`<img src="${src}" style="height:48px;width:auto;max-width:240px;object-fit:contain" alt="LC Turismo">`;
+    loginLogo.style.marginBottom='16px';
+  } else {
+    sideLink.innerHTML='LC <span style="color:var(--blue)">Turismo</span>';
+    loginLogo.innerHTML='LC <span>Turismo</span>';
+    loginLogo.style.marginBottom='';
+  }
+}
 function previewLogo(){
-  const url=document.getElementById('cfgLogo').value.trim();
+  /* legacy — kept for compatibility */
+  const url=(SITE_CONFIG&&SITE_CONFIG.logo)||'';
   const box=document.getElementById('logoPreviewBox');
   const img=document.getElementById('logoPreview');
-  if(url){img.src=url;box.style.display='block';}
+  if(url){img.src=url;box.style.display='flex';}
   else{box.style.display='none';}
 }
 
@@ -745,7 +854,8 @@ async function deployToGitHub(){
     const toursJS=JSON.stringify(TOURS_DATA,null,2)
       .replace(/"f":/g,'f:').replace(/"n":/g,'n:').replace(/"d":/g,'d:')
       .replace(/"country":/g,'country:').replace(/"dur":/g,'dur:').replace(/"t":/g,'t:')
-      .replace(/"s":/g,'s:').replace(/"img":/g,'img:').replace(/"tags":/g,'tags:').replace(/"badge":/g,'badge:');
+      .replace(/"s":/g,'s:').replace(/"img":/g,'img:').replace(/"tags":/g,'tags:').replace(/"badge":/g,'badge:')
+      .replace(/"heroImg":/g,'heroImg:').replace(/"g2":/g,'g2:').replace(/"g3":/g,'g3:').replace(/"ytVideo":/g,'ytVideo:');
     const newHTML=currentHTML.replace(/const TOURS = \[[\s\S]*?\];/,`const TOURS = ${toursJS};`);
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
     const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
@@ -754,8 +864,69 @@ async function deployToGitHub(){
       body:JSON.stringify({message:`admin: update catalog (${TOURS_DATA.length} tours)`,content:encoded,sha})
     });
     if(putR.ok){
+      // Update individual tour HTML files that have heroImg/g2/g3 set
+      const tourFiles=TOURS_DATA.filter(t=>t.f&&!t.f.startsWith('_')&&!t.f.startsWith('http')&&(t.heroImg||t.g2||t.g3||t.ytVideo));
+      let updatedPages=0;
+      if(tourFiles.length>0){
+        s.textContent=`⏳ Atualizando fotos de ${tourFiles.length} página(s)...`;
+        for(const tour of tourFiles){
+          try{
+            const fr=await fetch(`https://api.github.com/repos/${repo}/contents/${tour.f}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+            const fd=await fr.json();
+            if(!fd.content) continue;
+            const fSha=fd.sha;
+            let html=decodeURIComponent(escape(atob(fd.content.replace(/\n/g,''))));
+            let changed=false;
+            if(tour.heroImg){
+              const prev=html;
+              html=html.replace(/(id="heroBg"[^>]*url\(')[^')]+(')/g,`$1${tour.heroImg}$2`);
+              html=html.replace(/(<meta property="og:image" content=")[^"]+(")/g,`$1${tour.heroImg}$2`);
+              html=html.replace(/("image": ")[^"]+(")/g,`$1${tour.heroImg}$2`);
+              html=html.replace(/(class="gm" src=")[^"]+(")/g,`$1${tour.heroImg}$2`);
+              html=html.replace(/(class="gm"[^>]*openLb\('img',')[^']+(')/g,`$1${tour.heroImg}$2`);
+              if(html!==prev)changed=true;
+            }
+            if(tour.g2){
+              const prev=html;
+              html=html.replace(/(src=")[^"]+(" alt="[^"]*Foto 2")/g,`$1${tour.g2}$2`);
+              html=html.replace(/(Foto 2"[^>]*openLb\('img',')[^']+(')/g,`$1${tour.g2}$2`);
+              if(html!==prev)changed=true;
+            }
+            if(tour.g3){
+              const prev=html;
+              html=html.replace(/(src=")[^"]+(" alt="[^"]*Foto 3")/g,`$1${tour.g3}$2`);
+              html=html.replace(/(class="gmore-btn"[^>]*openLb\('img',')[^']+(')/g,`$1${tour.g3}$2`);
+              if(html!==prev)changed=true;
+            }
+            if(tour.ytVideo){
+              const prev=html;
+              // Update existing embed src
+              html=html.replace(/(youtube\.com\/embed\/)[^?'"]+/g,`$1${tour.ytVideo}`);
+              // If no video section exists yet, add it after gallery
+              if(!html.includes('id="videoSection"')){
+                const vidBlock=`\n<div class="vid-section" id="videoSection">\n  <div class="sec rev">\n    <div class="slabel">Assista ao v\u00eddeo</div>\n    <h2 class="stitle">Veja este passeio em v\u00eddeo</h2>\n    <div class="vid-resp">\n      <iframe src="https://www.youtube.com/embed/${tour.ytVideo}?rel=0&modestbranding=1" title="V\u00eddeo do passeio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>\n    </div>\n  </div>\n</div>`;
+                const vidCSS=`\n/* ---- Video section ---- */\n.vid-section{max-width:var(--max);margin:0 auto;padding:0 24px 0}\n.vid-resp{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.15)}\n.vid-resp iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}`;
+                if(!html.includes('.vid-section'))html=html.replace('</style>',vidCSS+'\n</style>');
+                html=html.replace('<!-- CONTENT -->\n<div class="wrap">','<!-- CONTENT -->'+vidBlock+'\n\n<div class="wrap">');
+                if(!html.includes('id="videoSection"')){html=html.replace('<div class="wrap">',vidBlock+'\n\n<div class="wrap">');}
+              }
+              if(html!==prev)changed=true;
+            }
+            if(changed){
+              const enc=btoa(unescape(encodeURIComponent(html)));
+              await fetch(`https://api.github.com/repos/${repo}/contents/${tour.f}`,{
+                method:'PUT',
+                headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+                body:JSON.stringify({message:`admin: update images — ${tour.n}`,content:enc,sha:fSha})
+              });
+              updatedPages++;
+            }
+          }catch(e2){console.error('Tour file update failed:',tour.f,e2);}
+        }
+      }
       const pd=await putR.json();
-      s.innerHTML=`✓ Publicado com sucesso! Commit: <code>${pd.commit.sha.substring(0,7)}</code><br><a href="https://${repo.split('/')[0].toLowerCase()}.github.io/${repo.split('/')[1]}/" target="_blank" style="color:var(--green)">→ Ver site ao vivo</a>`;
+      const pagesNote=updatedPages>0?` + ${updatedPages} página(s) com fotos atualizadas`:'';
+      s.innerHTML=`✓ Publicado! Commit <code>${pd.commit.sha.substring(0,7)}</code>${pagesNote}<br><a href="https://${repo.split('/')[0].toLowerCase()}.github.io/${repo.split('/')[1]}/" target="_blank" style="color:var(--green)">→ Ver site ao vivo</a>`;
       s.className='deploy-status ok';
     } else {
       const err=await putR.json();
@@ -795,6 +966,69 @@ function toast(msg,type){
   t.style.background=type==='err'?'#b91c1c':'var(--night)';
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ─── IMAGE UPLOAD ────────────────────────────────────────────────────────────
+let _uploadTargetField = null;
+function triggerUpload(fieldId){
+  const token=localStorage.getItem('ghToken')||document.getElementById('ghToken').value.trim();
+  const repo=localStorage.getItem('ghRepo')||document.getElementById('ghRepo').value.trim();
+  if(!token||!repo){toast('Configure o GitHub Token em Publicar primeiro','err');return;}
+  _uploadTargetField=fieldId;
+  document.getElementById('imgFileInput').value='';
+  document.getElementById('imgFileInput').click();
+}
+async function handleImgUpload(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const token=localStorage.getItem('ghToken')||document.getElementById('ghToken').value.trim();
+  const repo=localStorage.getItem('ghRepo')||document.getElementById('ghRepo').value.trim();
+  // Show overlay
+  const ov=document.getElementById('uploadOverlay');
+  ov.style.display='flex';
+  document.getElementById('uploadSpinner').textContent='⏳';
+  document.getElementById('uploadMsg').textContent='Enviando foto...';
+  document.getElementById('uploadSub').textContent=file.name;
+  try{
+    // Sanitize filename
+    const ext=file.name.split('.').pop().toLowerCase();
+    const base=file.name.replace(/\.[^.]+$/,'').toLowerCase()
+      .replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+    const filename=`${base}.${ext}`;
+    const path=`img/${filename}`;
+    // Read as base64
+    const b64=await new Promise((res,rej)=>{
+      const r=new FileReader();
+      r.onload=ev=>res(ev.target.result.split(',')[1]);
+      r.onerror=rej;
+      r.readAsDataURL(file);
+    });
+    // Check if file exists (to get SHA for update)
+    const checkR=await fetch(`https://api.github.com/repos/${repo}/contents/${path}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    const body={message:`upload: ${filename}`,content:b64};
+    if(checkR.ok){const d=await checkR.json();body.sha=d.sha;}
+    // Upload
+    const putR=await fetch(`https://api.github.com/repos/${repo}/contents/${path}`,{
+      method:'PUT',
+      headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+    if(!putR.ok){const err=await putR.json();throw new Error(err.message||putR.status);}
+    // Fill field
+    const url=`./img/${filename}`;
+    document.getElementById(_uploadTargetField).value=url;
+    document.getElementById('uploadSpinner').textContent='✅';
+    document.getElementById('uploadMsg').textContent='Foto enviada!';
+    document.getElementById('uploadSub').textContent=url;
+    setTimeout(()=>{ov.style.display='none';},1400);
+    toast(`Foto enviada: ${filename}`);
+  }catch(err){
+    document.getElementById('uploadSpinner').textContent='❌';
+    document.getElementById('uploadMsg').textContent='Erro no upload';
+    document.getElementById('uploadSub').textContent=err.message;
+    setTimeout(()=>{ov.style.display='none';},2500);
+    toast('Erro: '+err.message,'err');
+  }
 }
 
 // Close modal on overlay click
