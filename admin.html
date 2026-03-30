@@ -1073,7 +1073,7 @@ async function deployToGitHub(){
     newHTML=newHTML.replace(/(\.toolbar\{[^}]*top:)[^;]+(;)/,`$1${navH}px$2`);
     const encoded=btoa(unescape(encodeURIComponent(newHTML)));
     /* Fresh SHA fetch right before PUT to avoid "does not match" errors */
-    const freshR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main&t=${Date.now()}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Cache-Control':'no-cache'}});
+    const freshR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html?ref=main&t=${Date.now()}`,{headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json'}});
     const freshD=await freshR.json();
     const freshSha=freshD.sha||sha;
     const putR=await fetch(`https://api.github.com/repos/${repo}/contents/index.html`,{
