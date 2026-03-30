@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scape Park — Aventura Completa em Punta Cana — LC Turismo</title>
+<meta name="description" content="Scape Park é o maior parque de aventura da República Dominicana — tirolesas, cavernas iluminadas, cenotes, zip-lines e muito mais. Um dia inteiro de adrenalina com transfer incluso.">
+<meta property="og:title" content="Scape Park — Aventura Completa em Punta Cana — LC Turismo">
+<meta property="og:image" content="https://passeios.bloglcturismo.com.br/logo-lc.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#008B85;--night:#001228;--g50:#F8F9FC;--g100:#ECEDF2;--g300:#C4C7D4;--g500:#767B8C;--g700:#373D50;--wa:#25D366;--f:'Plus Jakarta Sans',system-ui,sans-serif;--max:1140px}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--night);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--f);cursor:pointer;border:none;background:none}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(0,18,40,.97);backdrop-filter:blur(12px)}
+.nav-top{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;max-width:1400px;margin:0 auto}
+.nlogo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:1.05rem}
+.nlogo-img{height:36px;width:auto;object-fit:contain}
+.nlogo-text b{color:#008B85}
+.nav-right{display:flex;align-items:center;gap:16px}
+.ncta{background:var(--wa);color:#fff;padding:9px 20px;border-radius:50px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:7px;transition:opacity .15s}
+.ncta:hover{opacity:.88}
+.back-btn{color:rgba(255,255,255,.6);font-size:.82rem;display:flex;align-items:center;gap:6px;transition:color .15s}
+.back-btn:hover{color:#fff}
+.nmenu-toggle{color:#fff;padding:4px}
+.nav-links{display:none;background:rgba(0,18,40,.98);border-top:1px solid rgba(255,255,255,.07)}
+.nav-links.open{display:block}
+.nav-links-inner{max-width:1400px;margin:0 auto;padding:16px 5vw;display:flex;flex-wrap:wrap;gap:8px}
+.ndest{position:relative}
+.ndest-btn{color:rgba(255,255,255,.7);font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:8px;display:flex;align-items:center;gap:6px;transition:all .15s;cursor:pointer}
+.ndest-btn:hover{color:#fff;background:rgba(255,255,255,.08)}
+.ndest-dd{display:none;position:absolute;top:100%;left:0;background:#001830;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;min-width:200px;z-index:600}
+.ndest.open .ndest-dd{display:block}
+.dd-title{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.6px;padding:8px 8px 4px;margin-top:4px}
+.ndest-dd a{display:block;color:rgba(255,255,255,.6);font-size:.82rem;padding:7px 8px;border-radius:6px;transition:all .15s}
+.ndest-dd a:hover{color:#fff;background:rgba(255,255,255,.07)}
+/* HERO */
+.hero{position:relative;min-height:68vh;display:flex;align-items:flex-end;overflow:hidden;background:#000c23;padding-top:60px}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80') center/cover;opacity:.55}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,8,25,.1) 0%,rgba(0,8,25,.65) 55%,#000c23 100%)}
+.hero-c{position:relative;z-index:2;padding:0 5vw 48px;max-width:var(--max);margin:0 auto;width:100%}
+.hero-dest{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:50px;background:rgba(0,189,179,.15);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:.75rem;font-weight:700;margin-bottom:16px}
+.hero-title{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.3px;margin-bottom:14px}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap}
+.hero-meta-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.7);font-size:.85rem}
+.hero-meta-item svg{color:rgba(255,255,255,.5)}
+/* PILLS */
+.pills-bar{background:var(--night);padding:0 5vw}
+.pills-bar-in{max-width:var(--max);margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:12px 0;-ms-overflow-style:none;scrollbar-width:none}
+.pills-bar-in::-webkit-scrollbar{display:none}
+.pill{padding:7px 18px;border-radius:50px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);white-space:nowrap;cursor:pointer;transition:all .15s;border:1.5px solid transparent}
+.pill:hover{color:#fff;background:rgba(255,255,255,.08)}
+.pill.active{color:#fff;background:#008B85;border-color:#008B85}
+/* GALLERY */
+.gallery{max-width:var(--max);margin:0 auto;padding:28px 5vw 0}
+.gal-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:240px 240px;gap:8px}
+@media(max-width:720px){.gal-grid{grid-template-columns:1fr;grid-template-rows:220px}}
+.gal-main{grid-row:1/3;border-radius:14px 0 0 14px;overflow:hidden}
+.gal-sub{border-radius:0;overflow:hidden}
+.gal-sub:first-of-type{border-radius:0 14px 0 0}
+.gal-sub:last-child{border-radius:0 0 14px 0}
+.gal-main img,.gal-sub img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gal-main:hover img,.gal-sub:hover img{transform:scale(1.04)}
+/* WRAP */
+.wrap{max-width:var(--max);margin:0 auto;padding:36px 5vw 60px;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+/* SECTIONS */
+.section{margin-bottom:32px}
+.section-title{font-size:1.1rem;font-weight:800;color:var(--night);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid rgba(0,189,179,.08);}
+.desc-text{font-size:.95rem;line-height:1.75;color:var(--g700)}
+/* EBOX */
+.ebox{background:var(--g50);border-radius:14px;padding:20px}
+.ebox-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ebox-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--g700)}
+.ei-icon{flex-shrink:0;color:#008B85;margin-top:1px}
+.ei-icon.check{color:var(--wa)}
+/* FAQ */
+.faq-item{border:1px solid var(--g100);border-radius:12px;overflow:hidden;margin-bottom:8px}
+.faq-q{width:100%;padding:14px 18px;text-align:left;font-size:.9rem;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--night);transition:background .15s}
+.faq-q:hover{background:var(--g50)}
+.faq-q svg{flex-shrink:0;transition:transform .25s;color:var(--g500)}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:12px 18px 16px;font-size:.88rem;color:var(--g500);line-height:1.6;border-top:1px solid var(--g100)}
+/* SIDEBAR */
+.sidebar-card{background:#fff;border:1.5px solid var(--g100);border-radius:20px;padding:24px;position:sticky;top:80px}
+.sc-title{font-size:1rem;font-weight:800;margin-bottom:6px}
+.sc-sub{font-size:.8rem;color:var(--g500);margin-bottom:20px}
+.sc-info{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.sc-row{display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--g700)}
+.sc-row svg{color:#008B85;flex-shrink:0}
+.sc-divider{height:1px;background:var(--g100);margin:16px 0}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:50px;background:var(--wa);color:#fff;font-weight:700;font-size:.95rem;transition:opacity .15s;margin-bottom:10px}
+.wa-btn:hover{opacity:.88}
+.wa-btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:50px;border:1.5px solid var(--g100);color:var(--night);font-weight:600;font-size:.88rem;transition:all .15s}
+.wa-btn-outline:hover{background:var(--g50)}
+.sc-trust{display:flex;gap:12px;margin-top:16px;justify-content:center}
+.sc-trust-item{text-align:center;font-size:.72rem;color:var(--g500)}
+.sc-trust-item strong{display:block;font-size:.92rem;color:var(--night);font-weight:700}
+/* BOTTOM CTA */
+.mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 16px;background:rgba(0,18,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08)}
+.mcta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;background:var(--wa);color:#fff;font-weight:700;font-size:.92rem}
+@media(max-width:768px){.mcta{display:block}body{padding-bottom:70px}}
+/* WhatsApp Float */
+.wafloat{position:fixed;bottom:84px;right:18px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.45);z-index:998;color:#fff;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wafloat svg{width:30px;height:30px}
+.wafloat:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.wafloat-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;animation:wapulse 2s ease-in-out infinite}
+@keyframes wapulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+@media(max-width:768px){.wafloat{bottom:72px;right:14px;width:50px;height:50px}}
+/* Urgência sidebar */
+.urg-bar{display:flex;align-items:center;gap:8px;background:#FFF3CD;border:1px solid #FBBF24;border-radius:9px;padding:9px 12px;font-size:.75rem;font-weight:700;color:#78350F;margin-bottom:14px}
+.urg-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;animation:urgblink 1.5s ease-in-out infinite;flex-shrink:0}
+@keyframes urgblink{0%,100%{opacity:1}50%{opacity:.3}}
+/* FOOTER */
+.footer{background:#000c23;padding:60px 5vw 32px;color:rgba(255,255,255,.55);font-size:.82rem}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr;gap:24px}}
+.footer-brand .fb-logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:10px}
+.footer-brand .fb-logo span{color:var(--blue)}
+.footer-brand p{line-height:1.6;font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-brand .fb-contact a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;margin-bottom:8px;transition:color .15s}
+.footer-brand .fb-contact a:hover{color:#fff}
+.footer-col h4{color:rgba(255,255,255,.9);font-size:.78rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,.45);text-decoration:none;font-size:.8rem;margin-bottom:10px;transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-socials{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
+.footer-socials a{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:.75rem;text-decoration:none;transition:all .15s}
+.footer-socials a:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:rgba(255,255,255,.25);font-size:.74rem}
+.footer-trust{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.footer-trust a{color:rgba(255,255,255,.35);font-size:.75rem;text-decoration:none;transition:color .15s}
+.footer-trust a:hover{color:rgba(255,255,255,.7)}
+</style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2262354344253278');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Scape Park — Aventura Completa em Punta Cana',content_category:'República Dominicana'});</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2262354344253278&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-top">
+    <a href="./" class="nlogo">
+      <img src="./logo-lc-white.png" alt="LC Turismo" class="nlogo-img" onerror="this.style.display='none'">
+      <span class="nlogo-text">LC <b>Turismo</b></span>
+    </a>
+    <div class="nav-right">
+      <a href="./" class="back-btn">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Ver todos os passeios
+      </a>
+      <button class="nmenu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a class="ncta" href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Scape+Park+%E2%80%94+Aventura+Completa" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores
+      </a>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-links-inner">
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Chile <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Santiago</div>
+          <a href="./index.html">Farellones e Neve</a>
+          <a href="./index.html">Vinícola Concha y Toro</a>
+          <a href="./index.html">Cajón del Maipo</a>
+          <a href="./index.html">Valparaíso + Viña del Mar</a>
+          <div class="dd-title">Atacama</div>
+          <a href="./index.html">Gêiseres del Tatio</a>
+          <a href="./index.html">Valle de la Luna</a>
+          <div class="dd-title">Torres del Paine</div>
+          <a href="./index.html">Trekking Base Torres</a>
+          <a href="./index.html">Glaciar Grey</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Argentina <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Buenos Aires</div>
+          <a href="./index.html">City Tour</a>
+          <a href="./index.html">Tango Show</a>
+          <div class="dd-title">Bariloche</div>
+          <a href="./index.html">Circuito Chico</a>
+          <a href="./index.html">Cerro Catedral</a>
+          <div class="dd-title">El Calafate</div>
+          <a href="./index.html">Perito Moreno</a>
+          <div class="dd-title">Ushuáia</div>
+          <a href="./index.html">Canal Beagle</a>
+          <div class="dd-title">Mendoza</div>
+          <a href="./index.html">Rota dos Vinhos</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Colômbia <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cartagena</div>
+          <a href="./index.html">City Tour</a>
+          <a href="./index.html">Playa Blanca</a>
+          <a href="./index.html">Ilhas Rosário</a>
+          <div class="dd-title">San Andrés</div>
+          <a href="./index.html">Mar das 7 Cores</a>
+          <a href="./index.html">Johnny Cay</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Peru <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cusco</div>
+          <a href="./index.html">Machu Picchu</a>
+          <a href="./index.html">Montanha Colorida</a>
+          <a href="./index.html">Vale Sagrado</a>
+          <div class="dd-title">Lima</div>
+          <a href="./index.html">City Tour Lima</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">México <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <div class="dd-title">Cancún</div>
+          <a href="./index.html">Chichen Itzá</a>
+          <a href="./index.html">Xcaret</a>
+          <a href="./index.html">Tulum + Cenote</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Punta Cana <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./tour-isla-saona-vip.html">Isla Saona VIP</a>
+          <a href="./tour-catamara.html">Catamarã dos Sonhos</a>
+          <a href="./tour-buggy-4x4.html">Buggies 4x4</a>
+          <a href="./tour-scape-park.html">Scape Park</a>
+          <a href="./tour-coco-bongo.html">Coco Bongo</a>
+          <a href="./tour-samana-baleias.html">Samaná e Baleias</a>
+          <a href="./tour-bavaro-beach.html">Bávaro Beach</a>
+        </div>
+      </div>
+      <div class="ndest">
+        <button class="ndest-btn" onclick="toggleDest(this)">Orlando / EUA <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="ndest-dd">
+          <a href="./index.html">Universal Studios</a>
+          <a href="./index.html">Walt Disney World</a>
+          <a href="./index.html">Kennedy Space Center</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Scape Park — Aventura Completa em Punta Cana — LC Turismo</h1>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-dest">🇩🇴 Punta Cana · República Dominicana</div>
+    <h2 class="hero-title">Scape Park —<br>Aventura Completa</h2>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Dia inteiro (~8h)
+      </div>
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Ano todo
+      </div>
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        Saída: manhã cedo (08h00)
+      </div>
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Transfer incluso
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLS -->
+<div class="pills-bar">
+  <div class="pills-bar-in">
+    <button class="pill active" onclick="scrollTo('descricao')">Descrição</button>
+    <button class="pill" onclick="scrollTo('destaques')">Destaques</button>
+    <button class="pill" onclick="scrollTo('incluso')">O que inclui</button>
+    <button class="pill" onclick="scrollTo('faq')">Perguntas</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gal-grid">
+    <div class="gal-main"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&w=800&q=80" alt="Scape Park Punta Cana" loading="lazy"></div>
+    <div class="gal-sub"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&w=800&q=80" alt="Aventura Scape Park" loading="lazy"></div>
+    <div class="gal-sub"><img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&w=800&q=80" alt="Natureza República Dominicana" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap">
+  <div class="content">
+
+    <div class="section" id="descricao">
+      <h2 class="section-title">Sobre este passeio</h2>
+      <p class="desc-text">O Scape Park é o maior parque de aventura e ecoturismo da República Dominicana, localizado em Cap Cana — a poucos minutos de Punta Cana. Com mais de 40 atrações distribuídas em uma área de floresta nativa preservada, o parque oferece desde tirolesas radicais sobre a copa das árvores até a exploração de cavernas iluminadas com formações de estalactites milenares, banho em cenotes de água cristalina e mergulho em grutas subterrâneas. É o passeio perfeito para quem quer fugir da praia por um dia e viver uma experiência inesquecível de adrenalina e contato com a natureza. A LC Turismo organiza tudo com transfer do hotel, guia em português e suporte total durante o dia.</p>
+    </div>
+
+    <div class="section" id="destaques">
+      <h2 class="section-title">O que você vai ver e fazer</h2>
+      <div class="ebox">
+        <ul class="ebox-list">
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Tirolesas radicais sobre a floresta nativa</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Exploração de cavernas com estalactites milenares</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Banho em cenote de água azul cristalina</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Mergulho em grutas subterrâneas iluminadas</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Passeio pela reserva ecológica de Cap Cana</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Área de convivência com fauna e flora local</span></li>
+          <li class="ebox-item"><span class="ei-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Espaço gastronômico com culinária dominicana</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="incluso">
+      <h2 class="section-title">O que está incluso</h2>
+      <div class="ebox">
+        <ul class="ebox-list">
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Transfer do hotel e retorno</span></li>
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Entrada no Scape Park com atrações incluídas</span></li>
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Tirolesas, cavernas e cenote</span></li>
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Equipamentos de segurança (colete, capacete)</span></li>
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Guia em português</span></li>
+          <li class="ebox-item"><span class="ei-icon check"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Seguro de atividades</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="faq">
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Crianças podem participar das tirolesas?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>As tirolesas têm restrição de idade e peso (geralmente mínimo 8 anos e entre 30–120 kg). Cavernas e cenote são acessíveis para toda a família. Consulte nossa equipe para mais detalhes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Preciso saber nadar para o cenote?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Recomendamos que sim, mas coletes salva-vidas estão disponíveis para quem não sabe nadar. A água do cenote é cristalina e o ambiente é controlado.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          O que devo levar?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Roupa confortável, tênis fechado para as tirolesas, roupa de banho para o cenote, protetor solar, repelente e câmera à prova d'água. Armários estão disponíveis no parque.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Funciona em dias de chuva?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>O parque funciona com chuva leve. Em caso de tempestade ou condições climáticas severas, as atrações aéreas podem ser suspensas temporariamente por segurança.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-card">
+      <div class="urg-bar bkurg"><span class="urg-dot"></span>🔥 Vagas limitadas hoje</div>
+      <div class="sc-title">Reserve o Scape Park</div>
+      <div class="sc-sub">Atendimento em português · Cancelamento grátis 48h</div>
+      <div class="sc-info">
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> <span><strong>Duração:</strong> Dia inteiro (~8h)</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span><strong>Temporada:</strong> Ano todo</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg> <span><strong>Saída:</strong> Manhã cedo (08h00)</span></div>
+        <div class="sc-row"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span><strong>Local:</strong> Cap Cana, Punta Cana</span></div>
+      </div>
+      <div class="sc-divider"></div>
+      <a class="wa-btn" href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Scape+Park+%E2%80%94+Aventura+Completa" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores e reservar
+      </a>
+      <a class="wa-btn-outline" href="./">← Ver outros passeios em Punta Cana</a>
+      <div class="sc-trust">
+        <div class="sc-trust-item"><strong>4.8★</strong>Google</div>
+        <div class="sc-trust-item"><strong>100%</strong>Português</div>
+        <div class="sc-trust-item"><strong>Desde</strong>2019</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="mcta">
+  <a href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Scape+Park+%E2%80%94+Aventura+Completa" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> Consultar valores — Scape Park Punta Cana
+  </a>
+</div>
+
+<a class="wafloat" href="https://wa.me/5511920619246?text=Olá+LC%21+Tenho+interesse+no+passeio%3A+Scape+Park" target="_blank" onclick="if(window.fbq)fbq('track','Lead')">
+  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+  <span class="wafloat-pulse"></span>
+</a>
+
+<script>
+function scrollTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+}
+function toggleDest(btn){
+  const nd=btn.closest('.ndest');
+  document.querySelectorAll('.ndest').forEach(d=>{if(d!==nd)d.classList.remove('open')});
+  nd.classList.toggle('open');
+}
+const secs=['descricao','destaques','incluso','faq'];
+window.addEventListener('scroll',()=>{
+  secs.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const r=el.getBoundingClientRect();
+    if(r.top<=120&&r.bottom>120){
+      document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+      const pill=document.querySelector(`.pill[onclick="scrollTo('${id}')"]`);
+      if(pill)pill.classList.add('active');
+    }
+  });
+},{passive:true});
+(function(){
+  var el=document.querySelector('.bkurg');
+  if(!el)return;
+  var n=Math.floor(Math.random()*14)+5;
+  el.innerHTML='<span class="urg-dot"></span>🔥 '+n+' pessoas consultaram hoje';
+})();
+</script>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo">LC <span>Turismo</span></div>
+        <p>Operador local especializado em passeios pela América Latina e Estados Unidos. Atendimento personalizado em português, desde 2019.</p>
+        <div class="fb-contact">
+          <a href="https://wa.me/5511920619246" target="_blank">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            +55 11 92061-9246
+          </a>
+          <a href="mailto:contato@lucascarvalhoturismo.com.br">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@lucascarvalhoturismo.com.br
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Escritórios</h4>
+        <a href="https://maps.google.com/?q=Rua+Luiz+Seraphico+Junior+511+Jd+Caravelas+São+Paulo" target="_blank">
+          🇧🇷 São Paulo<br>
+          <span style="color:rgba(255,255,255,.3);font-size:.74rem">Rua Luiz Seraphico Junior, 511<br>Jd. Caravelas – SP</span>
+        </a>
+        <a href="https://maps.google.com/?q=Calle+Callao+2970+Las+Condes+Santiago" target="_blank" style="margin-top:16px">
+          🇨🇱 Santiago<br>
+          <span style="color:rgba(255,255,255,.3);font-size:.74rem">Calle Callao, 2970<br>Las Condes – Santiago</span>
+        </a>
+        <div style="margin-top:20px;color:rgba(255,255,255,.25);font-size:.73rem;line-height:1.5">
+          CNPJ 46.729.094/0001-35<br>
+          LC Turismo Ltda.
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Destinos</h4>
+        <a href="./index.html?dest=santiago">🇨🇱 Chile</a>
+        <a href="./index.html?dest=buenosaires">🇦🇷 Argentina</a>
+        <a href="./index.html?dest=cartagena">🇨🇴 Colômbia</a>
+        <a href="./index.html?dest=cusco">🇵🇪 Peru</a>
+        <a href="./index.html?dest=cancun">🇲🇽 México</a>
+        <a href="./index.html?dest=puntacana">🇩🇴 Punta Cana</a>
+        <a href="./index.html?dest=orlando">🇺🇸 Orlando / EUA</a>
+      </div>
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <a href="https://instagram.com/lucascarvalhochile" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @lucascarvalhochile
+        </a>
+        <a href="https://instagram.com/agencialcandes" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @agencialcandes
+        </a>
+        <a href="https://instagram.com/agencialccaribe" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @agencialccaribe
+        </a>
+        <a href="https://instagram.com/agencialcestadosunidos" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @agencialcestadosunidos
+        </a>
+        <a href="https://youtube.com/@lucascarvalhoturismo" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+        <a href="https://tiktok.com/@lucascarvalhoturismo" target="_blank">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="opacity:.6"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          TikTok
+        </a>
+        <a href="https://bloglcturismo.com.br" target="_blank">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="opacity:.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Blog
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LC Turismo — Todos os direitos reservados.</p>
+      <div class="footer-trust">
+        <a href="https://cadastur.turismo.gov.br" target="_blank">Cadastur ✓</a>
+        <a href="https://www.reclameaqui.com.br" target="_blank">Reclame Aqui</a>
+        <a href="https://www.tripadvisor.com.br" target="_blank">TripAdvisor</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
